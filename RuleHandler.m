@@ -19,6 +19,9 @@
 //THE SOFTWARE.
 
 #import "RuleHandler.h"
+@interface RuleHandler(PrivateApi)
++(BOOL) handleURL:(NSURL *)url fromSource:(Source *)source ignoringDirs: (BOOL) nodescent depth:(int)num;
+@end
 
 
 @implementation RuleHandler
@@ -31,20 +34,22 @@
 
 + (BOOL) handleSource:(Source *)source {
 	NSURL * url = [NSURL URLWithString:[source url]];
-	return [RuleHandler handleURL:url fromSource:source];
+	return [RuleHandler handleURL:url fromSource:source skipDirs:NO];
 }
 
-+ (BOOL) handleURL: (NSURL*) url fromSource:(Source *)source {
-	NSFileManager * manager = [NSFileManager defaultManager];
-	
+
++ (BOOL) handleURL:(NSURL *)url fromSource:(Source *)source ignoringDirs:(BOOL)nodescent depth:(int)num {
+    NSFileManager * manager = [NSFileManager defaultManager];
+
 	BOOL isDir;
 	url = [RuleHandler normalizeURL: url checkIfDirectory: &isDir];
 	if (nil == url) {		
-		DEBUG_OUTPUT(@"File does not exist", nil);		
+		DEBUG_OUTPUT(@"File does not %@",@"exist");		
 		return NO;
 	}
 	
-	if (isDir) {
+	if (isDir && (num < 1|| !nodescent) ) {
+        
 		NSDirectoryEnumerator *iter = [manager enumeratorAtURL:url
 									includingPropertiesForKeys:NULL 
 													   options:NSDirectoryEnumerationSkipsSubdirectoryDescendants
@@ -52,8 +57,9 @@
 													  return YES;
 												  }];
 		BOOL result = YES;
+        num++;
 		for(NSURL *subURL in iter) {
-			result &= [RuleHandler handleURL:subURL fromSource:source];
+			result &= [RuleHandler handleURL:subURL fromSource:source ignoringDirs:nodescent depth:num];
 		}
 		return result;
 	}
@@ -70,12 +76,16 @@
 	NSError *error = nil;
 	BOOL success = [manager moveItemAtURL:url toURL:[rule targetURLFor:url]  error:&error];
 	if (!success) {
-		NSLog(@"%@:%s Error moving file: %@", [RuleHandler class], _cmd, [error localizedDescription]);
+		NSLog(@"%@:%@ Error moving file: %@", [RuleHandler class], NSStringFromSelector(_cmd), [error localizedDescription]);
 		return NO;
 	}
 	return success;
 	
-	
+
+}
+
++ (BOOL) handleURL: (NSURL*) url fromSource:(Source *)source skipDirs:(BOOL)value {
+	return [RuleHandler handleURL:url fromSource:source ignoringDirs:value depth:0];
 }
 
 + (Source *) matchingSourceFor: (NSURL *) url {
@@ -85,6 +95,7 @@
 	NSError *error = nil;
 	NSArray *fetchedSources = [moc executeFetchRequest:request error:&error];
 	NSString * absoluteString = [url absoluteString];
+    [request release];
 	if (fetchedSources != nil) {
 		for (id source in fetchedSources) {
 			if ([absoluteString hasPrefix:[(Source*)source url]]) {
@@ -102,7 +113,7 @@
 	if (source == nil) {
 		return NO;
 	}
-	return [RuleHandler handleURL:url fromSource:source];
+	return [RuleHandler handleURL:url fromSource:source skipDirs:YES];
 	
 }
 

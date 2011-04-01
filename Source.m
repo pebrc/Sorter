@@ -23,6 +23,7 @@
 -(id) initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context
 {
     self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
+    NSLog(@"self: %p", &self);
     if(self != nil) {
         [self addObserver:self forKeyPath:@"rules" options:NSKeyValueObservingOptionNew context:NULL];
     }
@@ -86,10 +87,15 @@
     }
 }
 
+-(void) dealloc {
+    NSLog(@"in dealloc");
+    [super dealloc];
+}
+
 -(void) event:(PBEvent*)event reportedBy:(PBWatcher*)watcher {
 //	[[NSNotificationCenter defaultCenter] postNotificationName:PBEventName object:event];
 	NSURL * url = [NSURL URLWithString:[event eventPath]];
-	[RuleHandler handleURL:url fromSource:self];
+	[RuleHandler handleURL:url fromSource:self skipDirs:YES];
 }
 
 @end

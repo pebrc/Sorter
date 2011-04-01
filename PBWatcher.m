@@ -23,7 +23,7 @@ static void _PBWatcherCallBack(ConstFSEventStreamRef streamRef, void *clientCall
 	PBWatcherRegistry *registry = [PBWatcherRegistry registry];
 	PBWatcher *watcher = [registry watcherForPath:string];
 	if (!watcher) {
-		watcher = [[PBWatcher alloc]init];
+		watcher = [[[PBWatcher alloc]init]autorelease];
 		[watcher setListener:listener];
 		[watcher setPathsToWatch: [NSArray arrayWithObject:string]];
 		[watcher start];

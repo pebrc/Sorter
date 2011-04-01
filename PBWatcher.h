@@ -22,7 +22,7 @@
 }
 @property (retain, readwrite) NSArray * pathsToWatch;
 @property (assign, readwrite) double latency;
-@property (assign, readwrite) id < PBEventListener > listener;
+@property (retain, readwrite) id < PBEventListener > listener;
 @property (readonly,getter=isRunning) BOOL running;
 +(PBWatcher *) watchPath: (NSString *) string notify: (id < PBEventListener >) listener;
 +(BOOL) stop: (PBWatcher *) watcher;

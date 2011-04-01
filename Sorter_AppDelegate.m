@@ -26,7 +26,8 @@
             i++;
 		}
         DEBUG_OUTPUT(@"Initialized %i sources", i);
-	}	
+	}
+	[request release]; request = nil;
 
 }
 
@@ -73,7 +74,7 @@
     NSManagedObjectModel *mom = [self managedObjectModel];
     if (!mom) {
         NSAssert(NO, @"Managed object model is nil");
-        NSLog(@"%@:%s No model to generate a store from", [self class], _cmd);
+        NSLog(@"%@:%@ No model to generate a store from", [self class], NSStringFromSelector(_cmd));
         return nil;
     }
 
@@ -149,7 +150,7 @@
     NSError *error = nil;
     
     if (![[self managedObjectContext] commitEditing]) {
-        NSLog(@"%@:%s unable to commit editing before saving", [self class], _cmd);
+        NSLog(@"%@:%@ unable to commit editing before saving", [self class], NSStringFromSelector(_cmd));
     }
     
     NSManagedObjectContext *moc = [self managedObjectContext];
@@ -163,7 +164,7 @@
             }
 		}
 	}	
-
+    [request release];
 
     if (![[self managedObjectContext] save:&error]) {
         [[NSApplication sharedApplication] presentError:error];
@@ -184,7 +185,7 @@
 
 
     if (![managedObjectContext commitEditing]) {
-        NSLog(@"%@:%s unable to commit editing to terminate", [self class], _cmd);
+        NSLog(@"%@:%@ unable to commit editing to terminate", [self class], NSStringFromSelector(_cmd));
         return NSTerminateCancel;
     }
 

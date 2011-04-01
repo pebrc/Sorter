@@ -55,12 +55,6 @@
 	[request release];
 }
 
-//- (void) notifyChanged:(NSNotification *)notification {
-//	PBEvent * event = [notification object];
-//	[self handleFileRepresentedByString:[event eventPath]];
-//}
-
-
 
 
 

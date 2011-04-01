@@ -35,8 +35,6 @@
 	NSString *queryString = [[self spotifiedPredicate:[self predicate]] predicateFormat];
 	MDQueryRef query = MDQueryCreate(kCFAllocatorDefault, (CFStringRef)queryString, NULL, NULL);
 	if (!query) {
-		CFRelease(query);
-		query = NULL;
 		DEBUG_OUTPUT(@"Failed to generate query: %@", queryString);
 		[pool drain];
 		return NO;
@@ -52,7 +50,7 @@
 	}
 	DEBUG_OUTPUT(@"Spotlight query matched: %@", queryString);
 	NSNumber* rel = MDQueryGetAttributeValueOfResultAtIndex(query, kMDQueryResultContentRelevance,0);
-	DEBUG_OUTPUT(@"Relevance: %f",[rel floatValue]);
+	NSLog(@"Relevance: %f",[rel floatValue]);
 	CFRelease(query);
 	query = NULL;
 	[pool drain];

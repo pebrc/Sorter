@@ -26,7 +26,7 @@
 
 +(Rule *) matchingRuleOf: (NSSet*) rules ForURL: (NSURL*) url;
 +(BOOL) handleSource:(Source*) source;
-+(BOOL) handleURL: (NSURL *) url fromSource: (Source*) source;
++(BOOL) handleURL: (NSURL *) url fromSource: (Source*) source skipDirs:(BOOL) value; 
 +(BOOL) handleFileRepresentedByString: (NSString *) string ;
 +(BOOL) handleFileRepresentedByURL: (NSURL *) url;
 +(NSURL*) normalizeURL:(NSURL*) url checkIfDirectory: (BOOL *) isDir;

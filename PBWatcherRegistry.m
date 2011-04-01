@@ -45,7 +45,7 @@
 - (void) prepareForDealloc {
 	NSString *key;
 	for (key in registeredWatchers) {
-		[[registeredWatchers objectForKey:key] release];
+		[registeredWatchers setObject:nil forKey:key];
 	}
 	[registeredWatchers release]; registeredWatchers = nil;
 	
