@@ -14,7 +14,7 @@ NSString * const PBEventName = @"PBEventName";
 
 @synthesize eventDate,eventPath, eventId, eventFlags;
 
--(id) initWithId:(NSUInteger)fsEventId date:(NSDate *)date path:(NSString *)path eventFlags:(FSEventStreamEventFlags)flags {
+-(id) initWithId:(FSEventStreamEventId)fsEventId date:(NSDate *)date path:(NSString *)path eventFlags:(FSEventStreamEventFlags)flags {
 	self = [super init];
 	if(self != nil) {
 		[self setEventId: fsEventId];

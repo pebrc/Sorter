@@ -17,6 +17,7 @@
 
 @dynamic url;
 @dynamic rules;
+@dynamic eventid;
 
 
 
@@ -52,7 +53,7 @@
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 #if MY_DEBUG_FLAG
-    NSLog(@"Change notification for source %@ path %@, dict %@", [self url],keyPath, [change description]);
+    NSLog(@"KVO Change notification for source %@ path %@, dict %@", [self url],keyPath, [change description]);
 #endif
     
     if ([[change valueForKey:NSKeyValueChangeKindKey] intValue] == NSKeyValueChangeSetting) {
@@ -62,6 +63,7 @@
 }
 
 - (void) setUpWatcher {
+    DEBUG_OUTPUT(@"in setup: %llu", [self lastListened]);
     NSUInteger numrules = [[self rules] count];
     
     if(numrules == 0) {
@@ -93,9 +95,17 @@
 }
 
 -(void) event:(PBEvent*)event reportedBy:(PBWatcher*)watcher {
-//	[[NSNotificationCenter defaultCenter] postNotificationName:PBEventName object:event];
 	NSURL * url = [NSURL URLWithString:[event eventPath]];
-	[RuleHandler handleURL:url fromSource:self skipDirs:YES];
+    BOOL skipSubDirs = [event eventFlags] & kFSEventStreamEventFlagMustScanSubDirs ? NO : YES;
+    //TODO: kFSEventStreamEventFlagRootChanged
+    DEBUG_OUTPUT(@"Before: %llu", [event eventId]);
+    [self setEventid: [NSNumber numberWithUnsignedLongLong:[event eventId]]];
+    DEBUG_OUTPUT(@"After %llu", [self lastListened]);
+	[RuleHandler handleURL:url fromSource:self skipDirs:skipSubDirs];
+}
+
+-(FSEventStreamEventId) lastListened {
+    return [[self eventid] unsignedLongLongValue];
 }
 
 @end

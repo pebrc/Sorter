@@ -13,18 +13,18 @@
 extern NSString * const PBEventName;
 
 @interface PBEvent : NSObject {
-    NSUInteger eventId;
+    FSEventStreamEventId eventId;
     NSDate *eventDate;
     NSString *eventPath;
     FSEventStreamEventFlags eventFlags;
 }
 
-@property (readwrite, assign) NSUInteger eventId;
+@property (readwrite, assign) FSEventStreamEventId eventId;
 @property (readwrite, retain) NSDate *eventDate;
 @property (readwrite, retain) NSString *eventPath;
 @property (readwrite, assign) FSEventStreamEventFlags eventFlags;
 
-- (id) initWithId: (NSUInteger) fsEventId date: (NSDate *) date path: (NSString *) path eventFlags: (FSEventStreamEventFlags) flags;
+- (id) initWithId: (FSEventStreamEventId) fsEventId date: (NSDate *) date path: (NSString *) path eventFlags: (FSEventStreamEventFlags) flags;
 
 
 @end

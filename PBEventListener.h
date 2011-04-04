@@ -12,4 +12,8 @@
 @protocol PBEventListener
 
 - (void) event: (PBEvent *) event reportedBy: (PBWatcher*) watcher;
+
+- (FSEventStreamEventId) lastListened;
+
+
 @end

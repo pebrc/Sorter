@@ -43,10 +43,7 @@
 }
 
 - (void) prepareForDealloc {
-	NSString *key;
-	for (key in registeredWatchers) {
-		[registeredWatchers setObject:nil forKey:key];
-	}
+	[registeredWatchers removeAllObjects];
 	[registeredWatchers release]; registeredWatchers = nil;
 	
 }

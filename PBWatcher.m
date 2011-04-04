@@ -12,6 +12,7 @@
 
 @interface PBWatcher (PrivateAPI) 
 - (void) dispatchEvent:(PBEvent*) event;
+- (FSEventStreamEventId) sinceWhen;
 static void _PBWatcherCallBack(ConstFSEventStreamRef streamRef, void *clientCallBackInfo, size_t numEvents, void *eventPaths, const FSEventStreamEventFlags eventFlags[], const FSEventStreamEventId eventIds[]);	
 @end
 
@@ -66,7 +67,7 @@ static void _PBWatcherCallBack(ConstFSEventStreamRef streamRef, void *clientCall
 										  &_PBWatcherCallBack,
 										  &context, 
 										  (CFArrayRef)pathsToWatch, 
-										  kFSEventStreamEventIdSinceNow,
+										  [self sinceWhen],
 										  latency, kFSEventStreamCreateFlagUseCFTypes);
 	if(eventStream) {
 		FSEventStreamScheduleWithRunLoop(eventStream, [[NSRunLoop currentRunLoop] getCFRunLoop], kCFRunLoopDefaultMode);
@@ -103,6 +104,14 @@ static void _PBWatcherCallBack(ConstFSEventStreamRef streamRef, void *clientCall
 
 - (void) dispatchEvent:(PBEvent *)event {
 	[[self listener] event:event reportedBy:self ];
+}
+
+- (FSEventStreamEventId) sinceWhen {
+    FSEventStreamEventId id = [[self listener] lastListened];
+    if(!id) {
+        id = kFSEventStreamEventIdSinceNow;
+    }
+    return id;
 }
 
 static void _PBWatcherCallBack(ConstFSEventStreamRef streamRef, void *clientCallBackInfo, size_t numEvents, void *eventPaths, const FSEventStreamEventFlags eventFlags[], const FSEventStreamEventId eventIds[]){

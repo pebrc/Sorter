@@ -16,6 +16,7 @@
     PBWatcher * watcher;
 }
 
+@property (nonatomic, assign) NSNumber * eventid;
 @property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) NSSet* rules;
 
