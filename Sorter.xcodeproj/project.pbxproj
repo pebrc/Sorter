@@ -17,8 +17,9 @@
 		FD2457EC1309C88F0053DB6D /* RulesController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2457EB1309C88F0053DB6D /* RulesController.m */; };
 		FD2458391309D60B0053DB6D /* Rule.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2458381309D60B0053DB6D /* Rule.m */; };
 		FD40AB6813563C9800A2544E /* ToolbarPlus.png in Resources */ = {isa = PBXBuildFile; fileRef = FD40AB6713563C9800A2544E /* ToolbarPlus.png */; };
-		FD40AB6A13563DCC00A2544E /* ToolbarIconPlus.icns in Resources */ = {isa = PBXBuildFile; fileRef = FD40AB6913563DCC00A2544E /* ToolbarIconPlus.icns */; };
 		FD40AB6C135640D600A2544E /* ToolbarMinus.png in Resources */ = {isa = PBXBuildFile; fileRef = FD40AB6B135640D600A2544E /* ToolbarMinus.png */; };
+		FD50BE62135CBC00003132E4 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FD50BE61135CBC00003132E4 /* LICENSE */; };
+		FD50BE64135CBC43003132E4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FD50BE63135CBC43003132E4 /* README.md */; };
 		FD69E8BD133601E500DBB4D6 /* SourceController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD69E8BC133601E500DBB4D6 /* SourceController.m */; };
 		FD69E8DD1336927300DBB4D6 /* RuleHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FD69E8DC1336927300DBB4D6 /* RuleHandler.m */; };
 		FD6F395C131FBBD90026E5EC /* Transformers.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6F395B131FBBD90026E5EC /* Transformers.m */; };
@@ -63,8 +64,9 @@
 		FD2458371309D60B0053DB6D /* Rule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rule.h; sourceTree = "<group>"; };
 		FD2458381309D60B0053DB6D /* Rule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rule.m; sourceTree = "<group>"; };
 		FD40AB6713563C9800A2544E /* ToolbarPlus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToolbarPlus.png; sourceTree = "<group>"; };
-		FD40AB6913563DCC00A2544E /* ToolbarIconPlus.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ToolbarIconPlus.icns; sourceTree = "<group>"; };
 		FD40AB6B135640D600A2544E /* ToolbarMinus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToolbarMinus.png; sourceTree = "<group>"; };
+		FD50BE61135CBC00003132E4 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		FD50BE63135CBC43003132E4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		FD69E8BB133601E500DBB4D6 /* SourceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceController.h; sourceTree = "<group>"; };
 		FD69E8BC133601E500DBB4D6 /* SourceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceController.m; sourceTree = "<group>"; };
 		FD69E8DB1336927300DBB4D6 /* RuleHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuleHandler.h; sourceTree = "<group>"; };
@@ -178,13 +180,14 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				FD40AB6913563DCC00A2544E /* ToolbarIconPlus.icns */,
 				FD40AB6B135640D600A2544E /* ToolbarMinus.png */,
 				FD6F66521354DBD8002FBBB9 /* APPL.icns */,
 				FD40AB6713563C9800A2544E /* ToolbarPlus.png */,
 				8D1107310486CEB800E47090 /* Sorter-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				2F7446970DB6B7EA00F9684A /* MainMenu.xib */,
+				FD50BE61135CBC00003132E4 /* LICENSE */,
+				FD50BE63135CBC43003132E4 /* README.md */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -307,8 +310,9 @@
 				2F7446990DB6B7EA00F9684A /* MainMenu.xib in Resources */,
 				FD6F66531354DBD8002FBBB9 /* APPL.icns in Resources */,
 				FD40AB6813563C9800A2544E /* ToolbarPlus.png in Resources */,
-				FD40AB6A13563DCC00A2544E /* ToolbarIconPlus.icns in Resources */,
 				FD40AB6C135640D600A2544E /* ToolbarMinus.png in Resources */,
+				FD50BE62135CBC00003132E4 /* LICENSE in Resources */,
+				FD50BE64135CBC43003132E4 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
