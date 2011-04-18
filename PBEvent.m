@@ -24,4 +24,10 @@ NSString * const PBEventName = @"PBEventName";
 	}
 	return self;
 }
+
+-(void) dealloc {
+    [eventPath release];
+    [eventDate release];
+    [super dealloc];
+}
 @end

@@ -21,6 +21,7 @@
 #import <Cocoa/Cocoa.h>
 #import "Rule.h"
 #import "Source.h"
+#include <dispatch/dispatch.h>
 
 @interface RuleHandler : NSObject 
 

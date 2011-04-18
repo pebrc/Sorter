@@ -49,8 +49,8 @@
 		return NO;
 	}
 	DEBUG_OUTPUT(@"Spotlight query matched: %@", queryString);
-	NSNumber* rel = MDQueryGetAttributeValueOfResultAtIndex(query, kMDQueryResultContentRelevance,0);
-	NSLog(@"Relevance: %f",[rel floatValue]);
+	CFStringRef rel = MDQueryGetAttributeValueOfResultAtIndex(query, kMDQueryResultContentRelevance,0);
+	NSLog(@"Relevance: %s",rel);
 	CFRelease(query);
 	query = NULL;
 	[pool drain];

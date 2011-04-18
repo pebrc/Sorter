@@ -19,12 +19,22 @@
 //THE SOFTWARE.
 
 #import "RuleHandler.h"
+
 @interface RuleHandler(PrivateApi)
 +(BOOL) handleURL:(NSURL *)url fromSource:(Source *)source ignoringDirs: (BOOL) nodescent depth:(int)num;
++(dispatch_queue_t) queue;
 @end
 
+static dispatch_queue_t localqueue = nil;
 
 @implementation RuleHandler
+
++ (dispatch_queue_t) queue {
+    if (localqueue == nil) {
+        localqueue = dispatch_queue_create("com.blogspot.pbrc", NULL);
+    }
+    return localqueue;
+}
 
 + (BOOL) handleFileRepresentedByString: (NSString *) string {
 	NSURL * url = [NSURL URLWithString:string];
@@ -34,7 +44,7 @@
 
 + (BOOL) handleSource:(Source *)source {
 	NSURL * url = [NSURL URLWithString:[source url]];
-	return [RuleHandler handleURL:url fromSource:source skipDirs:NO];
+    return [RuleHandler handleURL:url fromSource:source skipDirs:NO];
 }
 
 
@@ -85,7 +95,13 @@
 }
 
 + (BOOL) handleURL: (NSURL*) url fromSource:(Source *)source skipDirs:(BOOL)value {
-	return [RuleHandler handleURL:url fromSource:source ignoringDirs:value depth:0];
+    dispatch_async([RuleHandler queue], ^{
+        NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+        [RuleHandler handleURL:url fromSource:source ignoringDirs:value depth:0];
+        [pool drain];
+        
+    });
+	return YES;
 }
 
 + (Source *) matchingSourceFor: (NSURL *) url {
