@@ -84,13 +84,13 @@
 								<object class="NSMutableString" key="NSToolbarItemIdentifier">
 									<characters key="NS.bytes">69553230-0BA3-4CF3-A7D1-336B405AD5E1</characters>
 								</object>
-								<string key="NSToolbarItemLabel">Toolbar Item</string>
-								<string key="NSToolbarItemPaletteLabel">Toolbar Item</string>
+								<string key="NSToolbarItemLabel">Remove</string>
+								<string key="NSToolbarItemPaletteLabel">Remove Rule</string>
 								<string key="NSToolbarItemToolTip"/>
 								<nil key="NSToolbarItemView"/>
 								<object class="NSCustomResource" key="NSToolbarItemImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">NSActionTemplate</string>
+									<string key="NSResourceName">ToolbarMinus</string>
 								</object>
 								<nil key="NSToolbarItemTarget"/>
 								<nil key="NSToolbarItemAction"/>
@@ -106,13 +106,13 @@
 								<object class="NSMutableString" key="NSToolbarItemIdentifier">
 									<characters key="NS.bytes">74F86C51-B46E-4CA1-BC9D-8259276739DA</characters>
 								</object>
-								<string key="NSToolbarItemLabel">Add rule</string>
-								<string key="NSToolbarItemPaletteLabel">Add rule</string>
+								<string key="NSToolbarItemLabel">Add </string>
+								<string key="NSToolbarItemPaletteLabel">Add Rule</string>
 								<string key="NSToolbarItemToolTip"/>
 								<nil key="NSToolbarItemView"/>
 								<object class="NSCustomResource" key="NSToolbarItemImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">NSComputer</string>
+									<string key="NSResourceName">ToolbarPlus</string>
 								</object>
 								<nil key="NSToolbarItemTarget"/>
 								<nil key="NSToolbarItemAction"/>
@@ -128,13 +128,13 @@
 								<object class="NSMutableString" key="NSToolbarItemIdentifier">
 									<characters key="NS.bytes">7D189534-E6D1-48E8-8E93-18ED276F4B83</characters>
 								</object>
-								<string key="NSToolbarItemLabel">Apply Rules</string>
-								<string key="NSToolbarItemPaletteLabel">Apply Rules</string>
+								<string key="NSToolbarItemLabel">Sort It</string>
+								<string key="NSToolbarItemPaletteLabel">Apply Rules Manually</string>
 								<string key="NSToolbarItemToolTip"/>
 								<nil key="NSToolbarItemView"/>
 								<object class="NSCustomResource" key="NSToolbarItemImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">NSFlowViewTemplate</string>
+									<string key="NSResourceName">NSActionTemplate</string>
 								</object>
 								<nil key="NSToolbarItemTarget"/>
 								<nil key="NSToolbarItemAction"/>
@@ -5054,18 +5054,18 @@
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>NSActionTemplate</string>
-				<string>NSComputer</string>
-				<string>NSFlowViewTemplate</string>
 				<string>NSMenuCheckmark</string>
 				<string>NSMenuMixedState</string>
+				<string>ToolbarMinus</string>
+				<string>ToolbarPlus</string>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{15, 15}</string>
-				<string>{32, 32}</string>
-				<string>{15, 9}</string>
 				<string>{9, 8}</string>
 				<string>{7, 2}</string>
+				<string>{26.4029, 27.203}</string>
+				<string>{26.4029, 27.203}</string>
 			</object>
 		</object>
 	</data>
