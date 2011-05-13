@@ -21,6 +21,7 @@
 
 #import <CoreData/CoreData.h>
 #import "PBEvent.h"
+#import "TreeSupport.h"
 
 @class Rule;
 

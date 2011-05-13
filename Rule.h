@@ -21,10 +21,11 @@
 
 #import <CoreData/CoreData.h>
 #import "Source.h"
+#import "TreeSupport.h"
 
-
-@interface Rule :  NSManagedObject  
+@interface Rule :  NSManagedObject
 {
+
 }
 
 @property (nonatomic, retain) Source * from;

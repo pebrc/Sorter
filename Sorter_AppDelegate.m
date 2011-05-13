@@ -20,13 +20,13 @@
 
 
 #import "Sorter_AppDelegate.h"
-#import "Source.h"
 
 @implementation Sorter_AppDelegate
 
 @synthesize window;
 
 -(void) applicationDidFinishLaunching:(NSNotification*)notification {
+    //nasty do I really still need that?
     NSManagedObjectContext *moc = [self managedObjectContext];
 	NSFetchRequest * request = [[NSFetchRequest alloc] init];
     NSError * error = nil;
@@ -41,6 +41,10 @@
         DEBUG_OUTPUT(@"Initialized %i sources", i);
 	}
 	[request release]; request = nil;
+
+    mainWindowController = [[MainWindowController alloc] initWithWindowNibName:@"MainWindow"];
+    [mainWindowController showWindow:self];
+    
 
 }
 

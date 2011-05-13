@@ -10,4 +10,5 @@
 #else
 #define DEBUG_OUTPUT( ... )     // (a,b)
 #endif
-
+#define MACRO_NAME(f) #f
+#define MACRO_VALUE(f)  MACRO_NAME(f)

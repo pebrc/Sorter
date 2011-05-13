@@ -22,11 +22,14 @@
 #import <Cocoa/Cocoa.h>
 #import "PBWatcherRegistry.h"
 #import "Transformers.h"
+#import "MainWindowController.h"
+#import "Source.h"
+
 
 @interface Sorter_AppDelegate : NSObject 
 {
     NSWindow *window;
-//	NSPredicateEditor *editor;
+    NSWindowController * mainWindowController;
     
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
     NSManagedObjectModel *managedObjectModel;

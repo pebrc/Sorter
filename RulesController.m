@@ -32,9 +32,9 @@
 	[panel setCanChooseDirectories:YES];
 	NSInteger result = [panel runModal];
 	if (result == NSFileHandlingPanelOKButton) {
-		NSUInteger index = [self selectionIndex];
-		if (index != NSNotFound) {
-			Rule * rule = (Rule *) [[self arrangedObjects] objectAtIndex:index];
+		NSArray * selected = [self selectedObjects];
+		if ([selected count] == 1) {
+			Rule * rule = (Rule *) [selected objectAtIndex:0];
 			[rule setValue: block((NSURL *)[[panel URLs]objectAtIndex:0]) forKey:key];
 		}
 	}
@@ -54,19 +54,6 @@
 	}];
 }
 
--(IBAction) applyRulesToSourceDirectories: (id) sender {
-	NSManagedObjectContext *moc = [self managedObjectContext];
-	NSFetchRequest * request = [[NSFetchRequest alloc] init];
-	[request setEntity:[NSEntityDescription entityForName:@"Source" inManagedObjectContext:moc]];
-	NSError *error = nil;
-	NSArray *fetchedSources = [moc executeFetchRequest:request error:&error];
-	if (fetchedSources != nil) {
-		for (id source in fetchedSources) {
-			[RuleHandler handleSource:source];
-		}
-	}	
-	[request release];
-}
 
 
 

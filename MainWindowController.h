@@ -19,10 +19,24 @@
 //THE SOFTWARE.
 
 #import <Cocoa/Cocoa.h>
-
-
-@interface SourceController : NSArrayController {
-
+#import "RulesController.h"
+#import "TreeSupport.h"
+#define DETAIL_VIEW			@"DetailView"	
+@interface MainWindowController : NSWindowController {
+    NSMutableArray *contents;
+    IBOutlet NSTreeController * treeController;
+    IBOutlet NSOutlineView		*outlineView;
+    NSViewController * detailController;
+    IBOutlet NSView * detailViewHolder;
+@private
+    
 }
-
+@property (nonatomic, retain) NSMutableArray * contents;
+-(IBAction) addRule:(id)sender;
+-(IBAction) removeRule: (id)sender;
+-(IBAction) applyRulesToSourceDirectories:(id) sender;
+-(void) populateContents;
+-(Source *) sourceWithDefaultLocation;
+-(void) selectParentFromSelection;
+-(void) selectFirstChildFromSelection;
 @end

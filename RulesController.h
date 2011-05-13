@@ -24,12 +24,12 @@
 #import "RuleHandler.h"
 #import "Transformers.h"
 
-@interface RulesController : NSArrayController {
+@interface RulesController : NSObjectController {
 }
 -(void) showOpenPanel:(id)sender ForKey:(NSString *)key withTransformation:(id (^)(NSURL *))block; 
 -(IBAction) showSourcePanel:(id)sender;
 -(IBAction) showTargetPanel:(id) sender;
--(IBAction) applyRulesToSourceDirectories:(id) sender;
+
 //-(void) notifyChanged: (NSNotification *) notification;
 
 @end
