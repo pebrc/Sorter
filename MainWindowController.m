@@ -23,6 +23,7 @@
 
 @interface MainWindowController(PrivateApi)
 -(void) insert:(Rule*)rule withParent:(Source*) parent at:(NSIndexPath*) path;
+-(void) handleMocNotification:(NSNotification*) notification;
 @end
 
 @implementation MainWindowController
@@ -40,6 +41,10 @@
 
 - (void)awakeFromNib {
     detailController = [[NSViewController alloc]initWithNibName:DETAIL_VIEW bundle:nil];
+    [detailController addObserver:self forKeyPath:@"representedObject.title" options:NSKeyValueObservingOptionNew context:NULL];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleMocNotification:) name:NSManagedObjectContextObjectsDidChangeNotification object:[[NSApp delegate] managedObjectContext]];
+    
     [outlineView setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleSourceList];
     [self populateContents];
 }
@@ -76,6 +81,29 @@
     [request release];
 
     
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+#if MY_DEBUG_FLAG
+    NSLog(@"KVO Change notification for detail, path %@ dict %@",keyPath, [change description]);
+#endif
+
+    if ([keyPath isEqualToString:@"representedObject.title"] && [[change valueForKey:NSKeyValueChangeKindKey] intValue] == NSKeyValueChangeSetting) {
+        [treeController rearrangeObjects];
+    } 
+}
+
+-(void)handleMocNotification:(NSNotification *)notification {
+
+    id inserted = [[notification userInfo] objectForKey:NSInsertedObjectsKey];        NSLog(@"Notification inserted %@", inserted );
+    if(inserted) {
+        NSSet * inserts = (NSSet *)inserted;
+        NSSet * sources =  [inserts filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"self isKindOfClass: %@", [Source class]]];
+        if([sources count] > 0 ) {
+            //brute force update ...
+            [self populateContents];
+        }
+    }
 }
 
 -(IBAction) addRule:(id)sender {

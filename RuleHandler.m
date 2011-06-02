@@ -134,6 +134,9 @@ static dispatch_queue_t localqueue = nil;
 }
 
 + (NSURL*) normalizeURL:(NSURL*) url checkIfDirectory:(BOOL *) isDir {
+    if(nil == url) {
+        return  url;
+    }
 	DEBUG_OUTPUT(@"%@", [url description]);
 	NSFileManager *manager = [NSFileManager defaultManager];
 	BOOL ok = [manager fileExistsAtPath:[url path] isDirectory: isDir];
