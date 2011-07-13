@@ -21,7 +21,7 @@
 #import <Cocoa/Cocoa.h>
 #import "RulesController.h"
 #import "TreeSupport.h"
-#define DETAIL_VIEW			@"DetailView"	
+
 @interface MainWindowController : NSWindowController {
     NSMutableArray *contents;
     IBOutlet NSTreeController * treeController;

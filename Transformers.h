@@ -22,6 +22,8 @@
 #import <Cocoa/Cocoa.h>
 #import "Source.h"
 
+extern NSString * const TransformationSideEffect;
+
 
 @interface SourceLocationTransformer : NSValueTransformer {
 

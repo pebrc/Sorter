@@ -20,6 +20,9 @@
 
 #import "MainWindowController.h"
 #import "TreeNode.h"
+#import "ImageAndTextCell.h"
+#define NAME_COL    @"NameColumn"
+#define DETAIL_VIEW			@"DetailView"	
 
 @interface MainWindowController(PrivateApi)
 -(void) insert:(Rule*)rule withParent:(Source*) parent at:(NSIndexPath*) path;
@@ -43,14 +46,24 @@
     detailController = [[NSViewController alloc]initWithNibName:DETAIL_VIEW bundle:nil];
     [detailController addObserver:self forKeyPath:@"representedObject.title" options:NSKeyValueObservingOptionNew context:NULL];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleMocNotification:) name:NSManagedObjectContextObjectsDidChangeNotification object:[[NSApp delegate] managedObjectContext]];
+    NSNotificationCenter * defaultCenter = [NSNotificationCenter defaultCenter];
+    [defaultCenter addObserver:self selector:@selector(handleMocNotification:) name:NSManagedObjectContextObjectsDidChangeNotification object:[[NSApp delegate] managedObjectContext]];
+    
+    [defaultCenter addObserver:self selector:@selector(handleTransformationSideEffect:) name:TransformationSideEffect object:nil];
     
     [outlineView setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleSourceList];
+    //Initialize the custom cell
+    NSTableColumn * column = [outlineView tableColumnWithIdentifier:NAME_COL];
+    ImageAndTextCell * cell = [[[ImageAndTextCell alloc]init] autorelease];
+    [cell setEditable:NO];
+    [column setDataCell:cell];
+    //populate the contents array the outline view is observing
     [self populateContents];
 }
 
 - (void)dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super dealloc];
 }
 
@@ -95,7 +108,7 @@
 
 -(void)handleMocNotification:(NSNotification *)notification {
 
-    id inserted = [[notification userInfo] objectForKey:NSInsertedObjectsKey];        NSLog(@"Notification inserted %@", inserted );
+    id inserted = [[notification userInfo] objectForKey:NSInsertedObjectsKey];        
     if(inserted) {
         NSSet * inserts = (NSSet *)inserted;
         NSSet * sources =  [inserts filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"self isKindOfClass: %@", [Source class]]];
@@ -104,6 +117,12 @@
             [self populateContents];
         }
     }
+}
+
+-(void) handleTransformationSideEffect:(NSNotification*) notification {
+    //Lets do it brute force for now..
+    [[[NSApp delegate]managedObjectContext] processPendingChanges];
+    [self populateContents];
 }
 
 -(IBAction) addRule:(id)sender {
@@ -247,6 +266,23 @@
 - (BOOL)outlineView:(NSOutlineView *)outlineView shouldSelectItem:(id)item {
     NSTreeNode *node = (NSTreeNode*) item;
     return [[node representedObject] isSelectable];
+}
+
+
+- (void)outlineView:(NSOutlineView *)olv willDisplayCell:(NSCell*)cell forTableColumn:(NSTableColumn *)tableColumn item:(id)item
+{	
+    if ([cell isMemberOfClass:[ImageAndTextCell class]]) {
+        id<TreeSupport> node = [item representedObject];
+        NSManagedObject * model = [node representedObject];
+        if ([model isMemberOfClass:[Source class]]) {            
+            NSString * fullpath = [[NSURL URLWithString:[(Source *)model url]] path];
+            NSImage *iconImage = [[NSWorkspace sharedWorkspace] iconForFile:fullpath];
+            [cell setImage:iconImage];
+        } else {
+            [cell setImage:nil];
+        }
+    }
+    
 }
 
 - (void)outlineViewSelectionDidChange:(NSNotification *)notification {

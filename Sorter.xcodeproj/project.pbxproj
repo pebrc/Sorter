@@ -25,6 +25,7 @@
 		FD6F395C131FBBD90026E5EC /* Transformers.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6F395B131FBBD90026E5EC /* Transformers.m */; };
 		FD6F66531354DBD8002FBBB9 /* APPL.icns in Resources */ = {isa = PBXBuildFile; fileRef = FD6F66521354DBD8002FBBB9 /* APPL.icns */; };
 		FD9B4A4E136DA65C00029EF5 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD9B4A4D136DA65C00029EF5 /* DetailView.xib */; };
+		FD9BA128139B86270068C255 /* ImageAndTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9BA127139B86270068C255 /* ImageAndTextCell.m */; };
 		FD9D3A86132D2212006B64C7 /* ThreadSafeMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9D3A85132D2212006B64C7 /* ThreadSafeMutableDictionary.m */; };
 		FDAD0C6C1322A668007A7C73 /* Source.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD0C6B1322A668007A7C73 /* Source.m */; };
 		FDAD0C7C1322A9A0007A7C73 /* PBWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD0C7B1322A9A0007A7C73 /* PBWatcher.m */; };
@@ -79,6 +80,8 @@
 		FD6F395B131FBBD90026E5EC /* Transformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transformers.m; sourceTree = "<group>"; };
 		FD6F66521354DBD8002FBBB9 /* APPL.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = APPL.icns; sourceTree = "<group>"; };
 		FD9B4A4D136DA65C00029EF5 /* DetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
+		FD9BA126139B86270068C255 /* ImageAndTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageAndTextCell.h; sourceTree = "<group>"; };
+		FD9BA127139B86270068C255 /* ImageAndTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageAndTextCell.m; sourceTree = "<group>"; };
 		FD9D3A84132D2212006B64C7 /* ThreadSafeMutableDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadSafeMutableDictionary.h; sourceTree = "<group>"; };
 		FD9D3A85132D2212006B64C7 /* ThreadSafeMutableDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadSafeMutableDictionary.m; sourceTree = "<group>"; };
 		FDAD0C6A1322A668007A7C73 /* Source.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Source.h; sourceTree = "<group>"; };
@@ -120,6 +123,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FD9BA125139B85F60068C255 /* Cell Support */,
 				FDDBACF6136F2FBA003CC320 /* TreeSupport */,
 				77C8280B06725ACE000B614F /* Sorter_AppDelegate.h */,
 				77C8280C06725ACE000B614F /* Sorter_AppDelegate.m */,
@@ -231,6 +235,15 @@
 				FD10351813107580003EBA65 /* TestRule.m */,
 			);
 			name = Tests;
+			sourceTree = "<group>";
+		};
+		FD9BA125139B85F60068C255 /* Cell Support */ = {
+			isa = PBXGroup;
+			children = (
+				FD9BA126139B86270068C255 /* ImageAndTextCell.h */,
+				FD9BA127139B86270068C255 /* ImageAndTextCell.m */,
+			);
+			name = "Cell Support";
 			sourceTree = "<group>";
 		};
 		FDAD0C711322A8AA007A7C73 /* FSEvents */ = {
@@ -397,6 +410,7 @@
 				FDFA57AE136D48360007ABF4 /* MainWindowController.m in Sources */,
 				FDDBACF9136F3018003CC320 /* TreeNode.m in Sources */,
 				FD2E75961371DB5900071A2B /* LeafNode.m in Sources */,
+				FD9BA128139B86270068C255 /* ImageAndTextCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

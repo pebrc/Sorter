@@ -89,7 +89,7 @@
 }
 
 -(NSString * ) nodeTitle {
-    return [(Source*)backingModel url];
+    return [[[(Source*)backingModel url]  stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] lastPathComponent];
 }
 
 @end

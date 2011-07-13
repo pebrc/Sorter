@@ -44,13 +44,13 @@
 - (IBAction) showSourcePanel:(id)sender {
 	[self showOpenPanel:sender ForKey:@"from" withTransformation: ^(NSURL *url){
 		NSValueTransformer *transformer = [NSValueTransformer valueTransformerForName:@"SourceLocationTransformer"];
-		return [transformer reverseTransformedValue:[url absoluteString]];
+		return [transformer reverseTransformedValue:[url absoluteString]  ];
 	}];
 }
 
 - (IBAction) showTargetPanel:(id)sender {
 	[self showOpenPanel:sender ForKey:@"to" withTransformation: ^(NSURL *url){ 
-		return (id)[url absoluteString];
+		return (id) [url absoluteString];
 	}];
 }
 

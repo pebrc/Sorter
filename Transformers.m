@@ -20,7 +20,7 @@
 
 
 #import "Transformers.h"
-
+NSString * const TransformationSideEffect = @"TransformationSideEffect";
 
 @implementation SourceLocationTransformer
 @synthesize managedObjectContext;
@@ -43,7 +43,7 @@
 
 - (id) transformedValue:(id)value {
 	if ([value isMemberOfClass:[Source class]] && [[[value entity] name] isEqual:@"Source"]) {
-		return [value valueForKeyPath:@"self.url"];
+		return [[value valueForKeyPath:@"self.url"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 	}
 	return @"";
 }
@@ -73,6 +73,13 @@
 		return newObject;
 		
 	}
+    NSNotification *n =
+    [NSNotification notificationWithName:TransformationSideEffect object:[array objectAtIndex:0]];
+    [[NSNotificationQueue defaultQueue] 
+     enqueueNotification:n 
+     postingStyle:NSPostASAP 
+     coalesceMask:NSNotificationCoalescingOnName 
+     forModes:nil];
 	return [array objectAtIndex:0];
 	
 		
