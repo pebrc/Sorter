@@ -29,6 +29,7 @@
 @dynamic title;
 @dynamic predicate;
 @dynamic date;
+@dynamic actions;
 
 - (void) awakeFromInsert {
 	[super awakeFromInsert];

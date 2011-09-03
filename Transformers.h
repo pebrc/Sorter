@@ -32,3 +32,16 @@ extern NSString * const TransformationSideEffect;
 @property (nonatomic,retain) NSManagedObjectContext * managedObjectContext;
 - (id) initWithManagedObjectContext:(NSManagedObjectContext *) context;
 @end
+
+@interface ActionStrategyTransformer : NSValueTransformer {
+}
+@end
+@interface UserDescriptionTransformer: NSValueTransformer {
+    
+}
+@end
+@interface ArrayDescriptionTransformer: NSValueTransformer {
+    
+}
+@end
+

@@ -18,19 +18,21 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //THE SOFTWARE.
 
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import "ActionStrategy.h"
 
-#import <Cocoa/Cocoa.h>
-#import "Rule.h"
-#import "RuleHandler.h"
-#import "Transformers.h"
+@class Rule;
 
-@interface RulesController : NSObjectController {
-    
-    
+@interface Action : NSManagedObject {
+@private
 }
--(void) showOpenPanel:(id)sender ForKey:(NSString *)key withTransformation:(id (^)(NSURL *))block; 
--(IBAction) showSourcePanel:(id)sender;
--(IBAction) showTargetPanel:(id) sender;
+@property (nonatomic, retain) id <ActionStrategy>  type;
+@property (nonatomic, retain) NSNumber * order;
+@property (nonatomic, retain) NSString * data;
+@property (nonatomic, retain) Rule * rule;
 
+-(NSView *) settingsView;
 
++(NSSet *) availableActions;
 @end

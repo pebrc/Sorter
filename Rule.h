@@ -21,6 +21,7 @@
 
 #import <CoreData/CoreData.h>
 #import "Source.h"
+#import "Action.h"
 #import "TreeSupport.h"
 
 @interface Rule :  NSManagedObject
@@ -33,9 +34,19 @@
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSPredicate * predicate;
 @property (nonatomic, retain) NSDate * date;
+@property (nonatomic, retain) NSSet* actions;
+
 - (BOOL) matches:(NSURL *) url;
 - (NSURL*) targetURLFor: (NSURL *) file;
 - (NSPredicate*) spotifiedPredicate: (id) original;
+
+@end
+
+@interface Rule (CoreDataGeneratedAccessors)
+- (void)addActionsObject:(Action *)value;
+- (void)removeActionsObject:(Action *)value;
+- (void)addActions:(NSSet *)value;
+- (void)removeActions:(NSSet *)value;
 
 @end
 

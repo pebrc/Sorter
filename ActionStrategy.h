@@ -17,20 +17,15 @@
 //LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //THE SOFTWARE.
+#import <Foundation/Foundation.h>
 
+@class Rule;
+@protocol ActionStrategy <NSObject>
 
-#import <Cocoa/Cocoa.h>
-#import "Rule.h"
-#import "RuleHandler.h"
-#import "Transformers.h"
+@property (nonatomic, assign) NSData * data;
 
-@interface RulesController : NSObjectController {
-    
-    
-}
--(void) showOpenPanel:(id)sender ForKey:(NSString *)key withTransformation:(id (^)(NSURL *))block; 
--(IBAction) showSourcePanel:(id)sender;
--(IBAction) showTargetPanel:(id) sender;
-
+- (BOOL) handleItemAt: (NSURL *) url forRule: (Rule *) rule error: (NSError **) error;
+- (NSString *) userDescription;
+- (NSView *) settingsView;
 
 @end

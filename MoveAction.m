@@ -18,19 +18,50 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //THE SOFTWARE.
 
+#import "MoveAction.h"
+#define DETAIL_VIEW  @"MoveAction"
 
-#import <Cocoa/Cocoa.h>
-#import "Rule.h"
-#import "RuleHandler.h"
-#import "Transformers.h"
 
-@interface RulesController : NSObjectController {
+@implementation MoveAction
+@synthesize userDescription;
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        userDescription = @"Move";
+    }
     
-    
+    return self;
 }
--(void) showOpenPanel:(id)sender ForKey:(NSString *)key withTransformation:(id (^)(NSURL *))block; 
--(IBAction) showSourcePanel:(id)sender;
--(IBAction) showTargetPanel:(id) sender;
 
+- (void)dealloc
+{
+    [super dealloc];
+    [settingsController release];
+}
+
+- (BOOL) handleItemAt: (NSURL *) url forRule: (Rule *) rule error: (NSError **) error {
+    return NO;
+}
+/**
+ * Violating MVC here. But cant think of an eays way to make this work without a lot of 
+ * extra infrastructure. TODO: Think about a cleaner way of doing this: convention: try to find a matching view by naming conventions?? seperate strategies for model and view?
+ */
+- (NSView *) settingsView {
+    if(settingsController == NULL) {
+        settingsController = [[NSViewController alloc]initWithNibName:DETAIL_VIEW bundle:nil];
+    }
+    return [settingsController view];
+
+}
+
+- (void) setData:(NSData*) data {
+        
+    properties = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+}
+
+- (NSData *) data  {
+    return [NSKeyedArchiver archivedDataWithRootObject:properties];
+}
 
 @end

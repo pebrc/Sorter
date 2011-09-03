@@ -1,0 +1,13 @@
+//
+// Prefix header for all source files of the 'Tests' target in the 'Tests' project
+//
+#ifdef __OBJC__
+#import <Cocoa/Cocoa.h>
+#endif
+#if MY_DEBUG_FLAG
+#define DEBUG_OUTPUT( ... )     NSLog( __VA_ARGS__ )
+#else
+#define DEBUG_OUTPUT( ... )     // (a,b)
+#endif
+#define MACRO_NAME(f) #f
+#define MACRO_VALUE(f)  MACRO_NAME(f)

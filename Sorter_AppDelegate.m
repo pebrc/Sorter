@@ -250,6 +250,10 @@
 		NSValueTransformer *trans = [[SourceLocationTransformer alloc] initWithManagedObjectContext:[self managedObjectContext]];
 		[NSValueTransformer setValueTransformer:trans forName:@"SourceLocationTransformer"];
 		[trans release];
+        trans = [[[UserDescriptionTransformer alloc]init]autorelease];
+        [NSValueTransformer setValueTransformer:trans forName:@"UserDescriptionTransformer"];
+        trans = [[[ArrayDescriptionTransformer alloc]init]autorelease];
+        [NSValueTransformer setValueTransformer:trans forName:@"ArrayDescriptionTransformer"];
 		
 	}
 	return self;

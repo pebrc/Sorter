@@ -20,6 +20,7 @@
 
 
 #import "Transformers.h"
+#import "ActionStrategy.h"
 NSString * const TransformationSideEffect = @"TransformationSideEffect";
 
 @implementation SourceLocationTransformer
@@ -84,8 +85,88 @@ NSString * const TransformationSideEffect = @"TransformationSideEffect";
 	
 		
 }
+@end
+
+@implementation ActionStrategyTransformer
 
 
++ (Class)transformedValueClass {
+    return [NSData class];
+}
 
++ (BOOL) allowsReverseTransformation {
+	return YES;
+}
+
+/**
+ * Transforming from ActionStrategy to NSData
+ */
+- (id) transformedValue:(id)value {
+    NSAssert([value conformsToProtocol: @protocol(ActionStrategy)], @"Not an ActionStrategy but a %@", [value class]);
+    NSString * name = NSStringFromClass([value class]);
+    const char * utf8String = [name UTF8String];
+    return [NSData dataWithBytes:utf8String length:strlen(utf8String)];
+}
+/**
+ * Transforming from NSData to ActionStrategy
+ */
+- (id) reverseTransformedValue:(id)value {
+    NSString * name = [[NSString alloc]initWithData:value encoding:NSUTF8StringEncoding];
+    Class s =  NSClassFromString(name);
+    [name release];
+    return [[[s alloc]init]autorelease];
+    
+    
+}
+@end
+
+@implementation UserDescriptionTransformer
+
++ (Class)transformedValueClass {
+    return [NSString class];
+}
+
++ (BOOL) allowsReverseTransformation {
+	return NO;
+}
+
+/**
+ * Transforming from Object with UserDescription to NSString
+ */
+- (id) transformedValue:(id)value {
+    if(!value) {
+        return @"No Object";
+    }
+    if([value respondsToSelector:@selector(userDescription)]) {
+        return [value userDescription];
+    }
+    return [value description];
+}
+
+@end
+@implementation ArrayDescriptionTransformer
+
++ (Class)transformedValueClass {
+    return [NSArray class];
+}
+
++ (BOOL) allowsReverseTransformation {
+	return NO;
+}
+
+/**
+ * Transforming from Object with UserDescription to NSString
+ */
+- (id) transformedValue:(id)value {
+    if([value  conformsToProtocol:@protocol(NSFastEnumeration)]) {
+        NSValueTransformer * t = [NSValueTransformer valueTransformerForName:@"UserDescriptionTransformer"];
+        NSMutableArray * result = [NSMutableArray arrayWithCapacity:[value count]];
+        for(id elem in value) {
+            [result addObject:[t transformedValue:elem]];
+        }
+        return result;
+    }
+    return  value;
+}
 
 @end

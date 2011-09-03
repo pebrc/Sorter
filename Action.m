@@ -18,19 +18,45 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //THE SOFTWARE.
 
-
-#import <Cocoa/Cocoa.h>
+#import "Action.h"
 #import "Rule.h"
-#import "RuleHandler.h"
-#import "Transformers.h"
+#import <objc/runtime.h>
 
-@interface RulesController : NSObjectController {
+
+@implementation Action
+@dynamic type;
+@dynamic order;
+@dynamic data;
+@dynamic rule;
+
++ (NSSet *) availableActions {
+    Class *buffer = NULL;
+    int count, size;
+    do {
+        count = objc_getClassList(NULL, 0);
+        buffer = realloc(buffer, count * sizeof(*buffer));
+        NSAssert(buffer != NULL, @"realloc failed");
+        size = objc_getClassList(buffer, count);
+    } while (size != count);
     
-    
+    NSMutableSet * result = [NSMutableSet set];
+    for (int i = 0; i < count; i++) {
+        Class candidate = buffer[i];
+        if(class_conformsToProtocol(candidate, @protocol(ActionStrategy))) {
+            [result addObject:buffer[i]];
+        }
+    }
+    free(buffer);
+    return result;
 }
--(void) showOpenPanel:(id)sender ForKey:(NSString *)key withTransformation:(id (^)(NSURL *))block; 
--(IBAction) showSourcePanel:(id)sender;
--(IBAction) showTargetPanel:(id) sender;
 
+- (NSView *) settingsView {
+    id<ActionStrategy> s = [self type];
+    if(s != NULL) {
+        NSView * v = [s settingsView];
+        return v;
+    }
+    return NULL;
+}
 
 @end

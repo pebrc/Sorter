@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="untitled.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="562" systemVersion="11B26" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Action" representedClassName="Action">
+        <attribute name="data" optional="YES" attributeType="Binary" valueTransformerName="ActionStrategyTransformer"/>
+        <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
+        <attribute name="type" attributeType="Transformable" valueTransformerName="ActionStrategyTransformer"/>
+        <relationship name="rule" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Rule" inverseName="actions" inverseEntity="Rule" indexed="YES"/>
+    </entity>
+    <entity name="Rule" representedClassName="Rule">
+        <attribute name="date" optional="YES" attributeType="Date"/>
+        <attribute name="predicate" attributeType="Transformable"/>
+        <attribute name="title" attributeType="String" defaultValueString="Rule title"/>
+        <attribute name="to" optional="YES" attributeType="String"/>
+        <relationship name="actions" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="Action" inverseName="rule" inverseEntity="Action" indexed="YES"/>
+        <relationship name="from" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Source" inverseName="rules" inverseEntity="Source" indexed="YES"/>
+    </entity>
+    <entity name="Source" representedClassName="Source">
+        <attribute name="eventid" optional="YES" attributeType="Integer 64" defaultValueString="0"/>
+        <attribute name="url" attributeType="String"/>
+        <relationship name="rules" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Rule" inverseName="from" inverseEntity="Rule" indexed="YES"/>
+    </entity>
+    <elements>
+        <element name="Source" positionX="79" positionY="54" width="128" height="90"/>
+        <element name="Rule" positionX="288" positionY="-9" width="128" height="135"/>
+        <element name="Action" positionX="432" positionY="99" width="128" height="105"/>
+    </elements>
+</model>
