@@ -27,12 +27,14 @@
 @interface Action : NSManagedObject {
 @private
 }
-@property (nonatomic, retain) id <ActionStrategy>  type;
+
 @property (nonatomic, retain) NSNumber * order;
-@property (nonatomic, retain) NSString * data;
+@property (nonatomic, retain) id<ActionStrategy>  strategy;
 @property (nonatomic, retain) Rule * rule;
 
 -(NSView *) settingsView;
+-(NSString *) userDescription;
+-(NSString *) userConfigDescription;
 
 +(NSSet *) availableActions;
 @end

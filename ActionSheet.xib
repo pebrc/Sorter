@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1070</int>
-		<string key="IBDocument.SystemVersion">11A511</string>
+		<string key="IBDocument.SystemVersion">11B26</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1617</string>
 		<string key="IBDocument.AppKitVersion">1138</string>
 		<string key="IBDocument.HIToolboxVersion">566.00</string>
@@ -66,6 +66,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{0, 60}, {393, 150}}</string>
 							<reference key="NSSuperview" ref="1063695121"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="812089733"/>
 							<string key="NSReuseIdentifierKey">_NS:499</string>
 							<string key="NSClassName">NSView</string>
@@ -75,6 +76,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{231, 12}, {82, 32}}</string>
 							<reference key="NSSuperview" ref="1063695121"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="663268463"/>
 							<string key="NSReuseIdentifierKey">_NS:161</string>
 							<bool key="NSEnabled">YES</bool>
@@ -102,6 +104,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{313, 12}, {66, 32}}</string>
 							<reference key="NSSuperview" ref="1063695121"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:161</string>
 							<bool key="NSEnabled">YES</bool>
@@ -125,6 +128,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{17, 226}, {352, 26}}</string>
 							<reference key="NSSuperview" ref="1063695121"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="319058541"/>
 							<string key="NSReuseIdentifierKey">_NS:179</string>
 							<bool key="NSEnabled">YES</bool>
@@ -198,6 +202,7 @@
 					</object>
 					<string key="NSFrameSize">{393, 263}</string>
 					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="1064399196"/>
 					<string key="NSReuseIdentifierKey">_NS:2837</string>
 				</object>
@@ -353,20 +358,28 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">selectedObject: selection.type</string>
+						<string key="label">selectedObject: selection.strategy</string>
 						<reference key="source" ref="1064399196"/>
 						<reference key="destination" ref="376755302"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="1064399196"/>
 							<reference key="NSDestination" ref="376755302"/>
-							<string key="NSLabel">selectedObject: selection.type</string>
+							<string key="NSLabel">selectedObject: selection.strategy</string>
 							<string key="NSBinding">selectedObject</string>
-							<string key="NSKeyPath">selection.type</string>
+							<string key="NSKeyPath">selection.strategy</string>
 							<reference key="NSPreviousConnector" ref="1038439099"/>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">65</int>
+					<int key="connectionID">66</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">endActionSheetWithSuccess:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="663268463"/>
+					</object>
+					<int key="connectionID">68</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -504,6 +517,7 @@
 						<int key="objectID">34</int>
 						<reference key="object" ref="376755302"/>
 						<reference key="parent" ref="0"/>
+						<string key="objectName">Object Controller</string>
 					</object>
 				</object>
 			</object>
@@ -566,9 +580,120 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">65</int>
+			<int key="maxID">68</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+				<object class="IBPartialClassDescription">
+					<string key="className">ActionSheetController</string>
+					<string key="superclassName">NSObject</string>
+					<object class="NSMutableDictionary" key="actions">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>endActionSheet:</string>
+							<string>showActionSheet:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>endActionSheet:</string>
+							<string>showActionSheet:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">endActionSheet:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">showActionSheet:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="outlets">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>actionController</string>
+							<string>actionDetailHolder</string>
+							<string>actionSelector</string>
+							<string>actionSheet</string>
+							<string>actionsController</string>
+							<string>managedObjectContext</string>
+							<string>rulesController</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>NSObjectController</string>
+							<string>NSView</string>
+							<string>NSPopUpButton</string>
+							<string>NSPanel</string>
+							<string>NSArrayController</string>
+							<string>NSManagedObjectContext</string>
+							<string>NSObjectController</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>actionController</string>
+							<string>actionDetailHolder</string>
+							<string>actionSelector</string>
+							<string>actionSheet</string>
+							<string>actionsController</string>
+							<string>managedObjectContext</string>
+							<string>rulesController</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">actionController</string>
+								<string key="candidateClassName">NSObjectController</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">actionDetailHolder</string>
+								<string key="candidateClassName">NSView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">actionSelector</string>
+								<string key="candidateClassName">NSPopUpButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">actionSheet</string>
+								<string key="candidateClassName">NSPanel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">actionsController</string>
+								<string key="candidateClassName">NSArrayController</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">managedObjectContext</string>
+								<string key="candidateClassName">NSManagedObjectContext</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">rulesController</string>
+								<string key="candidateClassName">NSObjectController</string>
+							</object>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/ActionSheetController.h</string>
+					</object>
+				</object>
+			</object>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">

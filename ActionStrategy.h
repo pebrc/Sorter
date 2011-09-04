@@ -20,12 +20,12 @@
 #import <Foundation/Foundation.h>
 
 @class Rule;
-@protocol ActionStrategy <NSObject>
+@protocol ActionStrategy <NSCoding>
 
-@property (nonatomic, assign) NSData * data;
 
 - (BOOL) handleItemAt: (NSURL *) url forRule: (Rule *) rule error: (NSError **) error;
 - (NSString *) userDescription;
+- (NSString *) userConfigDescription;
 - (NSView *) settingsView;
 
 @end

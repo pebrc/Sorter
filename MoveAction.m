@@ -24,6 +24,8 @@
 
 @implementation MoveAction
 @synthesize userDescription;
+@synthesize target;
+
 - (id)init
 {
     self = [super init];
@@ -34,10 +36,25 @@
     return self;
 }
 
+- initWithURL: (NSURL*) url {
+    if (self = [self init]) {
+        [self setTarget:url];
+    }
+    return self;
+}
+
 - (void)dealloc
 {
     [super dealloc];
     [settingsController release];
+    [userDescription release];
+}
+
+- (NSString*) userConfigDescription {
+    if(target) {
+        return [@"to " stringByAppendingString:[target absoluteString]];
+    }
+    return  @"";
 }
 
 - (BOOL) handleItemAt: (NSURL *) url forRule: (Rule *) rule error: (NSError **) error {
@@ -49,19 +66,25 @@
  */
 - (NSView *) settingsView {
     if(settingsController == NULL) {
-        settingsController = [[NSViewController alloc]initWithNibName:DETAIL_VIEW bundle:nil];
+        settingsController = [[MoveActionController alloc]initWithNibName:DETAIL_VIEW bundle:nil];
+        [settingsController setRepresentedObject:self];
     }
     return [settingsController view];
 
 }
 
-- (void) setData:(NSData*) data {
-        
-    properties = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+#pragma mark NSCoding
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [coder encodeObject:target forKey:@"target"];
+    
+}
+- (id)initWithCoder:(NSCoder *)decoder {
+
+    NSURL * url = [decoder decodeObjectForKey:@"target"];    
+    return [self initWithURL:url];
 }
 
-- (NSData *) data  {
-    return [NSKeyedArchiver archivedDataWithRootObject:properties];
-}
+
 
 @end

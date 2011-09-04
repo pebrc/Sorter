@@ -24,9 +24,9 @@
 
 
 @implementation Action
-@dynamic type;
+
 @dynamic order;
-@dynamic data;
+@dynamic strategy;
 @dynamic rule;
 
 + (NSSet *) availableActions {
@@ -51,12 +51,20 @@
 }
 
 - (NSView *) settingsView {
-    id<ActionStrategy> s = [self type];
+    id<ActionStrategy> s = [self strategy];
     if(s != NULL) {
         NSView * v = [s settingsView];
         return v;
     }
     return NULL;
+}
+
+- (NSString *) userDescription {
+    return [[self strategy] userDescription];
+}
+
+- (NSString *) userConfigDescription {
+    return [[self strategy] userConfigDescription];
 }
 
 @end

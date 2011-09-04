@@ -20,15 +20,19 @@
 
 #import <Foundation/Foundation.h>
 #import "ActionStrategy.h"
+#import "MoveActionController.h"
 
 
 @interface MoveAction : NSObject < ActionStrategy > {
 @private
-    NSViewController * settingsController;
+    MoveActionController * settingsController;
 @public 
-    NSMutableDictionary * properties;
+    NSURL * target; 
 }
 
 @property (nonatomic, readonly) NSString * userDescription;
+@property (nonatomic, retain) NSURL * target;
+
+
 
 @end

@@ -15,8 +15,9 @@
     IBOutlet NSPopUpButton * actionSelector;
     NSArrayController * actionsController;
     NSObjectController * actionController;
+    NSMutableArray * filteredActions;
 }
-@property (nonatomic, retain) NSMutableArray * availableActions;
+@property (nonatomic, retain) NSArray * availableActions;
 @property (nonatomic, retain) IBOutlet NSArrayController * actionsController;
 @property (nonatomic, retain) IBOutlet NSObjectController * actionController;
 @property (nonatomic, readonly) IBOutlet NSManagedObjectContext *managedObjectContext;
@@ -24,6 +25,7 @@
 -(IBAction) showActionSheet:(id)sender;
 -(IBAction) endActionSheet:(id)sender;
 -(void) didEndActionSheet:(NSWindow *) sheet returnCode: (NSInteger*) returnCode contextInfo: (void *) contextInfo;
+
 
 
 @end

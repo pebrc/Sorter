@@ -21,6 +21,7 @@
 		FD206B3813E429A300E67C80 /* MoveAction.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD206B3713E429A300E67C80 /* MoveAction.xib */; };
 		FD2457EC1309C88F0053DB6D /* RulesController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2457EB1309C88F0053DB6D /* RulesController.m */; };
 		FD2458391309D60B0053DB6D /* Rule.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2458381309D60B0053DB6D /* Rule.m */; };
+		FD29E60C1412440D00646463 /* MoveActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29E60A1412440D00646463 /* MoveActionController.m */; };
 		FD2E75961371DB5900071A2B /* LeafNode.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2E75951371DB5900071A2B /* LeafNode.m */; };
 		FD40AB6813563C9800A2544E /* ToolbarPlus.png in Resources */ = {isa = PBXBuildFile; fileRef = FD40AB6713563C9800A2544E /* ToolbarPlus.png */; };
 		FD40AB6C135640D600A2544E /* ToolbarMinus.png in Resources */ = {isa = PBXBuildFile; fileRef = FD40AB6B135640D600A2544E /* ToolbarMinus.png */; };
@@ -105,6 +106,8 @@
 		FD2457EB1309C88F0053DB6D /* RulesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RulesController.m; sourceTree = "<group>"; };
 		FD2458371309D60B0053DB6D /* Rule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rule.h; sourceTree = "<group>"; };
 		FD2458381309D60B0053DB6D /* Rule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rule.m; sourceTree = "<group>"; };
+		FD29E6091412440D00646463 /* MoveActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveActionController.h; sourceTree = "<group>"; };
+		FD29E60A1412440D00646463 /* MoveActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveActionController.m; sourceTree = "<group>"; };
 		FD2E75941371DB5900071A2B /* LeafNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeafNode.h; sourceTree = "<group>"; };
 		FD2E75951371DB5900071A2B /* LeafNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeafNode.m; sourceTree = "<group>"; };
 		FD40AB6713563C9800A2544E /* ToolbarPlus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToolbarPlus.png; sourceTree = "<group>"; };
@@ -293,6 +296,8 @@
 				FD81FFC013CF613400967B25 /* MoveAction.h */,
 				FD81FFC113CF613400967B25 /* MoveAction.m */,
 				FD81FFC313CF623300967B25 /* ActionStrategy.h */,
+				FD29E6091412440D00646463 /* MoveActionController.h */,
+				FD29E60A1412440D00646463 /* MoveActionController.m */,
 			);
 			name = "Action Support";
 			sourceTree = "<group>";
@@ -498,6 +503,7 @@
 				FD04A85E13CE290900561117 /* Action.m in Sources */,
 				FD81FFC213CF613400967B25 /* MoveAction.m in Sources */,
 				FD1FC10913DC275800BEE5DD /* ActionSheetController.m in Sources */,
+				FD29E60C1412440D00646463 /* MoveActionController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

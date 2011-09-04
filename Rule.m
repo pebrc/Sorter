@@ -64,7 +64,7 @@
 	}
 	DEBUG_OUTPUT(@"Spotlight query matched: %@", queryString);
 	CFStringRef rel = MDQueryGetAttributeValueOfResultAtIndex(query, kMDQueryResultContentRelevance,0);
-	NSLog(@"Relevance: %s",rel);
+	NSLog(@"Relevance: %p",rel);
 	CFRelease(query);
 	query = NULL;
 	[pool drain];
