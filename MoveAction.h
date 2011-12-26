@@ -26,8 +26,10 @@
 @interface MoveAction : NSObject < ActionStrategy > {
 @private
     MoveActionController * settingsController;
+    NSString * userDescription;
 @public 
     NSString * target; 
+
 }
 
 @property (nonatomic, readonly) NSString * userDescription;

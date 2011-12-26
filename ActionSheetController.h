@@ -16,6 +16,8 @@
     NSArrayController * actionsController;
     NSObjectController * actionController;
     NSMutableArray * filteredActions;
+    NSArray * availableActions;
+    NSManagedObjectContext *managedObjectContext;
 }
 @property (nonatomic, retain) NSArray * availableActions;
 @property (nonatomic, retain) IBOutlet NSArrayController * actionsController;
