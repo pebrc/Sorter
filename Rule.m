@@ -64,6 +64,7 @@
         item = (MDItemRef) MDQueryGetResultAtIndex(query, j);
         NSString * filename = MDItemCopyAttribute(item, kMDItemFSName); 
         matched = [filename isEqualToString:fsname];
+        [filename release];
     }
 	if (!matched) {
 		CFRelease(query);
@@ -74,7 +75,7 @@
 	}
 	DEBUG_OUTPUT(@"Spotlight query matched: %@", queryString);
     CFStringRef rel = MDItemCopyAttribute(item, kMDQueryResultContentRelevance);	
-	NSLog(@"Relevance: %p",rel);
+	DEBUG_OUTPUT(@"Relevance: %p",rel);
 	CFRelease(query);
 	query = NULL;
 	[pool drain];
