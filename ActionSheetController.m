@@ -94,9 +94,6 @@
         NSNib *nib = [[NSNib alloc] initWithNibNamed:@"ActionSheet" bundle:myBundle];
         BOOL success = [nib instantiateNibWithOwner:self topLevelObjects:nil];
         NSAssert(success, @"Failed to load Xib");
-        //[NSBundle loadNibNamed:@"ActionSheet" owner:self];
-//        [actionSelector removeAllItems];
-//        [actionSelector addItemsWithTitles:availableActions];
     }
     id persistent = [actionController newObject];
     [actionController addObject:persistent];

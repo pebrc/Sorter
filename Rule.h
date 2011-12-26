@@ -37,7 +37,6 @@
 @property (nonatomic, retain) NSSet* actions;
 
 - (BOOL) matches:(NSURL *) url;
-- (NSURL*) targetURLFor: (NSURL *) file;
 - (NSPredicate*) spotifiedPredicate: (id) original;
 
 @end

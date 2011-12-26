@@ -35,6 +35,7 @@
 -(NSView *) settingsView;
 -(NSString *) userDescription;
 -(NSString *) userConfigDescription;
+-(BOOL) handleItemAt: (NSURL *) url error: (NSError **)err;
 
 +(NSSet *) availableActions;
 @end

@@ -26,7 +26,7 @@
 	[panel setCanChooseDirectories:YES];
 	NSInteger result = [panel runModal];
 	if (result == NSFileHandlingPanelOKButton) {
-        [[self representedObject]setTarget:[[panel URLs]objectAtIndex:0]];
+        [[self representedObject]setTarget:[[[panel URLs]objectAtIndex:0]absoluteString]];
 	}
 	
 }

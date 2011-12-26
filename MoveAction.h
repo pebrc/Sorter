@@ -27,11 +27,11 @@
 @private
     MoveActionController * settingsController;
 @public 
-    NSURL * target; 
+    NSString * target; 
 }
 
 @property (nonatomic, readonly) NSString * userDescription;
-@property (nonatomic, retain) NSURL * target;
+@property (nonatomic, retain) NSString * target;
 
 
 

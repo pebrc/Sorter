@@ -47,23 +47,33 @@
 	}
 	
 	NSString *queryString = [[self spotifiedPredicate:[self predicate]] predicateFormat];
+    NSURL * dirUrl = [url URLByDeletingLastPathComponent];
+    NSString * fsname = [url lastPathComponent];
 	MDQueryRef query = MDQueryCreate(kCFAllocatorDefault, (CFStringRef)queryString, NULL, NULL);
 	if (!query) {
 		DEBUG_OUTPUT(@"Failed to generate query: %@", queryString);
 		[pool drain];
 		return NO;
 	}
-	MDQuerySetSearchScope(query, (CFArrayRef) [NSArray arrayWithObject:(id)url], 0);
+	MDQuerySetSearchScope(query, (CFArrayRef) [NSArray arrayWithObject:(id)dirUrl], 0);
 	MDQueryExecute(query, kMDQuerySynchronous);
-	if (MDQueryGetResultCount(query) !=1 ) {
+    CFIndex result = MDQueryGetResultCount(query); 
+    BOOL matched = NO;
+    MDItemRef item;
+    for (long j = 0; j < result && !matched; j++) {
+        item = (MDItemRef) MDQueryGetResultAtIndex(query, j);
+        NSString * filename = MDItemCopyAttribute(item, kMDItemFSName); 
+        matched = [filename isEqualToString:fsname];
+    }
+	if (!matched) {
 		CFRelease(query);
 		query = NULL;
-		DEBUG_OUTPUT(@"Spotlight query dit NOT match: %@", queryString);
+		DEBUG_OUTPUT(@"Spotlight query in %@ did NOT match: %@", url, queryString);
 		[pool drain];
 		return NO;
 	}
 	DEBUG_OUTPUT(@"Spotlight query matched: %@", queryString);
-	CFStringRef rel = MDQueryGetAttributeValueOfResultAtIndex(query, kMDQueryResultContentRelevance,0);
+    CFStringRef rel = MDItemCopyAttribute(item, kMDQueryResultContentRelevance);	
 	NSLog(@"Relevance: %p",rel);
 	CFRelease(query);
 	query = NULL;
@@ -103,13 +113,8 @@
 	return original;
 }
 
-- (NSURL *) targetURLFor:(NSURL *)file {
-	if (file != nil) {
-		NSURL *dir = [NSURL URLWithString:[self to]];
-		return [dir URLByAppendingPathComponent:[file lastPathComponent]];
-	}
-	return nil;	
-}
+
+
 
 
 

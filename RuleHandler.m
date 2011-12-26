@@ -82,13 +82,17 @@ static dispatch_queue_t localqueue = nil;
 	if (rule == nil) {
 		return NO;
 	}
-	DEBUG_OUTPUT(@"Target: %@",[[rule to] description] );
-	NSError *error = nil;
-	BOOL success = [manager moveItemAtURL:url toURL:[rule targetURLFor:url]  error:&error];
-	if (!success) {
-		NSLog(@"%@:%@ Error moving file: %@", [RuleHandler class], NSStringFromSelector(_cmd), [error localizedDescription]);
-		return NO;
-	}
+    
+    BOOL success;
+    for (Action* action in [rule actions]) {
+        NSError *error = nil;
+        success = [action handleItemAt:url error: &error];
+        if (!success) {
+            NSLog(@"%@:%@ Error in action for file: %@", [RuleHandler class], NSStringFromSelector(_cmd), [error localizedDescription]);
+            return NO;
+        }
+
+    }    
 	return success;
 	
 

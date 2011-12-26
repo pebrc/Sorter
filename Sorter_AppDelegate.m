@@ -180,7 +180,7 @@
                 [moc deleteObject:source];
             }
 		}
-	}	
+	}
     [request release];
 
     if (![[self managedObjectContext] save:&error]) {
@@ -258,6 +258,37 @@
 	}
 	return self;
 
+}
+
+- (NSError *) application: (NSApplication* ) app willPresentError:(NSError *)error {
+	if (!([[error domain] isEqualToString:NSCocoaErrorDomain])) {
+		return error;
+	}
+	NSInteger errorCode = [error code];
+	if ((errorCode < NSValidationErrorMinimum) || (errorCode > NSValidationErrorMaximum))  {
+		return error;
+	}
+	if (errorCode != NSValidationMultipleErrorsError) {
+		return error;
+	}
+	NSArray *detailErrors = [[error userInfo] objectForKey:NSDetailedErrorsKey];
+	unsigned numErrors = [detailErrors count];
+	NSMutableString *errorString = [NSMutableString stringWithFormat:@"%u validation errors have occured", numErrors];
+	if (numErrors > 3) {
+		[errorString appendFormat:@"\nThe first three are: \n"];
+	} else {
+		[errorString appendFormat:@":\n"];
+	}
+	NSUInteger i, displayErrors = numErrors > 3 ? 3 : numErrors;
+	for(i = 0; i < displayErrors; i++) {
+		[errorString appendFormat:@"%@\n", [[detailErrors objectAtIndex:i] localizedDescription]];
+	}
+	NSMutableDictionary *newUserInfo = [NSMutableDictionary dictionaryWithDictionary:[error userInfo]];
+	[newUserInfo setObject:errorString forKey:NSLocalizedDescriptionKey];
+	NSError *newError = [NSError errorWithDomain:[error domain] code:[error code] userInfo:newUserInfo];
+	return newError;
+    
+	
 }
 
 

@@ -20,6 +20,9 @@
 
 #import "MoveAction.h"
 #define DETAIL_VIEW  @"MoveAction"
+@interface MoveAction(PrivateApi)
+- (NSURL*) targetURLFor: (NSURL *) file;
+@end
 
 
 @implementation MoveAction
@@ -36,7 +39,7 @@
     return self;
 }
 
-- initWithURL: (NSURL*) url {
+- initWithURL: (NSString*) url {
     if (self = [self init]) {
         [self setTarget:url];
     }
@@ -52,16 +55,27 @@
 
 - (NSString*) userConfigDescription {
     if(target) {
-        return [@"to " stringByAppendingString:[target absoluteString]];
+        return [@"to " stringByAppendingString:target];
     }
     return  @"";
 }
 
 - (BOOL) handleItemAt: (NSURL *) url forRule: (Rule *) rule error: (NSError **) error {
-    return NO;
+    NSFileManager * manager = [NSFileManager defaultManager];
+    BOOL success = [manager moveItemAtURL:url toURL:[self targetURLFor:url]  error:error];
+    return success;
 }
+
+- (NSURL *) targetURLFor:(NSURL *)file {
+	if (file != nil) {
+		NSURL *dir = [NSURL URLWithString:[self target]];
+		return [dir URLByAppendingPathComponent:[file lastPathComponent]];
+	}
+	return nil;	
+}
+
 /**
- * Violating MVC here. But cant think of an eays way to make this work without a lot of 
+ * Violating MVC here. But cant think of an easy way to make this work without a lot of 
  * extra infrastructure. TODO: Think about a cleaner way of doing this: convention: try to find a matching view by naming conventions?? seperate strategies for model and view?
  */
 - (NSView *) settingsView {
@@ -81,7 +95,7 @@
 }
 - (id)initWithCoder:(NSCoder *)decoder {
 
-    NSURL * url = [decoder decodeObjectForKey:@"target"];    
+    NSString * url = [decoder decodeObjectForKey:@"target"];    
     return [self initWithURL:url];
 }
 

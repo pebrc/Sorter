@@ -51,7 +51,6 @@
 		FD81005013CF7C1000967B25 /* RuleHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FD69E8DC1336927300DBB4D6 /* RuleHandler.m */; };
 		FD81005F13D6085F00967B25 /* TestActions.m in Sources */ = {isa = PBXBuildFile; fileRef = FD81005D13D19A2700967B25 /* TestActions.m */; };
 		FD81FFC213CF613400967B25 /* MoveAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FD81FFC113CF613400967B25 /* MoveAction.m */; };
-		FD81FFCB13CF653C00967B25 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD81FFCA13CF653C00967B25 /* Cocoa.framework */; };
 		FD81FFD113CF653C00967B25 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD81FFCF13CF653C00967B25 /* InfoPlist.strings */; };
 		FD81FFD413CF653C00967B25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD81FFD313CF653C00967B25 /* main.m */; };
 		FD81FFD713CF653C00967B25 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FD81FFD513CF653C00967B25 /* Credits.rtf */; };
@@ -125,7 +124,6 @@
 		FD81FFC113CF613400967B25 /* MoveAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveAction.m; sourceTree = "<group>"; };
 		FD81FFC313CF623300967B25 /* ActionStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionStrategy.h; sourceTree = "<group>"; };
 		FD81FFC813CF653C00967B25 /* Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tests.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD81FFCA13CF653C00967B25 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		FD81FFCE13CF653C00967B25 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		FD81FFD013CF653C00967B25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FD81FFD213CF653C00967B25 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
@@ -167,7 +165,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD81FFCB13CF653C00967B25 /* Cocoa.framework in Frameworks */,
 				FD81000D13CF753B00967B25 /* GHUnit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,7 +267,6 @@
 			isa = PBXGroup;
 			children = (
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
-				FD81FFCA13CF653C00967B25 /* Cocoa.framework */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -426,7 +422,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0410;
+				LastUpgradeCheck = 0420;
 			};
 			buildConfigurationList = 26FC0A880875C7B200E6366F /* Build configuration list for PBXProject "Sorter" */;
 			compatibilityVersion = "Xcode 3.2";
