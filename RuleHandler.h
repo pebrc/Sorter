@@ -19,17 +19,13 @@
 //THE SOFTWARE.
 
 #import <Cocoa/Cocoa.h>
-#import "Rule.h"
 #import "Source.h"
-#include <dispatch/dispatch.h>
 
 @interface RuleHandler : NSObject 
 
-+(Rule *) matchingRuleOf: (NSSet*) rules ForURL: (NSURL*) url;
+//+(Rule *) matchingRuleOf: (NSSet*) rules ForURL: (NSURL*) url;
 +(BOOL) handleSource:(Source*) source;
 +(BOOL) handleURL: (NSURL *) url fromSource: (Source*) source skipDirs:(BOOL) value; 
-+(BOOL) handleFileRepresentedByString: (NSString *) string ;
-+(BOOL) handleFileRepresentedByURL: (NSURL *) url;
 +(NSURL*) normalizeURL:(NSURL*) url checkIfDirectory: (BOOL *) isDir;
 
 @end

@@ -19,9 +19,13 @@
 //THE SOFTWARE.
 
 #import "RuleHandler.h"
+#import "Rule.h"
+#import "PBMetaDataResolver.h"
+#include <dispatch/dispatch.h>
+
 
 @interface RuleHandler(PrivateApi)
-+(BOOL) handleURL:(NSURL *)url fromSource:(Source *)source ignoringDirs: (BOOL) nodescent depth:(int)num;
++(BOOL) handleURL:(NSURL *)url fromSource:(Source *)source ignoringDirs: (BOOL) nodescent ;
 +(BOOL) handleURL:(NSURL *)url fromSourceId:(NSManagedObjectID *)oid ignoringDirs: (BOOL) nodescent  with:(NSPersistentStoreCoordinator *)psc;
 +(dispatch_queue_t) queue;
 @end
@@ -37,67 +41,36 @@ static dispatch_queue_t localqueue = nil;
     return localqueue;
 }
 
-+ (BOOL) handleFileRepresentedByString: (NSString *) string {
-	NSURL * url = [NSURL URLWithString:string];
-	return	[RuleHandler handleFileRepresentedByURL:url];
-	
-}
 
 + (BOOL) handleSource:(Source *)source {
 	NSURL * url = [NSURL URLWithString:[source url]];
     return [RuleHandler handleURL:url fromSource:source skipDirs:NO];
 }
 
-
-+ (BOOL) handleURL:(NSURL *)url fromSource:(Source *)source ignoringDirs:(BOOL)nodescent depth:(int)num {
-    NSFileManager * manager = [NSFileManager defaultManager];
-
-	BOOL isDir;
-	url = [RuleHandler normalizeURL: url checkIfDirectory: &isDir];
-	if (nil == url) {		
-		DEBUG_OUTPUT(@"File does not %@",@"exist");		
-		return NO;
-	}
-	
-	if (isDir && (num < 1|| !nodescent) ) {
-        
-		NSDirectoryEnumerator *iter = [manager enumeratorAtURL:url
-									includingPropertiesForKeys:NULL 
-													   options:NSDirectoryEnumerationSkipsSubdirectoryDescendants
-												  errorHandler:^(NSURL *url, NSError *error) {
-													  return YES;
-												  }];
-		BOOL result = YES;
-        num++;
-		for(NSURL *subURL in iter) {
-			result &= [RuleHandler handleURL:subURL fromSource:source ignoringDirs:nodescent depth:num];
++ (BOOL) handleURL:(NSURL *)url fromSource:(Source *)source ignoringDirs:(BOOL)nodescent {
+    BOOL res = YES;
+    PBMetaDataResolver *resolver = [[PBMetaDataResolver alloc] init];
+    for(id rule in [source rules]) {
+		if ([resolver predicate:[rule predicate] matches:url ]) {
+            [resolver map: rule toLastResults: ^(NSURL * url, Rule* rule){
+                for(Action *a in [rule actions]) {
+                    NSError *error = nil;
+                    BOOL success = [a handleItemAt:url error:&error];
+                    if (!success) {
+                        NSLog(@"%@:%@ Error in action for file: %@", [RuleHandler class], NSStringFromSelector(_cmd), [error localizedDescription]);
+                    } 
+                    
+                }
+            }];
 		}
-		return result;
 	}
-	
-	DEBUG_OUTPUT(@"Handling file %@", [url absoluteURL]);
-	
-	
-	
-	Rule *rule = [RuleHandler matchingRuleOf:[source rules] ForURL:url];
-	if (rule == nil) {
-		return NO;
-	}
+    [resolver release];
+	return res;
+
     
-    BOOL success;
-    for (Action* action in [rule actions]) {
-        NSError *error = nil;
-        success = [action handleItemAt:url error: &error];
-        if (!success) {
-            NSLog(@"%@:%@ Error in action for file: %@", [RuleHandler class], NSStringFromSelector(_cmd), [error localizedDescription]);
-            return NO;
-        }
-
-    }    
-	return success;
-	
-
 }
+
+
 
 + (BOOL) handleURL: (NSURL*) url fromSource:(Source *)source skipDirs:(BOOL)value {
     NSPersistentStoreCoordinator *psc = [[source managedObjectContext] persistentStoreCoordinator];
@@ -115,37 +88,10 @@ static dispatch_queue_t localqueue = nil;
      NSManagedObjectContext * managedObjectContext = [[NSManagedObjectContext alloc] init];
     [managedObjectContext setPersistentStoreCoordinator: psc];
     Source * src = (Source *)[managedObjectContext objectWithID:oid];
-    return [RuleHandler handleURL:url fromSource:src ignoringDirs:nodescent depth:0];
+    return [RuleHandler handleURL:url fromSource:src ignoringDirs:nodescent];
 }
 
-+ (Source *) matchingSourceFor: (NSURL *) url {
-	NSManagedObjectContext *moc = [[NSApp delegate] managedObjectContext];
-	NSFetchRequest * request = [[NSFetchRequest alloc] init];
-	[request setEntity:[NSEntityDescription entityForName:@"Source" inManagedObjectContext:moc]];
-	NSError *error = nil;
-	NSArray *fetchedSources = [moc executeFetchRequest:request error:&error];
-	NSString * absoluteString = [url absoluteString];
-    [request release];
-	if (fetchedSources != nil) {
-		for (id source in fetchedSources) {
-			if ([absoluteString hasPrefix:[(Source*)source url]]) {
-				return source;
-			}
-		}
-	}	
-	return nil;
-	
-}
 
-+ (BOOL) handleFileRepresentedByURL:(NSURL *)url {
-	
-	Source *source = [RuleHandler matchingSourceFor:url];
-	if (source == nil) {
-		return NO;
-	}
-	return [RuleHandler handleURL:url fromSource:source skipDirs:YES];
-	
-}
 
 + (NSURL*) normalizeURL:(NSURL*) url checkIfDirectory:(BOOL *) isDir {
     if(nil == url) {
@@ -166,15 +112,7 @@ static dispatch_queue_t localqueue = nil;
 	
 }
 
-+ (Rule *) matchingRuleOf: (NSSet*) rules ForURL:(NSURL *)url {
-	for(id rule in rules) {
-		if ([rule matches:url]) {
-			return rule;
-		}
-	}
-	return nil;
-	
-}
+
 
 
 @end

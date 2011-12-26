@@ -18,27 +18,20 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //THE SOFTWARE.
 
-
+#import <Foundation/Foundation.h>
 #import "Rule.h"
-#import "TreeSupport.h"
 
-
-@implementation Rule 
-
-@dynamic from;
-@dynamic to;
-@dynamic title;
-@dynamic predicate;
-@dynamic date;
-@dynamic actions;
-
-- (void) awakeFromInsert {
-	[super awakeFromInsert];
-	[self setDate:[NSDate date]];
-	[self setPredicate:[NSCompoundPredicate orPredicateWithSubpredicates:
-												[NSArray arrayWithObject:[NSPredicate predicateWithFormat:@"kMDItemTextContent = %@", @"Test"]]]];
+@interface PBMetaDataResolver : NSObject
+{
+    @private
+    MDQueryRef currentQuery;
+    @private
+    CFIndex currentResults;
+    
+    
 }
 
-
+-(BOOL) predicate: (NSPredicate*) expression matches: (NSURL *) url; 
+- (void) map: (Rule * )rule toLastResults: (void (^)(NSURL *, Rule *) ) block;
 
 @end

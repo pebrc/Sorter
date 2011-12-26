@@ -22,7 +22,8 @@
 #import <CoreData/CoreData.h>
 #import "Source.h"
 #import "Action.h"
-#import "TreeSupport.h"
+
+#import "PBMetaDataResolver.h"
 
 @interface Rule :  NSManagedObject
 {
@@ -36,8 +37,6 @@
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSSet* actions;
 
-- (BOOL) matches:(NSURL *) url;
-- (NSPredicate*) spotifiedPredicate: (id) original;
 
 @end
 
