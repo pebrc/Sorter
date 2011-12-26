@@ -28,7 +28,7 @@
         for(id clazz in actions) {
             [result addObject:[[clazz alloc]init]];
         }
-        availableActions = [result retain];
+        availableActions = [result retain];        
         filteredActions = [[NSMutableArray arrayWithCapacity:[availableActions count]] retain];
         
     }
@@ -38,7 +38,7 @@
 
 - (void) awakeFromNib {
     [actionController addObserver:self forKeyPath:@"content.strategy" options:NSKeyValueObservingOptionNew context:NULL];
-    [actionsController addObserver:self forKeyPath:@"arrangedObjects" options:NSKeyValueObservingOptionNew context:NULL];
+    [actionsController addObserver:self forKeyPath:@"arrangedObjects" options:(NSKeyValueObservingOptionNew |NSKeyValueObservingOptionInitial) context:NULL];
 }
 
 
