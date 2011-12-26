@@ -22,6 +22,7 @@
 
 @interface RuleHandler(PrivateApi)
 +(BOOL) handleURL:(NSURL *)url fromSource:(Source *)source ignoringDirs: (BOOL) nodescent depth:(int)num;
++(BOOL) handleURL:(NSURL *)url fromSourceId:(NSManagedObjectID *)oid ignoringDirs: (BOOL) nodescent  with:(NSPersistentStoreCoordinator *)psc;
 +(dispatch_queue_t) queue;
 @end
 
@@ -99,13 +100,22 @@ static dispatch_queue_t localqueue = nil;
 }
 
 + (BOOL) handleURL: (NSURL*) url fromSource:(Source *)source skipDirs:(BOOL)value {
+    NSPersistentStoreCoordinator *psc = [[source managedObjectContext] persistentStoreCoordinator];
+    NSManagedObjectID *oid  = [source objectID];
     dispatch_async([RuleHandler queue], ^{
         NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-        [RuleHandler handleURL:url fromSource:source ignoringDirs:value depth:0];
+        [RuleHandler handleURL:url fromSourceId:oid ignoringDirs:value with:psc];
         [pool drain];
         
     });
 	return YES;
+}
+
++ (BOOL) handleURL:(NSURL *)url fromSourceId:(NSManagedObjectID *)oid ignoringDirs:(BOOL)nodescent with:(NSPersistentStoreCoordinator *)psc {
+     NSManagedObjectContext * managedObjectContext = [[NSManagedObjectContext alloc] init];
+    [managedObjectContext setPersistentStoreCoordinator: psc];
+    Source * src = (Source *)[managedObjectContext objectWithID:oid];
+    return [RuleHandler handleURL:url fromSource:src ignoringDirs:nodescent depth:0];
 }
 
 + (Source *) matchingSourceFor: (NSURL *) url {
