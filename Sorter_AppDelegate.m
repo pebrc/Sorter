@@ -106,8 +106,13 @@
             return nil;
 		}
     }
-    
-    NSURL *url = [NSURL fileURLWithPath: [applicationSupportDirectory stringByAppendingPathComponent: @"storedata"]];
+    NSString * storename = @"sorterdata";
+#if MY_DEBUG_FLAG
+    [storename release];
+    storename = @"testdata";
+#endif
+
+    NSURL *url = [NSURL fileURLWithPath: [applicationSupportDirectory stringByAppendingPathComponent: storename]];
     persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: mom];
     if (![persistentStoreCoordinator addPersistentStoreWithType:NSXMLStoreType 
                                                 configuration:nil 
