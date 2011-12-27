@@ -10,7 +10,6 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		FD9E364014A9D5DB006C6F89 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD9E363E14A9D5DB006C6F89 /* InfoPlist.strings */; };
-		FD9E364314A9D5DB006C6F89 /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E364214A9D5DB006C6F89 /* Tests.m */; };
 		FD9E369014A9E52F006C6F89 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9E368F14A9E52F006C6F89 /* SenTestingKit.framework */; };
 		FD9E369314A9E6E3006C6F89 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		FD9E36C614A9ECBB006C6F89 /* MoveAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E369814A9ECBB006C6F89 /* MoveAction.m */; };
@@ -43,6 +42,10 @@
 		FD9E36EF14A9ED03006C6F89 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD9E36E514A9ED03006C6F89 /* MainWindow.xib */; };
 		FD9E36F014A9ED03006C6F89 /* MoveAction.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD9E36E614A9ED03006C6F89 /* MoveAction.xib */; };
 		FD9E36F214A9ED5A006C6F89 /* Sorter_DataModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = FD9E36F114A9ED5A006C6F89 /* Sorter_DataModel.xcdatamodel */; };
+		FD9E36F714A9F064006C6F89 /* TestSpotlightPredicates.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E36F614A9F064006C6F89 /* TestSpotlightPredicates.m */; };
+		FD9E36FA14A9F80D006C6F89 /* PBMetaDataPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E36F914A9F80D006C6F89 /* PBMetaDataPredicate.m */; };
+		FD9E370114AA2395006C6F89 /* PBMetaDataComparisonPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E370014AA2394006C6F89 /* PBMetaDataComparisonPredicate.m */; };
+		FD9E370414AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E370314AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,8 +69,6 @@
 		FD9E363614A9D5DB006C6F89 /* Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD9E363D14A9D5DB006C6F89 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		FD9E363F14A9D5DB006C6F89 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FD9E364114A9D5DB006C6F89 /* Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tests.h; sourceTree = "<group>"; };
-		FD9E364214A9D5DB006C6F89 /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		FD9E364414A9D5DB006C6F89 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		FD9E368F14A9E52F006C6F89 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		FD9E369614A9ECBB006C6F89 /* ActionStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionStrategy.h; sourceTree = "<group>"; };
@@ -123,6 +124,14 @@
 		FD9E36E614A9ED03006C6F89 /* MoveAction.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoveAction.xib; sourceTree = "<group>"; };
 		FD9E36F114A9ED5A006C6F89 /* Sorter_DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sorter_DataModel.xcdatamodel; sourceTree = SOURCE_ROOT; };
 		FD9E36F314A9ED71006C6F89 /* Sorter-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Sorter-Info.plist"; sourceTree = SOURCE_ROOT; };
+		FD9E36F514A9F064006C6F89 /* TestSpotlightPredicates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSpotlightPredicates.h; sourceTree = "<group>"; };
+		FD9E36F614A9F064006C6F89 /* TestSpotlightPredicates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSpotlightPredicates.m; sourceTree = "<group>"; };
+		FD9E36F814A9F80D006C6F89 /* PBMetaDataPredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBMetaDataPredicate.h; sourceTree = "<group>"; };
+		FD9E36F914A9F80D006C6F89 /* PBMetaDataPredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBMetaDataPredicate.m; sourceTree = "<group>"; };
+		FD9E36FF14AA2394006C6F89 /* PBMetaDataComparisonPredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBMetaDataComparisonPredicate.h; sourceTree = "<group>"; };
+		FD9E370014AA2394006C6F89 /* PBMetaDataComparisonPredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBMetaDataComparisonPredicate.m; sourceTree = "<group>"; };
+		FD9E370214AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPBMetaDataComparisonPredicate.h; sourceTree = "<group>"; };
+		FD9E370314AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPBMetaDataComparisonPredicate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,9 +209,11 @@
 		FD9E363B14A9D5DB006C6F89 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				FD9E364114A9D5DB006C6F89 /* Tests.h */,
-				FD9E364214A9D5DB006C6F89 /* Tests.m */,
 				FD9E363C14A9D5DB006C6F89 /* Supporting Files */,
+				FD9E36F514A9F064006C6F89 /* TestSpotlightPredicates.h */,
+				FD9E36F614A9F064006C6F89 /* TestSpotlightPredicates.m */,
+				FD9E370214AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.h */,
+				FD9E370314AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -325,6 +336,10 @@
 				FD9E36C314A9ECBB006C6F89 /* ThreadSafeMutableDictionary.m */,
 				FD9E36C414A9ECBB006C6F89 /* Transformers.h */,
 				FD9E36C514A9ECBB006C6F89 /* Transformers.m */,
+				FD9E36F814A9F80D006C6F89 /* PBMetaDataPredicate.h */,
+				FD9E36F914A9F80D006C6F89 /* PBMetaDataPredicate.m */,
+				FD9E36FF14AA2394006C6F89 /* PBMetaDataComparisonPredicate.h */,
+				FD9E370014AA2394006C6F89 /* PBMetaDataComparisonPredicate.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -495,6 +510,8 @@
 				FD9E36D714A9ECBB006C6F89 /* ThreadSafeMutableDictionary.m in Sources */,
 				FD9E36D814A9ECBB006C6F89 /* Transformers.m in Sources */,
 				FD9E36F214A9ED5A006C6F89 /* Sorter_DataModel.xcdatamodel in Sources */,
+				FD9E36FA14A9F80D006C6F89 /* PBMetaDataPredicate.m in Sources */,
+				FD9E370114AA2395006C6F89 /* PBMetaDataComparisonPredicate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,7 +519,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD9E364314A9D5DB006C6F89 /* Tests.m in Sources */,
+				FD9E36F714A9F064006C6F89 /* TestSpotlightPredicates.m in Sources */,
+				FD9E370414AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
