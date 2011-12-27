@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1070</int>
 		<string key="IBDocument.SystemVersion">11C74</string>
-		<string key="IBDocument.InterfaceBuilderVersion">1617</string>
+		<string key="IBDocument.InterfaceBuilderVersion">1938</string>
 		<string key="IBDocument.AppKitVersion">1138.23</string>
 		<string key="IBDocument.HIToolboxVersion">567.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">1617</string>
+			<string key="NS.object.0">1938</string>
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -36,11 +36,8 @@
 			<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 		</object>
 		<object class="NSMutableDictionary" key="IBDocument.Metadata">
-			<bool key="EncodedWithXMLCoder">YES</bool>
-			<object class="NSArray" key="dict.sortedKeys" id="0">
-				<bool key="EncodedWithXMLCoder">YES</bool>
-			</object>
-			<reference key="dict.values" ref="0"/>
+			<string key="NS.key.0">PluginDependencyRecalculationVersion</string>
+			<integer value="1" key="NS.object.0"/>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.RootObjects" id="1000">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -505,7 +502,7 @@
 																<string key="NSFrame">{{393, 4}, {18, 18}}</string>
 																<reference key="NSSuperview" ref="893445810"/>
 																<reference key="NSWindow"/>
-																<reference key="NSNextKeyView" ref="988086189"/>
+																<reference key="NSNextKeyView" ref="428599839"/>
 																<int key="NSTag">-1</int>
 																<bool key="NSEnabled">YES</bool>
 																<object class="NSRuleEditorButtonCell" key="NSCell">
@@ -775,16 +772,16 @@
 														<int key="NSRuleOptionPlusButtonRowType">0</int>
 														<bool key="NSRuleOptionEditable">YES</bool>
 													</object>
-													<object class="NSRuleEditorViewSliceRow" id="988086189">
+													<object class="NSRuleEditorViewSliceRow" id="428599839">
 														<reference key="NSNextResponder" ref="597824537"/>
 														<int key="NSvFlags">290</int>
 														<object class="NSMutableArray" key="NSSubviews">
 															<bool key="EncodedWithXMLCoder">YES</bool>
-															<object class="NSButton" id="876876378">
-																<reference key="NSNextResponder" ref="988086189"/>
+															<object class="NSButton" id="555139912">
+																<reference key="NSNextResponder" ref="428599839"/>
 																<int key="NSvFlags">257</int>
 																<string key="NSFrame">{{393, 4}, {18, 18}}</string>
-																<reference key="NSSuperview" ref="988086189"/>
+																<reference key="NSSuperview" ref="428599839"/>
 																<reference key="NSWindow"/>
 																<reference key="NSNextKeyView" ref="890900716"/>
 																<int key="NSTag">-1</int>
@@ -810,9 +807,9 @@
 																			</object>
 																		</object>
 																	</object>
-																	<reference key="NSControlView" ref="876876378"/>
+																	<reference key="NSControlView" ref="555139912"/>
 																	<string key="NSAction">_addOption:</string>
-																	<reference key="NSTarget" ref="988086189"/>
+																	<reference key="NSTarget" ref="428599839"/>
 																	<int key="NSButtonFlags">-2038284033</int>
 																	<int key="NSButtonFlags2">36</int>
 																	<reference key="NSAlternateImage" ref="28"/>
@@ -821,13 +818,13 @@
 																	<int key="NSPeriodicInterval">75</int>
 																</object>
 															</object>
-															<object class="NSButton" id="829392183">
-																<reference key="NSNextResponder" ref="988086189"/>
+															<object class="NSButton" id="324774461">
+																<reference key="NSNextResponder" ref="428599839"/>
 																<int key="NSvFlags">-2147483391</int>
 																<string key="NSFrame">{{373, 4}, {18, 18}}</string>
-																<reference key="NSSuperview" ref="988086189"/>
+																<reference key="NSSuperview" ref="428599839"/>
 																<reference key="NSWindow"/>
-																<reference key="NSNextKeyView" ref="876876378"/>
+																<reference key="NSNextKeyView" ref="555139912"/>
 																<int key="NSTag">-1</int>
 																<bool key="NSEnabled">YES</bool>
 																<object class="NSRuleEditorButtonCell" key="NSCell">
@@ -851,9 +848,9 @@
 																			</object>
 																		</object>
 																	</object>
-																	<reference key="NSControlView" ref="829392183"/>
+																	<reference key="NSControlView" ref="324774461"/>
 																	<string key="NSAction">_deleteOption:</string>
-																	<reference key="NSTarget" ref="988086189"/>
+																	<reference key="NSTarget" ref="428599839"/>
 																	<int key="NSButtonFlags">-2038284033</int>
 																	<int key="NSButtonFlags2">36</int>
 																	<reference key="NSAlternateImage" ref="28"/>
@@ -863,10 +860,10 @@
 																</object>
 															</object>
 															<object class="NSPopUpButton" id="1020008895">
-																<reference key="NSNextResponder" ref="988086189"/>
+																<reference key="NSNextResponder" ref="428599839"/>
 																<int key="NSvFlags">256</int>
 																<string key="NSFrame">{{37, 3}, {116, 19}}</string>
-																<reference key="NSSuperview" ref="988086189"/>
+																<reference key="NSSuperview" ref="428599839"/>
 																<reference key="NSWindow"/>
 																<reference key="NSNextKeyView" ref="995649441"/>
 																<int key="NSTag">-1</int>
@@ -924,10 +921,10 @@
 																</object>
 															</object>
 															<object class="NSPopUpButton" id="995649441">
-																<reference key="NSNextResponder" ref="988086189"/>
+																<reference key="NSNextResponder" ref="428599839"/>
 																<int key="NSvFlags">256</int>
 																<string key="NSFrame">{{159, 3}, {99, 19}}</string>
-																<reference key="NSSuperview" ref="988086189"/>
+																<reference key="NSSuperview" ref="428599839"/>
 																<reference key="NSWindow"/>
 																<reference key="NSNextKeyView" ref="368162819"/>
 																<int key="NSTag">-1</int>
@@ -1021,12 +1018,12 @@
 																</object>
 															</object>
 															<object class="NSTextField" id="368162819">
-																<reference key="NSNextResponder" ref="988086189"/>
+																<reference key="NSNextResponder" ref="428599839"/>
 																<int key="NSvFlags">256</int>
 																<string key="NSFrame">{{264, 4}, {61, 18}}</string>
-																<reference key="NSSuperview" ref="988086189"/>
+																<reference key="NSSuperview" ref="428599839"/>
 																<reference key="NSWindow"/>
-																<reference key="NSNextKeyView" ref="829392183"/>
+																<reference key="NSNextKeyView" ref="324774461"/>
 																<bool key="NSEnabled">YES</bool>
 																<object class="NSTextFieldCell" key="NSCell">
 																	<int key="NSCellFlags">343014976</int>
@@ -1060,7 +1057,7 @@
 														<string key="NSRuleOptionFrames.2">{{264, 4}, {61, 18}}</string>
 														<object class="NSMutableArray" key="NSRuleOptionItems">
 															<bool key="EncodedWithXMLCoder">YES</bool>
-															<object class="NSMutableDictionary" id="144110945">
+															<object class="NSMutableDictionary" id="764933584">
 																<bool key="EncodedWithXMLCoder">YES</bool>
 																<object class="NSArray" key="dict.sortedKeys">
 																	<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1072,7 +1069,7 @@
 																	<integer value="1"/>
 																	<object class="NSPredicateEditorRowTemplate" id="857081999">
 																		<int key="NSPredicateTemplateType">1</int>
-																		<int key="NSPredicateTemplateOptions">0</int>
+																		<int key="NSPredicateTemplateOptions">3</int>
 																		<int key="NSPredicateTemplateModifier">0</int>
 																		<int key="NSPredicateTemplateLeftAttributeType">0</int>
 																		<int key="NSPredicateTemplateRightAttributeType">700</int>
@@ -1087,7 +1084,7 @@
 																	</object>
 																</object>
 															</object>
-															<object class="NSMutableDictionary" id="206771726">
+															<object class="NSMutableDictionary" id="950887414">
 																<bool key="EncodedWithXMLCoder">YES</bool>
 																<object class="NSArray" key="dict.sortedKeys">
 																	<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1100,7 +1097,7 @@
 																	<reference ref="857081999"/>
 																</object>
 															</object>
-															<object class="NSMutableDictionary" id="587482689">
+															<object class="NSMutableDictionary" id="10731187">
 																<bool key="EncodedWithXMLCoder">YES</bool>
 																<object class="NSArray" key="dict.sortedKeys">
 																	<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1118,8 +1115,8 @@
 														<string key="NSRuleOptionInitialFrames.0">{{37, 3}, {116, 19}}</string>
 														<string key="NSRuleOptionInitialFrames.1">{{159, 3}, {99, 19}}</string>
 														<string key="NSRuleOptionInitialFrames.2">{{264, 4}, {61, 18}}</string>
-														<reference key="NSRuleOptionAddButton" ref="876876378"/>
-														<reference key="NSRuleOptionSubtractButton" ref="829392183"/>
+														<reference key="NSRuleOptionAddButton" ref="555139912"/>
+														<reference key="NSRuleOptionSubtractButton" ref="324774461"/>
 														<int key="NSRuleOptionRowType">0</int>
 														<int key="NSRuleOptionPlusButtonRowType">0</int>
 														<bool key="NSRuleOptionEditable">YES</bool>
@@ -1197,9 +1194,9 @@
 																	<bool key="EncodedWithXMLCoder">YES</bool>
 																	<object class="NSMutableArray">
 																		<bool key="EncodedWithXMLCoder">YES</bool>
-																		<reference ref="144110945"/>
-																		<reference ref="206771726"/>
-																		<reference ref="587482689"/>
+																		<reference ref="764933584"/>
+																		<reference ref="950887414"/>
+																		<reference ref="10731187"/>
 																	</object>
 																	<object class="NSMutableArray">
 																		<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1221,7 +1218,7 @@
 										<object class="NSMutableArray" key="NSRuleEditorSlices">
 											<bool key="EncodedWithXMLCoder">YES</bool>
 											<reference ref="893445810"/>
-											<reference ref="988086189"/>
+											<reference ref="428599839"/>
 										</object>
 										<object class="NSArray" key="NSPredicateTemplates">
 											<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1336,6 +1333,35 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: selection.from</string>
+						<reference key="source" ref="939384413"/>
+						<reference key="destination" ref="423108610"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="939384413"/>
+							<reference key="NSDestination" ref="423108610"/>
+							<string key="NSLabel">value: selection.from</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">selection.from</string>
+							<object class="NSDictionary" key="NSOptions">
+								<bool key="EncodedWithXMLCoder">YES</bool>
+								<object class="NSArray" key="dict.sortedKeys">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<string>NSConditionallySetsEditable</string>
+									<string>NSValueTransformerName</string>
+								</object>
+								<object class="NSMutableArray" key="dict.values">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<boolean value="YES"/>
+									<string>SourceLocationTransformer</string>
+								</object>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">68</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: selection.predicate</string>
 						<reference key="source" ref="890900716"/>
 						<reference key="destination" ref="423108610"/>
@@ -1376,79 +1402,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: selection.from</string>
-						<reference key="source" ref="939384413"/>
-						<reference key="destination" ref="423108610"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="939384413"/>
-							<reference key="NSDestination" ref="423108610"/>
-							<string key="NSLabel">value: selection.from</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">selection.from</string>
-							<object class="NSDictionary" key="NSOptions">
-								<bool key="EncodedWithXMLCoder">YES</bool>
-								<object class="NSArray" key="dict.sortedKeys">
-									<bool key="EncodedWithXMLCoder">YES</bool>
-									<string>NSConditionallySetsEditable</string>
-									<string>NSValueTransformerName</string>
-								</object>
-								<object class="NSMutableArray" key="dict.values">
-									<bool key="EncodedWithXMLCoder">YES</bool>
-									<boolean value="YES"/>
-									<string>SourceLocationTransformer</string>
-								</object>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">68</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">contentSet: selection.actions</string>
-						<reference key="source" ref="9900133"/>
-						<reference key="destination" ref="423108610"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="9900133"/>
-							<reference key="NSDestination" ref="423108610"/>
-							<string key="NSLabel">contentSet: selection.actions</string>
-							<string key="NSBinding">contentSet</string>
-							<string key="NSKeyPath">selection.actions</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSDeletesObjectsOnRemove</string>
-								<boolean value="YES" key="NS.object.0"/>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">94</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">rulesController</string>
-						<reference key="source" ref="188306538"/>
-						<reference key="destination" ref="423108610"/>
-					</object>
-					<int key="connectionID">96</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">showActionSheet:</string>
-						<reference key="source" ref="188306538"/>
-						<reference key="destination" ref="910223032"/>
-					</object>
-					<int key="connectionID">97</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">actionsController</string>
-						<reference key="source" ref="188306538"/>
-						<reference key="destination" ref="9900133"/>
-					</object>
-					<int key="connectionID">98</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: arrangedObjects.userDescription</string>
 						<reference key="source" ref="981419586"/>
 						<reference key="destination" ref="9900133"/>
@@ -1480,14 +1433,6 @@
 					<int key="connectionID">102</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">remove:</string>
-						<reference key="source" ref="9900133"/>
-						<reference key="destination" ref="450805622"/>
-					</object>
-					<int key="connectionID">103</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">enabled: self.availableActions.@count</string>
 						<reference key="source" ref="797004392"/>
@@ -1505,6 +1450,34 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
+						<string key="label">contentSet: selection.actions</string>
+						<reference key="source" ref="9900133"/>
+						<reference key="destination" ref="423108610"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="9900133"/>
+							<reference key="NSDestination" ref="423108610"/>
+							<string key="NSLabel">contentSet: selection.actions</string>
+							<string key="NSBinding">contentSet</string>
+							<string key="NSKeyPath">selection.actions</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSDeletesObjectsOnRemove</string>
+								<boolean value="YES" key="NS.object.0"/>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">94</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">remove:</string>
+						<reference key="source" ref="9900133"/>
+						<reference key="destination" ref="450805622"/>
+					</object>
+					<int key="connectionID">103</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
 						<string key="label">managedObjectContext: self.managedObjectContext</string>
 						<reference key="source" ref="9900133"/>
 						<reference key="destination" ref="188306538"/>
@@ -1519,13 +1492,39 @@
 					</object>
 					<int key="connectionID">110</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">rulesController</string>
+						<reference key="source" ref="188306538"/>
+						<reference key="destination" ref="423108610"/>
+					</object>
+					<int key="connectionID">96</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">showActionSheet:</string>
+						<reference key="source" ref="188306538"/>
+						<reference key="destination" ref="910223032"/>
+					</object>
+					<int key="connectionID">97</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">actionsController</string>
+						<reference key="source" ref="188306538"/>
+						<reference key="destination" ref="9900133"/>
+					</object>
+					<int key="connectionID">98</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBObjectRecord">
 						<int key="objectID">0</int>
-						<reference key="object" ref="0"/>
+						<object class="NSArray" key="object" id="0">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+						</object>
 						<reference key="children" ref="1000"/>
 						<nil key="parent"/>
 					</object>

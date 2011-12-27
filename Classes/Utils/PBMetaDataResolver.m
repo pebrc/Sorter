@@ -23,6 +23,7 @@
 //THE SOFTWARE.
 
 #import "PBMetaDataResolver.h"
+#import "PBMetaDataPredicate.h"
 
 @interface PBMetaDataResolver(PrivateAPI) 
 - (NSPredicate*) spotifiedPredicate: (id) original;
@@ -60,7 +61,7 @@
 
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
-	NSString *queryString = [[self spotifiedPredicate:expression] predicateFormat];
+	NSString *queryString =  [[PBMetaDataPredicate predicateFromPredicate:expression] predicateFormat];
 	self->currentQuery = MDQueryCreate(kCFAllocatorDefault, (CFStringRef)queryString, NULL, NULL);
 	if (!self->currentQuery) {
 		DEBUG_OUTPUT(@"Failed to generate query: %@", queryString);
@@ -83,37 +84,6 @@
 }
 
 
--(NSPredicate *) spotifiedPredicate: (id) original {
-	if (nil == original) {
-		return original;
-	}
-	if ([original isKindOfClass:[NSCompoundPredicate class]]) {
-		NSCompoundPredicateType type = [original compoundPredicateType];
-		NSMutableArray *resultingSubPredicates = [NSMutableArray array];
-		for (NSPredicate * origSubPredicate in [original subpredicates]) {
-			NSPredicate *spotifiedSubPredicate = [self spotifiedPredicate:origSubPredicate];
-			if (spotifiedSubPredicate) {
-				[resultingSubPredicates addObject:spotifiedSubPredicate];
-			}
-		}
-		NSUInteger numPredicates = [resultingSubPredicates count];
-		if ( numPredicates == 0) {
-			return nil;
-		} else if (numPredicates == 1) {
-			return [resultingSubPredicates objectAtIndex:0];
-		} else {
-			return [[[NSCompoundPredicate alloc] initWithType:type subpredicates:resultingSubPredicates] autorelease];
-		}
-        
-	} else if ([original isKindOfClass:[NSComparisonPredicate class]] && [original predicateOperatorType] == NSContainsPredicateOperatorType ) {
-		return [NSComparisonPredicate predicateWithLeftExpression:[original leftExpression] 
-												  rightExpression:[original rightExpression] 
-														 modifier:[original comparisonPredicateModifier]
-															 type:NSEqualToPredicateOperatorType
-														  options:[original options]];
-	}
-	return original;
-}
 
 
 @end
