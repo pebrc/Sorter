@@ -34,8 +34,13 @@
 -(void) event:(PBEvent*)event reportedBy:(PBWatcher*)watcher {
 	NSURL * url = [NSURL URLWithString:[event eventPath]];
     //remember the event even if we are going to drop it
-    DEBUG_OUTPUT(@"Before: %llu", [event eventId]);
-    [self setEventid: [NSNumber numberWithUnsignedLongLong:[event eventId]]];
+    DEBUG_OUTPUT(@"Before: %llu", [self lastListened]);
+    NSNumber * currentEvent = [NSNumber numberWithUnsignedLongLong:[event eventId]];
+    if([currentEvent isEqualToNumber:[self eventid]]) {
+        DEBUG_OUTPUT(@"Dropping event on url %@ because eventid %llu is identical to last eventid",url, [event eventId]);
+        return;
+    }
+    [self setEventid: currentEvent];
     DEBUG_OUTPUT(@"After %llu", [self lastListened]);
 
     if(![[NSFileManager defaultManager]fileExistsAtPath:[url path]]) {
