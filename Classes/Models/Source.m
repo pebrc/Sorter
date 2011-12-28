@@ -33,11 +33,17 @@
 
 -(void) event:(PBEvent*)event reportedBy:(PBWatcher*)watcher {
 	NSURL * url = [NSURL URLWithString:[event eventPath]];
-    BOOL skipSubDirs = [event eventFlags] & kFSEventStreamEventFlagMustScanSubDirs ? NO : YES;
-    //TODO: kFSEventStreamEventFlagRootChanged
+    //remember the event even if we are going to drop it
     DEBUG_OUTPUT(@"Before: %llu", [event eventId]);
     [self setEventid: [NSNumber numberWithUnsignedLongLong:[event eventId]]];
     DEBUG_OUTPUT(@"After %llu", [self lastListened]);
+
+    if(![[NSFileManager defaultManager]fileExistsAtPath:[url path]]) {
+        DEBUG_OUTPUT(@"Dropping event on url %@ because file does not seem to exist", url);
+        return;
+    }
+    BOOL skipSubDirs = [event eventFlags] & kFSEventStreamEventFlagMustScanSubDirs ? NO : YES;
+    //TODO: kFSEventStreamEventFlagRootChanged
 	[RuleHandler handleURL:url fromSource:self skipDirs:skipSubDirs];
 }
 

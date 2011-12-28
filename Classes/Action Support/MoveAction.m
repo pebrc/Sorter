@@ -61,8 +61,13 @@
 }
 
 - (BOOL) handleItemAt: (NSURL *) url forRule: (Rule *) rule error: (NSError **) error {
+    #if NO_IO
+    BOOL success = YES;
+    DEBUG_OUTPUT(@"moving item at %@ to %@", url, [self targetURLFor:url]);
+    #else
     NSFileManager * manager = [NSFileManager defaultManager];
     BOOL success = [manager moveItemAtURL:url toURL:[self targetURLFor:url]  error:error];
+    #endif
     return success;
 }
 

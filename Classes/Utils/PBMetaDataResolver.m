@@ -58,9 +58,7 @@
 }
 
 - (BOOL) predicate:(NSPredicate *)expression matches:(NSURL *)url {
-
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];	
 	NSString *queryString =  [[PBMetaDataPredicate predicateFromPredicate:expression] predicateFormat];
 	self->currentQuery = MDQueryCreate(kCFAllocatorDefault, (CFStringRef)queryString, NULL, NULL);
 	if (!self->currentQuery) {
