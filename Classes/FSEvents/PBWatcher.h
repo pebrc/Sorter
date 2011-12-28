@@ -37,6 +37,7 @@
 @property (retain, readwrite) id < PBEventListener > listener;
 @property (readonly,getter=isRunning) BOOL running;
 +(PBWatcher *) watchPath: (NSString *) string notify: (id < PBEventListener >) listener;
++(BOOL) stopWatchingPath: (NSString*) path;
 +(BOOL) stop: (PBWatcher *) watcher;
 
 -(BOOL) start;

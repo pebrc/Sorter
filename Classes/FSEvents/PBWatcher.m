@@ -45,6 +45,15 @@ static void _PBWatcherCallBack(ConstFSEventStreamRef streamRef, void *clientCall
 	return watcher;
 }
 
++ (BOOL) stopWatchingPath:(NSString *)path {
+    PBWatcherRegistry *registry = [PBWatcherRegistry registry];
+    PBWatcher * watcher = [registry watcherForPath:path];
+    if(!watcher) {
+        return NO;
+    }
+    return [self stop:watcher];    
+}
+
 + (BOOL) stop:(PBWatcher *)watcher {
     PBWatcherRegistry *registry = [PBWatcherRegistry registry];
     [registry removeWatcher:watcher];

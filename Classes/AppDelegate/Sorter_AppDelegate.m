@@ -26,22 +26,7 @@
 @synthesize window;
 
 -(void) applicationDidFinishLaunching:(NSNotification*)notification {
-    //nasty do I really still need that?
-    NSManagedObjectContext *moc = [self managedObjectContext];
-	NSFetchRequest * request = [[NSFetchRequest alloc] init];
-    NSError * error = nil;
-	[request setEntity:[NSEntityDescription entityForName:@"Source" inManagedObjectContext:moc]];
-	NSArray *fetchedSources = [moc executeFetchRequest:request error:&error];
-	if (fetchedSources != nil) {
-        int i = 0;
-		for (id source in fetchedSources) {
-            [(Source *)source url];
-            i++;
-		}
-        DEBUG_OUTPUT(@"Initialized %i sources", i);
-	}
-	[request release]; request = nil;
-
+    sourceObserver = [[[PBSourceObserver alloc] initWithContext: [self managedObjectContext]] retain];
     mainWindowController = [[MainWindowController alloc] initWithWindowNibName:@"MainWindow"];
     [mainWindowController showWindow:self];
     
@@ -308,7 +293,7 @@
     [managedObjectContext release];
     [persistentStoreCoordinator release];
     [managedObjectModel release];
-	
+	[sourceObserver release];
     [super dealloc];
 }
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		FD0DB57314AB4A7200768447 /* PBSourceObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0DB57214AB4A7200768447 /* PBSourceObserver.m */; };
 		FD9E364014A9D5DB006C6F89 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD9E363E14A9D5DB006C6F89 /* InfoPlist.strings */; };
 		FD9E369014A9E52F006C6F89 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9E368F14A9E52F006C6F89 /* SenTestingKit.framework */; };
 		FD9E369314A9E6E3006C6F89 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -46,6 +47,7 @@
 		FD9E36FA14A9F80D006C6F89 /* PBMetaDataPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E36F914A9F80D006C6F89 /* PBMetaDataPredicate.m */; };
 		FD9E370114AA2395006C6F89 /* PBMetaDataComparisonPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E370014AA2394006C6F89 /* PBMetaDataComparisonPredicate.m */; };
 		FD9E370414AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E370314AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m */; };
+		FDBB239614AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBB239514AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		32CA4F630368D1EE00C91783 /* Sorter_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sorter_Prefix.pch; sourceTree = "<group>"; };
 		77C82804067257F0000B614F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		8D1107320486CEB800E47090 /* Sorter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sorter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD0DB57114AB4A7200768447 /* PBSourceObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBSourceObserver.h; sourceTree = "<group>"; };
+		FD0DB57214AB4A7200768447 /* PBSourceObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBSourceObserver.m; sourceTree = "<group>"; };
 		FD9E363614A9D5DB006C6F89 /* Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD9E363D14A9D5DB006C6F89 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		FD9E363F14A9D5DB006C6F89 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 		FD9E370014AA2394006C6F89 /* PBMetaDataComparisonPredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBMetaDataComparisonPredicate.m; sourceTree = "<group>"; };
 		FD9E370214AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPBMetaDataComparisonPredicate.h; sourceTree = "<group>"; };
 		FD9E370314AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPBMetaDataComparisonPredicate.m; sourceTree = "<group>"; };
+		FDBB239414AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+PBCoreDataSugar.h"; sourceTree = "<group>"; };
+		FDBB239514AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+PBCoreDataSugar.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,6 +304,8 @@
 				FD9E36AF14A9ECBB006C6F89 /* PBWatcher.m */,
 				FD9E36B014A9ECBB006C6F89 /* PBWatcherRegistry.h */,
 				FD9E36B114A9ECBB006C6F89 /* PBWatcherRegistry.m */,
+				FD0DB57114AB4A7200768447 /* PBSourceObserver.h */,
+				FD0DB57214AB4A7200768447 /* PBSourceObserver.m */,
 			);
 			path = FSEvents;
 			sourceTree = "<group>";
@@ -340,6 +348,8 @@
 				FD9E36F914A9F80D006C6F89 /* PBMetaDataPredicate.m */,
 				FD9E36FF14AA2394006C6F89 /* PBMetaDataComparisonPredicate.h */,
 				FD9E370014AA2394006C6F89 /* PBMetaDataComparisonPredicate.m */,
+				FDBB239414AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.h */,
+				FDBB239514AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -512,6 +522,8 @@
 				FD9E36F214A9ED5A006C6F89 /* Sorter_DataModel.xcdatamodel in Sources */,
 				FD9E36FA14A9F80D006C6F89 /* PBMetaDataPredicate.m in Sources */,
 				FD9E370114AA2395006C6F89 /* PBMetaDataComparisonPredicate.m in Sources */,
+				FD0DB57314AB4A7200768447 /* PBSourceObserver.m in Sources */,
+				FDBB239614AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -724,6 +736,7 @@
 				FD9E364714A9D5DB006C6F89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

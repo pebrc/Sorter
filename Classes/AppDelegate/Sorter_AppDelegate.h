@@ -24,6 +24,7 @@
 #import "Transformers.h"
 #import "MainWindowController.h"
 #import "Source.h"
+#import "PBSourceObserver.h"
 
 
 @interface Sorter_AppDelegate : NSObject 
@@ -34,6 +35,7 @@
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
     NSManagedObjectModel *managedObjectModel;
     NSManagedObjectContext *managedObjectContext;
+    PBSourceObserver *sourceObserver;
 }
 
 @property (nonatomic, retain) IBOutlet NSWindow *window;
