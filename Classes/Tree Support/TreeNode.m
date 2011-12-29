@@ -44,6 +44,7 @@
 - (void)dealloc
 {
     [backingModel release]; backingModel = nil;
+    [children release];
     [super dealloc];
 }
 
