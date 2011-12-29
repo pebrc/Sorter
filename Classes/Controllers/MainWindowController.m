@@ -27,6 +27,9 @@
 @interface MainWindowController(PrivateApi)
 -(void) insert:(Rule*)rule withParent:(Source*) parent at:(NSIndexPath*) path;
 -(NSIndexPath * ) findIndexPathFor: (NSObject*) object;
+-(NSIndexPath * ) findIndexPathFor: (NSObject*) object within: (NSArray*) nodes;
+-(NSManagedObject *) selectedModelObject;
+-(void) restoreSelectionOf:(NSManagedObject *) model;
 -(void) handleMocNotification:(NSNotification*) notification;
 - (void) handleObjectsOf:(Class)clazz inSet:(NSSet *)set withBlock:(void (^)(NSSet *))blk ;
 @end
@@ -81,6 +84,7 @@
 }
 
 -(void)populateContents {
+    NSManagedObject * selected = [self selectedModelObject];
     NSManagedObjectContext *moc = [[NSApp delegate] managedObjectContext];
 	NSFetchRequest * request = [[NSFetchRequest alloc] init];
     NSError * error = nil;
@@ -94,7 +98,25 @@
         [self setContents:arr];
     }
     [request release];
+    [self restoreSelectionOf:selected];
 
+    
+}
+
+-(NSManagedObject*) selectedModelObject {
+    NSArray * selected = [treeController selectedObjects];
+    if([selected count] > 0) {
+        id<TreeSupport> node = [selected objectAtIndex:0];
+        return [node representedObject];
+    }
+    return nil;
+}
+
+-(void)restoreSelectionOf:(NSManagedObject *)model {
+    NSIndexPath * path = [self findIndexPathFor:model];
+    if(path != nil) {
+        [treeController setSelectionIndexPath:path];
+    }
     
 }
 
@@ -129,8 +151,10 @@
         for (Source * src in changed){
             if([[src rules] count] == 0) {
                 NSIndexPath * path = [self findIndexPathFor:src];
-                [[src managedObjectContext] deleteObject:src];
+                NSManagedObjectContext *moc = [src managedObjectContext];
+                [ moc deleteObject:src];
                 [treeController removeObjectAtArrangedObjectIndexPath:path];
+                [moc processPendingChanges];//deletes are not processed immediately, objects are just marked deleted apparently
                 
             }
         }
@@ -209,16 +233,28 @@
 }
 
 -(NSIndexPath *) findIndexPathFor:(NSObject *)object {
+    if(object == nil) {
+        return nil;
+    }        
     id root = [treeController arrangedObjects];
     NSArray * children = [root childNodes];
-    for (NSTreeNode * item in children) {
+    return [self findIndexPathFor:object within:children];    
+}
+
+- (NSIndexPath * ) findIndexPathFor:(NSObject *)object within:(NSArray *)nodes {
+    NSMutableArray * children = [NSMutableArray array];
+    for (NSTreeNode * item in nodes) {
         id<TreeSupport> node = [item representedObject];
         NSManagedObject * model = [node representedObject];
         if (model == object) {
             return [item indexPath];
         }
+        [children addObjectsFromArray:[item childNodes]];
     }
-    return nil;    
+    if([children count] == 0) {
+        return nil;
+    }
+    return [self findIndexPathFor:object within:children];
 }
 
 
