@@ -50,7 +50,7 @@ static dispatch_queue_t localqueue = nil;
 + (BOOL) handleURL:(NSURL *)url fromSource:(Source *)source ignoringDirs:(BOOL)nodescent {
     BOOL res = YES;
     PBMetaDataResolver *resolver = [[PBMetaDataResolver alloc] init];
-    for(id rule in [source rules]) {
+    for(id rule in [[source rules] filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"actions.@count > 0"]]) {
 		if ([resolver predicate:[rule predicate] matches:url ]) {
             [resolver map: rule toLastResults: ^(NSURL * url, Rule* rule){
                 for(Action *a in [rule actions]) {
