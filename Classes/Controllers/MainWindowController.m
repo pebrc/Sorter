@@ -26,7 +26,9 @@
 
 @interface MainWindowController(PrivateApi)
 -(void) insert:(Rule*)rule withParent:(Source*) parent at:(NSIndexPath*) path;
+-(NSIndexPath * ) findIndexPathFor: (NSObject*) object;
 -(void) handleMocNotification:(NSNotification*) notification;
+- (void) handleObjectsOf:(Class)clazz inSet:(NSSet *)set withBlock:(void (^)(NSSet *))blk ;
 @end
 
 @implementation MainWindowController
@@ -107,17 +109,46 @@
 }
 
 -(void)handleMocNotification:(NSNotification *)notification {
-
-    id inserted = [[notification userInfo] objectForKey:NSInsertedObjectsKey];        
-    if(inserted) {
-        NSSet * inserts = (NSSet *)inserted;
-        NSSet * sources =  [inserts filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"self isKindOfClass: %@", [Source class]]];
-        if([sources count] > 0 ) {
-            //brute force update ...
+    NSDictionary * userInfo = [notification userInfo];
+    id inserted = [userInfo objectForKey:NSInsertedObjectsKey];        
+    [self handleObjectsOf:[Source class] inSet:inserted withBlock:^(NSSet * inserted){
+        if([inserted count] > 0) {
+            //brute force for now -- has some quite heavy side effects 
             [self populateContents];
         }
+    }];
+
+    
+    id deleted = [userInfo objectForKey:NSDeletedObjectsKey];
+    [self handleObjectsOf:nil inSet:deleted withBlock:^(NSSet * deleted){
+        DEBUG_OUTPUT(@"deleted %@",[deleted description]);
+    }];
+    id changed = [userInfo objectForKey:NSUpdatedObjectsKey];
+    [self handleObjectsOf:[Source class] inSet:changed withBlock:^(NSSet * changed){        
+        DEBUG_OUTPUT(@"changed %@", [changed description]);
+        for (Source * src in changed){
+            if([[src rules] count] == 0) {
+                NSIndexPath * path = [self findIndexPathFor:src];
+                [[src managedObjectContext] deleteObject:src];
+                [treeController removeObjectAtArrangedObjectIndexPath:path];
+                
+            }
+        }
+    }];
+
+    
+}
+
+- (void) handleObjectsOf:(Class)clazz inSet:(NSSet *)set withBlock:(void (^)(NSSet *))blk {
+    if(set) {
+        NSSet * changes = (NSSet *)set;
+        if(clazz != nil) {
+            changes =  [changes filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"self isKindOfClass: %@", clazz]];
+        }        
+        blk(changes);
     }
 }
+
 
 -(void) handleTransformationSideEffect:(NSNotification*) notification {
     //Lets do it brute force for now..
@@ -176,6 +207,21 @@
     [treeController insertObject:[TreeNode nodeWithModel:rule] atArrangedObjectIndexPath:path];
     
 }
+
+-(NSIndexPath *) findIndexPathFor:(NSObject *)object {
+    id root = [treeController arrangedObjects];
+    NSArray * children = [root childNodes];
+    for (NSTreeNode * item in children) {
+        id<TreeSupport> node = [item representedObject];
+        NSManagedObject * model = [node representedObject];
+        if (model == object) {
+            return [item indexPath];
+        }
+    }
+    return nil;    
+}
+
+
 
 -(void) selectParentFromSelection {
     NSArray * selection =[treeController selectedNodes];
