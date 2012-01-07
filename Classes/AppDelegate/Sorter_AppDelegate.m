@@ -56,10 +56,6 @@
 - (NSManagedObjectModel *)managedObjectModel {
 
     if (managedObjectModel) return managedObjectModel;
-//    NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"Sorter_DataModel" ofType:@"mom"];
-//    NSURL *modelURL = [NSURL fileURLWithPath:modelPath];
-//    managedObjectModel = [[[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL] retain];    
-	
     managedObjectModel = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];    
     return managedObjectModel;
 }

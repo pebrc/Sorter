@@ -10,6 +10,7 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		FD0DB57314AB4A7200768447 /* PBSourceObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0DB57214AB4A7200768447 /* PBSourceObserver.m */; };
+		FD2F389E14B84D9F0073D2CF /* Sorter_DataModel_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD2F389B14B84D9F0073D2CF /* Sorter_DataModel_2.xcdatamodeld */; };
 		FD9E364014A9D5DB006C6F89 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD9E363E14A9D5DB006C6F89 /* InfoPlist.strings */; };
 		FD9E369014A9E52F006C6F89 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9E368F14A9E52F006C6F89 /* SenTestingKit.framework */; };
 		FD9E369314A9E6E3006C6F89 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -42,7 +43,6 @@
 		FD9E36EE14A9ED03006C6F89 /* ToolbarPlus.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9E36E414A9ED03006C6F89 /* ToolbarPlus.png */; };
 		FD9E36EF14A9ED03006C6F89 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD9E36E514A9ED03006C6F89 /* MainWindow.xib */; };
 		FD9E36F014A9ED03006C6F89 /* MoveAction.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD9E36E614A9ED03006C6F89 /* MoveAction.xib */; };
-		FD9E36F214A9ED5A006C6F89 /* Sorter_DataModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = FD9E36F114A9ED5A006C6F89 /* Sorter_DataModel.xcdatamodel */; };
 		FD9E36F714A9F064006C6F89 /* TestSpotlightPredicates.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E36F614A9F064006C6F89 /* TestSpotlightPredicates.m */; };
 		FD9E36FA14A9F80D006C6F89 /* PBMetaDataPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E36F914A9F80D006C6F89 /* PBMetaDataPredicate.m */; };
 		FD9E370114AA2395006C6F89 /* PBMetaDataComparisonPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E370014AA2394006C6F89 /* PBMetaDataComparisonPredicate.m */; };
@@ -70,6 +70,8 @@
 		8D1107320486CEB800E47090 /* Sorter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sorter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD0DB57114AB4A7200768447 /* PBSourceObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBSourceObserver.h; sourceTree = "<group>"; };
 		FD0DB57214AB4A7200768447 /* PBSourceObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBSourceObserver.m; sourceTree = "<group>"; };
+		FD2F389C14B84D9F0073D2CF /* Sorter_DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sorter_DataModel.xcdatamodel; sourceTree = "<group>"; };
+		FD2F389D14B84D9F0073D2CF /* Sorter_DataModel_ 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Sorter_DataModel_ 2.xcdatamodel"; sourceTree = "<group>"; };
 		FD9E363614A9D5DB006C6F89 /* Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD9E363D14A9D5DB006C6F89 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		FD9E363F14A9D5DB006C6F89 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -126,7 +128,6 @@
 		FD9E36E414A9ED03006C6F89 /* ToolbarPlus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToolbarPlus.png; sourceTree = "<group>"; };
 		FD9E36E514A9ED03006C6F89 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		FD9E36E614A9ED03006C6F89 /* MoveAction.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoveAction.xib; sourceTree = "<group>"; };
-		FD9E36F114A9ED5A006C6F89 /* Sorter_DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sorter_DataModel.xcdatamodel; sourceTree = SOURCE_ROOT; };
 		FD9E36F314A9ED71006C6F89 /* Sorter-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Sorter-Info.plist"; sourceTree = SOURCE_ROOT; };
 		FD9E36F514A9F064006C6F89 /* TestSpotlightPredicates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSpotlightPredicates.h; sourceTree = "<group>"; };
 		FD9E36F614A9F064006C6F89 /* TestSpotlightPredicates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSpotlightPredicates.m; sourceTree = "<group>"; };
@@ -358,7 +359,7 @@
 			isa = PBXGroup;
 			children = (
 				FD9E36F314A9ED71006C6F89 /* Sorter-Info.plist */,
-				FD9E36F114A9ED5A006C6F89 /* Sorter_DataModel.xcdatamodel */,
+				FD2F389B14B84D9F0073D2CF /* Sorter_DataModel_2.xcdatamodeld */,
 				FD9E36DA14A9ED03006C6F89 /* ActionSheet.xib */,
 				FD9E36DB14A9ED03006C6F89 /* DetailView.xib */,
 				FD9E36DC14A9ED03006C6F89 /* InfoPlist.strings */,
@@ -519,11 +520,11 @@
 				FD9E36D614A9ECBB006C6F89 /* PBMetaDataResolver.m in Sources */,
 				FD9E36D714A9ECBB006C6F89 /* ThreadSafeMutableDictionary.m in Sources */,
 				FD9E36D814A9ECBB006C6F89 /* Transformers.m in Sources */,
-				FD9E36F214A9ED5A006C6F89 /* Sorter_DataModel.xcdatamodel in Sources */,
 				FD9E36FA14A9F80D006C6F89 /* PBMetaDataPredicate.m in Sources */,
 				FD9E370114AA2395006C6F89 /* PBMetaDataComparisonPredicate.m in Sources */,
 				FD0DB57314AB4A7200768447 /* PBSourceObserver.m in Sources */,
 				FDBB239614AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m in Sources */,
+				FD2F389E14B84D9F0073D2CF /* Sorter_DataModel_2.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,6 +591,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Sorter_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					NO_IO,
 					MY_DEBUG_FLAG,
 					"MY_DEBUG_DIR=/Users/brachwitz/tmp",
 				);
@@ -739,6 +741,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FD2F389B14B84D9F0073D2CF /* Sorter_DataModel_2.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FD2F389C14B84D9F0073D2CF /* Sorter_DataModel.xcdatamodel */,
+				FD2F389D14B84D9F0073D2CF /* Sorter_DataModel_ 2.xcdatamodel */,
+			);
+			currentVersion = FD2F389D14B84D9F0073D2CF /* Sorter_DataModel_ 2.xcdatamodel */;
+			path = Sorter_DataModel_2.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
 }
