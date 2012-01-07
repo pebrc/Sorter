@@ -56,6 +56,9 @@
 - (NSManagedObjectModel *)managedObjectModel {
 
     if (managedObjectModel) return managedObjectModel;
+//    NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"Sorter_DataModel" ofType:@"mom"];
+//    NSURL *modelURL = [NSURL fileURLWithPath:modelPath];
+//    managedObjectModel = [[[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL] retain];    
 	
     managedObjectModel = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];    
     return managedObjectModel;
@@ -96,13 +99,16 @@
     [storename release];
     storename = @"testdata";
 #endif
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                             [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                             [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
 
     NSURL *url = [NSURL fileURLWithPath: [applicationSupportDirectory stringByAppendingPathComponent: storename]];
     persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: mom];
     if (![persistentStoreCoordinator addPersistentStoreWithType:NSXMLStoreType 
                                                 configuration:nil 
                                                 URL:url 
-                                                options:nil 
+                                                options:options 
                                                 error:&error]){
         [[NSApplication sharedApplication] presentError:error];
         [persistentStoreCoordinator release], persistentStoreCoordinator = nil;
