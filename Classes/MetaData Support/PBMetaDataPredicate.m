@@ -8,6 +8,8 @@
 
 #import "PBMetaDataPredicate.h"
 #import "PBMetaDataComparisonPredicate.h"
+#import "PBMetaDataDatePredicate.h"
+#import "PBMetaDataCompoundPredicate.h"
 
 
 @interface PBMetaDataPredicate(private) 
@@ -53,11 +55,22 @@
 		} else if (numPredicates == 1) {
 			return [resultingSubPredicates objectAtIndex:0];
 		} else {
-			return [[[NSCompoundPredicate alloc] initWithType:type subpredicates:resultingSubPredicates] autorelease];
+			return [[[PBMetaDataCompoundPredicate alloc] initWithType:type subpredicates:resultingSubPredicates] autorelease];
 		}
         
-	} else if ([source isKindOfClass:[NSComparisonPredicate class]]) {
+	} else if ([source isKindOfClass:[NSComparisonPredicate class]]) {        
         NSComparisonPredicate * src = (NSComparisonPredicate*) source;
+        if ([[src rightExpression] expressionType] == NSConstantValueExpressionType) {
+            if([[[src rightExpression] constantValue]isKindOfClass:[NSDate class]]) {
+                return [PBMetaDataDatePredicate predicateWithLeftExpression:[src leftExpression] 
+                                                            rightExpression:[src rightExpression]
+                                                                   modifier:[src comparisonPredicateModifier] 
+                                                                       type:[src predicateOperatorType] 
+                                                                    options:[src options]];
+            }
+        }
+        
+        
 		return [PBMetaDataComparisonPredicate predicateWithLeftExpression:[src leftExpression] 
 												  rightExpression:[src rightExpression] 
 														 modifier:[src comparisonPredicateModifier]

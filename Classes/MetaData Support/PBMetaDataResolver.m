@@ -1,4 +1,4 @@
-//
+    //
 //  PBMetaDataResolver.m
 //  Sorter
 //
@@ -61,6 +61,7 @@
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];	
 	NSString *queryString =  [[PBMetaDataPredicate predicateFromPredicate:expression] predicateFormat];
 	self->currentQuery = MDQueryCreate(kCFAllocatorDefault, (CFStringRef)queryString, NULL, NULL);
+    DEBUG_OUTPUT(@"Creating query: %@", queryString);
 	if (!self->currentQuery) {
 		DEBUG_OUTPUT(@"Failed to generate query: %@", queryString);
 		[pool drain];

@@ -23,6 +23,9 @@ typedef struct  {
 + (NSExpression*) addWildcardTo: (NSExpression *) orig left:(BOOL)l right:(BOOL)r;
 + (expr_tuple *) replaceNonCompatibleOperations: (expr_tuple *) tuple;
 @end
+
+
+
 @implementation PBMetaDataComparisonPredicate
 
 

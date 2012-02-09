@@ -9,8 +9,15 @@
 /* Begin PBXBuildFile section */
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		FD00699D14E30B960046E7C0 /* TestPBMetaDataCompoundPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD00699C14E30B960046E7C0 /* TestPBMetaDataCompoundPredicate.m */; };
+		FD0069A014E30DBA0046E7C0 /* PBMetaDataCompoundPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD00699F14E30DBA0046E7C0 /* PBMetaDataCompoundPredicate.m */; };
 		FD0DB57314AB4A7200768447 /* PBSourceObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0DB57214AB4A7200768447 /* PBSourceObserver.m */; };
 		FD2F389E14B84D9F0073D2CF /* Sorter_DataModel_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD2F389B14B84D9F0073D2CF /* Sorter_DataModel_2.xcdatamodeld */; };
+		FD2F38A114B8DBF60073D2CF /* TestPBMetaDataDatePredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2F38A014B8DBF60073D2CF /* TestPBMetaDataDatePredicate.m */; };
+		FD8EB37C14E198D100E69302 /* PBMetaDataComparisonPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8EB37714E198D100E69302 /* PBMetaDataComparisonPredicate.m */; };
+		FD8EB37D14E198D100E69302 /* PBMetaDataPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8EB37914E198D100E69302 /* PBMetaDataPredicate.m */; };
+		FD8EB37E14E198D100E69302 /* PBMetaDataResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8EB37B14E198D100E69302 /* PBMetaDataResolver.m */; };
+		FD8EB38114E198FB00E69302 /* PBMetaDataDatePredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8EB38014E198FB00E69302 /* PBMetaDataDatePredicate.m */; };
 		FD9E364014A9D5DB006C6F89 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD9E363E14A9D5DB006C6F89 /* InfoPlist.strings */; };
 		FD9E369014A9E52F006C6F89 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9E368F14A9E52F006C6F89 /* SenTestingKit.framework */; };
 		FD9E369314A9E6E3006C6F89 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -30,7 +37,6 @@
 		FD9E36D314A9ECBB006C6F89 /* Source.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E36B814A9ECBB006C6F89 /* Source.m */; };
 		FD9E36D414A9ECBB006C6F89 /* LeafNode.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E36BB14A9ECBB006C6F89 /* LeafNode.m */; };
 		FD9E36D514A9ECBB006C6F89 /* TreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E36BD14A9ECBB006C6F89 /* TreeNode.m */; };
-		FD9E36D614A9ECBB006C6F89 /* PBMetaDataResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E36C114A9ECBB006C6F89 /* PBMetaDataResolver.m */; };
 		FD9E36D714A9ECBB006C6F89 /* ThreadSafeMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E36C314A9ECBB006C6F89 /* ThreadSafeMutableDictionary.m */; };
 		FD9E36D814A9ECBB006C6F89 /* Transformers.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E36C514A9ECBB006C6F89 /* Transformers.m */; };
 		FD9E36E714A9ED03006C6F89 /* ActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD9E36DA14A9ED03006C6F89 /* ActionSheet.xib */; };
@@ -44,10 +50,9 @@
 		FD9E36EF14A9ED03006C6F89 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD9E36E514A9ED03006C6F89 /* MainWindow.xib */; };
 		FD9E36F014A9ED03006C6F89 /* MoveAction.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD9E36E614A9ED03006C6F89 /* MoveAction.xib */; };
 		FD9E36F714A9F064006C6F89 /* TestSpotlightPredicates.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E36F614A9F064006C6F89 /* TestSpotlightPredicates.m */; };
-		FD9E36FA14A9F80D006C6F89 /* PBMetaDataPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E36F914A9F80D006C6F89 /* PBMetaDataPredicate.m */; };
-		FD9E370114AA2395006C6F89 /* PBMetaDataComparisonPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E370014AA2394006C6F89 /* PBMetaDataComparisonPredicate.m */; };
 		FD9E370414AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E370314AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m */; };
 		FDBB239614AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBB239514AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m */; };
+		FDBBE89C14D6AC640028B051 /* PBMetaDateRowTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBBE89B14D6AC640028B051 /* PBMetaDateRowTemplate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,10 +73,24 @@
 		32CA4F630368D1EE00C91783 /* Sorter_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sorter_Prefix.pch; sourceTree = "<group>"; };
 		77C82804067257F0000B614F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		8D1107320486CEB800E47090 /* Sorter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sorter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD00699B14E30B960046E7C0 /* TestPBMetaDataCompoundPredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPBMetaDataCompoundPredicate.h; sourceTree = "<group>"; };
+		FD00699C14E30B960046E7C0 /* TestPBMetaDataCompoundPredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPBMetaDataCompoundPredicate.m; sourceTree = "<group>"; };
+		FD00699E14E30DBA0046E7C0 /* PBMetaDataCompoundPredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBMetaDataCompoundPredicate.h; sourceTree = "<group>"; };
+		FD00699F14E30DBA0046E7C0 /* PBMetaDataCompoundPredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBMetaDataCompoundPredicate.m; sourceTree = "<group>"; };
 		FD0DB57114AB4A7200768447 /* PBSourceObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBSourceObserver.h; sourceTree = "<group>"; };
 		FD0DB57214AB4A7200768447 /* PBSourceObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBSourceObserver.m; sourceTree = "<group>"; };
 		FD2F389C14B84D9F0073D2CF /* Sorter_DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sorter_DataModel.xcdatamodel; sourceTree = "<group>"; };
 		FD2F389D14B84D9F0073D2CF /* Sorter_DataModel_ 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Sorter_DataModel_ 2.xcdatamodel"; sourceTree = "<group>"; };
+		FD2F389F14B8DBF60073D2CF /* TestPBMetaDataDatePredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPBMetaDataDatePredicate.h; sourceTree = "<group>"; };
+		FD2F38A014B8DBF60073D2CF /* TestPBMetaDataDatePredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPBMetaDataDatePredicate.m; sourceTree = "<group>"; };
+		FD8EB37614E198D100E69302 /* PBMetaDataComparisonPredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBMetaDataComparisonPredicate.h; sourceTree = "<group>"; };
+		FD8EB37714E198D100E69302 /* PBMetaDataComparisonPredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBMetaDataComparisonPredicate.m; sourceTree = "<group>"; };
+		FD8EB37814E198D100E69302 /* PBMetaDataPredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBMetaDataPredicate.h; sourceTree = "<group>"; };
+		FD8EB37914E198D100E69302 /* PBMetaDataPredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBMetaDataPredicate.m; sourceTree = "<group>"; };
+		FD8EB37A14E198D100E69302 /* PBMetaDataResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBMetaDataResolver.h; sourceTree = "<group>"; };
+		FD8EB37B14E198D100E69302 /* PBMetaDataResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBMetaDataResolver.m; sourceTree = "<group>"; };
+		FD8EB37F14E198FB00E69302 /* PBMetaDataDatePredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBMetaDataDatePredicate.h; sourceTree = "<group>"; };
+		FD8EB38014E198FB00E69302 /* PBMetaDataDatePredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBMetaDataDatePredicate.m; sourceTree = "<group>"; };
 		FD9E363614A9D5DB006C6F89 /* Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD9E363D14A9D5DB006C6F89 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		FD9E363F14A9D5DB006C6F89 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -112,8 +131,6 @@
 		FD9E36BC14A9ECBB006C6F89 /* TreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeNode.h; sourceTree = "<group>"; };
 		FD9E36BD14A9ECBB006C6F89 /* TreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeNode.m; sourceTree = "<group>"; };
 		FD9E36BE14A9ECBB006C6F89 /* TreeSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeSupport.h; sourceTree = "<group>"; };
-		FD9E36C014A9ECBB006C6F89 /* PBMetaDataResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBMetaDataResolver.h; sourceTree = "<group>"; };
-		FD9E36C114A9ECBB006C6F89 /* PBMetaDataResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBMetaDataResolver.m; sourceTree = "<group>"; };
 		FD9E36C214A9ECBB006C6F89 /* ThreadSafeMutableDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadSafeMutableDictionary.h; sourceTree = "<group>"; };
 		FD9E36C314A9ECBB006C6F89 /* ThreadSafeMutableDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadSafeMutableDictionary.m; sourceTree = "<group>"; };
 		FD9E36C414A9ECBB006C6F89 /* Transformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transformers.h; sourceTree = "<group>"; };
@@ -131,14 +148,12 @@
 		FD9E36F314A9ED71006C6F89 /* Sorter-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Sorter-Info.plist"; sourceTree = SOURCE_ROOT; };
 		FD9E36F514A9F064006C6F89 /* TestSpotlightPredicates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSpotlightPredicates.h; sourceTree = "<group>"; };
 		FD9E36F614A9F064006C6F89 /* TestSpotlightPredicates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSpotlightPredicates.m; sourceTree = "<group>"; };
-		FD9E36F814A9F80D006C6F89 /* PBMetaDataPredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBMetaDataPredicate.h; sourceTree = "<group>"; };
-		FD9E36F914A9F80D006C6F89 /* PBMetaDataPredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBMetaDataPredicate.m; sourceTree = "<group>"; };
-		FD9E36FF14AA2394006C6F89 /* PBMetaDataComparisonPredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBMetaDataComparisonPredicate.h; sourceTree = "<group>"; };
-		FD9E370014AA2394006C6F89 /* PBMetaDataComparisonPredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBMetaDataComparisonPredicate.m; sourceTree = "<group>"; };
 		FD9E370214AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPBMetaDataComparisonPredicate.h; sourceTree = "<group>"; };
 		FD9E370314AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPBMetaDataComparisonPredicate.m; sourceTree = "<group>"; };
 		FDBB239414AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+PBCoreDataSugar.h"; sourceTree = "<group>"; };
 		FDBB239514AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+PBCoreDataSugar.m"; sourceTree = "<group>"; };
+		FDBBE89A14D6AC640028B051 /* PBMetaDateRowTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBMetaDateRowTemplate.h; path = RuleEditor/PBMetaDateRowTemplate.h; sourceTree = "<group>"; };
+		FDBBE89B14D6AC640028B051 /* PBMetaDateRowTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBMetaDateRowTemplate.m; path = RuleEditor/PBMetaDateRowTemplate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +228,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FD8EB37514E198D100E69302 /* MetaData Support */ = {
+			isa = PBXGroup;
+			children = (
+				FD8EB37614E198D100E69302 /* PBMetaDataComparisonPredicate.h */,
+				FD8EB37714E198D100E69302 /* PBMetaDataComparisonPredicate.m */,
+				FD8EB37814E198D100E69302 /* PBMetaDataPredicate.h */,
+				FD8EB37914E198D100E69302 /* PBMetaDataPredicate.m */,
+				FD8EB37A14E198D100E69302 /* PBMetaDataResolver.h */,
+				FD8EB37B14E198D100E69302 /* PBMetaDataResolver.m */,
+				FD8EB37F14E198FB00E69302 /* PBMetaDataDatePredicate.h */,
+				FD8EB38014E198FB00E69302 /* PBMetaDataDatePredicate.m */,
+				FD00699E14E30DBA0046E7C0 /* PBMetaDataCompoundPredicate.h */,
+				FD00699F14E30DBA0046E7C0 /* PBMetaDataCompoundPredicate.m */,
+			);
+			path = "MetaData Support";
+			sourceTree = "<group>";
+		};
 		FD9E363B14A9D5DB006C6F89 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +253,10 @@
 				FD9E36F614A9F064006C6F89 /* TestSpotlightPredicates.m */,
 				FD9E370214AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.h */,
 				FD9E370314AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m */,
+				FD00699B14E30B960046E7C0 /* TestPBMetaDataCompoundPredicate.h */,
+				FD00699C14E30B960046E7C0 /* TestPBMetaDataCompoundPredicate.m */,
+				FD2F389F14B8DBF60073D2CF /* TestPBMetaDataDatePredicate.h */,
+				FD2F38A014B8DBF60073D2CF /* TestPBMetaDataDatePredicate.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -245,6 +281,8 @@
 				FD9E36AA14A9ECBB006C6F89 /* FSEvents */,
 				FD9E36B214A9ECBB006C6F89 /* Models */,
 				FD9E36B914A9ECBB006C6F89 /* Tree Support */,
+				FDBBE89914D6ABFD0028B051 /* RuleEditor */,
+				FD8EB37514E198D100E69302 /* MetaData Support */,
 				FD9E36BF14A9ECBB006C6F89 /* Utils */,
 			);
 			path = Classes;
@@ -339,16 +377,10 @@
 		FD9E36BF14A9ECBB006C6F89 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				FD9E36C014A9ECBB006C6F89 /* PBMetaDataResolver.h */,
-				FD9E36C114A9ECBB006C6F89 /* PBMetaDataResolver.m */,
 				FD9E36C214A9ECBB006C6F89 /* ThreadSafeMutableDictionary.h */,
 				FD9E36C314A9ECBB006C6F89 /* ThreadSafeMutableDictionary.m */,
 				FD9E36C414A9ECBB006C6F89 /* Transformers.h */,
 				FD9E36C514A9ECBB006C6F89 /* Transformers.m */,
-				FD9E36F814A9F80D006C6F89 /* PBMetaDataPredicate.h */,
-				FD9E36F914A9F80D006C6F89 /* PBMetaDataPredicate.m */,
-				FD9E36FF14AA2394006C6F89 /* PBMetaDataComparisonPredicate.h */,
-				FD9E370014AA2394006C6F89 /* PBMetaDataComparisonPredicate.m */,
 				FDBB239414AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.h */,
 				FDBB239514AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m */,
 			);
@@ -380,6 +412,15 @@
 				FD9E36E414A9ED03006C6F89 /* ToolbarPlus.png */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		FDBBE89914D6ABFD0028B051 /* RuleEditor */ = {
+			isa = PBXGroup;
+			children = (
+				FDBBE89A14D6AC640028B051 /* PBMetaDateRowTemplate.h */,
+				FDBBE89B14D6AC640028B051 /* PBMetaDateRowTemplate.m */,
+			);
+			name = RuleEditor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -517,14 +558,17 @@
 				FD9E36D314A9ECBB006C6F89 /* Source.m in Sources */,
 				FD9E36D414A9ECBB006C6F89 /* LeafNode.m in Sources */,
 				FD9E36D514A9ECBB006C6F89 /* TreeNode.m in Sources */,
-				FD9E36D614A9ECBB006C6F89 /* PBMetaDataResolver.m in Sources */,
 				FD9E36D714A9ECBB006C6F89 /* ThreadSafeMutableDictionary.m in Sources */,
 				FD9E36D814A9ECBB006C6F89 /* Transformers.m in Sources */,
-				FD9E36FA14A9F80D006C6F89 /* PBMetaDataPredicate.m in Sources */,
-				FD9E370114AA2395006C6F89 /* PBMetaDataComparisonPredicate.m in Sources */,
 				FD0DB57314AB4A7200768447 /* PBSourceObserver.m in Sources */,
 				FDBB239614AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m in Sources */,
 				FD2F389E14B84D9F0073D2CF /* Sorter_DataModel_2.xcdatamodeld in Sources */,
+				FDBBE89C14D6AC640028B051 /* PBMetaDateRowTemplate.m in Sources */,
+				FD8EB37C14E198D100E69302 /* PBMetaDataComparisonPredicate.m in Sources */,
+				FD8EB37D14E198D100E69302 /* PBMetaDataPredicate.m in Sources */,
+				FD8EB37E14E198D100E69302 /* PBMetaDataResolver.m in Sources */,
+				FD8EB38114E198FB00E69302 /* PBMetaDataDatePredicate.m in Sources */,
+				FD0069A014E30DBA0046E7C0 /* PBMetaDataCompoundPredicate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +578,8 @@
 			files = (
 				FD9E36F714A9F064006C6F89 /* TestSpotlightPredicates.m in Sources */,
 				FD9E370414AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m in Sources */,
+				FD2F38A114B8DBF60073D2CF /* TestPBMetaDataDatePredicate.m in Sources */,
+				FD00699D14E30B960046E7C0 /* TestPBMetaDataCompoundPredicate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

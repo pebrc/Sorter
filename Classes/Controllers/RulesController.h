@@ -25,6 +25,7 @@
 #import "Transformers.h"
 
 @interface RulesController : NSObjectController {
+    IBOutlet NSPredicateEditor * editor;
     
     
 }

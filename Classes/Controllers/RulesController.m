@@ -20,9 +20,18 @@
 
 
 #import "RulesController.h"
-
+#import "PBMetaDateRowTemplate.h"
 
 @implementation RulesController
+
+- (void) awakeFromNib {
+    NSMutableArray * templates = [[editor rowTemplates]mutableCopy];
+    NSArray * initialExpr = [NSArray arrayWithObjects:[NSExpression expressionForKeyPath:@"kMDItemFSCreationDate"], nil];
+    PBMetaDateRowTemplate * custom = [[PBMetaDateRowTemplate alloc] initWithLeftExpressions:initialExpr];
+    [templates addObject:custom];
+    [editor setRowTemplates:templates];
+    [templates release];
+}
 
  
 - (void) showOpenPanel:(id) sender ForKey:(NSString *)key withTransformation:(id (^)(NSURL *))block {
