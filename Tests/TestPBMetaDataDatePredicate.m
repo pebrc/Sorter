@@ -15,7 +15,10 @@ static const double test_day_from = 346636800; //26.12.2011 0:00
 static const double test_day_until = 346723199;//26.12.2011 23:59
 
 
-NSString * const TestDate = @"%@ == CAST(%lf, \"NSDate\")";
+NSString * const TestOnDate = @"%@ == CAST(%lf, \"NSDate\")";
+NSString * const TestBeforeDate = @"%@ < CAST(%lf, \"NSDate\")";
+NSString * const TestAfterDate = @"%@ > CAST(%lf, \"NSDate\")";
+
 @implementation TestPBMetaDataDatePredicate
 
 // All code under test must be linked into the Unit Test bundle
@@ -70,17 +73,16 @@ NSString * const TestDate = @"%@ == CAST(%lf, \"NSDate\")";
 //exactely InRange(kMDItemContentCreationDate,346633200,     346719600)))
 
 - (void) testExactDatePredicate {
-    NSComparisonPredicate * orig = (NSComparisonPredicate*)[NSPredicate predicateWithFormat:TestDate, @"kMDItemContentCreationDate", test_date]; 
+    NSComparisonPredicate * orig = (NSComparisonPredicate*)[NSPredicate predicateWithFormat:TestOnDate, @"kMDItemContentCreationDate", test_date]; 
     PBMetaDataPredicate * pred = [PBMetaDataPredicate predicateFromPredicate:orig];
     NSString * expected = [NSString stringWithFormat:@"InRange(kMDItemContentCreationDate, %lf, %lf)", test_day_from, test_day_until ];
     STAssertEqualObjects([pred predicateFormat],expected, @"Not a spotlight compatible result");
-    //STAssertTrue([[exp description] isEqualToString:expected], @"Not a spotlight compatible result");
         
 }
 
 
 - (void) testKeyPathAttributesArePassedThroughToWrapper {
-    NSComparisonPredicate * orig = (NSComparisonPredicate*)[NSPredicate predicateWithFormat:TestDate, @"kMDItemContentModificationDate", test_date]; 
+    NSComparisonPredicate * orig = (NSComparisonPredicate*)[NSPredicate predicateWithFormat:TestOnDate, @"kMDItemContentModificationDate", test_date]; 
     PBMetaDataPredicate * pred = [PBMetaDataPredicate predicateFromPredicate:orig];
 
     NSString * expected = [NSString stringWithFormat:@"InRange(kMDItemContentModificationDate, %lf, %lf)", test_day_from, test_day_until ];
@@ -88,15 +90,46 @@ NSString * const TestDate = @"%@ == CAST(%lf, \"NSDate\")";
 
     
 }
-//Test to write:
-//different lhs
 
-//&& instead of AND
+//before (kMDItemContentCreationDate &lt; 347583600))
+- (void) testBeforeFixedDate {
+    NSComparisonPredicate * orig = (NSComparisonPredicate*)[NSPredicate predicateWithFormat: TestBeforeDate,@"kMDItemContentModificationDate", test_date]; 
+    PBMetaDataPredicate * pred = [PBMetaDataPredicate predicateFromPredicate:orig];
+    NSString * expected = [NSString stringWithFormat:@"kMDItemContentModificationDate < %lf", test_date]; 
+    STAssertEqualObjects([pred predicateFormat],expected, @"This should be a the attribute, a less than operater and a double value");
+    
+}
+
+
+//after
+
+- (void) testAfterFixedDate {
+    NSComparisonPredicate * orig = (NSComparisonPredicate*)[NSPredicate predicateWithFormat: TestAfterDate,@"kMDItemContentModificationDate", test_date]; 
+    PBMetaDataPredicate * pred = [PBMetaDataPredicate predicateFromPredicate:orig];
+    NSString * expected = [NSString stringWithFormat:@"kMDItemContentModificationDate > %lf", test_date]; 
+    STAssertEqualObjects([pred predicateFormat],expected, @"This should be a the attribute, a greater than operater and a double value");
+    
+}
+
+-(void) testWithLastXDays {
+    NSString * minus10Days = @"$time.today(-10d)";
+    NSString * todayPlusOne = @"time.today(+1d)";
+    NSComparisonPredicate * orig = (NSComparisonPredicate*)[NSPredicate predicateWithFormat: @"%@ BETWEEN %@",@"kMDItemContentModificationDate", [NSArray arrayWithObjects:minus10Days, todayPlusOne, nil]]; 
+    PBMetaDataPredicate * pred = [PBMetaDataPredicate predicateFromPredicate:orig];
+    NSString * expected = [NSString stringWithFormat:@"InRange(kMDItemContentModificationDate, %@, %@)", minus10Days, todayPlusOne]; 
+    STAssertEqualObjects([pred predicateFormat],expected, @"This should be an inrange function , the attribute and two time variables");
+
+
+    
+}
+
+
+
+//Test to write:
+//nil strategy
 
 //within last x days
 
-//before (kMDItemContentCreationDate &lt; 347583600))
-//after
 //today  InRange(kMDItemContentCreationDate,$time.today,$time.today(+1)))
 //yesterday
 //this week InRange(kMDItemContentCreationDate, $time.today(-1w),$time.today(+1d))

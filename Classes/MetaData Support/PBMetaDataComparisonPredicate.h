@@ -10,4 +10,6 @@
 
 @interface PBMetaDataComparisonPredicate : NSComparisonPredicate
 
+- (NSString *) operatorString;
+
 @end

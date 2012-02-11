@@ -8,7 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "PBMetaDataComparisonPredicate.h"
+#import "PBMetaDataDateStrategy.h"
 
-@interface PBMetaDataDatePredicate : PBMetaDataComparisonPredicate 
+@interface PBMetaDataDatePredicate : PBMetaDataComparisonPredicate {
+@private
+    id<PBMetaDataDateStrategy> strategy;
 
+}
+
++ (PBMetaDataDatePredicate*) predicateFromPredicate: (NSComparisonPredicate*) predicate;
 @end

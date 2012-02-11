@@ -58,24 +58,17 @@
 			return [[[PBMetaDataCompoundPredicate alloc] initWithType:type subpredicates:resultingSubPredicates] autorelease];
 		}
         
-	} else if ([source isKindOfClass:[NSComparisonPredicate class]]) {        
+	} else if ([source isKindOfClass:[NSComparisonPredicate class]]) {
         NSComparisonPredicate * src = (NSComparisonPredicate*) source;
-        if ([[src rightExpression] expressionType] == NSConstantValueExpressionType) {
-            if([[[src rightExpression] constantValue]isKindOfClass:[NSDate class]]) {
-                return [PBMetaDataDatePredicate predicateWithLeftExpression:[src leftExpression] 
-                                                            rightExpression:[src rightExpression]
-                                                                   modifier:[src comparisonPredicateModifier] 
-                                                                       type:[src predicateOperatorType] 
-                                                                    options:[src options]];
-            }
+        NSPredicate * res = [PBMetaDataDatePredicate predicateFromPredicate:src];
+        if (!res) {
+            return [PBMetaDataComparisonPredicate predicateWithLeftExpression:[src leftExpression] 
+                                                              rightExpression:[src rightExpression] 
+                                                                     modifier:[src comparisonPredicateModifier]
+                                                                         type:[src predicateOperatorType]
+                                                                      options:[src options]];
         }
-        
-        
-		return [PBMetaDataComparisonPredicate predicateWithLeftExpression:[src leftExpression] 
-												  rightExpression:[src rightExpression] 
-														 modifier:[src comparisonPredicateModifier]
-															 type:[src predicateOperatorType]
-														  options:[src options]];
+        return res;
 	}
 	return source;
 }

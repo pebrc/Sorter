@@ -18,7 +18,6 @@ typedef struct  {
 } expr_tuple;
 
 @interface PBMetaDataComparisonPredicate(private) 
-- (NSString *) operatorString;
 - (NSString *) optionString;
 + (NSExpression*) addWildcardTo: (NSExpression *) orig left:(BOOL)l right:(BOOL)r;
 + (expr_tuple *) replaceNonCompatibleOperations: (expr_tuple *) tuple;

@@ -11,6 +11,10 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		FD00699D14E30B960046E7C0 /* TestPBMetaDataCompoundPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD00699C14E30B960046E7C0 /* TestPBMetaDataCompoundPredicate.m */; };
 		FD0069A014E30DBA0046E7C0 /* PBMetaDataCompoundPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD00699F14E30DBA0046E7C0 /* PBMetaDataCompoundPredicate.m */; };
+		FD0069A414E451BE0046E7C0 /* PBSingleDateStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0069A314E451BE0046E7C0 /* PBSingleDateStrategy.m */; };
+		FD0069A714E6825A0046E7C0 /* PBDefaultDateStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0069A614E6825A0046E7C0 /* PBDefaultDateStrategy.m */; };
+		FD0069AA14E684030046E7C0 /* PBAbstractDateStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0069A914E684020046E7C0 /* PBAbstractDateStrategy.m */; };
+		FD0069AD14E688560046E7C0 /* PBVariableDateStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0069AC14E688550046E7C0 /* PBVariableDateStrategy.m */; };
 		FD0DB57314AB4A7200768447 /* PBSourceObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0DB57214AB4A7200768447 /* PBSourceObserver.m */; };
 		FD2F389E14B84D9F0073D2CF /* Sorter_DataModel_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD2F389B14B84D9F0073D2CF /* Sorter_DataModel_2.xcdatamodeld */; };
 		FD2F38A114B8DBF60073D2CF /* TestPBMetaDataDatePredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2F38A014B8DBF60073D2CF /* TestPBMetaDataDatePredicate.m */; };
@@ -77,6 +81,15 @@
 		FD00699C14E30B960046E7C0 /* TestPBMetaDataCompoundPredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPBMetaDataCompoundPredicate.m; sourceTree = "<group>"; };
 		FD00699E14E30DBA0046E7C0 /* PBMetaDataCompoundPredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBMetaDataCompoundPredicate.h; sourceTree = "<group>"; };
 		FD00699F14E30DBA0046E7C0 /* PBMetaDataCompoundPredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBMetaDataCompoundPredicate.m; sourceTree = "<group>"; };
+		FD0069A114E4503E0046E7C0 /* PBMetaDataDateStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBMetaDataDateStrategy.h; sourceTree = "<group>"; };
+		FD0069A214E451BE0046E7C0 /* PBSingleDateStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBSingleDateStrategy.h; sourceTree = "<group>"; };
+		FD0069A314E451BE0046E7C0 /* PBSingleDateStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBSingleDateStrategy.m; sourceTree = "<group>"; };
+		FD0069A514E682590046E7C0 /* PBDefaultDateStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBDefaultDateStrategy.h; sourceTree = "<group>"; };
+		FD0069A614E6825A0046E7C0 /* PBDefaultDateStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBDefaultDateStrategy.m; sourceTree = "<group>"; };
+		FD0069A814E684020046E7C0 /* PBAbstractDateStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBAbstractDateStrategy.h; sourceTree = "<group>"; };
+		FD0069A914E684020046E7C0 /* PBAbstractDateStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBAbstractDateStrategy.m; sourceTree = "<group>"; };
+		FD0069AB14E688550046E7C0 /* PBVariableDateStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBVariableDateStrategy.h; sourceTree = "<group>"; };
+		FD0069AC14E688550046E7C0 /* PBVariableDateStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBVariableDateStrategy.m; sourceTree = "<group>"; };
 		FD0DB57114AB4A7200768447 /* PBSourceObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBSourceObserver.h; sourceTree = "<group>"; };
 		FD0DB57214AB4A7200768447 /* PBSourceObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBSourceObserver.m; sourceTree = "<group>"; };
 		FD2F389C14B84D9F0073D2CF /* Sorter_DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sorter_DataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -241,6 +254,15 @@
 				FD8EB38014E198FB00E69302 /* PBMetaDataDatePredicate.m */,
 				FD00699E14E30DBA0046E7C0 /* PBMetaDataCompoundPredicate.h */,
 				FD00699F14E30DBA0046E7C0 /* PBMetaDataCompoundPredicate.m */,
+				FD0069A114E4503E0046E7C0 /* PBMetaDataDateStrategy.h */,
+				FD0069A214E451BE0046E7C0 /* PBSingleDateStrategy.h */,
+				FD0069A314E451BE0046E7C0 /* PBSingleDateStrategy.m */,
+				FD0069A514E682590046E7C0 /* PBDefaultDateStrategy.h */,
+				FD0069A614E6825A0046E7C0 /* PBDefaultDateStrategy.m */,
+				FD0069A814E684020046E7C0 /* PBAbstractDateStrategy.h */,
+				FD0069A914E684020046E7C0 /* PBAbstractDateStrategy.m */,
+				FD0069AB14E688550046E7C0 /* PBVariableDateStrategy.h */,
+				FD0069AC14E688550046E7C0 /* PBVariableDateStrategy.m */,
 			);
 			path = "MetaData Support";
 			sourceTree = "<group>";
@@ -569,6 +591,10 @@
 				FD8EB37E14E198D100E69302 /* PBMetaDataResolver.m in Sources */,
 				FD8EB38114E198FB00E69302 /* PBMetaDataDatePredicate.m in Sources */,
 				FD0069A014E30DBA0046E7C0 /* PBMetaDataCompoundPredicate.m in Sources */,
+				FD0069A414E451BE0046E7C0 /* PBSingleDateStrategy.m in Sources */,
+				FD0069A714E6825A0046E7C0 /* PBDefaultDateStrategy.m in Sources */,
+				FD0069AA14E684030046E7C0 /* PBAbstractDateStrategy.m in Sources */,
+				FD0069AD14E688560046E7C0 /* PBVariableDateStrategy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
