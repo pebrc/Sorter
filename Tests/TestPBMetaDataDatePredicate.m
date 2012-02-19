@@ -21,6 +21,14 @@ NSString * const TestAfterDate = @"%@ > CAST(%lf, \"NSDate\")";
 
 @implementation TestPBMetaDataDatePredicate
 
+-(void) setUp {
+    NSTimeZone * tz = [NSTimeZone defaultTimeZone];
+    NSDate * testDate = [NSDate dateWithTimeIntervalSinceReferenceDate:test_date];
+    NSInteger offset =  [tz secondsFromGMTForDate:testDate];
+    local_day_from = test_day_from - offset;
+    local_day_until = test_day_until - offset;
+}
+
 // All code under test must be linked into the Unit Test bundle
 - (void)testExistingImplementationInRange
 {
@@ -73,9 +81,10 @@ NSString * const TestAfterDate = @"%@ > CAST(%lf, \"NSDate\")";
 //exactely InRange(kMDItemContentCreationDate,346633200,     346719600)))
 
 - (void) testExactDatePredicate {
+    
     NSComparisonPredicate * orig = (NSComparisonPredicate*)[NSPredicate predicateWithFormat:TestOnDate, @"kMDItemContentCreationDate", test_date]; 
     PBMetaDataPredicate * pred = [PBMetaDataPredicate predicateFromPredicate:orig];
-    NSString * expected = [NSString stringWithFormat:@"InRange(kMDItemContentCreationDate, %lf, %lf)", test_day_from, test_day_until ];
+    NSString * expected = [NSString stringWithFormat:@"InRange(kMDItemContentCreationDate, %lf, %lf)", local_day_from, local_day_until ];
     STAssertEqualObjects([pred predicateFormat],expected, @"Not a spotlight compatible result");
         
 }
@@ -85,7 +94,7 @@ NSString * const TestAfterDate = @"%@ > CAST(%lf, \"NSDate\")";
     NSComparisonPredicate * orig = (NSComparisonPredicate*)[NSPredicate predicateWithFormat:TestOnDate, @"kMDItemContentModificationDate", test_date]; 
     PBMetaDataPredicate * pred = [PBMetaDataPredicate predicateFromPredicate:orig];
 
-    NSString * expected = [NSString stringWithFormat:@"InRange(kMDItemContentModificationDate, %lf, %lf)", test_day_from, test_day_until ];
+    NSString * expected = [NSString stringWithFormat:@"InRange(kMDItemContentModificationDate, %lf, %lf)", local_day_from, local_day_until ];
     STAssertEqualObjects([pred predicateFormat],expected, @"Not the correct attribute in the result");
 
     

@@ -56,7 +56,8 @@
 		FD9E36F714A9F064006C6F89 /* TestSpotlightPredicates.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E36F614A9F064006C6F89 /* TestSpotlightPredicates.m */; };
 		FD9E370414AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E370314AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m */; };
 		FDBB239614AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBB239514AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m */; };
-		FDBBE89C14D6AC640028B051 /* PBMetaDateRowTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBBE89B14D6AC640028B051 /* PBMetaDateRowTemplate.m */; };
+		FDBBE89C14D6AC640028B051 /* PBMetaVariableDateRowTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBBE89B14D6AC640028B051 /* PBMetaVariableDateRowTemplate.m */; };
+		FDFCB9BD14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFCB9BC14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,8 +166,10 @@
 		FD9E370314AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPBMetaDataComparisonPredicate.m; sourceTree = "<group>"; };
 		FDBB239414AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+PBCoreDataSugar.h"; sourceTree = "<group>"; };
 		FDBB239514AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+PBCoreDataSugar.m"; sourceTree = "<group>"; };
-		FDBBE89A14D6AC640028B051 /* PBMetaDateRowTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBMetaDateRowTemplate.h; path = RuleEditor/PBMetaDateRowTemplate.h; sourceTree = "<group>"; };
-		FDBBE89B14D6AC640028B051 /* PBMetaDateRowTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBMetaDateRowTemplate.m; path = RuleEditor/PBMetaDateRowTemplate.m; sourceTree = "<group>"; };
+		FDBBE89A14D6AC640028B051 /* PBMetaVariableDateRowTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBMetaVariableDateRowTemplate.h; path = RuleEditor/PBMetaVariableDateRowTemplate.h; sourceTree = "<group>"; };
+		FDBBE89B14D6AC640028B051 /* PBMetaVariableDateRowTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBMetaVariableDateRowTemplate.m; path = RuleEditor/PBMetaVariableDateRowTemplate.m; sourceTree = "<group>"; };
+		FDFCB9BB14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPBMetaVariableDateRowTemplate.h; sourceTree = "<group>"; };
+		FDFCB9BC14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPBMetaVariableDateRowTemplate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +282,8 @@
 				FD00699C14E30B960046E7C0 /* TestPBMetaDataCompoundPredicate.m */,
 				FD2F389F14B8DBF60073D2CF /* TestPBMetaDataDatePredicate.h */,
 				FD2F38A014B8DBF60073D2CF /* TestPBMetaDataDatePredicate.m */,
+				FDFCB9BB14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.h */,
+				FDFCB9BC14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -439,8 +444,8 @@
 		FDBBE89914D6ABFD0028B051 /* RuleEditor */ = {
 			isa = PBXGroup;
 			children = (
-				FDBBE89A14D6AC640028B051 /* PBMetaDateRowTemplate.h */,
-				FDBBE89B14D6AC640028B051 /* PBMetaDateRowTemplate.m */,
+				FDBBE89A14D6AC640028B051 /* PBMetaVariableDateRowTemplate.h */,
+				FDBBE89B14D6AC640028B051 /* PBMetaVariableDateRowTemplate.m */,
 			);
 			name = RuleEditor;
 			sourceTree = "<group>";
@@ -585,7 +590,7 @@
 				FD0DB57314AB4A7200768447 /* PBSourceObserver.m in Sources */,
 				FDBB239614AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m in Sources */,
 				FD2F389E14B84D9F0073D2CF /* Sorter_DataModel_2.xcdatamodeld in Sources */,
-				FDBBE89C14D6AC640028B051 /* PBMetaDateRowTemplate.m in Sources */,
+				FDBBE89C14D6AC640028B051 /* PBMetaVariableDateRowTemplate.m in Sources */,
 				FD8EB37C14E198D100E69302 /* PBMetaDataComparisonPredicate.m in Sources */,
 				FD8EB37D14E198D100E69302 /* PBMetaDataPredicate.m in Sources */,
 				FD8EB37E14E198D100E69302 /* PBMetaDataResolver.m in Sources */,
@@ -606,6 +611,7 @@
 				FD9E370414AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m in Sources */,
 				FD2F38A114B8DBF60073D2CF /* TestPBMetaDataDatePredicate.m in Sources */,
 				FD00699D14E30B960046E7C0 /* TestPBMetaDataCompoundPredicate.m in Sources */,
+				FDFCB9BD14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
