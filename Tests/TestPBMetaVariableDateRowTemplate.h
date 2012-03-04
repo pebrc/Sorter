@@ -9,10 +9,10 @@
 //  Logic unit tests contain unit test code that is designed to be linked into an independent test executable.
 
 #import <SenTestingKit/SenTestingKit.h>
-#import "PBMetaVariableDateRowTemplate.h"
+#import "PBMetaPresetRelativeDateRowTemplate.h"
 
 @interface TestPBMetaVariableDateRowTemplate : SenTestCase {
-    PBMetaVariableDateRowTemplate * template;
+    PBMetaPresetRelativeDateRowTemplate * template;
 }
 
 @end

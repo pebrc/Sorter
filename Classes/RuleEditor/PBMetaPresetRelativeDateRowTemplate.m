@@ -6,16 +6,16 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "PBMetaVariableDateRowTemplate.h"
+#import "PBMetaPresetRelativeDateRowTemplate.h"
 
 #define PBTodayPredicateOperatorType NSBetweenPredicateOperatorType
 #define PBYesterdayPredicateOperatorType NSBeginsWithPredicateOperatorType
 #define PBLastWeekPredicateOperatorType NSEndsWithPredicateOperatorType
 
-@interface PBMetaVariableDateRowTemplate(PrivateAPI) 
+@interface PBMetaPresetRelativeDateRowTemplate(PrivateAPI) 
 - (void) initPresets;
 @end
-@implementation PBMetaVariableDateRowTemplate
+@implementation PBMetaPresetRelativeDateRowTemplate
 @synthesize persistedOperators, metaDataVariables;
 
 - (id) init {

@@ -20,14 +20,14 @@
 
 
 #import "RulesController.h"
-#import "PBMetaVariableDateRowTemplate.h"
+#import "PBMetaPresetRelativeDateRowTemplate.h"
 
 @implementation RulesController
 
 - (void) awakeFromNib {
     NSMutableArray * templates = [[editor rowTemplates]mutableCopy];
     NSArray * initialExpr = [NSArray arrayWithObjects:[NSExpression expressionForKeyPath:@"kMDItemFSCreationDate"], nil];
-    PBMetaVariableDateRowTemplate * custom = [[PBMetaVariableDateRowTemplate alloc] initWithLeftExpressions:initialExpr];
+    PBMetaPresetRelativeDateRowTemplate * custom = [[PBMetaPresetRelativeDateRowTemplate alloc] initWithLeftExpressions:initialExpr];
     NSPredicateEditorRowTemplate * standard = [[NSPredicateEditorRowTemplate alloc] initWithLeftExpressions:initialExpr rightExpressionAttributeType:NSDateAttributeType modifier:NSDirectPredicateModifier operators:[NSArray arrayWithObjects:[NSNumber numberWithUnsignedInt: NSEqualToPredicateOperatorType], nil] options:0];
     [templates addObject:custom];
     [templates addObject:standard];

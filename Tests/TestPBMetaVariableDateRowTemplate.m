@@ -22,7 +22,7 @@ static NSPredicate* createTestLastWeekPredicate() {
 
 -(void) setUp {
     NSArray * initialExpr = [NSArray arrayWithObjects:[NSExpression expressionForKeyPath:@"kMDItemContentModificationDate"], nil];
-    template = [[PBMetaVariableDateRowTemplate alloc] initWithLeftExpressions:initialExpr];
+    template = [[PBMetaPresetRelativeDateRowTemplate alloc] initWithLeftExpressions:initialExpr];
 }
 
 // All code under test must be linked into the Unit Test bundle
