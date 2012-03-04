@@ -14,6 +14,7 @@
 
 @interface PBMetaPresetRelativeDateRowTemplate(PrivateAPI) 
 - (void) initPresets;
+- (BOOL) matchingVariables: (NSArray*) vars;
 @end
 @implementation PBMetaPresetRelativeDateRowTemplate
 @synthesize persistedOperators, metaDataVariables;
@@ -82,7 +83,7 @@
     id constantVal = [[comp rightExpression] constantValue];
     if(![constantVal isKindOfClass:[NSDate class]]) {
         if([constantVal isKindOfClass:[NSArray class]]) {
-            if ([[[comp rightExpression]description] rangeOfString:@"$time"].location != NSNotFound) {
+            if ([self matchingVariables:(NSArray*)constantVal]) {
                 return DBL_MAX;
             }
         }
@@ -131,6 +132,20 @@
     predicate = [NSComparisonPredicate predicateWithLeftExpression:[comp leftExpression] rightExpression:rhs modifier:[comp comparisonPredicateModifier] type:newOperator options:[comp options]];
     [super setPredicate:predicate];
     
+}
+
+-(BOOL) matchingVariables:(NSArray *)vars {
+    
+    NSSet * matches = [metaDataVariables keysOfEntriesPassingTest:^BOOL(id key, id obj, BOOL *stop) {
+        NSArray * curr = (NSArray *) obj;
+        if ([curr isEqualToArray:vars]) {
+            *stop = YES;
+            return YES;
+        }
+        return NO;
+
+    }];
+    return [matches count] > 0;
 }
 
 @end

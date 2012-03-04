@@ -12,9 +12,19 @@
 static NSPredicate* createTestLastWeekPredicate() {
     NSString * minus1Week = @"$time.today(-1w)";
     NSString * todayPlusOne = @"$time.today(+1d)";
-    return (NSComparisonPredicate*)[NSPredicate predicateWithFormat: @"kMDItemContentModificationDate == %@", [NSArray arrayWithObjects:minus1Week, todayPlusOne, nil]]; 
+    return (NSComparisonPredicate*)[NSPredicate predicateWithFormat: @"kMDItemContentModificationDate BETWEEN %@", [NSArray arrayWithObjects:minus1Week, todayPlusOne, nil]]; 
     
 }
+
+static NSPredicate* createTestLastTwoMonthPredicate() {
+    NSString * minus2Month = @"$time.today(-2M)";
+    NSString * todayPlusOne = @"$time.today(+1d)";
+    return (NSComparisonPredicate*)[NSPredicate predicateWithFormat: @"kMDItemContentModificationDate BETWEEN %@", [NSArray arrayWithObjects:minus2Month, todayPlusOne, nil]]; 
+    
+}
+
+
+
 
 
 @implementation TestPBMetaVariableDateRowTemplate
@@ -39,8 +49,16 @@ static NSPredicate* createTestLastWeekPredicate() {
     NSPredicate * testPredic = createTestLastWeekPredicate();
     [template setPredicate:testPredic];
     NSPredicate * result = [template predicateWithSubpredicates:[NSArray array]];
-    //no assert here but at least there should be no exception
+    STAssertEqualObjects([result description], [testPredic description], @"should be the same");    
     
 }
+
+-(void)testNotBeingToEagerWhenMatching 
+{
+    double result = [template matchForPredicate:createTestLastTwoMonthPredicate()];
+    STAssertEquals(result, 0.0, @"Should not match custom predicates");
+    
+}
+
 
 @end

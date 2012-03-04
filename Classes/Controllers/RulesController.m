@@ -21,6 +21,7 @@
 
 #import "RulesController.h"
 #import "PBMetaPresetRelativeDateRowTemplate.h"
+#import "PBMetaRelativeDateRowTemplate.h"
 
 @implementation RulesController
 
@@ -28,11 +29,14 @@
     NSMutableArray * templates = [[editor rowTemplates]mutableCopy];
     NSArray * initialExpr = [NSArray arrayWithObjects:[NSExpression expressionForKeyPath:@"kMDItemFSCreationDate"], nil];
     PBMetaPresetRelativeDateRowTemplate * custom = [[PBMetaPresetRelativeDateRowTemplate alloc] initWithLeftExpressions:initialExpr];
+    PBMetaRelativeDateRowTemplate * relative = [[PBMetaRelativeDateRowTemplate alloc] initWithLeftExpressions:initialExpr];
     NSPredicateEditorRowTemplate * standard = [[NSPredicateEditorRowTemplate alloc] initWithLeftExpressions:initialExpr rightExpressionAttributeType:NSDateAttributeType modifier:NSDirectPredicateModifier operators:[NSArray arrayWithObjects:[NSNumber numberWithUnsignedInt: NSEqualToPredicateOperatorType], nil] options:0];
     [templates addObject:custom];
+    [templates addObject:relative];
     [templates addObject:standard];
     [editor setRowTemplates:templates];
     [templates release];
+    
     NSArray * selected = [self selectedObjects];
     if ([selected count] == 1) {
         Rule * rule = (Rule *) [selected objectAtIndex:0];

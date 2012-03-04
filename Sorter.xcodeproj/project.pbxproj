@@ -18,6 +18,8 @@
 		FD0DB57314AB4A7200768447 /* PBSourceObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0DB57214AB4A7200768447 /* PBSourceObserver.m */; };
 		FD2F389E14B84D9F0073D2CF /* Sorter_DataModel_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD2F389B14B84D9F0073D2CF /* Sorter_DataModel_2.xcdatamodeld */; };
 		FD2F38A114B8DBF60073D2CF /* TestPBMetaDataDatePredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2F38A014B8DBF60073D2CF /* TestPBMetaDataDatePredicate.m */; };
+		FD612FE4150361FC0033641B /* PBMetaRelativeDateRowTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD612FE3150361FC0033641B /* PBMetaRelativeDateRowTemplate.m */; };
+		FD612FE7150378E00033641B /* TestPBMetaRelativeDateRow.m in Sources */ = {isa = PBXBuildFile; fileRef = FD612FE6150378E00033641B /* TestPBMetaRelativeDateRow.m */; };
 		FD8EB37C14E198D100E69302 /* PBMetaDataComparisonPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8EB37714E198D100E69302 /* PBMetaDataComparisonPredicate.m */; };
 		FD8EB37D14E198D100E69302 /* PBMetaDataPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8EB37914E198D100E69302 /* PBMetaDataPredicate.m */; };
 		FD8EB37E14E198D100E69302 /* PBMetaDataResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8EB37B14E198D100E69302 /* PBMetaDataResolver.m */; };
@@ -97,6 +99,10 @@
 		FD2F389D14B84D9F0073D2CF /* Sorter_DataModel_ 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Sorter_DataModel_ 2.xcdatamodel"; sourceTree = "<group>"; };
 		FD2F389F14B8DBF60073D2CF /* TestPBMetaDataDatePredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPBMetaDataDatePredicate.h; sourceTree = "<group>"; };
 		FD2F38A014B8DBF60073D2CF /* TestPBMetaDataDatePredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPBMetaDataDatePredicate.m; sourceTree = "<group>"; };
+		FD612FE2150361FC0033641B /* PBMetaRelativeDateRowTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBMetaRelativeDateRowTemplate.h; path = RuleEditor/PBMetaRelativeDateRowTemplate.h; sourceTree = "<group>"; };
+		FD612FE3150361FC0033641B /* PBMetaRelativeDateRowTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBMetaRelativeDateRowTemplate.m; path = RuleEditor/PBMetaRelativeDateRowTemplate.m; sourceTree = "<group>"; };
+		FD612FE5150378E00033641B /* TestPBMetaRelativeDateRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPBMetaRelativeDateRow.h; sourceTree = "<group>"; };
+		FD612FE6150378E00033641B /* TestPBMetaRelativeDateRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPBMetaRelativeDateRow.m; sourceTree = "<group>"; };
 		FD8EB37614E198D100E69302 /* PBMetaDataComparisonPredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBMetaDataComparisonPredicate.h; sourceTree = "<group>"; };
 		FD8EB37714E198D100E69302 /* PBMetaDataComparisonPredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBMetaDataComparisonPredicate.m; sourceTree = "<group>"; };
 		FD8EB37814E198D100E69302 /* PBMetaDataPredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBMetaDataPredicate.h; sourceTree = "<group>"; };
@@ -166,7 +172,7 @@
 		FD9E370314AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPBMetaDataComparisonPredicate.m; sourceTree = "<group>"; };
 		FDBB239414AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+PBCoreDataSugar.h"; sourceTree = "<group>"; };
 		FDBB239514AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+PBCoreDataSugar.m"; sourceTree = "<group>"; };
-		FDBBE89A14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; name = PBMetaPresetRelativeDateRowTemplate.h; path = RuleEditor/PBMetaPresetRelativeDateRowTemplate.h; sourceTree = "<group>"; };
+		FDBBE89A14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBMetaPresetRelativeDateRowTemplate.h; path = RuleEditor/PBMetaPresetRelativeDateRowTemplate.h; sourceTree = "<group>"; };
 		FDBBE89B14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBMetaPresetRelativeDateRowTemplate.m; path = RuleEditor/PBMetaPresetRelativeDateRowTemplate.m; sourceTree = "<group>"; };
 		FDFCB9BB14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPBMetaVariableDateRowTemplate.h; sourceTree = "<group>"; };
 		FDFCB9BC14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPBMetaVariableDateRowTemplate.m; sourceTree = "<group>"; };
@@ -284,6 +290,8 @@
 				FD2F38A014B8DBF60073D2CF /* TestPBMetaDataDatePredicate.m */,
 				FDFCB9BB14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.h */,
 				FDFCB9BC14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.m */,
+				FD612FE5150378E00033641B /* TestPBMetaRelativeDateRow.h */,
+				FD612FE6150378E00033641B /* TestPBMetaRelativeDateRow.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -446,6 +454,8 @@
 			children = (
 				FDBBE89A14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.h */,
 				FDBBE89B14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.m */,
+				FD612FE2150361FC0033641B /* PBMetaRelativeDateRowTemplate.h */,
+				FD612FE3150361FC0033641B /* PBMetaRelativeDateRowTemplate.m */,
 			);
 			name = RuleEditor;
 			sourceTree = "<group>";
@@ -600,6 +610,7 @@
 				FD0069A714E6825A0046E7C0 /* PBDefaultDateStrategy.m in Sources */,
 				FD0069AA14E684030046E7C0 /* PBAbstractDateStrategy.m in Sources */,
 				FD0069AD14E688560046E7C0 /* PBVariableDateStrategy.m in Sources */,
+				FD612FE4150361FC0033641B /* PBMetaRelativeDateRowTemplate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +623,7 @@
 				FD2F38A114B8DBF60073D2CF /* TestPBMetaDataDatePredicate.m in Sources */,
 				FD00699D14E30B960046E7C0 /* TestPBMetaDataCompoundPredicate.m in Sources */,
 				FDFCB9BD14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.m in Sources */,
+				FD612FE7150378E00033641B /* TestPBMetaRelativeDateRow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
