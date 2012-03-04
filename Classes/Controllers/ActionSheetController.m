@@ -91,7 +91,7 @@
 - (IBAction)showActionSheet:(id)sender {
     if(! actionSheet) {
         NSBundle *myBundle = [NSBundle bundleForClass:[self class]];
-        NSNib *nib = [[NSNib alloc] initWithNibNamed:@"ActionSheet" bundle:myBundle];
+        NSNib *nib = [[[NSNib alloc] initWithNibNamed:@"ActionSheet" bundle:myBundle]autorelease];
         BOOL success = [nib instantiateNibWithOwner:self topLevelObjects:nil];
         NSAssert(success, @"Failed to load Xib");
     }

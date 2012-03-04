@@ -14,6 +14,8 @@
     NSArray * lastScanned;
     NSInteger lastNumUnits;
     NSString * lastUnit;
+    NSArray * persistedOperators;
+    NSDictionary* significantPart;
 
 }
 @property (readonly) NSArray* persistedOperators;

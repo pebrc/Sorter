@@ -8,7 +8,10 @@
 
 #import <AppKit/AppKit.h>
 
-@interface PBMetaPresetRelativeDateRowTemplate : NSPredicateEditorRowTemplate 
+@interface PBMetaPresetRelativeDateRowTemplate : NSPredicateEditorRowTemplate {
+    NSArray * persistedOperators;
+    NSDictionary * metaDataVariables;
+}
 
 @property (readonly) NSArray* persistedOperators;
 @property (readonly) NSDictionary* metaDataVariables;
