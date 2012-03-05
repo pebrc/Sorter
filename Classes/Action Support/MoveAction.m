@@ -71,6 +71,18 @@
     return success;
 }
 
+-(void) setTarget:(NSString *)atarget{
+    if(target == atarget) {
+        return;
+    }
+    [self willChangeValueForKey:@"valid"];
+    [self willChangeValueForKey:@"target"];
+    [target release];
+    target = [atarget retain];
+    [self didChangeValueForKey:@"target"];
+    [self didChangeValueForKey:@"valid"];
+}
+
 - (NSURL *) targetURLFor:(NSURL *)file {
 	if (file != nil) {
 		NSURL *dir = [NSURL URLWithString:[self target]];
@@ -90,6 +102,10 @@
     }
     return [settingsController view];
 
+}
+
+-(BOOL) valid {
+    return target != nil;
 }
 
 #pragma mark NSCoding

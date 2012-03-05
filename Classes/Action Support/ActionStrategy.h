@@ -27,5 +27,6 @@
 - (NSString *) userDescription;
 - (NSString *) userConfigDescription;
 - (NSView *) settingsView;
+- (BOOL) valid;
 
 @end

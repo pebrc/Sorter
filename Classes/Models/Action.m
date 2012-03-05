@@ -22,7 +22,10 @@
 #import "Rule.h"
 #import <objc/runtime.h>
 
+@interface Action(PrivateAPI)
+    -(void) registerObserver:(id) obj AndStopObserving: (id)old;
 
+@end
 @implementation Action
 
 @dynamic order;
@@ -50,6 +53,8 @@
     return result;
 }
 
+
+
 - (NSView *) settingsView {
     id<ActionStrategy> s = [self strategy];
     if(s != NULL) {
@@ -69,6 +74,42 @@
 
 - (BOOL) handleItemAt: (NSURL *) url error: (NSError **)err{
     return [[self strategy] handleItemAt:url forRule:[self rule] error:err];
+}
+
+-(BOOL) valid {
+    return [[self strategy] valid];
+}
+
+-(void) setStrategy:(id<ActionStrategy>)strategy {
+
+    id old = [self primitiveValueForKey:@"strategy"];
+    if (strategy != old) {
+        [self registerObserver: strategy AndStopObserving: old];
+    }
+    [self willChangeValueForKey:@"strategy"];
+    [self setPrimitiveValue:strategy forKey:@"strategy"];
+    [self didChangeValueForKey:@"strategy"];
+    
+}
+
+- (void) registerObserver:(id)obj AndStopObserving:(id)old{
+    if(old) {
+        [old removeObserver:self forKeyPath:@"valid"];
+    }
+    if(obj) {
+        [obj addObserver:self 
+              forKeyPath:@"valid" 
+                 options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) 
+                 context:NULL];
+    }
+}
+
+-(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqual:@"valid"]) {
+        [self willChangeValueForKey:@"valid"];
+        [self didChangeValueForKey:@"valid"];
+    }
+    
 }
 
 @end
