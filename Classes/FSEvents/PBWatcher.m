@@ -64,7 +64,7 @@ static void _PBWatcherCallBack(ConstFSEventStreamRef streamRef, void *clientCall
 -(id) init {
 	self = [super init];
 	if (self != nil) {
-		[self setLatency:2.0];
+		[self setLatency:10.0];
 	}
 	return self;
 }
@@ -90,7 +90,7 @@ static void _PBWatcherCallBack(ConstFSEventStreamRef streamRef, void *clientCall
 										  &context, 
 										  (CFArrayRef)pathsToWatch, 
 										  [self sinceWhen],
-										  latency, kFSEventStreamCreateFlagUseCFTypes);
+										  latency, kFSEventStreamCreateFlagUseCFTypes|kFSEventStreamCreateFlagIgnoreSelf);
 	if(eventStream) {
 		FSEventStreamScheduleWithRunLoop(eventStream, [[NSRunLoop currentRunLoop] getCFRunLoop], kCFRunLoopDefaultMode);
 		

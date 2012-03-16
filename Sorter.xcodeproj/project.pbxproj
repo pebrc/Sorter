@@ -681,7 +681,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Sorter_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					NO_IO,
 					MY_DEBUG_FLAG,
 					"MY_DEBUG_DIR=/Users/brachwitz/tmp",
 				);

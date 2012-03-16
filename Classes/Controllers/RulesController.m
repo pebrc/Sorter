@@ -27,7 +27,7 @@
 
 - (void) awakeFromNib {
     NSMutableArray * templates = [[editor rowTemplates]mutableCopy];
-    NSArray * initialExpr = [NSArray arrayWithObjects:[NSExpression expressionForKeyPath:@"kMDItemFSCreationDate"], nil];
+    NSArray * initialExpr = [NSArray arrayWithObjects:[NSExpression expressionForKeyPath:@"kMDItemContentCreationDate"], nil];
     PBMetaPresetRelativeDateRowTemplate * custom = [[PBMetaPresetRelativeDateRowTemplate alloc] initWithLeftExpressions:initialExpr];
     PBMetaRelativeDateRowTemplate * relative = [[PBMetaRelativeDateRowTemplate alloc] initWithLeftExpressions:initialExpr];
     NSPredicateEditorRowTemplate * standard = [[NSPredicateEditorRowTemplate alloc] initWithLeftExpressions:initialExpr rightExpressionAttributeType:NSDateAttributeType modifier:NSDirectPredicateModifier operators:[NSArray arrayWithObjects:[NSNumber numberWithUnsignedInt: NSEqualToPredicateOperatorType], nil] options:0];
