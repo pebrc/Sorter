@@ -194,7 +194,10 @@
         path = [NSIndexPath indexPathWithIndex:numElements];
         //no selection but a parent source might be there already
         if(numElements > 0) {
-            parent = [contents objectAtIndex:0];
+            id <TreeSupport> node = [contents objectAtIndex:0];
+            parent = (Source *)[node representedObject];
+            path = [self findIndexPathFor:parent];
+            path = [path indexPathByAddingIndex:[[parent rules] count]];
         } else {
             parent = [self sourceWithDefaultLocation];
             [treeController insertObject:[TreeNode nodeWithModel:parent] atArrangedObjectIndexPath:path];
@@ -204,6 +207,7 @@
         }
 
     } else {
+        //there is a selection: get the selected object
         id <TreeSupport> node = [selected objectAtIndex:0]; 
         // add after last child
         if([node isLeaf] && [[node representedObject] isMemberOfClass: [Rule class]]) {
