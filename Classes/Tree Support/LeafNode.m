@@ -55,6 +55,10 @@
     return [backingModel title];
 }
 
+-(void) setNodeTitle:(NSString *) title {
+    [backingModel setTitle:title];
+}
+
 
 
 @end
