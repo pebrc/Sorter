@@ -59,6 +59,7 @@
 		FD9E370414AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E370314AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m */; };
 		FDBB239614AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBB239514AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m */; };
 		FDBBE89C14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBBE89B14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.m */; };
+		FDE4C16C1514B83700C3F9ED /* DeleteAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE4C16B1514B83700C3F9ED /* DeleteAction.m */; };
 		FDFCB9BD14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFCB9BC14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.m */; };
 /* End PBXBuildFile section */
 
@@ -174,6 +175,8 @@
 		FDBB239514AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+PBCoreDataSugar.m"; sourceTree = "<group>"; };
 		FDBBE89A14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBMetaPresetRelativeDateRowTemplate.h; path = RuleEditor/PBMetaPresetRelativeDateRowTemplate.h; sourceTree = "<group>"; };
 		FDBBE89B14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBMetaPresetRelativeDateRowTemplate.m; path = RuleEditor/PBMetaPresetRelativeDateRowTemplate.m; sourceTree = "<group>"; };
+		FDE4C16A1514B83700C3F9ED /* DeleteAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteAction.h; sourceTree = "<group>"; };
+		FDE4C16B1514B83700C3F9ED /* DeleteAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteAction.m; sourceTree = "<group>"; };
 		FDFCB9BB14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPBMetaVariableDateRowTemplate.h; sourceTree = "<group>"; };
 		FDFCB9BC14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPBMetaVariableDateRowTemplate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -329,6 +332,8 @@
 				FD9E369614A9ECBB006C6F89 /* ActionStrategy.h */,
 				FD9E369714A9ECBB006C6F89 /* MoveAction.h */,
 				FD9E369814A9ECBB006C6F89 /* MoveAction.m */,
+				FDE4C16A1514B83700C3F9ED /* DeleteAction.h */,
+				FDE4C16B1514B83700C3F9ED /* DeleteAction.m */,
 			);
 			path = "Action Support";
 			sourceTree = "<group>";
@@ -611,6 +616,7 @@
 				FD0069AA14E684030046E7C0 /* PBAbstractDateStrategy.m in Sources */,
 				FD0069AD14E688560046E7C0 /* PBVariableDateStrategy.m in Sources */,
 				FD612FE4150361FC0033641B /* PBMetaRelativeDateRowTemplate.m in Sources */,
+				FDE4C16C1514B83700C3F9ED /* DeleteAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

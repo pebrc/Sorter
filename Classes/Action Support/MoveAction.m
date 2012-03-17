@@ -29,6 +29,11 @@
 @synthesize userDescription;
 @synthesize target;
 
++ (NSSet *)keyPathsForValuesAffectingValid
+{
+    return [NSSet setWithObjects:@"target", nil];
+}
+
 - (id)init
 {
     self = [super init];
@@ -71,17 +76,7 @@
     return success;
 }
 
--(void) setTarget:(NSString *)atarget{
-    if(target == atarget) {
-        return;
-    }
-    [self willChangeValueForKey:@"valid"];
-    [self willChangeValueForKey:@"target"];
-    [target release];
-    target = [atarget retain];
-    [self didChangeValueForKey:@"target"];
-    [self didChangeValueForKey:@"valid"];
-}
+
 
 - (NSURL *) targetURLFor:(NSURL *)file {
 	if (file != nil) {

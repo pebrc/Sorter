@@ -53,6 +53,11 @@
     return result;
 }
 
++ (NSSet *)keyPathsForValuesAffectingValid
+{
+    return [NSSet setWithObjects:@"strategy", nil];
+}
+
 
 
 - (NSView *) settingsView {
