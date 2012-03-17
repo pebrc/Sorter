@@ -24,6 +24,7 @@
 #include <dispatch/dispatch.h>
 
 
+
 @interface RuleHandler(PrivateApi)
 +(BOOL) handleURL:(NSURL *)url fromSource:(Source *)source ignoringDirs: (BOOL) nodescent ;
 +(BOOL) handleURL:(NSURL *)url fromSourceId:(NSManagedObjectID *)oid ignoringDirs: (BOOL) nodescent  with:(NSPersistentStoreCoordinator *)psc;
@@ -87,8 +88,8 @@ static dispatch_queue_t localqueue = nil;
 + (BOOL) handleURL:(NSURL *)url fromSourceId:(NSManagedObjectID *)oid ignoringDirs:(BOOL)nodescent with:(NSPersistentStoreCoordinator *)psc {
      NSManagedObjectContext * managedObjectContext = [[NSManagedObjectContext alloc] init];
     [managedObjectContext setPersistentStoreCoordinator: psc];
-    Source * src = (Source *)[managedObjectContext objectWithID:oid];
-    return [RuleHandler handleURL:url fromSource:src ignoringDirs:nodescent];
+    Source * src = (Source *)[managedObjectContext existingObjectWithID:oid error: nil];
+    return src ? [RuleHandler handleURL:url fromSource:src ignoringDirs:nodescent]: NO;
 }
 
 

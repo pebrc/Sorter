@@ -43,13 +43,13 @@
     NSEnumerator *e = [[PBMetaDataDatePredicate supportedStrategies] objectEnumerator];
     id clazz;
     while (!result && (clazz = [e nextObject]) ) {
-        id<PBMetaDataDateStrategy> cand = [[clazz alloc]init];
+        id<PBMetaDataDateStrategy> cand = [[[clazz alloc]init] autorelease];
         if([cand canHandlePredicate:pred]) {
-            result = cand;
+            result = [cand retain];
         }            
     }
-    [pool release]; 
-    return result;
+    [pool drain]; 
+    return [result autorelease];
 
 }
 
