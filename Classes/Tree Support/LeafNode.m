@@ -20,6 +20,7 @@
             return nil;
         }
         backingModel = model;
+        [backingModel retain];
     }
     return self;
 }

@@ -154,11 +154,15 @@
                 NSManagedObjectContext *moc = [src managedObjectContext];
                 [ moc deleteObject:src];
                 [treeController removeObjectAtArrangedObjectIndexPath:path];
-                [moc processPendingChanges];//deletes are not processed immediately, objects are just marked deleted apparently
+                //[moc processPendingChanges];//deletes are not processed immediately, objects are just marked deleted apparently
                 
             }
         }
     }];
+    NSManagedObjectContext* ctx  = [[NSApp delegate]managedObjectContext] ;
+    [NSManagedObjectContext cancelPreviousPerformRequestsWithTarget:ctx];
+    [ctx performSelector:@selector(save:) withObject:nil afterDelay:5.0];
+    
 
     
 }
