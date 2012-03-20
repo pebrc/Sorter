@@ -10,9 +10,22 @@
 
 @implementation DeleteAction
 
-- (BOOL) handleItemAt: (NSURL *) url forRule: (Rule *) rule error: (NSError **) error {
-    [[NSWorkspace sharedWorkspace]recycleURLs:[NSArray arrayWithObject:url] completionHandler:nil];
-    return YES;
+- (NSURL *) handleItemAt: (NSURL *) url forRule: (Rule *) rule error: (NSError **) error {
+    OSStatus status;
+    FSRef target;
+    FSRef input;
+    status = FSPathMakeRef((const UInt8 *)[[url path]fileSystemRepresentation], &input, false);
+    assert(status == 0);
+    status = FSMoveObjectToTrashSync(&input, &target, kFSFileOperationDefaultOptions);
+    if(status == noErr) {
+        UInt8 * path[512];
+        status = FSRefMakePath(&target, (UInt8 *)path, 512);
+        if (status == noErr) {
+             NSString * newLocation  = [NSString stringWithUTF8String: (const char *)path];
+            return [NSURL fileURLWithPath:newLocation];
+        }
+    }
+    return url;
 }
 
 - (NSString *) userDescription {

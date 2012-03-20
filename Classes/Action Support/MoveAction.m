@@ -65,15 +65,19 @@
     return  @"";
 }
 
-- (BOOL) handleItemAt: (NSURL *) url forRule: (Rule *) rule error: (NSError **) error {
+- (NSURL *) handleItemAt: (NSURL *) url forRule: (Rule *) rule error: (NSError **) error {
+    NSURL * t = [self targetURLFor:url];
     #if NO_IO
     BOOL success = YES;
-    DEBUG_OUTPUT(@"moving item at %@ to %@", url, [self targetURLFor:url]);
+    DEBUG_OUTPUT(@"moving item at %@ to %@", url, target);
     #else
     NSFileManager * manager = [NSFileManager defaultManager];
-    BOOL success = [manager moveItemAtURL:url toURL:[self targetURLFor:url]  error:error];
+    BOOL success = [manager moveItemAtURL:url toURL:t  error:error];
     #endif
-    return success;
+    if (success) {
+        return t;
+    }
+    return url;
 }
 
 

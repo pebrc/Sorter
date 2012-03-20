@@ -77,7 +77,7 @@
     return [[self strategy] userConfigDescription];
 }
 
-- (BOOL) handleItemAt: (NSURL *) url error: (NSError **)err{
+- (NSURL*) handleItemAt: (NSURL *) url error: (NSError **)err{
     return [[self strategy] handleItemAt:url forRule:[self rule] error:err];
 }
 

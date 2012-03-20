@@ -56,10 +56,7 @@ static dispatch_queue_t localqueue = nil;
             [resolver map: rule toLastResults: ^(NSURL * url, Rule* rule){
                 for(Action *a in [rule actions]) {
                     NSError *error = nil;
-                    BOOL success = [a handleItemAt:url error:&error];
-                    if (!success) {
-                        NSLog(@"%@:%@ Error in action for file: %@", [RuleHandler class], NSStringFromSelector(_cmd), [error localizedDescription]);
-                    } 
+                    url = [a handleItemAt:url error:&error];
                     
                 }
             }];
