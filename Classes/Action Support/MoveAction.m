@@ -20,8 +20,14 @@
 
 #import "MoveAction.h"
 #define DETAIL_VIEW  @"MoveAction"
+#define YEAR @"$YYYY"
+#define MONTH @"$MM"
+#define DAY @"$DD"
+
 @interface MoveAction(PrivateApi)
 - (NSURL*) targetURLFor: (NSURL *) file;
+- (NSString*) expandPlaceholders: (NSString*) stringWithPlaceholders;
+- (NSDictionary *) variableDictionary;
 @end
 
 
@@ -84,16 +90,36 @@
 
 - (NSURL *) targetURLFor:(NSURL *)file {
 	if (file != nil) {
-		NSURL *dir = [NSURL URLWithString:[self target]];
+        NSString * expandedString = [self expandPlaceholders: [self target]];
+		NSURL *dir = [NSURL URLWithString:expandedString];
 		return [dir URLByAppendingPathComponent:[file lastPathComponent]];
 	}
 	return nil;	
 }
 
-/**
- * Violating MVC here. But cant think of an easy way to make this work without a lot of 
- * extra infrastructure. TODO: Think about a cleaner way of doing this: convention: try to find a matching view by naming conventions?? seperate strategies for model and view?
- */
+
+- (NSString*) expandPlaceholders:(NSString *)stringWithPlaceholders {
+    NSDictionary * dict = [self variableDictionary];
+    NSMutableString * result =  [NSMutableString stringWithString:stringWithPlaceholders];
+    [dict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop){
+        [result replaceOccurrencesOfString:key 
+                                withString:obj 
+                                   options:NSCaseInsensitiveSearch 
+                                     range:NSMakeRange(0, [result length])];
+    }];    
+    return result ;    
+}
+
+- (NSDictionary *) variableDictionary {
+    NSCalendar * cal = [NSCalendar currentCalendar];
+    NSDateComponents * comps = [cal components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
+    return [NSDictionary dictionaryWithObjectsAndKeys:  [NSString stringWithFormat:@"%u",[comps year]],YEAR,
+            [NSString stringWithFormat:@"%02u", [comps month]], MONTH,  
+            [NSString stringWithFormat:@"%02u", [comps day]], DAY, 
+            nil];
+}
+
+
 - (NSView *) settingsView {
     if(settingsController == NULL) {
         settingsController = [[MoveActionController alloc]initWithNibName:DETAIL_VIEW bundle:nil];
