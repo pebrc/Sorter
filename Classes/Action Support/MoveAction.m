@@ -25,7 +25,8 @@
 #define DAY @"$DD"
 
 @interface MoveAction(PrivateApi)
-- (NSURL*) targetURLFor: (NSURL *) file;
+- (NSURL*) targetURLFor: (NSURL *) file within: (NSURL*) dir;
+- (NSURL*) targetDirFor: (NSURL *) file;
 - (NSString*) expandPlaceholders: (NSString*) stringWithPlaceholders;
 - (NSDictionary *) variableDictionary;
 @end
@@ -72,12 +73,16 @@
 }
 
 - (NSURL *) handleItemAt: (NSURL *) url forRule: (Rule *) rule error: (NSError **) error {
-    NSURL * t = [self targetURLFor:url];
+    NSURL * dir = [self targetDirFor:url];
+    NSURL * t = [self targetURLFor:url within: dir];
     #if NO_IO
     BOOL success = YES;
     DEBUG_OUTPUT(@"moving item at %@ to %@", url, target);
     #else
     NSFileManager * manager = [NSFileManager defaultManager];
+    if(![manager fileExistsAtPath:[dir path]]) {
+        [manager createDirectoryAtPath:[dir path] withIntermediateDirectories:YES attributes:nil error:nil];
+    }
     BOOL success = [manager moveItemAtURL:url toURL:t  error:error];
     #endif
     if (success) {
@@ -88,13 +93,20 @@
 
 
 
-- (NSURL *) targetURLFor:(NSURL *)file {
-	if (file != nil) {
-        NSString * expandedString = [self expandPlaceholders: [self target]];
-		NSURL *dir = [NSURL URLWithString:expandedString];
+- (NSURL *) targetURLFor:(NSURL *)file within: (NSURL*) dir {
+	if (dir != nil) {
 		return [dir URLByAppendingPathComponent:[file lastPathComponent]];
 	}
 	return nil;	
+}
+
+- (NSURL *) targetDirFor:(NSURL *)file {
+    if(file != nil) {
+        NSString * expandedString = [self expandPlaceholders: [self target]];
+		return  [NSURL URLWithString:expandedString];
+
+    }
+    return nil;
 }
 
 
