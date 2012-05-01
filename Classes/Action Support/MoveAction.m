@@ -65,6 +65,21 @@
     [userDescription release];
 }
 
+- (void) setTarget:(NSString *)t {
+    if(t == target) {
+        return;
+    }
+    [self willChangeValueForKey:@"target"];
+    NSUndoManager *undo = [[[NSApp delegate] managedObjectContext] undoManager] ;     
+    [undo registerUndoWithTarget:self selector:@selector(setTarget:) object:target];
+    [undo setActionName:@"target change"];
+    [target release];
+    target = [t retain];
+    [self didChangeValueForKey:@"target"];
+    
+}
+
+
 - (NSString*) userConfigDescription {
     if(target) {
         return [@"to " stringByAppendingString:target];

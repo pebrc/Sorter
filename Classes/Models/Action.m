@@ -53,9 +53,12 @@
     return result;
 }
 
-+ (NSSet *)keyPathsForValuesAffectingValid
-{
++ (NSSet *)keyPathsForValuesAffectingValid {
     return [NSSet setWithObjects:@"strategy", nil];
+}
+
++ (NSArray *) keyPathsToBeCopied {
+    return [NSArray arrayWithObjects:@"strategy", nil];
 }
 
 

@@ -38,5 +38,7 @@
 -(NSURL *) handleItemAt: (NSURL *) url error: (NSError **)err;
 -(BOOL) valid;
 
+
 +(NSSet *) availableActions;
++(NSArray *) keyPathsToBeCopied;
 @end

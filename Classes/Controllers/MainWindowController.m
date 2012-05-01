@@ -384,6 +384,12 @@
     [self removeDetailViews];
     
 }
+
+#pragma mark - NSWindow delegate
+
+- (NSUndoManager*) windowWillReturnUndoManager:(NSWindow *) window {
+    return  [[[NSApp delegate] managedObjectContext]undoManager];
+}
                                                                       
 
 @end
