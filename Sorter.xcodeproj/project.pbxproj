@@ -59,8 +59,11 @@
 		FD9E370414AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E370314AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m */; };
 		FDBB239614AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBB239514AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m */; };
 		FDBBE89C14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBBE89B14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.m */; };
+		FDE19D3A15507A6B00F0150C /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE19D3915507A6B00F0150C /* Growl.framework */; };
+		FDE19D3C15507ADD00F0150C /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FDE19D3915507A6B00F0150C /* Growl.framework */; };
 		FDE4C16C1514B83700C3F9ED /* DeleteAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE4C16B1514B83700C3F9ED /* DeleteAction.m */; };
 		FDE75417151A5ECD00B0779B /* TestMoveAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE75416151A5ECD00B0779B /* TestMoveAction.m */; };
+		FDF7B6C11551BF2D00B786CF /* PBGrowlDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF7B6C01551BF2D00B786CF /* PBGrowlDelegate.m */; };
 		FDFCB9BD14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFCB9BC14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.m */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +76,19 @@
 			remoteInfo = Sorter;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FDE19D3B15507ABE00F0150C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FDE19D3C15507ADD00F0150C /* Growl.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -176,10 +192,13 @@
 		FDBB239514AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+PBCoreDataSugar.m"; sourceTree = "<group>"; };
 		FDBBE89A14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBMetaPresetRelativeDateRowTemplate.h; path = RuleEditor/PBMetaPresetRelativeDateRowTemplate.h; sourceTree = "<group>"; };
 		FDBBE89B14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBMetaPresetRelativeDateRowTemplate.m; path = RuleEditor/PBMetaPresetRelativeDateRowTemplate.m; sourceTree = "<group>"; };
+		FDE19D3915507A6B00F0150C /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = Growl/Growl.framework; sourceTree = "<group>"; };
 		FDE4C16A1514B83700C3F9ED /* DeleteAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteAction.h; sourceTree = "<group>"; };
 		FDE4C16B1514B83700C3F9ED /* DeleteAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteAction.m; sourceTree = "<group>"; };
 		FDE75415151A5ECD00B0779B /* TestMoveAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestMoveAction.h; sourceTree = "<group>"; };
 		FDE75416151A5ECD00B0779B /* TestMoveAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMoveAction.m; sourceTree = "<group>"; };
+		FDF7B6BF1551BF2D00B786CF /* PBGrowlDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; path = PBGrowlDelegate.h; sourceTree = "<group>"; };
+		FDF7B6C01551BF2D00B786CF /* PBGrowlDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBGrowlDelegate.m; sourceTree = "<group>"; };
 		FDFCB9BB14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPBMetaVariableDateRowTemplate.h; sourceTree = "<group>"; };
 		FDFCB9BC14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPBMetaVariableDateRowTemplate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -190,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				FDE19D3A15507A6B00F0150C /* Growl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +269,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FDE19D3915507A6B00F0150C /* Growl.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				FD9E368F14A9E52F006C6F89 /* SenTestingKit.framework */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
@@ -318,7 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				FD9E369514A9ECBB006C6F89 /* Action Support */,
-				FD9E369914A9ECBB006C6F89 /* AppDelegate */,
+				FD9E369914A9ECBB006C6F89 /* Delegates */,
 				FD9E369C14A9ECBB006C6F89 /* Cell Support */,
 				FD9E369F14A9ECBB006C6F89 /* Controllers */,
 				FD9E36AA14A9ECBB006C6F89 /* FSEvents */,
@@ -343,12 +364,15 @@
 			path = "Action Support";
 			sourceTree = "<group>";
 		};
-		FD9E369914A9ECBB006C6F89 /* AppDelegate */ = {
+		FD9E369914A9ECBB006C6F89 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
 				FD9E369A14A9ECBB006C6F89 /* Sorter_AppDelegate.h */,
 				FD9E369B14A9ECBB006C6F89 /* Sorter_AppDelegate.m */,
+				FDF7B6BF1551BF2D00B786CF /* PBGrowlDelegate.h */,
+				FDF7B6C01551BF2D00B786CF /* PBGrowlDelegate.m */,
 			);
+			name = Delegates;
 			path = AppDelegate;
 			sourceTree = "<group>";
 		};
@@ -477,6 +501,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 26FC0A840875C7B200E6366F /* Build configuration list for PBXNativeTarget "Sorter" */;
 			buildPhases = (
+				FDE19D3B15507ABE00F0150C /* CopyFiles */,
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
@@ -622,6 +647,7 @@
 				FD0069AD14E688560046E7C0 /* PBVariableDateStrategy.m in Sources */,
 				FD612FE4150361FC0033641B /* PBMetaRelativeDateRowTemplate.m in Sources */,
 				FDE4C16C1514B83700C3F9ED /* DeleteAction.m in Sources */,
+				FDF7B6C11551BF2D00B786CF /* PBGrowlDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,6 +711,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Growl\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -711,6 +738,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Growl\"",
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;

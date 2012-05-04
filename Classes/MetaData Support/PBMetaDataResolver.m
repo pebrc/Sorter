@@ -24,6 +24,7 @@
 
 #import "PBMetaDataResolver.h"
 #import "PBMetaDataPredicate.h"
+#import "PBGrowlDelegate.h"
 
 @interface PBMetaDataResolver(PrivateAPI) 
 - (NSPredicate*) spotifiedPredicate: (id) original;
@@ -49,9 +50,14 @@
         NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
         item = (MDItemRef) MDQueryGetResultAtIndex(self->currentQuery, j);
         NSString * path = MDItemCopyAttribute(item, kMDItemPath);
-        NSURL * url = [NSURL fileURLWithPath: path];
+        NSURL * url = [NSURL fileURLWithPath: path];        
         [path release];
-        block(url, rule);
+        if([[url absoluteString] rangeOfString:[[rule from]url]].location != NSNotFound) {
+              block(url, rule);
+        } else {
+            [PBGrowlDelegate notifyWithTitle:@"FSEvents bug?" description:[NSString stringWithFormat: @"found %@ outside scope", [url absoluteString] ]];  
+        }
+        
         [pool release];        
     }
     [self dispose];
@@ -61,7 +67,7 @@
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];	
 	NSString *queryString =  [[PBMetaDataPredicate predicateFromPredicate:expression] predicateFormat];
 	self->currentQuery = MDQueryCreate(kCFAllocatorDefault, (CFStringRef)queryString, NULL, NULL);
-    DEBUG_OUTPUT(@"Creating query: %@", queryString);
+    NSLog(@"Creating query: %@", queryString);
 	if (!self->currentQuery) {
 		DEBUG_OUTPUT(@"Failed to generate query: %@", queryString);
 		[pool drain];
@@ -71,8 +77,8 @@
 	MDQueryExecute(self->currentQuery, kMDQuerySynchronous);
     self->currentResults = MDQueryGetResultCount(self->currentQuery); 
     if(self->currentResults == 0) {
-        [self dispose];
-        DEBUG_OUTPUT(@"Spotlight query in %@ did NOT match: %@", url, queryString);
+        [self dispose];        
+        NSLog(@"Spotlight query in %@ did NOT match: %@", url, queryString);
 		[pool drain];
 		return NO;
     }

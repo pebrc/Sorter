@@ -25,6 +25,8 @@
 #import "MainWindowController.h"
 #import "Source.h"
 #import "PBSourceObserver.h"
+#import "PBGrowlDelegate.h"
+
 
 
 @interface Sorter_AppDelegate : NSObject 
@@ -36,14 +38,15 @@
     NSManagedObjectModel *managedObjectModel;
     NSManagedObjectContext *managedObjectContext;
     PBSourceObserver *sourceObserver;
+    PBGrowlDelegate * growl;
 }
 
 @property (nonatomic, retain) IBOutlet NSWindow *window;
-//@property (nonatomic,retain) IBOutlet NSPredicateEditor *editor;
 
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain, readonly) PBGrowlDelegate *growl;
 
 - (IBAction)saveAction:sender;
 

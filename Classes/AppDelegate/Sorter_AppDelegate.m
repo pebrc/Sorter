@@ -21,17 +21,20 @@
 
 #import "Sorter_AppDelegate.h"
 
+
 @implementation Sorter_AppDelegate
 
-@synthesize window;
+@synthesize window, growl;
 
 -(void) applicationDidFinishLaunching:(NSNotification*)notification {
     sourceObserver = [[[PBSourceObserver alloc] initWithContext: [self managedObjectContext]] retain];
+    growl =   [PBGrowlDelegate delegateWithRegistration];  
     mainWindowController = [[MainWindowController alloc] initWithWindowNibName:@"MainWindow"];
     [mainWindowController showWindow:self];
     
 
 }
+
 
 /**
     Returns the support directory for the application, used to store the Core Data

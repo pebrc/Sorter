@@ -19,6 +19,8 @@
 //THE SOFTWARE.
 
 #import "MoveAction.h"
+#import "PBGrowlDelegate.h"
+
 #define DETAIL_VIEW  @"MoveAction"
 #define YEAR @"$YYYY"
 #define MONTH @"$MM"
@@ -92,7 +94,7 @@
     NSURL * t = [self targetURLFor:url within: dir];
     #if NO_IO
     BOOL success = YES;
-    DEBUG_OUTPUT(@"moving item at %@ to %@", url, target);
+    NSLog(@"moving item at %@ to %@", url, target);
     #else
     NSFileManager * manager = [NSFileManager defaultManager];
     if(![manager fileExistsAtPath:[dir path]]) {
@@ -101,6 +103,9 @@
     BOOL success = [manager moveItemAtURL:url toURL:t  error:error];
     #endif
     if (success) {
+        [PBGrowlDelegate notifyWithTitle:@"Moved file" 
+                           description:[NSString stringWithFormat:@"%@ to .../%@", [url lastPathComponent], [dir lastPathComponent]]];
+
         return t;
     }
     return url;
