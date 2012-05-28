@@ -27,6 +27,8 @@
 @synthesize window, growl;
 
 -(void) applicationDidFinishLaunching:(NSNotification*)notification {
+    NSDictionary *defaults = [NSDictionary dictionaryWithObject:[NSNumber numberWithDouble:30.0] forKey:@"latency"];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
     sourceObserver = [[[PBSourceObserver alloc] initWithContext: [self managedObjectContext]] retain];
     growl =   [PBGrowlDelegate delegateWithRegistration];  
     mainWindowController = [[MainWindowController alloc] initWithWindowNibName:@"MainWindow"];
