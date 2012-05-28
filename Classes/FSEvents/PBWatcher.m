@@ -130,11 +130,14 @@ static void _PBWatcherCallBack(ConstFSEventStreamRef streamRef, void *clientCall
 }
 
 - (FSEventStreamEventId) sinceWhen {
-    FSEventStreamEventId id = [[self listener] lastListened];
-    if(!id) {
-        id = kFSEventStreamEventIdSinceNow;
+    BOOL lookback = [[NSUserDefaults standardUserDefaults] boolForKey:@"useLastListened" ];
+    if (lookback) {
+        FSEventStreamEventId eventid = [[self listener] lastListened];
+        if (eventid) {
+            return eventid;
+        }
     }
-    return id;
+    return kFSEventStreamEventIdSinceNow;
 }
 
 static void _PBWatcherCallBack(ConstFSEventStreamRef streamRef, void *clientCallBackInfo, size_t numEvents, void *eventPaths, const FSEventStreamEventFlags eventFlags[], const FSEventStreamEventId eventIds[]){
