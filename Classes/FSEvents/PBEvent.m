@@ -39,6 +39,70 @@ NSString * const PBEventName = @"PBEventName";
 	return self;
 }
 
+- (NSString *) description {
+    FSEventStreamEventId flags = eventFlags;
+    NSMutableArray * flagDescriptions = [NSMutableArray array];
+    if(flags & kFSEventStreamEventFlagMustScanSubDirs) {
+        [flagDescriptions addObject:@"Must scan subdirs"];
+        if(flags & kFSEventStreamEventFlagUserDropped) {
+            [flagDescriptions addObject:@"because client dropped events."];
+        }
+        if(flags & kFSEventStreamEventFlagKernelDropped) {
+            [flagDescriptions addObject:@"because kernel dropped events."];
+        }
+    }
+    if(flags & kFSEventStreamEventFlagEventIdsWrapped) {
+        [flagDescriptions addObject:@"Id counter wrapped around."];
+    }
+    if (flags & kFSEventStreamEventFlagHistoryDone) {
+        [flagDescriptions addObject:@"History replay done."];
+    }
+    if (flags & kFSEventStreamEventFlagRootChanged) {
+        [flagDescriptions addObject:@"Root directory above watched path changed."];
+    }
+    if (flags & kFSEventStreamEventFlagMount) {
+        [flagDescriptions addObject:@"Mount happened in monitored path."];
+    }
+    if (flags & kFSEventStreamEventFlagUnmount) {
+        [flagDescriptions addObject:@"Unmount happened in monitored path."];
+    }
+    if (flags & kFSEventStreamEventFlagItemCreated) {
+        [flagDescriptions addObject:@"An item has been created."];
+    }
+    if (flags & kFSEventStreamEventFlagItemRemoved) {
+        [flagDescriptions addObject:@"An item has been removed."];
+    }
+    if (flags & kFSEventStreamEventFlagItemInodeMetaMod) {
+        [flagDescriptions addObject:@"Inode metadata has been modified."];
+    }
+    if (flags & kFSEventStreamEventFlagItemRenamed) {
+        [flagDescriptions addObject:@"An item has been renamed."];
+    }
+    if (flags & kFSEventStreamEventFlagItemModified) {
+        [flagDescriptions addObject:@"An item has been modified."];
+    }
+    if (flags & kFSEventStreamEventFlagItemFinderInfoMod) {
+        [flagDescriptions addObject:@"An item's finder info has been modified."];
+    }
+    if (flags & kFSEventStreamEventFlagItemChangeOwner) {
+        [flagDescriptions addObject:@"An item has changed owner."];
+    }
+    if (flags & kFSEventStreamEventFlagItemXattrMod) {
+        [flagDescriptions addObject:@"An item's xattrs have been modified."];
+    }
+    if (flags & kFSEventStreamEventFlagItemIsFile) {
+        [flagDescriptions addObject:@"The item is a file."];
+    }
+    if (flags & kFSEventStreamEventFlagItemIsDir) {
+        [flagDescriptions addObject:@"The item is a directory."];
+    }
+    if (flags & kFSEventStreamEventFlagItemIsSymlink) {
+        [flagDescriptions addObject:@"The item is a symlink."];
+    }
+    return [NSString stringWithFormat:@"id: %llu, path: %@, date: %@, %@", eventId, eventPath, [eventDate description],     [flagDescriptions componentsJoinedByString:@" "]];
+
+}
+
 -(void) dealloc {
     [eventPath release];
     [eventDate release];

@@ -9,6 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <Growl/Growl.h>
 
+typedef enum {
+    kPBGrowlImportant,
+    kPBGrowlDetailed,
+    kPBGrowlChatty = 6
+
+}PBGrowlLevel;
+
 extern NSString * const GrowlSorterMessage;
 
 @interface PBGrowlDelegate : NSObject <GrowlApplicationBridgeDelegate> {
@@ -16,5 +23,6 @@ extern NSString * const GrowlSorterMessage;
 
 +(PBGrowlDelegate *) delegateWithRegistration;
 + (void) notifyWithTitle: (NSString *) title description: (NSString *) description;
++ (void) notifyWithTitle:(NSString *)title description:(NSString *)description level: (PBGrowlLevel) level;
 
 @end

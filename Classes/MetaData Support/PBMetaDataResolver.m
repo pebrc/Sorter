@@ -24,7 +24,7 @@
 
 #import "PBMetaDataResolver.h"
 #import "PBMetaDataPredicate.h"
-#import "PBGrowlDelegate.h"
+#import "PBLog.h"
 
 @interface PBMetaDataResolver(PrivateAPI) 
 - (NSPredicate*) spotifiedPredicate: (id) original;
@@ -55,7 +55,7 @@
         if([[url absoluteString] rangeOfString:[[rule from]url]].location != NSNotFound) {
               block(url, rule);
         } else {
-            [PBGrowlDelegate notifyWithTitle:@"FSEvents bug?" description:[NSString stringWithFormat: @"found %@ outside scope", [url absoluteString] ]];  
+            [PBLog logDebug:[NSString stringWithFormat: @"found %@ outside scope", [url absoluteString]]];
         }
         
         [pool release];        
@@ -67,9 +67,9 @@
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];	
 	NSString *queryString =  [[PBMetaDataPredicate predicateFromPredicate:expression] predicateFormat];
 	self->currentQuery = MDQueryCreate(kCFAllocatorDefault, (CFStringRef)queryString, NULL, NULL);
-    NSLog(@"Creating query: %@", queryString);
+    [PBLog logInfo:@"Creating query: %@", queryString];
 	if (!self->currentQuery) {
-		DEBUG_OUTPUT(@"Failed to generate query: %@", queryString);
+		[PBLog logError:@"Failed to generate query: %@", queryString];
 		[pool drain];
 		return NO;
 	}
@@ -78,7 +78,7 @@
     self->currentResults = MDQueryGetResultCount(self->currentQuery); 
     if(self->currentResults == 0) {
         [self dispose];        
-        NSLog(@"Spotlight query in %@ did NOT match: %@", url, queryString);
+        [PBLog logInfo:@"Spotlight query in %@ did NOT match: %@", url, queryString];
 		[pool drain];
 		return NO;
     }

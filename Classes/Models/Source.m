@@ -21,6 +21,8 @@
 
 #import "Source.h"
 #import "RuleHandler.h"
+#import "PBGrowlDelegate.h"
+#import "PBLog.h"
 
 @implementation Source 
 
@@ -41,7 +43,9 @@
         return;
     }
     [self setEventid: currentEvent];
-    DEBUG_OUTPUT(@"After %llu", [self lastListened]);
+    NSString * eventDesc = [event description];
+    [PBGrowlDelegate notifyWithTitle:@"FS Event" description:eventDesc level:kPBGrowlChatty]; 
+    [PBLog logDebug:eventDesc];
 
     if(![[NSFileManager defaultManager]fileExistsAtPath:[url path]]) {
         DEBUG_OUTPUT(@"Dropping event on url %@ because file does not seem to exist", url);

@@ -64,7 +64,8 @@ static void _PBWatcherCallBack(ConstFSEventStreamRef streamRef, void *clientCall
 -(id) init {
 	self = [super init];
 	if (self != nil) {
-		[self setLatency:10.0];
+        double lat = [[NSUserDefaults standardUserDefaults] doubleForKey:@"latency"];
+		[self setLatency:lat];
 	}
 	return self;
 }

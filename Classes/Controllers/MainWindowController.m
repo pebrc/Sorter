@@ -21,6 +21,7 @@
 #import "MainWindowController.h"
 #import "TreeNode.h"
 #import "ImageAndTextCell.h"
+#import "PBLog.h"
 #define NAME_COL    @"NameColumn"
 #define DETAIL_VIEW			@"DetailView"	
 
@@ -122,7 +123,7 @@
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
 #if MY_DEBUG_FLAG
-    NSLog(@"KVO Change notification for detail, path %@ dict %@",keyPath, [change description]);
+    [PBLog logDebug:@"KVO Change notification for detail, path %@ dict %@",keyPath, [change description]];
 #endif
 
     if ([keyPath isEqualToString:@"representedObject.title"] && [[change valueForKey:NSKeyValueChangeKindKey] intValue] == NSKeyValueChangeSetting) {

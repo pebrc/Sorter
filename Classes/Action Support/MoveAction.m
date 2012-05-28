@@ -20,6 +20,7 @@
 
 #import "MoveAction.h"
 #import "PBGrowlDelegate.h"
+#import "PBLog.h"
 
 #define DETAIL_VIEW  @"MoveAction"
 #define YEAR @"$YYYY"
@@ -94,7 +95,7 @@
     NSURL * t = [self targetURLFor:url within: dir];
     #if NO_IO
     BOOL success = YES;
-    NSLog(@"moving item at %@ to %@", url, target);
+    [PBLog logDebug: @"moving item at %@ to %@", url, target];
     #else
     NSFileManager * manager = [NSFileManager defaultManager];
     if(![manager fileExistsAtPath:[dir path]]) {

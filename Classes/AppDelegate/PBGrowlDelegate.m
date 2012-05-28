@@ -24,8 +24,17 @@ NSString * const GrowlSorterMessage = @"Sorter action";
 }
 
 + (void) notifyWithTitle:(NSString *)title description:(NSString *)description {
-            [GrowlApplicationBridge notifyWithTitle:title description:description notificationName:GrowlSorterMessage iconData:nil priority:0 isSticky:NO clickContext:nil];
+    [PBGrowlDelegate notifyWithTitle:title description:description level:kPBGrowlImportant];
     
+}
+
++ (void) notifyWithTitle:(NSString *)title description:(NSString *)description level:(PBGrowlLevel)level {
+    NSInteger current = [[NSUserDefaults standardUserDefaults] integerForKey:@"growlPriority"];
+    if(level <= current) {
+        [GrowlApplicationBridge notifyWithTitle:title description:description notificationName:GrowlSorterMessage iconData:nil priority:0 isSticky:NO clickContext:nil];
+
+    }
+
 }
 
 - (NSDictionary *) registrationDictionaryForGrowl {
