@@ -1,9 +1,6 @@
 //
 //  ThreadSafeMutableDictionary.h
-//  Sorter
-//
-//  Created by Peter Brachwitz on 13/03/2011.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Technical Note TN2059
 //
 
 #import <Cocoa/Cocoa.h>
