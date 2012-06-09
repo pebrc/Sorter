@@ -51,12 +51,12 @@
 		FD9E36E914A9ED03006C6F89 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD9E36DC14A9ED03006C6F89 /* InfoPlist.strings */; };
 		FD9E36EA14A9ED03006C6F89 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD9E36DE14A9ED03006C6F89 /* MainMenu.xib */; };
 		FD9E36EC14A9ED03006C6F89 /* APPL.icns in Resources */ = {isa = PBXBuildFile; fileRef = FD9E36E214A9ED03006C6F89 /* APPL.icns */; };
-		FD9E36ED14A9ED03006C6F89 /* ToolbarMinus.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9E36E314A9ED03006C6F89 /* ToolbarMinus.png */; };
-		FD9E36EE14A9ED03006C6F89 /* ToolbarPlus.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9E36E414A9ED03006C6F89 /* ToolbarPlus.png */; };
 		FD9E36EF14A9ED03006C6F89 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD9E36E514A9ED03006C6F89 /* MainWindow.xib */; };
 		FD9E36F014A9ED03006C6F89 /* MoveAction.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD9E36E614A9ED03006C6F89 /* MoveAction.xib */; };
 		FD9E36F714A9F064006C6F89 /* TestSpotlightPredicates.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E36F614A9F064006C6F89 /* TestSpotlightPredicates.m */; };
 		FD9E370414AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E370314AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m */; };
+		FDAD688E1583743900A7AD99 /* ToolbarPlus.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FDAD688D1583743900A7AD99 /* ToolbarPlus.pdf */; };
+		FDAD68901583769900A7AD99 /* ToolbarMinus.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FDAD688F1583769900A7AD99 /* ToolbarMinus.pdf */; };
 		FDBB239614AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBB239514AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m */; };
 		FDBBE89C14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBBE89B14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.m */; };
 		FDE19D3A15507A6B00F0150C /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE19D3915507A6B00F0150C /* Growl.framework */; };
@@ -189,6 +189,8 @@
 		FD9E36F614A9F064006C6F89 /* TestSpotlightPredicates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSpotlightPredicates.m; sourceTree = "<group>"; };
 		FD9E370214AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPBMetaDataComparisonPredicate.h; sourceTree = "<group>"; };
 		FD9E370314AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPBMetaDataComparisonPredicate.m; sourceTree = "<group>"; };
+		FDAD688D1583743900A7AD99 /* ToolbarPlus.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarPlus.pdf; sourceTree = "<group>"; };
+		FDAD688F1583769900A7AD99 /* ToolbarMinus.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarMinus.pdf; sourceTree = "<group>"; };
 		FDBB239414AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+PBCoreDataSugar.h"; sourceTree = "<group>"; };
 		FDBB239514AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+PBCoreDataSugar.m"; sourceTree = "<group>"; };
 		FDBBE89A14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBMetaPresetRelativeDateRowTemplate.h; path = RuleEditor/PBMetaPresetRelativeDateRowTemplate.h; sourceTree = "<group>"; };
@@ -479,6 +481,8 @@
 			isa = PBXGroup;
 			children = (
 				FD9E36E214A9ED03006C6F89 /* APPL.icns */,
+				FDAD688D1583743900A7AD99 /* ToolbarPlus.pdf */,
+				FDAD688F1583769900A7AD99 /* ToolbarMinus.pdf */,
 				FD9E36E314A9ED03006C6F89 /* ToolbarMinus.png */,
 				FD9E36E414A9ED03006C6F89 /* ToolbarPlus.png */,
 			);
@@ -576,10 +580,10 @@
 				FD9E36E914A9ED03006C6F89 /* InfoPlist.strings in Resources */,
 				FD9E36EA14A9ED03006C6F89 /* MainMenu.xib in Resources */,
 				FD9E36EC14A9ED03006C6F89 /* APPL.icns in Resources */,
-				FD9E36ED14A9ED03006C6F89 /* ToolbarMinus.png in Resources */,
-				FD9E36EE14A9ED03006C6F89 /* ToolbarPlus.png in Resources */,
 				FD9E36EF14A9ED03006C6F89 /* MainWindow.xib in Resources */,
 				FD9E36F014A9ED03006C6F89 /* MoveAction.xib in Resources */,
+				FDAD688E1583743900A7AD99 /* ToolbarPlus.pdf in Resources */,
+				FDAD68901583769900A7AD99 /* ToolbarMinus.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
