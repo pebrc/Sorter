@@ -73,8 +73,9 @@
 
 -(void) stopObservationFor:(Source *)source {
     [self removeFSWatcherFor:source];
-    [source removeObserver:self forKeyPath:@"rules" context:NULL];
-    [source removeObserver:self forKeyPath:@"url" context:NULL];
+    [source removeObserver:self forKeyPath:@"rules"];
+    [source removeObserver:self forKeyPath:@"url"];
+		
 }
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {

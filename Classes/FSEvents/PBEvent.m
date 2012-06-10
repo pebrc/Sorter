@@ -66,6 +66,7 @@ NSString * const PBEventName = @"PBEventName";
     if (flags & kFSEventStreamEventFlagUnmount) {
         [flagDescriptions addObject:@"Unmount happened in monitored path."];
     }
+#if MAC_OS_X_VERSION_MIN_REQUIRED >= 1060    
     if (flags & kFSEventStreamEventFlagItemCreated) {
         [flagDescriptions addObject:@"An item has been created."];
     }
@@ -99,6 +100,8 @@ NSString * const PBEventName = @"PBEventName";
     if (flags & kFSEventStreamEventFlagItemIsSymlink) {
         [flagDescriptions addObject:@"The item is a symlink."];
     }
+#endif
+
     return [NSString stringWithFormat:@"id: %llu, path: %@, date: %@, %@", eventId, eventPath, [eventDate description],     [flagDescriptions componentsJoinedByString:@" "]];
 
 }

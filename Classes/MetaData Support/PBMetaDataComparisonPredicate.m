@@ -23,6 +23,10 @@ NSString * const PBLeftWildcard = @"*%@";
 NSString * const PBRightWildcard = @"%@*";
 NSString * const PBBothWildcard = @"*%@*";
 
+#if __MAC_OS_X_VERSION_MIN_REQUIRED <= __MAC_10_6
+typedef NSUInteger NSComparisonPredicateOptions;
+#endif
+
 typedef struct  {
     NSExpression * rhs;
     NSPredicateOperatorType type;
