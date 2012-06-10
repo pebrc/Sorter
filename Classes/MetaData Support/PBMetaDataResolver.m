@@ -50,14 +50,18 @@
         NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
         item = (MDItemRef) MDQueryGetResultAtIndex(self->currentQuery, j);
         NSString * path = MDItemCopyAttribute(item, kMDItemPath);
-        NSURL * url = [NSURL fileURLWithPath: path];        
-        [path release];
-        if([[url absoluteString] rangeOfString:[[rule from]url]].location != NSNotFound) {
-              block(url, rule);
+        if(path) {
+            NSURL * url = [NSURL fileURLWithPath: path];        
+            [path release];
+            if([[url absoluteString] rangeOfString:[[rule from]url]].location != NSNotFound) {
+                block(url, rule);
+            } else {
+                [PBLog logDebug:[NSString stringWithFormat: @"found %@ outside scope", [url absoluteString]]];
+            }
         } else {
-            [PBLog logDebug:[NSString stringWithFormat: @"found %@ outside scope", [url absoluteString]]];
-        }
-        
+            [PBLog logDebug:@"FsEvents returned nil path"];
+
+        }        
         [pool release];        
     }
     [self dispose];
