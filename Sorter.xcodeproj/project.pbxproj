@@ -57,6 +57,10 @@
 		FD9E370414AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E370314AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m */; };
 		FDAD688E1583743900A7AD99 /* ToolbarPlus.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FDAD688D1583743900A7AD99 /* ToolbarPlus.pdf */; };
 		FDAD68901583769900A7AD99 /* ToolbarMinus.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FDAD688F1583769900A7AD99 /* ToolbarMinus.pdf */; };
+		FDAF873C159EED8E00F68A11 /* AutomatorAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAF873B159EED8E00F68A11 /* AutomatorAction.m */; };
+		FDAF873F159EF45000F68A11 /* AutomatorActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAF873E159EF45000F68A11 /* AutomatorActionController.m */; };
+		FDAF8741159EF69200F68A11 /* AutomatorAction.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDAF8740159EF69200F68A11 /* AutomatorAction.xib */; };
+		FDAF8743159F04C200F68A11 /* Automator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAF8742159F04C200F68A11 /* Automator.framework */; };
 		FDBB239614AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBB239514AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m */; };
 		FDBBE89C14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBBE89B14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.m */; };
 		FDE19D3A15507A6B00F0150C /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE19D3915507A6B00F0150C /* Growl.framework */; };
@@ -191,6 +195,12 @@
 		FD9E370314AA2A66006C6F89 /* TestPBMetaDataComparisonPredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPBMetaDataComparisonPredicate.m; sourceTree = "<group>"; };
 		FDAD688D1583743900A7AD99 /* ToolbarPlus.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarPlus.pdf; sourceTree = "<group>"; };
 		FDAD688F1583769900A7AD99 /* ToolbarMinus.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarMinus.pdf; sourceTree = "<group>"; };
+		FDAF873A159EED8E00F68A11 /* AutomatorAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutomatorAction.h; sourceTree = "<group>"; };
+		FDAF873B159EED8E00F68A11 /* AutomatorAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutomatorAction.m; sourceTree = "<group>"; };
+		FDAF873D159EF45000F68A11 /* AutomatorActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutomatorActionController.h; sourceTree = "<group>"; };
+		FDAF873E159EF45000F68A11 /* AutomatorActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutomatorActionController.m; sourceTree = "<group>"; };
+		FDAF8740159EF69200F68A11 /* AutomatorAction.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutomatorAction.xib; sourceTree = "<group>"; };
+		FDAF8742159F04C200F68A11 /* Automator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Automator.framework; path = ../../../../System/Library/Frameworks/Automator.framework; sourceTree = "<group>"; };
 		FDBB239414AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+PBCoreDataSugar.h"; sourceTree = "<group>"; };
 		FDBB239514AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+PBCoreDataSugar.m"; sourceTree = "<group>"; };
 		FDBBE89A14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBMetaPresetRelativeDateRowTemplate.h; path = RuleEditor/PBMetaPresetRelativeDateRowTemplate.h; sourceTree = "<group>"; };
@@ -213,6 +223,7 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				FDE19D3A15507A6B00F0150C /* Growl.framework in Frameworks */,
+				FDAF8743159F04C200F68A11 /* Automator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +283,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FDAF8742159F04C200F68A11 /* Automator.framework */,
 				FDE19D3915507A6B00F0150C /* Growl.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				FD9E368F14A9E52F006C6F89 /* SenTestingKit.framework */,
@@ -363,6 +375,8 @@
 				FD9E369814A9ECBB006C6F89 /* MoveAction.m */,
 				FDE4C16A1514B83700C3F9ED /* DeleteAction.h */,
 				FDE4C16B1514B83700C3F9ED /* DeleteAction.m */,
+				FDAF873A159EED8E00F68A11 /* AutomatorAction.h */,
+				FDAF873B159EED8E00F68A11 /* AutomatorAction.m */,
 			);
 			path = "Action Support";
 			sourceTree = "<group>";
@@ -401,6 +415,8 @@
 				FD9E36A714A9ECBB006C6F89 /* RuleHandler.m */,
 				FD9E36A814A9ECBB006C6F89 /* RulesController.h */,
 				FD9E36A914A9ECBB006C6F89 /* RulesController.m */,
+				FDAF873D159EF45000F68A11 /* AutomatorActionController.h */,
+				FDAF873E159EF45000F68A11 /* AutomatorActionController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -473,6 +489,7 @@
 				FD9E36E114A9ED03006C6F89 /* images */,
 				FD9E36E514A9ED03006C6F89 /* MainWindow.xib */,
 				FD9E36E614A9ED03006C6F89 /* MoveAction.xib */,
+				FDAF8740159EF69200F68A11 /* AutomatorAction.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -585,6 +602,7 @@
 				FD9E36F014A9ED03006C6F89 /* MoveAction.xib in Resources */,
 				FDAD688E1583743900A7AD99 /* ToolbarPlus.pdf in Resources */,
 				FDAD68901583769900A7AD99 /* ToolbarMinus.pdf in Resources */,
+				FDAF8741159EF69200F68A11 /* AutomatorAction.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,6 +687,8 @@
 				FDE4C16C1514B83700C3F9ED /* DeleteAction.m in Sources */,
 				FDF7B6C11551BF2D00B786CF /* PBGrowlDelegate.m in Sources */,
 				FD3AD9781554622700726C69 /* PBLog.m in Sources */,
+				FDAF873C159EED8E00F68A11 /* AutomatorAction.m in Sources */,
+				FDAF873F159EF45000F68A11 /* AutomatorActionController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -747,7 +767,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "Sorter-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = Sorter;
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
@@ -770,7 +790,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = "Sorter-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = Sorter;
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;

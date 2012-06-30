@@ -1,4 +1,4 @@
-//Copyright (c) 2011 Peter Brachwitz
+//Copyright (c) 2012 Peter Brachwitz
 //
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -17,33 +17,17 @@
 //LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //THE SOFTWARE.
+
 #import <Foundation/Foundation.h>
+#import "ActionStrategy.h"
+#import "AutomatorActionController.h"
 
-@class Rule;
-@protocol ActionStrategy <NSCoding>
+@interface AutomatorAction : NSObject < ActionStrategy >  {
+    @private
+    AutomatorActionController * settingsController;
+    NSURL * workflow;
+}
 
-/**
- * Performs the core 'business' logic of the action using the given parametres
- */
-- (NSURL*) handleItemAt: (NSURL *) url forRule: (Rule *) rule error: (NSError **) error;
-/**
- * A description of the action in one word
- */
-- (NSString *) userDescription;
-
-/**
- * A description of the action reflecting the current configuration of the action
- */
-- (NSString *) userConfigDescription;
-
-/**
- * An NSView to offer a UI to configure action specific settings
- */
-- (NSView *) settingsView;
-
-/**
- * Whether the action is currently in a valid state e.g. for persisting it
- */
-- (BOOL) valid;
+@property (nonatomic, retain) NSURL * workflow;
 
 @end
