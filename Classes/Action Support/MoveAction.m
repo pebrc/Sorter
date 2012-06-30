@@ -82,6 +82,10 @@
     
 }
 
+- (NSString*)description
+{
+    return [self userDescription];
+}
 
 - (NSString*) userConfigDescription {
     if(target) {

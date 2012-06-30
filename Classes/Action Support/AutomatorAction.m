@@ -52,6 +52,12 @@
 - (NSString *) userDescription {
     return @"Automate";
 }
+
+- (NSString*)description
+{
+    return [self userDescription];
+}
+
 - (NSString *) userConfigDescription {
     if(workflow) {
         return [@"with " stringByAppendingString:[workflow lastPathComponent]];

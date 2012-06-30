@@ -40,6 +40,11 @@
     return url;
 }
 
+- (NSString*)description
+{
+    return [self userDescription];
+}
+
 - (NSString *) userDescription {
     return @"Delete";
 }

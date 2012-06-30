@@ -89,6 +89,7 @@
 
 
 - (void) updateActionDetail {
+    [self removeDetailViews];
     Action * a = [actionController content];
     if (a != NULL) {
         NSView * v = [a settingsView];
@@ -97,8 +98,6 @@
              return;
         }
     }
-    [self removeDetailViews];
-    
 }
 
 #pragma mark - Sheet Methods
