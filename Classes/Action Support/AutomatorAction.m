@@ -45,7 +45,10 @@
 
 
 - (NSURL*) handleItemAt: (NSURL *) url forRule: (Rule *) rule error: (NSError **) error {    
-    [AMWorkflow runWorkflowAtURL:workflow withInput:[NSArray arrayWithObject:url] error:error];
+    id result = [AMWorkflow runWorkflowAtURL:workflow withInput:[NSArray arrayWithObject:url] error:error];
+    if ([result isKindOfClass:[NSURL class]]) {
+        return result;
+    }
     return url;
     
 }
