@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="878" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11E53" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Action" representedClassName="Action">
         <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
         <attribute name="strategy" optional="YES" attributeType="Transformable" valueTransformerName=""/>
@@ -8,6 +8,7 @@
     <entity name="Rule" representedClassName="Rule">
         <attribute name="active" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date"/>
+        <attribute name="flags" optional="YES" attributeType="Integer 32" defaultValueString="72448" syncable="YES"/>
         <attribute name="predicate" attributeType="Transformable"/>
         <attribute name="title" attributeType="String" defaultValueString="Rule title"/>
         <attribute name="to" optional="YES" attributeType="String"/>
@@ -21,7 +22,7 @@
     </entity>
     <elements>
         <element name="Action" positionX="432" positionY="99" width="128" height="90"/>
-        <element name="Rule" positionX="288" positionY="-9" width="128" height="150"/>
+        <element name="Rule" positionX="288" positionY="-9" width="128" height="165"/>
         <element name="Source" positionX="79" positionY="54" width="128" height="90"/>
     </elements>
 </model>

@@ -74,6 +74,16 @@
 	}];
 }
 
+- (IBAction) showEventPanel:(id)sender {
+    [NSApp beginSheet:eventSheet modalForWindow:[NSApp mainWindow] modalDelegate:nil didEndSelector:nil contextInfo:nil];
+}
+
+- (IBAction)endEventPanel:(id)sender {
+    [eventSheet makeFirstResponder:nil];
+    [eventSheet orderOut:self];
+    [NSApp endSheet:eventSheet]; 
+}
+
 
 
 

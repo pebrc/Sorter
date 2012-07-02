@@ -26,12 +26,16 @@
 
 @interface RulesController : NSObjectController {
     IBOutlet NSPredicateEditor * editor;
-    
+    IBOutlet NSPanel * eventSheet;    
     
 }
 -(void) showOpenPanel:(id)sender ForKey:(NSString *)key withTransformation:(id (^)(NSURL *))block; 
 -(IBAction) showSourcePanel:(id)sender;
 -(IBAction) showTargetPanel:(id) sender;
+-(IBAction) showEventPanel:(id) sender;
+-(IBAction)endEventPanel:(id)sender;
+
+
 
 
 @end

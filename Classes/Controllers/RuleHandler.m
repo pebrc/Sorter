@@ -20,13 +20,18 @@
 
 #import "RuleHandler.h"
 #import "Rule.h"
+#import "PBLog.h"
 #import "PBMetaDataResolver.h"
 #include <dispatch/dispatch.h>
 
 
+NSPredicate * ruleFilter(FSEventStreamEventFlags eventFlags) {
+    FSEventStreamEventFlags fileTypes = kFSEventStreamEventFlagItemIsFile |  kFSEventStreamEventFlagItemIsDir |  kFSEventStreamEventFlagItemIsSymlink;
+    return [NSPredicate predicateWithFormat:@"active = TRUE AND (flags & %u) = (%u & %u) AND ((flags & ~%u ) & %u) > 0 AND actions.@count > 0", fileTypes, eventFlags, fileTypes, fileTypes, eventFlags];
+}
 
 @interface RuleHandler(PrivateApi)
-+(BOOL) handleURL:(NSURL *)url fromSource:(Source *)source ignoringDirs: (BOOL) nodescent ;
++(BOOL) internalHandleForURL:(NSURL *)url fromSource:(Source *)source withFlags: (FSEventStreamEventFlags) flags ;
 +(BOOL) handleURL:(NSURL *)url fromSourceId:(NSManagedObjectID *)oid ignoringDirs: (BOOL) nodescent  with:(NSPersistentStoreCoordinator *)psc;
 +(dispatch_queue_t) queue;
 @end
@@ -45,18 +50,21 @@ static dispatch_queue_t localqueue = nil;
 
 + (BOOL) handleSource:(Source *)source {
 	NSURL * url = [NSURL URLWithString:[source url]];
-    return [RuleHandler handleURL:url fromSource:source skipDirs:NO];
+    return [RuleHandler handleURL:url fromSource:source withFlags:INT32_MAX];
 }
 
-+ (BOOL) handleURL:(NSURL *)url fromSource:(Source *)source ignoringDirs:(BOOL)nodescent {
++ (BOOL) internalHandleForURL:(NSURL *)url fromSource:(Source *)source withFlags:(FSEventStreamEventFlags)flags {
     BOOL res = YES;
     PBMetaDataResolver *resolver = [[PBMetaDataResolver alloc] init];
-    for(id rule in [[source rules] filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"active = TRUE AND actions.@count > 0"]]) {
+    for(id rule in [[source rules] filteredSetUsingPredicate:ruleFilter(flags)]) {      
 		if ([resolver predicate:[rule predicate] matches:url ]) {
             [resolver map: rule toLastResults: ^(NSURL * url, Rule* rule){
                 for(Action *a in [rule actions]) {
                     NSError *error = nil;
                     url = [a handleItemAt:url error:&error];
+                    if(error) {
+                        [PBLog logError:[error localizedDescription]] ;
+                    }
                     
                 }
             }];
@@ -70,23 +78,23 @@ static dispatch_queue_t localqueue = nil;
 
 
 
-+ (BOOL) handleURL: (NSURL*) url fromSource:(Source *)source skipDirs:(BOOL)value {
++ (BOOL) handleURL: (NSURL*) url fromSource:(Source *)source withFlags:(FSEventStreamEventFlags)flags {
     NSPersistentStoreCoordinator *psc = [[source managedObjectContext] persistentStoreCoordinator];
     NSManagedObjectID *oid  = [source objectID];
     dispatch_async([RuleHandler queue], ^{
         NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-        [RuleHandler handleURL:url fromSourceId:oid ignoringDirs:value with:psc];
+        [RuleHandler handleURL:url fromSourceId:oid withFlags:flags with:psc];
         [pool drain];
         
     });
 	return YES;
 }
 
-+ (BOOL) handleURL:(NSURL *)url fromSourceId:(NSManagedObjectID *)oid ignoringDirs:(BOOL)nodescent with:(NSPersistentStoreCoordinator *)psc {
++ (BOOL) handleURL:(NSURL *)url fromSourceId:(NSManagedObjectID *)oid withFlags:(FSEventStreamEventFlags)flags with:(NSPersistentStoreCoordinator *)psc {
      NSManagedObjectContext * managedObjectContext = [[NSManagedObjectContext alloc] init];
     [managedObjectContext setPersistentStoreCoordinator: psc];
     Source * src = (Source *)[managedObjectContext existingObjectWithID:oid error: nil];
-    return src ? [RuleHandler handleURL:url fromSource:src ignoringDirs:nodescent]: NO;
+    return src ? [RuleHandler internalHandleForURL:url fromSource:src withFlags:flags]: NO;
 }
 
 
@@ -109,8 +117,6 @@ static dispatch_queue_t localqueue = nil;
 	return url;
 	
 }
-
-
 
 
 @end

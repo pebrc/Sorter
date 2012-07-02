@@ -56,7 +56,7 @@
 {
     NSCalendar * cal = [NSCalendar currentCalendar];
     NSDateComponents * comps = [cal components:NSDayCalendarUnit fromDate:[NSDate date]];
-    NSString * expected = [NSString stringWithFormat:@"/usr/local/bin/%0u", [comps day]];
+    NSString * expected = [NSString stringWithFormat:@"/usr/local/bin/%02u", [comps day]];
     id result =  [action performSelector:@selector(expandPlaceholders:) withObject:@"/usr/local/bin/$DD"];
     STAssertEqualObjects(result, expected, @"day place holder should have been replaced");
     

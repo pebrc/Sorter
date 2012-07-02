@@ -25,7 +25,7 @@
 
 //+(Rule *) matchingRuleOf: (NSSet*) rules ForURL: (NSURL*) url;
 +(BOOL) handleSource:(Source*) source;
-+(BOOL) handleURL: (NSURL *) url fromSource: (Source*) source skipDirs:(BOOL) value; 
++(BOOL) handleURL: (NSURL *) url fromSource: (Source*) source withFlags:(FSEventStreamEventFlags) flags; 
 +(NSURL*) normalizeURL:(NSURL*) url checkIfDirectory: (BOOL *) isDir;
 
 @end

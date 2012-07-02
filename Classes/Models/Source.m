@@ -51,9 +51,9 @@
         DEBUG_OUTPUT(@"Dropping event on url %@ because file does not seem to exist", url);
         return;
     }
-    BOOL skipSubDirs = [event eventFlags] & kFSEventStreamEventFlagMustScanSubDirs ? NO : YES;
+    //BOOL skipSubDirs = [event eventFlags] & kFSEventStreamEventFlagMustScanSubDirs ? NO : YES;
     //TODO: kFSEventStreamEventFlagRootChanged
-	[RuleHandler handleURL:url fromSource:self skipDirs:skipSubDirs];
+	[RuleHandler handleURL:url fromSource:self withFlags:[event eventFlags]];
 }
 
 -(FSEventStreamEventId) lastListened {

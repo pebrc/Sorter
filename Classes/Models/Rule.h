@@ -32,10 +32,23 @@
 
 @property (nonatomic, retain) Source * from;
 @property (nonatomic, retain) NSString * to;
+@property (nonatomic, retain) NSNumber * flags;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSPredicate * predicate;
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSSet* actions;
+
+@property (nonatomic, readwrite) BOOL flagCreated;
+@property (nonatomic, readwrite) BOOL flagRemoved;
+@property (nonatomic, readwrite) BOOL flagRenamed;
+@property (nonatomic, readwrite) BOOL flagModified;
+@property (nonatomic, readwrite) BOOL flagFinderInfoMod;
+@property (nonatomic, readwrite) BOOL flagInodeMetaMod;
+@property (nonatomic, readwrite) BOOL flagChangeOwner;
+@property (nonatomic, readwrite) BOOL flagXattrMod;
+@property (nonatomic, readwrite) BOOL flagIsFile;
+@property (nonatomic, readwrite) BOOL flagIsDir;
+@property (nonatomic, readwrite) BOOL flagIsSymlink;
 
 
 @end
