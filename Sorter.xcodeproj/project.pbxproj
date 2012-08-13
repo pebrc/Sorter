@@ -184,8 +184,6 @@
 		FD9E36DD14A9ED03006C6F89 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FD9E36DF14A9ED03006C6F89 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		FD9E36E214A9ED03006C6F89 /* APPL.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = APPL.icns; sourceTree = "<group>"; };
-		FD9E36E314A9ED03006C6F89 /* ToolbarMinus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToolbarMinus.png; sourceTree = "<group>"; };
-		FD9E36E414A9ED03006C6F89 /* ToolbarPlus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToolbarPlus.png; sourceTree = "<group>"; };
 		FD9E36E514A9ED03006C6F89 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		FD9E36E614A9ED03006C6F89 /* MoveAction.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoveAction.xib; sourceTree = "<group>"; };
 		FD9E36F314A9ED71006C6F89 /* Sorter-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Sorter-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -500,8 +498,6 @@
 				FD9E36E214A9ED03006C6F89 /* APPL.icns */,
 				FDAD688D1583743900A7AD99 /* ToolbarPlus.pdf */,
 				FDAD688F1583769900A7AD99 /* ToolbarMinus.pdf */,
-				FD9E36E314A9ED03006C6F89 /* ToolbarMinus.png */,
-				FD9E36E414A9ED03006C6F89 /* ToolbarPlus.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
