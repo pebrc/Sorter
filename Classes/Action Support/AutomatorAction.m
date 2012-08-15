@@ -22,6 +22,7 @@
 #import "PBLog.h"
 #import "PBGrowlDelegate.h"
 #import "Automator/AMWorkflow.h"
+#import "PBSandboxAdditions.h"
 
 
 #define DETAIL_VIEW  @"AutomatorAction"
@@ -62,11 +63,10 @@
     if(*error) {
         return url;
     }
-    [sec startAccessingSecurityScopedResource];
-    [secWorkflow startAccessingSecurityScopedResource];
-    id result = [AMWorkflow runWorkflowAtURL:workflow withInput:[NSArray arrayWithObject:url] error:error];
-    [secWorkflow stopAccessingSecurityScopedResource];
-    [sec stopAccessingSecurityScopedResource];
+    __block id result;
+    WithSecurityScopedURL([self securityScope], ^(NSURL* securl){
+            result = [AMWorkflow runWorkflowAtURL:workflow withInput:[NSArray arrayWithObject:securl] error:error];
+    });
     if ([result isKindOfClass:[NSURL class]]) {
         return result;
     }

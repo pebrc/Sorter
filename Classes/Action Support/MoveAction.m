@@ -21,6 +21,7 @@
 #import "MoveAction.h"
 #import "PBGrowlDelegate.h"
 #import "PBLog.h"
+#import "PBSandboxAdditions.h"
 
 #define DETAIL_VIEW  @"MoveAction"
 #define YEAR @"$YYYY"
@@ -100,21 +101,20 @@
 
 - (NSURL *) handleItemAt: (NSURL *) url forRule: (Rule *) rule withSecurityScope:(NSURL *)sec error:(NSError **)error {
     NSURL * dir = [self targetDirFor:url];
+    __block BOOL success;
     NSURL * t = [self targetURLFor:url within: dir];
-    NSURL * secTarget = [NSURL URLByResolvingBookmarkData:[self secureTargetBookmark] options:NSURLBookmarkResolutionWithSecurityScope relativeToURL:nil bookmarkDataIsStale:nil error:nil];
-    NSFileManager * manager = [NSFileManager defaultManager];
-    [secTarget startAccessingSecurityScopedResource];
-    [sec startAccessingSecurityScopedResource];
-    if(![manager fileExistsAtPath:[dir path]]) {
-        [manager createDirectoryAtPath:[dir path] withIntermediateDirectories:YES attributes:nil error:nil];
-    }
-    BOOL success = [manager moveItemAtURL:url toURL:t  error:error];
-    [sec stopAccessingSecurityScopedResource];
-    [secTarget stopAccessingSecurityScopedResource];
-    if (success) {
-        [PBGrowlDelegate notifyWithTitle:@"Moved file" 
-                           description:[NSString stringWithFormat:@"%@ to .../%@", [url lastPathComponent], [dir lastPathComponent]]];
+    WithSecurityScopedURL([self secureTargetBookmark], ^(NSURL * securl){
+            NSFileManager * manager = [NSFileManager defaultManager];
+            if(![manager fileExistsAtPath:[dir path]]) {
+                [manager createDirectoryAtPath:[dir path] withIntermediateDirectories:YES attributes:nil error:nil];
+            }
+           success = [manager moveItemAtURL:url toURL:t  error:error];
 
+    });
+    
+    if (success) {
+        [PBGrowlDelegate notifyWithTitle:@"Moved file"
+                           description:[NSString stringWithFormat:@"%@ to .../%@", [url lastPathComponent], [dir lastPathComponent]]];
         return t;
     }
     return url;
