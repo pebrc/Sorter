@@ -59,10 +59,6 @@
 
 
 - (NSURL*) handleItemAt: (NSURL *) url forRule: (Rule *) rule withSecurityScope:(NSURL *)sec error:(NSError **)error {
-    NSURL * secWorkflow = [NSURL URLByResolvingBookmarkData:[self securityScope] options:NSURLBookmarkResolutionWithSecurityScope relativeToURL:nil bookmarkDataIsStale:nil error:error];
-    if(*error) {
-        return url;
-    }
     __block id result;
     WithSecurityScopedURL([self securityScope], ^(NSURL* securl){
             result = [AMWorkflow runWorkflowAtURL:workflow withInput:[NSArray arrayWithObject:securl] error:error];

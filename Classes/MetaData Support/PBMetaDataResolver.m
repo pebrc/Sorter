@@ -56,7 +56,7 @@
             if([[url absoluteString] rangeOfString:[[rule from]url]].location != NSNotFound) {
                 block(url, rule);
             } else {
-                [PBLog logDebug:[NSString stringWithFormat: @"found %@ outside scope", [url absoluteString]]];
+                [PBLog logDebug: @"found %@ outside scope", [url absoluteString]];
             }
         } else {
             [PBLog logDebug:@"FsEvents returned nil path"];

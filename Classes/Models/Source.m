@@ -67,7 +67,7 @@
     [self setEventid: currentEvent];
     NSString * eventDesc = [event description];
     [PBGrowlDelegate notifyWithTitle:@"FS Event" description:eventDesc level:kPBGrowlChatty]; 
-    [PBLog logDebug:eventDesc];
+    [PBLog logDebug:@"%@", eventDesc];
 
     if(![[NSFileManager defaultManager]fileExistsAtPath:[url path]]) {
         DEBUG_OUTPUT(@"Dropping event on url %@ because file does not seem to exist", url);
