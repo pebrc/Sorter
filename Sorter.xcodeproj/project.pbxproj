@@ -121,6 +121,7 @@
 		FD2F389D14B84D9F0073D2CF /* Sorter_DataModel_ 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Sorter_DataModel_ 2.xcdatamodel"; sourceTree = "<group>"; };
 		FD2F389F14B8DBF60073D2CF /* TestPBMetaDataDatePredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPBMetaDataDatePredicate.h; sourceTree = "<group>"; };
 		FD2F38A014B8DBF60073D2CF /* TestPBMetaDataDatePredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPBMetaDataDatePredicate.m; sourceTree = "<group>"; };
+		FD3A17D215D8F876007B7621 /* Sorter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Sorter.entitlements; sourceTree = "<group>"; };
 		FD3AD9761554622700726C69 /* PBLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBLog.h; sourceTree = "<group>"; };
 		FD3AD9771554622700726C69 /* PBLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBLog.m; sourceTree = "<group>"; };
 		FD612FE2150361FC0033641B /* PBMetaRelativeDateRowTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBMetaRelativeDateRowTemplate.h; path = RuleEditor/PBMetaRelativeDateRowTemplate.h; sourceTree = "<group>"; };
@@ -212,6 +213,7 @@
 		FDF7B6C01551BF2D00B786CF /* PBGrowlDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBGrowlDelegate.m; sourceTree = "<group>"; };
 		FDFCB9BB14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPBMetaVariableDateRowTemplate.h; sourceTree = "<group>"; };
 		FDFCB9BC14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPBMetaVariableDateRowTemplate.m; sourceTree = "<group>"; };
+		FDFCE1C015D9244E00064AA4 /* Sorter_DataModel_ 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sorter_DataModel_ 3.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +261,7 @@
 		29B97314FDCFA39411CA2CEA /* Sorter */ = {
 			isa = PBXGroup;
 			children = (
+				FD3A17D215D8F876007B7621 /* Sorter.entitlements */,
 				FD9E369414A9ECBB006C6F89 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				FD9E363B14A9D5DB006C6F89 /* Tests */,
@@ -744,6 +747,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CODE_SIGN_ENTITLEMENTS = Sorter.entitlements;
+				CODE_SIGN_IDENTITY = "pbrc dev";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -765,6 +770,7 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = Sorter;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
@@ -773,6 +779,8 @@
 		26FC0A860875C7B200E6366F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Sorter.entitlements;
+				CODE_SIGN_IDENTITY = "pbrc dev";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -788,6 +796,7 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = Sorter;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
@@ -919,10 +928,11 @@
 		FD2F389B14B84D9F0073D2CF /* Sorter_DataModel_2.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				FDFCE1C015D9244E00064AA4 /* Sorter_DataModel_ 3.xcdatamodel */,
 				FD2F389C14B84D9F0073D2CF /* Sorter_DataModel.xcdatamodel */,
 				FD2F389D14B84D9F0073D2CF /* Sorter_DataModel_ 2.xcdatamodel */,
 			);
-			currentVersion = FD2F389D14B84D9F0073D2CF /* Sorter_DataModel_ 2.xcdatamodel */;
+			currentVersion = FDFCE1C015D9244E00064AA4 /* Sorter_DataModel_ 3.xcdatamodel */;
 			path = Sorter_DataModel_2.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

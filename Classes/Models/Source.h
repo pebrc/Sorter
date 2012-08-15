@@ -33,6 +33,7 @@
 @property (nonatomic, assign) NSNumber * eventid;
 @property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) NSSet* rules;
+@property (nonatomic, retain) NSData * bookmark;
 
 @end
 
@@ -42,6 +43,7 @@
 - (void)removeRulesObject:(Rule *)value;
 - (void)addRules:(NSSet *)value;
 - (void)removeRules:(NSSet *)value;
+- (NSURL*) securityScope;
 
 @end
 

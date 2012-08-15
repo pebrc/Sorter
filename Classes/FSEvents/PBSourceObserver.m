@@ -113,17 +113,21 @@
         [self removeFSWatcherFor:source];
         return;
     }
+    NSURL * securityScopedUrl = [source securityScope];
     
-    if (nil == [source url]) {
+    if (nil == securityScopedUrl) {
         return;
-    } 
-    //this should not do any harm if we called it too often
-    [PBWatcher watchPath: [[NSURL URLWithString:[source url]] path] notify:source];
+    }    
+    
+    [securityScopedUrl startAccessingSecurityScopedResource];
+    [PBWatcher watchPath: [ securityScopedUrl path] notify:source];
 
 }
 
 -(void) removeFSWatcherFor:(Source *)source {
-    [PBWatcher stopWatchingPath:[[NSURL URLWithString:[source url]] path]];
+    NSURL * url =  [source securityScope];
+    [PBWatcher stopWatchingPath:[url path]];
+    [url stopAccessingSecurityScopedResource];
     
 }
 

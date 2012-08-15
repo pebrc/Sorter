@@ -19,6 +19,7 @@
 //THE SOFTWARE.
 
 #import "AutomatorAction.h"
+#import "PBLog.h"
 #import "PBGrowlDelegate.h"
 #import "Automator/AMWorkflow.h"
 
@@ -28,6 +29,7 @@
 @implementation AutomatorAction
 
 @synthesize workflow;
+@synthesize securityScope;
 
 
 + (NSSet *)keyPathsForValuesAffectingValid
@@ -36,16 +38,35 @@
 }
 
 
-- initWithURL: (NSURL*) url {
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        [self addObserver:self forKeyPath:@"workflow" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+
+    }
+    return self;
+}
+
+- initWithURL: (NSURL*) url andSecurityScope: (NSData*) sec{
     if (self = [self init]) {
         [self setWorkflow:url];
+        [self setSecurityScope:sec];
     }
     return self;
 }
 
 
-- (NSURL*) handleItemAt: (NSURL *) url forRule: (Rule *) rule error: (NSError **) error {    
+- (NSURL*) handleItemAt: (NSURL *) url forRule: (Rule *) rule withSecurityScope:(NSURL *)sec error:(NSError **)error {
+    NSURL * secWorkflow = [NSURL URLByResolvingBookmarkData:[self securityScope] options:NSURLBookmarkResolutionWithSecurityScope relativeToURL:nil bookmarkDataIsStale:nil error:error];
+    if(*error) {
+        return url;
+    }
+    [sec startAccessingSecurityScopedResource];
+    [secWorkflow startAccessingSecurityScopedResource];
     id result = [AMWorkflow runWorkflowAtURL:workflow withInput:[NSArray arrayWithObject:url] error:error];
+    [secWorkflow stopAccessingSecurityScopedResource];
+    [sec stopAccessingSecurityScopedResource];
     if ([result isKindOfClass:[NSURL class]]) {
         return result;
     }
@@ -78,16 +99,34 @@
     return workflow != nil;
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"workflow"]) {
+        DEBUG_OUTPUT(@"%@", [change description]);
+        NSURL * url = [change valueForKey:@"new"];
+        if (url) {
+            NSError * err = nil;
+            NSData * sec = [url bookmarkDataWithOptions:NSURLBookmarkCreationWithSecurityScope includingResourceValuesForKeys:nil relativeToURL:nil error:&err];
+            if(err) {
+                [PBLog logError:@"%@", [err localizedDescription]];
+                return;
+            }
+            [self setSecurityScope:sec];
+        }
+    }
+}
+
 #pragma mark NSCoding
 
 - (void)encodeWithCoder:(NSCoder *)coder {
   [coder encodeObject:workflow forKey:@"workflow"];
+  [coder encodeObject:securityScope forKey:@"securityScope"];
     
 }
 - (id)initWithCoder:(NSCoder *)decoder {
     
-    NSURL * url = [decoder decodeObjectForKey:@"workflow"];    
-    return [self initWithURL:url];
+    NSURL * url = [decoder decodeObjectForKey:@"workflow"];
+    NSData * sec = [decoder decodeObjectForKey:@"securityScope"];
+    return [self initWithURL:url andSecurityScope:sec];
 }
 
 

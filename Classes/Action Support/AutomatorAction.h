@@ -26,8 +26,10 @@
     @private
     AutomatorActionController * settingsController;
     NSURL * workflow;
+    NSData * securityScope;
 }
 
 @property (nonatomic, retain) NSURL * workflow;
+@property (nonatomic, retain) NSData * securityScope;
 
 @end

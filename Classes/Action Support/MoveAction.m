@@ -30,6 +30,7 @@
 @interface MoveAction(PrivateApi)
 - (NSURL*) targetURLFor: (NSURL *) file within: (NSURL*) dir;
 - (NSURL*) targetDirFor: (NSURL *) file;
+- (void) setSecureTargetBookmarkFrom: (NSString *) path;
 - (NSString*) expandPlaceholders: (NSString*) stringWithPlaceholders;
 - (NSDictionary *) variableDictionary;
 @end
@@ -38,10 +39,11 @@
 @implementation MoveAction
 @synthesize userDescription;
 @synthesize target;
+@synthesize secureTargetBookmark;
 
 + (NSSet *)keyPathsForValuesAffectingValid
 {
-    return [NSSet setWithObjects:@"target", nil];
+    return [NSSet setWithObjects: @"target", nil];
 }
 
 - (id)init
@@ -54,9 +56,10 @@
     return self;
 }
 
-- initWithURL: (NSString*) url {
+- initWithURL: (NSString*) url andBookmark: (NSData*) bookmark {
     if (self = [self init]) {
-        [self setTarget:url];
+        target = [url retain];
+        [self setSecureTargetBookmark:bookmark];
     }
     return self;
 }
@@ -69,7 +72,7 @@
 }
 
 - (void) setTarget:(NSString *)t {
-    if(t == target) {
+    if(target == t) {
         return;
     }
     [self willChangeValueForKey:@"target"];
@@ -78,9 +81,10 @@
     [undo setActionName:@"target change"];
     [target release];
     target = [t retain];
+    [self setSecureTargetBookmarkFrom:t];
     [self didChangeValueForKey:@"target"];
-    
 }
+
 
 - (NSString*)description
 {
@@ -94,19 +98,19 @@
     return  @"";
 }
 
-- (NSURL *) handleItemAt: (NSURL *) url forRule: (Rule *) rule error: (NSError **) error {
+- (NSURL *) handleItemAt: (NSURL *) url forRule: (Rule *) rule withSecurityScope:(NSURL *)sec error:(NSError **)error {
     NSURL * dir = [self targetDirFor:url];
     NSURL * t = [self targetURLFor:url within: dir];
-    #if NO_IO
-    BOOL success = YES;
-    [PBLog logDebug: @"moving item at %@ to %@", url, target];
-    #else
+    NSURL * secTarget = [NSURL URLByResolvingBookmarkData:[self secureTargetBookmark] options:NSURLBookmarkResolutionWithSecurityScope relativeToURL:nil bookmarkDataIsStale:nil error:nil];
     NSFileManager * manager = [NSFileManager defaultManager];
+    [secTarget startAccessingSecurityScopedResource];
+    [sec startAccessingSecurityScopedResource];
     if(![manager fileExistsAtPath:[dir path]]) {
         [manager createDirectoryAtPath:[dir path] withIntermediateDirectories:YES attributes:nil error:nil];
     }
     BOOL success = [manager moveItemAtURL:url toURL:t  error:error];
-    #endif
+    [sec stopAccessingSecurityScopedResource];
+    [secTarget stopAccessingSecurityScopedResource];
     if (success) {
         [PBGrowlDelegate notifyWithTitle:@"Moved file" 
                            description:[NSString stringWithFormat:@"%@ to .../%@", [url lastPathComponent], [dir lastPathComponent]]];
@@ -134,6 +138,18 @@
     return nil;
 }
 
+- (void) setSecureTargetBookmarkFrom:(NSString *)path {
+    NSURL * secUrl = [NSURL URLWithString:path];
+    NSError * err = nil;
+    NSData * bookmark = [secUrl bookmarkDataWithOptions:NSURLBookmarkCreationWithSecurityScope includingResourceValuesForKeys:nil relativeToURL:nil error:&err];
+    if(err) {
+        [PBLog logError: @"%@", [err description]];
+        return;
+    }
+    [self setSecureTargetBookmark:bookmark];
+    
+}
+
 
 - (NSString*) expandPlaceholders:(NSString *)stringWithPlaceholders {
     NSDictionary * dict = [self variableDictionary];
@@ -150,9 +166,9 @@
 - (NSDictionary *) variableDictionary {
     NSCalendar * cal = [NSCalendar currentCalendar];
     NSDateComponents * comps = [cal components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
-    return [NSDictionary dictionaryWithObjectsAndKeys:  [NSString stringWithFormat:@"%u",[comps year]],YEAR,
-            [NSString stringWithFormat:@"%02u", [comps month]], MONTH,  
-            [NSString stringWithFormat:@"%02u", [comps day]], DAY, 
+    return [NSDictionary dictionaryWithObjectsAndKeys:  [NSString stringWithFormat:@"%lu",[comps year]],YEAR,
+            [NSString stringWithFormat:@"%02lu", [comps month]], MONTH,
+            [NSString stringWithFormat:@"%02lu", [comps day]], DAY, 
             nil];
 }
 
@@ -173,13 +189,15 @@
 #pragma mark NSCoding
 
 - (void)encodeWithCoder:(NSCoder *)coder {
+    [coder encodeObject:secureTargetBookmark forKey:@"secureTargetBookmark"];
     [coder encodeObject:target forKey:@"target"];
     
 }
 - (id)initWithCoder:(NSCoder *)decoder {
 
-    NSString * url = [decoder decodeObjectForKey:@"target"];    
-    return [self initWithURL:url];
+    NSString * url = [decoder decodeObjectForKey:@"target"];
+    NSData * bookmark = [decoder decodeObjectForKey:@"secureTargetBookmark"];
+    return [self initWithURL:url andBookmark: bookmark];
 }
 
 

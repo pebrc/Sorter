@@ -22,7 +22,7 @@
 
 @implementation DeleteAction
 
-- (NSURL *) handleItemAt: (NSURL *) url forRule: (Rule *) rule error: (NSError **) error {
+- (NSURL *) handleItemAt: (NSURL *) url forRule: (Rule *) rule withSecurityScope:(NSURL *)sec error:(NSError **)error {
     OSStatus status;
     FSRef target;
     FSRef input;
