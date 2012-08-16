@@ -19,6 +19,7 @@
 //THE SOFTWARE.
 
 #import "DeleteAction.h"
+#import "PBUserNotify.h"
 
 @implementation DeleteAction
 
@@ -30,6 +31,7 @@
     assert(status == 0);
     status = FSMoveObjectToTrashSync(&input, &target, kFSFileOperationDefaultOptions);
     if(status == noErr) {
+        [PBUserNotify notifyWithTitle:@"Deleted file" description:[url lastPathComponent] level:kPBNotifyInfo];
         UInt8 * path[512];
         status = FSRefMakePath(&target, (UInt8 *)path, 512);
         if (status == noErr) {
