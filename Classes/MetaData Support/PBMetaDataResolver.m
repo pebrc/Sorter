@@ -24,7 +24,7 @@
 
 #import "PBMetaDataResolver.h"
 #import "PBMetaDataPredicate.h"
-#import "PBLog.h"
+#import "PBUserNotify.h"
 
 @interface PBMetaDataResolver(PrivateAPI) 
 - (NSPredicate*) spotifiedPredicate: (id) original;
@@ -56,10 +56,10 @@
             if([[url absoluteString] rangeOfString:[[rule from]url]].location != NSNotFound) {
                 block(url, rule);
             } else {
-                [PBLog logDebug: @"found %@ outside scope", [url absoluteString]];
+                [PBUserNotify notifyWithTitle:@"FSEvents Problem" description:[NSString stringWithFormat:@"found %@ outside scope", [url absoluteString]] level:kPBNotifyDebug];
             }
         } else {
-            [PBLog logDebug:@"FsEvents returned nil path"];
+            [PBUserNotify notifyWithTitle:@"FSEvents Problem" description:@"FsEvents returned nil path" level:kPBNotifyDebug];
 
         }        
         [pool release];        
@@ -71,9 +71,9 @@
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];	
 	NSString *queryString =  [[PBMetaDataPredicate predicateFromPredicate:expression] predicateFormat];
 	self->currentQuery = MDQueryCreate(kCFAllocatorDefault, (CFStringRef)queryString, NULL, NULL);
-    [PBLog logInfo:@"Creating query: %@", queryString];
+    [PBUserNotify notifyWithTitle:@"Creating query" description:queryString level:kPBNotifyDebug];
 	if (!self->currentQuery) {
-		[PBLog logError:@"Failed to generate query: %@", queryString];
+        [PBUserNotify notifyWithTitle:@"Failed to generate query" description:queryString level:kPBNotifyError];
 		[pool drain];
 		return NO;
 	}
@@ -81,8 +81,8 @@
 	MDQueryExecute(self->currentQuery, kMDQuerySynchronous);
     self->currentResults = MDQueryGetResultCount(self->currentQuery); 
     if(self->currentResults == 0) {
-        [self dispose];        
-        [PBLog logInfo:@"Spotlight query in %@ did NOT match: %@", url, queryString];
+        [self dispose];
+        [PBUserNotify notifyWithTitle:@"Spotlight query did NOT match" description:[NSString stringWithFormat:@"Url: %@ , query was: %@", url, queryString] level:kPBNotifyInfo];
 		[pool drain];
 		return NO;
     }

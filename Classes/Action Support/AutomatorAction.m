@@ -19,7 +19,7 @@
 //THE SOFTWARE.
 
 #import "AutomatorAction.h"
-#import "PBLog.h"
+#import "PBUserNotify.h"
 #import "PBGrowlDelegate.h"
 #import "Automator/AMWorkflow.h"
 #import "PBSandboxAdditions.h"
@@ -103,7 +103,7 @@
             NSError * err = nil;
             NSData * sec = [url bookmarkDataWithOptions:NSURLBookmarkCreationWithSecurityScope includingResourceValuesForKeys:nil relativeToURL:nil error:&err];
             if(err) {
-                [PBLog logError:@"%@", [err localizedDescription]];
+                [PBUserNotify notifyWithTitle:@"No bookmarkable security scope" description:[err localizedDescription] level:kPBNotifyDebug];
                 return;
             }
             [self setSecurityScope:sec];

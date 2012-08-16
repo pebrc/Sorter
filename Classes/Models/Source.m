@@ -21,8 +21,7 @@
 
 #import "Source.h"
 #import "RuleHandler.h"
-#import "PBGrowlDelegate.h"
-#import "PBLog.h"
+#import "PBUserNotify.h"
 
 @implementation Source 
 
@@ -66,9 +65,8 @@
     }
     [self setEventid: currentEvent];
     NSString * eventDesc = [event description];
-    [PBGrowlDelegate notifyWithTitle:@"FS Event" description:eventDesc level:kPBGrowlChatty]; 
-    [PBLog logDebug:@"%@", eventDesc];
-
+    [PBUserNotify notifyWithTitle:@"Event detected" description:eventDesc level:kPBNotifyTrace];
+    
     if(![[NSFileManager defaultManager]fileExistsAtPath:[url path]]) {
         DEBUG_OUTPUT(@"Dropping event on url %@ because file does not seem to exist", url);
         return;

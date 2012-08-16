@@ -63,6 +63,8 @@
 		FDAF8743159F04C200F68A11 /* Automator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAF8742159F04C200F68A11 /* Automator.framework */; };
 		FDBB239614AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBB239514AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m */; };
 		FDBBE89C14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBBE89B14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.m */; };
+		FDBF525D15DCEEA9001143AA /* PBUserNotify.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBF525C15DCEEA9001143AA /* PBUserNotify.m */; };
+		FDBF526015DD1610001143AA /* PBNotificationCenterDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBF525F15DD1610001143AA /* PBNotificationCenterDelegate.m */; };
 		FDE19D3A15507A6B00F0150C /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE19D3915507A6B00F0150C /* Growl.framework */; };
 		FDE19D3C15507ADD00F0150C /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FDE19D3915507A6B00F0150C /* Growl.framework */; };
 		FDE4C16C1514B83700C3F9ED /* DeleteAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE4C16B1514B83700C3F9ED /* DeleteAction.m */; };
@@ -205,6 +207,10 @@
 		FDBB239514AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+PBCoreDataSugar.m"; sourceTree = "<group>"; };
 		FDBBE89A14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBMetaPresetRelativeDateRowTemplate.h; path = RuleEditor/PBMetaPresetRelativeDateRowTemplate.h; sourceTree = "<group>"; };
 		FDBBE89B14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBMetaPresetRelativeDateRowTemplate.m; path = RuleEditor/PBMetaPresetRelativeDateRowTemplate.m; sourceTree = "<group>"; };
+		FDBF525B15DCEEA9001143AA /* PBUserNotify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBUserNotify.h; sourceTree = "<group>"; };
+		FDBF525C15DCEEA9001143AA /* PBUserNotify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBUserNotify.m; sourceTree = "<group>"; };
+		FDBF525E15DD160F001143AA /* PBNotificationCenterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBNotificationCenterDelegate.h; sourceTree = "<group>"; };
+		FDBF525F15DD1610001143AA /* PBNotificationCenterDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBNotificationCenterDelegate.m; sourceTree = "<group>"; };
 		FDE19D3915507A6B00F0150C /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = Growl/Growl.framework; sourceTree = "<group>"; };
 		FDE4C16A1514B83700C3F9ED /* DeleteAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteAction.h; sourceTree = "<group>"; };
 		FDE4C16B1514B83700C3F9ED /* DeleteAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteAction.m; sourceTree = "<group>"; };
@@ -392,6 +398,8 @@
 				FD9E369B14A9ECBB006C6F89 /* Sorter_AppDelegate.m */,
 				FDF7B6BF1551BF2D00B786CF /* PBGrowlDelegate.h */,
 				FDF7B6C01551BF2D00B786CF /* PBGrowlDelegate.m */,
+				FDBF525E15DD160F001143AA /* PBNotificationCenterDelegate.h */,
+				FDBF525F15DD1610001143AA /* PBNotificationCenterDelegate.m */,
 			);
 			name = Delegates;
 			path = AppDelegate;
@@ -479,6 +487,8 @@
 				FD3AD9771554622700726C69 /* PBLog.m */,
 				FDEA509B15DC1DC90070FA8C /* PBSandboxAdditions.h */,
 				FDEA509C15DC1DC90070FA8C /* PBSandboxAdditions.m */,
+				FDBF525B15DCEEA9001143AA /* PBUserNotify.h */,
+				FDBF525C15DCEEA9001143AA /* PBUserNotify.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -569,7 +579,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0440;
 			};
 			buildConfigurationList = 26FC0A880875C7B200E6366F /* Build configuration list for PBXProject "Sorter" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -694,6 +704,8 @@
 				FDAF873C159EED8E00F68A11 /* AutomatorAction.m in Sources */,
 				FDAF873F159EF45000F68A11 /* AutomatorActionController.m in Sources */,
 				FDEA509D15DC1DC90070FA8C /* PBSandboxAdditions.m in Sources */,
+				FDBF525D15DCEEA9001143AA /* PBUserNotify.m in Sources */,
+				FDBF526015DD1610001143AA /* PBNotificationCenterDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -755,6 +767,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CODE_SIGN_ENTITLEMENTS = Sorter.entitlements;
 				CODE_SIGN_IDENTITY = "pbrc dev";
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -787,6 +800,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Sorter.entitlements;
 				CODE_SIGN_IDENTITY = "pbrc dev";
+				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -818,7 +832,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -841,6 +855,7 @@
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Sorter.app/Contents/MacOS/Sorter";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -876,6 +891,7 @@
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Sorter.app/Contents/MacOS/Sorter";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (

@@ -20,7 +20,7 @@
 
 #import "RuleHandler.h"
 #import "Rule.h"
-#import "PBLog.h"
+#import "PBUserNotify.h"
 #import "PBMetaDataResolver.h"
 #include <dispatch/dispatch.h>
 
@@ -63,7 +63,7 @@ static dispatch_queue_t localqueue = nil;
                     NSError *error = nil;
                     url = [a handleItemAt:url error:&error];
                     if(error) {
-                        [PBLog logError:@"%@", [error localizedDescription]] ;
+                        [PBUserNotify notifyWithTitle:@"Error while applying rule" description:[error localizedDescription] level:kPBNotifyWarn];
                     }
                     
                 }

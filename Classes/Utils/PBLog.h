@@ -19,13 +19,14 @@
 //THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+#import "PBUserNotify.h"
 typedef enum {
     kPBLogError = 1,
     kPBLogInfo = 5,
     kPBLogDebug = 6,
 }PBLogLevel;
 
-@interface PBLog : NSObject
+@interface PBLog : NSObject <PBNotifyDelegate>
 
 + (void)logDebug: (NSString*) format, ... NS_FORMAT_FUNCTION(1, 2);
 + (void)logInfo: (NSString*) format, ... NS_FORMAT_FUNCTION(1, 2);

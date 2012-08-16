@@ -19,8 +19,7 @@
 //THE SOFTWARE.
 
 #import "MoveAction.h"
-#import "PBGrowlDelegate.h"
-#import "PBLog.h"
+#import "PBUserNotify.h"
 #import "PBSandboxAdditions.h"
 
 #define DETAIL_VIEW  @"MoveAction"
@@ -113,8 +112,8 @@
     });
     
     if (success) {
-        [PBGrowlDelegate notifyWithTitle:@"Moved file"
-                           description:[NSString stringWithFormat:@"%@ to .../%@", [url lastPathComponent], [dir lastPathComponent]]];
+        [PBUserNotify notifyWithTitle:@"Moved file"
+                           description:[NSString stringWithFormat:@"%@ to .../%@", [url lastPathComponent], [dir lastPathComponent]] level:kPBNotifyInfo];
         return t;
     }
     return url;
@@ -143,7 +142,7 @@
     NSError * err = nil;
     NSData * bookmark = [secUrl bookmarkDataWithOptions:NSURLBookmarkCreationWithSecurityScope includingResourceValuesForKeys:nil relativeToURL:nil error:&err];
     if(err) {
-        [PBLog logError: @"%@", [err description]];
+        [PBUserNotify notifyWithTitle:@"Failed to save security scope" description:[err localizedDescription] level:kPBNotifyWarn];
         return;
     }
     [self setSecureTargetBookmark:bookmark];
