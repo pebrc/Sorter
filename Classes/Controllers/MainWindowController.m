@@ -363,14 +363,17 @@
 - (void)outlineView:(NSOutlineView *)olv willDisplayCell:(NSCell*)cell forTableColumn:(NSTableColumn *)tableColumn item:(id)item
 {	
     if ([cell isMemberOfClass:[ImageAndTextCell class]]) {
+        ImageAndTextCell * imagecell = (ImageAndTextCell*) cell;
         id<TreeSupport> node = [item representedObject];
         NSManagedObject * model = [node representedObject];
         if ([model isMemberOfClass:[Source class]]) {            
             NSString * fullpath = [[NSURL URLWithString:[(Source *)model url]] path];
             NSImage *iconImage = [[NSWorkspace sharedWorkspace] iconForFile:fullpath];
-            [cell setImage:iconImage];
+            [imagecell setImage:iconImage];
+            [imagecell setActive:NO];
         } else {
-            [cell setImage:nil];
+            [imagecell setImage:nil];
+            [imagecell setActive: [(Rule *) model active]];
         }
     }
     

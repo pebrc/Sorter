@@ -52,10 +52,12 @@
 {
 @private
 	NSImage *image;
+    NSImage * statusIcon;
+    BOOL  active;
 }
 
-- (void)setImage:(NSImage *)anImage;
-- (NSImage *)image;
+@property (nonatomic, retain) NSImage * image;
+@property (readwrite) BOOL active;
 
 - (void)drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView;
 - (NSSize)cellSize;

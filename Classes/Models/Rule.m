@@ -46,6 +46,7 @@ BOOL flag(UInt32 flag, Rule * rule) {
 @dynamic predicate;
 @dynamic date;
 @dynamic actions;
+@dynamic active;
 
 - (void) awakeFromInsert {
 	[super awakeFromInsert];

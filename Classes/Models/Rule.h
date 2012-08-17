@@ -37,6 +37,7 @@
 @property (nonatomic, retain) NSPredicate * predicate;
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSSet* actions;
+@property (readwrite) BOOL active;
 
 @property (nonatomic, readwrite) BOOL flagCreated;
 @property (nonatomic, readwrite) BOOL flagRemoved;
