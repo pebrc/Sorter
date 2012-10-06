@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1487" systemVersion="12A269" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Action" representedClassName="Action">
+        <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0">
+            <userInfo/>
+        </attribute>
+        <attribute name="strategy" optional="YES" attributeType="Transformable" valueTransformerName="">
+            <userInfo/>
+        </attribute>
+        <relationship name="rule" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Rule" inverseName="actions" inverseEntity="Rule" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
+    </entity>
+    <entity name="Rule" representedClassName="Rule">
+        <attribute name="active" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date">
+            <userInfo/>
+        </attribute>
+        <attribute name="flags" optional="YES" attributeType="Integer 32" defaultValueString="72448" syncable="YES"/>
+        <attribute name="predicate" attributeType="Transformable">
+            <userInfo/>
+        </attribute>
+        <attribute name="title" attributeType="String" defaultValueString="Rule title">
+            <userInfo/>
+        </attribute>
+        <relationship name="actions" optional="YES" toMany="YES" minCount="1" deletionRule="Cascade" destinationEntity="Action" inverseName="rule" inverseEntity="Action" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <relationship name="from" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Source" inverseName="rules" inverseEntity="Source" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
+    </entity>
+    <entity name="Source" representedClassName="Source">
+        <attribute name="bookmark" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="eventid" optional="YES" attributeType="Integer 64" defaultValueString="0">
+            <userInfo/>
+        </attribute>
+        <attribute name="url" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <relationship name="rules" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Rule" inverseName="from" inverseEntity="Rule" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
+    </entity>
+    <elements>
+        <element name="Action" positionX="432" positionY="99" width="128" height="90"/>
+        <element name="Rule" positionX="288" positionY="-9" width="128" height="150"/>
+        <element name="Source" positionX="79" positionY="54" width="128" height="105"/>
+    </elements>
+</model>

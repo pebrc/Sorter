@@ -20,17 +20,21 @@
 
 
 #import "Sorter_AppDelegate.h"
-
+#import "PBUserNotify.h"
+#import "PBNotificationCenterDelegate.h"
+#import "PBLog.h"
 
 @implementation Sorter_AppDelegate
 
-@synthesize window, growl;
+@synthesize window;
 
 -(void) applicationDidFinishLaunching:(NSNotification*)notification {
     NSDictionary *defaults = [NSDictionary dictionaryWithObject:[NSNumber numberWithDouble:30.0] forKey:@"latency"];
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
     sourceObserver = [[[PBSourceObserver alloc] initWithContext: [self managedObjectContext]] retain];
-    growl =   [PBGrowlDelegate delegateWithRegistration];  
+    PBUserNotify * notifier = [PBUserNotify defaultNotifier];
+    [notifier registerDelegate: [PBLog class]];
+    [notifier registerDelegate:[PBNotificationCenterDelegate class]];
     mainWindowController = [[MainWindowController alloc] initWithWindowNibName:@"MainWindow"];
     [mainWindowController showWindow:self];
     

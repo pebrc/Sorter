@@ -1,4 +1,4 @@
-//Copyright (c) 2011 Peter Brachwitz
+//Copyright (c) 2012 Peter Brachwitz
 //
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -18,32 +18,12 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //THE SOFTWARE.
 
+#import "PBSandboxAdditions.h"
 
-#import <CoreData/CoreData.h>
-#import "PBEvent.h"
-#import "TreeSupport.h"
 
-@class Rule;
-
-@interface Source :  NSManagedObject  < PBEventListener >
-{
-    PBWatcher * watcher;
+void WithSecurityScopedURL(NSData * bookmark, URLBlock block) {
+    NSURL * secTarget = [NSURL URLByResolvingBookmarkData:bookmark options:NSURLBookmarkResolutionWithSecurityScope relativeToURL:nil bookmarkDataIsStale:nil error:nil];
+    [secTarget startAccessingSecurityScopedResource];
+    block(secTarget);
+    [secTarget stopAccessingSecurityScopedResource];
 }
-
-@property (nonatomic, assign) NSNumber * eventid;
-@property (nonatomic, retain) NSString * url;
-@property (nonatomic, retain) NSSet* rules;
-@property (nonatomic, retain) NSData * bookmark;
-
-@end
-
-
-@interface Source (CoreDataGeneratedAccessors)
-- (void)addRulesObject:(Rule *)value;
-- (void)removeRulesObject:(Rule *)value;
-- (void)addRules:(NSSet *)value;
-- (void)removeRules:(NSSet *)value;
-- (NSURL*) securityScope;
-
-@end
-

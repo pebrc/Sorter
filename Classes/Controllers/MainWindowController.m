@@ -21,7 +21,7 @@
 #import "MainWindowController.h"
 #import "TreeNode.h"
 #import "ImageAndTextCell.h"
-#import "PBLog.h"
+#import "PBUserNotify.h"
 #define NAME_COL    @"NameColumn"
 #define DETAIL_VIEW			@"DetailView"	
 
@@ -122,9 +122,8 @@
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-#if MY_DEBUG_FLAG
-    [PBLog logDebug:@"KVO Change notification for detail, path %@ dict %@",keyPath, [change description]];
-#endif
+
+    [PBUserNotify notifyWithTitle:@"KVO Change notification for detail" description:[NSString stringWithFormat:@"path %@ dict %@", keyPath, [change description]] level:kPBNotifyTrace];
 
     if ([keyPath isEqualToString:@"representedObject.title"] && [[change valueForKey:NSKeyValueChangeKindKey] intValue] == NSKeyValueChangeSetting) {
         [treeController rearrangeObjects];

@@ -63,10 +63,13 @@
 		FDAF8743159F04C200F68A11 /* Automator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAF8742159F04C200F68A11 /* Automator.framework */; };
 		FDBB239614AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBB239514AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m */; };
 		FDBBE89C14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBBE89B14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.m */; };
+		FDBF525D15DCEEA9001143AA /* PBUserNotify.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBF525C15DCEEA9001143AA /* PBUserNotify.m */; };
+		FDBF526015DD1610001143AA /* PBNotificationCenterDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBF525F15DD1610001143AA /* PBNotificationCenterDelegate.m */; };
 		FDE19D3A15507A6B00F0150C /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE19D3915507A6B00F0150C /* Growl.framework */; };
 		FDE19D3C15507ADD00F0150C /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FDE19D3915507A6B00F0150C /* Growl.framework */; };
 		FDE4C16C1514B83700C3F9ED /* DeleteAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE4C16B1514B83700C3F9ED /* DeleteAction.m */; };
 		FDE75417151A5ECD00B0779B /* TestMoveAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE75416151A5ECD00B0779B /* TestMoveAction.m */; };
+		FDEA509D15DC1DC90070FA8C /* PBSandboxAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEA509C15DC1DC90070FA8C /* PBSandboxAdditions.m */; };
 		FDF7B6C11551BF2D00B786CF /* PBGrowlDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF7B6C01551BF2D00B786CF /* PBGrowlDelegate.m */; };
 		FDFCB9BD14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFCB9BC14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.m */; };
 		FDFD58DB15DE579E007B9FAF /* StatusActive.png in Resources */ = {isa = PBXBuildFile; fileRef = FDFD58DA15DE579E007B9FAF /* StatusActive.png */; };
@@ -122,6 +125,7 @@
 		FD2F389D14B84D9F0073D2CF /* Sorter_DataModel_ 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Sorter_DataModel_ 2.xcdatamodel"; sourceTree = "<group>"; };
 		FD2F389F14B8DBF60073D2CF /* TestPBMetaDataDatePredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPBMetaDataDatePredicate.h; sourceTree = "<group>"; };
 		FD2F38A014B8DBF60073D2CF /* TestPBMetaDataDatePredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPBMetaDataDatePredicate.m; sourceTree = "<group>"; };
+		FD3A17D215D8F876007B7621 /* Sorter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Sorter.entitlements; sourceTree = "<group>"; };
 		FD3AD9761554622700726C69 /* PBLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBLog.h; sourceTree = "<group>"; };
 		FD3AD9771554622700726C69 /* PBLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBLog.m; sourceTree = "<group>"; };
 		FD612FE2150361FC0033641B /* PBMetaRelativeDateRowTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBMetaRelativeDateRowTemplate.h; path = RuleEditor/PBMetaRelativeDateRowTemplate.h; sourceTree = "<group>"; };
@@ -204,16 +208,23 @@
 		FDBB239514AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+PBCoreDataSugar.m"; sourceTree = "<group>"; };
 		FDBBE89A14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBMetaPresetRelativeDateRowTemplate.h; path = RuleEditor/PBMetaPresetRelativeDateRowTemplate.h; sourceTree = "<group>"; };
 		FDBBE89B14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBMetaPresetRelativeDateRowTemplate.m; path = RuleEditor/PBMetaPresetRelativeDateRowTemplate.m; sourceTree = "<group>"; };
+		FDBF525B15DCEEA9001143AA /* PBUserNotify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBUserNotify.h; sourceTree = "<group>"; };
+		FDBF525C15DCEEA9001143AA /* PBUserNotify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBUserNotify.m; sourceTree = "<group>"; };
+		FDBF525E15DD160F001143AA /* PBNotificationCenterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBNotificationCenterDelegate.h; sourceTree = "<group>"; };
+		FDBF525F15DD1610001143AA /* PBNotificationCenterDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBNotificationCenterDelegate.m; sourceTree = "<group>"; };
 		FDE19D3915507A6B00F0150C /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = Growl/Growl.framework; sourceTree = "<group>"; };
 		FDE4C16A1514B83700C3F9ED /* DeleteAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteAction.h; sourceTree = "<group>"; };
 		FDE4C16B1514B83700C3F9ED /* DeleteAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteAction.m; sourceTree = "<group>"; };
 		FDE75415151A5ECD00B0779B /* TestMoveAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestMoveAction.h; sourceTree = "<group>"; };
 		FDE75416151A5ECD00B0779B /* TestMoveAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMoveAction.m; sourceTree = "<group>"; };
+		FDEA509B15DC1DC90070FA8C /* PBSandboxAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBSandboxAdditions.h; sourceTree = "<group>"; };
+		FDEA509C15DC1DC90070FA8C /* PBSandboxAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBSandboxAdditions.m; sourceTree = "<group>"; };
 		FDF7B6BF1551BF2D00B786CF /* PBGrowlDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBGrowlDelegate.h; sourceTree = "<group>"; };
 		FDF7B6C01551BF2D00B786CF /* PBGrowlDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBGrowlDelegate.m; sourceTree = "<group>"; };
 		FDFCB9BB14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPBMetaVariableDateRowTemplate.h; sourceTree = "<group>"; };
 		FDFCB9BC14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPBMetaVariableDateRowTemplate.m; sourceTree = "<group>"; };
 		FDFD58DA15DE579E007B9FAF /* StatusActive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusActive.png; sourceTree = "<group>"; };
+		FDFCE1C015D9244E00064AA4 /* Sorter_DataModel_ 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Sorter_DataModel_ 3.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +272,7 @@
 		29B97314FDCFA39411CA2CEA /* Sorter */ = {
 			isa = PBXGroup;
 			children = (
+				FD3A17D215D8F876007B7621 /* Sorter.entitlements */,
 				FD9E369414A9ECBB006C6F89 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				FD9E363B14A9D5DB006C6F89 /* Tests */,
@@ -388,6 +400,8 @@
 				FD9E369B14A9ECBB006C6F89 /* Sorter_AppDelegate.m */,
 				FDF7B6BF1551BF2D00B786CF /* PBGrowlDelegate.h */,
 				FDF7B6C01551BF2D00B786CF /* PBGrowlDelegate.m */,
+				FDBF525E15DD160F001143AA /* PBNotificationCenterDelegate.h */,
+				FDBF525F15DD1610001143AA /* PBNotificationCenterDelegate.m */,
 			);
 			name = Delegates;
 			path = AppDelegate;
@@ -473,6 +487,10 @@
 				FDBB239514AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m */,
 				FD3AD9761554622700726C69 /* PBLog.h */,
 				FD3AD9771554622700726C69 /* PBLog.m */,
+				FDEA509B15DC1DC90070FA8C /* PBSandboxAdditions.h */,
+				FDEA509C15DC1DC90070FA8C /* PBSandboxAdditions.m */,
+				FDBF525B15DCEEA9001143AA /* PBUserNotify.h */,
+				FDBF525C15DCEEA9001143AA /* PBUserNotify.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -564,7 +582,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0440;
 			};
 			buildConfigurationList = 26FC0A880875C7B200E6366F /* Build configuration list for PBXProject "Sorter" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -689,6 +707,9 @@
 				FD3AD9781554622700726C69 /* PBLog.m in Sources */,
 				FDAF873C159EED8E00F68A11 /* AutomatorAction.m in Sources */,
 				FDAF873F159EF45000F68A11 /* AutomatorActionController.m in Sources */,
+				FDEA509D15DC1DC90070FA8C /* PBSandboxAdditions.m in Sources */,
+				FDBF525D15DCEEA9001143AA /* PBUserNotify.m in Sources */,
+				FDBF526015DD1610001143AA /* PBNotificationCenterDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -748,6 +769,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CODE_SIGN_ENTITLEMENTS = Sorter.entitlements;
+				CODE_SIGN_IDENTITY = "pbrc dev";
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -769,6 +793,7 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = Sorter;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
@@ -777,6 +802,9 @@
 		26FC0A860875C7B200E6366F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Sorter.entitlements;
+				CODE_SIGN_IDENTITY = "pbrc dev";
+				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -792,6 +820,7 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = Sorter;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
@@ -807,7 +836,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -830,6 +859,7 @@
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Sorter.app/Contents/MacOS/Sorter";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -865,6 +895,7 @@
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Sorter.app/Contents/MacOS/Sorter";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -923,10 +954,11 @@
 		FD2F389B14B84D9F0073D2CF /* Sorter_DataModel_2.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				FDFCE1C015D9244E00064AA4 /* Sorter_DataModel_ 3.xcdatamodel */,
 				FD2F389C14B84D9F0073D2CF /* Sorter_DataModel.xcdatamodel */,
 				FD2F389D14B84D9F0073D2CF /* Sorter_DataModel_ 2.xcdatamodel */,
 			);
-			currentVersion = FD2F389D14B84D9F0073D2CF /* Sorter_DataModel_ 2.xcdatamodel */;
+			currentVersion = FDFCE1C015D9244E00064AA4 /* Sorter_DataModel_ 3.xcdatamodel */;
 			path = Sorter_DataModel_2.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

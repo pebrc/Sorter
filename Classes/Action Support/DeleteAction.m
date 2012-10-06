@@ -19,10 +19,11 @@
 //THE SOFTWARE.
 
 #import "DeleteAction.h"
+#import "PBUserNotify.h"
 
 @implementation DeleteAction
 
-- (NSURL *) handleItemAt: (NSURL *) url forRule: (Rule *) rule error: (NSError **) error {
+- (NSURL *) handleItemAt: (NSURL *) url forRule: (Rule *) rule withSecurityScope:(NSURL *)sec error:(NSError **)error {
     OSStatus status;
     FSRef target;
     FSRef input;
@@ -30,6 +31,7 @@
     assert(status == 0);
     status = FSMoveObjectToTrashSync(&input, &target, kFSFileOperationDefaultOptions);
     if(status == noErr) {
+        [PBUserNotify notifyWithTitle:@"Deleted file" description:[url lastPathComponent] level:kPBNotifyInfo];
         UInt8 * path[512];
         status = FSRefMakePath(&target, (UInt8 *)path, 512);
         if (status == noErr) {

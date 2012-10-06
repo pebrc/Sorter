@@ -20,12 +20,22 @@
 
 #import "PBLog.h"
 
+
 void pblog(PBLogLevel level, NSString * format, va_list params) {
     NSInteger current = [[NSUserDefaults standardUserDefaults] integerForKey:@"logLevel"];
     if(level <= current){
         NSLogv(format, params);  
     }
 }
+
+void pbvarlog(PBLogLevel level, NSString * format, ...) {
+    va_list args;
+    va_start(args, format);
+    pblog(kPBLogDebug, format, args );
+    va_end(args);
+    
+}
+
 
 @implementation PBLog
 
@@ -48,5 +58,10 @@ void pblog(PBLogLevel level, NSString * format, va_list params) {
     va_start(args, format);
     pblog(kPBLogInfo, format, args );
     va_end(args);
+}
+
+
++ (void) notifyWithTitle:(NSString *)title description:(NSString *)description level:(PBNotifyLevel)level {
+    pbvarlog(level, @"%@ %@", title, description);
 }
 @end

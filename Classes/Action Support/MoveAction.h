@@ -28,12 +28,14 @@
     MoveActionController * settingsController;
     NSString * userDescription;
 @public 
-    NSString * target; 
+    NSString * target;
+    NSData * secureTargetBookmark;
 
 }
 
 @property (nonatomic, readonly) NSString * userDescription;
 @property (nonatomic, retain) NSString * target;
+@property (nonatomic, retain) NSData * secureTargetBookmark;
 
 
 

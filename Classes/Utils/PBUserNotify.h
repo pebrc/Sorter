@@ -1,4 +1,4 @@
-//Copyright (c) 2011 Peter Brachwitz
+//Copyright (c) 2012 Peter Brachwitz
 //
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -19,31 +19,32 @@
 //THE SOFTWARE.
 
 
-#import <CoreData/CoreData.h>
-#import "PBEvent.h"
-#import "TreeSupport.h"
+#import <Foundation/Foundation.h>
 
-@class Rule;
+typedef enum {
+    kPBNotifyFatal = 1,
+    kPBNotifyError = 2,
+    kPBNotifyWarn = 3,
+    kPBNotifyInfo = 4,
+    kPBNotifyDebug = 5,
+    kPBNotifyTrace = 6
+}PBNotifyLevel;
 
-@interface Source :  NSManagedObject  < PBEventListener >
-{
-    PBWatcher * watcher;
+@protocol PBNotifyDelegate <NSObject>
+
++ (void) notifyWithTitle:(NSString *)title description:(NSString *)description level:(PBNotifyLevel)level;
+
+@end
+
+@interface PBUserNotify : NSObject {
+    @private
+    NSSet * delegates;
 }
 
-@property (nonatomic, assign) NSNumber * eventid;
-@property (nonatomic, retain) NSString * url;
-@property (nonatomic, retain) NSSet* rules;
-@property (nonatomic, retain) NSData * bookmark;
++ (void) notifyWithTitle:(NSString *)title description:(NSString *)description level: (PBNotifyLevel) level;
+
++ (PBUserNotify *) defaultNotifier;
+
+- (void) registerDelegate:(Class <PBNotifyDelegate>)  delegate;
 
 @end
-
-
-@interface Source (CoreDataGeneratedAccessors)
-- (void)addRulesObject:(Rule *)value;
-- (void)removeRulesObject:(Rule *)value;
-- (void)addRules:(NSSet *)value;
-- (void)removeRules:(NSSet *)value;
-- (NSURL*) securityScope;
-
-@end
-

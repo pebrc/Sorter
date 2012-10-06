@@ -81,7 +81,11 @@
 }
 
 - (NSURL*) handleItemAt: (NSURL *) url error: (NSError **)err{
-    return [[self strategy] handleItemAt:url forRule:[self rule] error:err];
+    NSURL * sec = [[[self rule] from] securityScope];
+    [sec startAccessingSecurityScopedResource];
+    NSURL * result = [[self strategy] handleItemAt:url forRule:[self rule] withSecurityScope:[[[self rule] from] securityScope] error:err];
+    [sec stopAccessingSecurityScopedResource];
+    return result;
 }
 
 -(BOOL) valid {
