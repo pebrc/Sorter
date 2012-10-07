@@ -104,6 +104,14 @@
     
 }
 
+- (void) awakeFromFetch {
+    NSObject* str = (NSObject *)[self strategy];
+    [str addObserver:self
+          forKeyPath:@"valid"
+             options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld)
+             context:NULL];
+}
+
 - (void) registerObserver:(id)obj AndStopObserving:(id)old{
     if(old) {
         [old removeObserver:self forKeyPath:@"valid"];

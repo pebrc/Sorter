@@ -144,13 +144,13 @@
 - (IBAction)endActionSheetWithSuccess:(id)sender {
     [NSApp endSheet:actionSheet];
     Action * obj = [actionController content];
-    if(![obj rule]){
-        NSArray * selected = [rulesController selectedObjects];
-        if ([selected count] == 1) {
-            Rule * rule = (Rule *) [selected objectAtIndex:0];
-            [obj setRule:rule];        
-        }
+    //TODO: There should be a new instance of Action everytime we change sth
+    NSArray * selected = [rulesController selectedObjects];
+    if ([selected count] == 1) {
+        Rule * rule = (Rule *) [selected objectAtIndex:0];
+        [obj setRule:rule];
     }
+
     
     [[[self managedObjectContext] undoManager] endUndoGrouping];
     [[[self managedObjectContext] undoManager] setActionName:@"Object edit"];

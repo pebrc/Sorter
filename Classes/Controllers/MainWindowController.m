@@ -32,6 +32,7 @@
 -(NSManagedObject *) selectedModelObject;
 -(void) restoreSelectionOf:(NSManagedObject *) model;
 -(void) handleMocNotification:(NSNotification*) notification;
+-(void) handleMocSave:(NSNotification*) notification;
 - (void) handleObjectsOf:(Class)clazz inSet:(NSSet *)set withBlock:(void (^)(NSSet *))blk ;
 @end
 
@@ -54,6 +55,7 @@
 
     NSNotificationCenter * defaultCenter = [NSNotificationCenter defaultCenter];
     [defaultCenter addObserver:self selector:@selector(handleMocNotification:) name:NSManagedObjectContextObjectsDidChangeNotification object:[[NSApp delegate] managedObjectContext]];
+    [defaultCenter addObserver:self selector:@selector(handleMocSave:) name:NSManagedObjectContextDidSaveNotification object:[[NSApp delegate] managedObjectContext]];
     
     [defaultCenter addObserver:self selector:@selector(handleTransformationSideEffect:) name:TransformationSideEffect object:nil];
     
@@ -163,8 +165,11 @@
     [NSManagedObjectContext cancelPreviousPerformRequestsWithTarget:ctx];
     [ctx performSelector:@selector(save:) withObject:nil afterDelay:5.0];
     
+}
 
-    
+- (void) handleMocSave:(NSNotification *)notification {
+    [PBUserNotify notifyWithTitle:@"Saved changes:" description:[NSString stringWithFormat:@"userinfo %@", [notification userInfo]] level:kPBNotifyDebug];
+
 }
 
 - (void) handleObjectsOf:(Class)clazz inSet:(NSSet *)set withBlock:(void (^)(NSSet *))blk {

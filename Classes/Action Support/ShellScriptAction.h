@@ -22,7 +22,7 @@
 #import "ShellScriptActionController.h"
 #import <Foundation/Foundation.h>
 
-@interface ShellScriptAction : AbstractActionWithSecurityScopedResource <ActionStrategy > {
+@interface ShellScriptAction : AbstractActionWithSecurityScopedResource <ActionStrategy> {
 @private
     ShellScriptActionController * settingsController;
 }

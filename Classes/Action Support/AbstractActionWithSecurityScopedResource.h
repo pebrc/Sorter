@@ -30,5 +30,7 @@
 @property (nonatomic, retain) NSURL * resource;
 @property (nonatomic, retain) NSData * securityScope;
 
+- initWithURL: (NSURL*) url andSecurityScope: (NSData*) sec;
+
 
 @end

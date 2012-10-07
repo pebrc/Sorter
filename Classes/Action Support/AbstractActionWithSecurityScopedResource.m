@@ -64,7 +64,7 @@
 
 - (NSString*)description
 {
-    return @"Abstact class";
+    return [self userDescription];
 }
 
 - (NSString *) userConfigDescription {
@@ -83,7 +83,7 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:@"resource"]) {
-        DEBUG_OUTPUT(@"%@", [change description]);
+        DEBUG_OUTPUT(@"Action with resource changed: %@", [change description]);
         NSURL * url = [change valueForKey:@"new"];
         if ([url isKindOfClass:[NSURL class]]) {
             NSError * err = nil;
