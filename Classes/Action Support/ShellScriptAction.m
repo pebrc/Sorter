@@ -18,57 +18,61 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //THE SOFTWARE.
 
-#import "AutomatorAction.h"
+#import "ShellScriptAction.h"
 #import "PBUserNotify.h"
 #import "PBSandboxAdditions.h"
+
+#define DETAIL_VIEW  @"ShellScriptAction"
 
 #pragma GCC diagnostic ignored "-Wprotocol"
 #pragma clang diagnostic ignored "-Wprotocol"
 
-#define DETAIL_VIEW  @"AutomatorAction"
 
-@implementation AutomatorAction
+@implementation ShellScriptAction
 
+/**
+ * Performs the core 'business' logic of the action using the given parametres
+ */
+- (NSURL*) handleItemAt: (NSURL *) url forRule: (Rule *) rule withSecurityScope: (NSURL*) sec error: (NSError **) error {
 
-
-
-- (NSURL*) handleItemAt: (NSURL *) url forRule: (Rule *) rule withSecurityScope:(NSURL *)sec error:(NSError **)error {
-    __block id resultingUrl = url;
     WithSecurityScopedURL([self securityScope], ^(NSURL* securl){
-
-        NSUserAutomatorTask * task = [[NSUserAutomatorTask alloc] initWithURL:resource error:error];
-        [task executeWithInput:securl completionHandler:^(id result, NSError *error) {
+        
+        NSUserUnixTask * task = [[NSUserUnixTask alloc] initWithURL:resource error:error];
+        NSFileHandle * stdout = [NSFileHandle fileHandleWithStandardOutput];
+        [task setStandardError:stdout];
+        [task setStandardOutput:stdout];
+        [task executeWithArguments:@[[url absoluteString]] completionHandler:^(NSError *error) {
             if(error) {
                 [PBUserNotify notifyWithTitle:@"Error while excuting workflow" description:[error localizedDescription] level:kPBNotifyDebug];
                 return;
             }
-            if([result isKindOfClass: [NSURL class]]) {
-                resultingUrl = result;
-            }
             
-        }];            
+        }];
     });
-    return resultingUrl;
-    
+    return url;
+
 }
+/**
+ * A description of the action in one word
+ */
 - (NSString *) userDescription {
-    return @"Automate";
+    return @"Run shell script";
 }
 
-- (NSString*)description
-{
-    return [self userDescription];
-}
 
+
+/**
+ * An NSView to offer a UI to configure action specific settings
+ */
 - (NSView *) settingsView {
     if(settingsController == NULL) {
-        settingsController = [[AutomatorActionController alloc]initWithNibName:DETAIL_VIEW bundle:nil];
+        settingsController = [[ShellScriptActionController alloc]initWithNibName:DETAIL_VIEW bundle:nil];
         [settingsController setRepresentedObject:self];
     }
     return [settingsController view];
+
+    
 }
-
-
 
 
 @end

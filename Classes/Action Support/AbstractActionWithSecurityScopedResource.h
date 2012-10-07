@@ -20,12 +20,15 @@
 
 #import <Foundation/Foundation.h>
 #import "ActionStrategy.h"
-#import "AutomatorActionController.h"
-#import "AbstractActionWithSecurityScopedResource.h"
 
-@interface AutomatorAction : AbstractActionWithSecurityScopedResource < ActionStrategy >  {
-    @private
-    AutomatorActionController * settingsController;
+@interface AbstractActionWithSecurityScopedResource : NSObject {
+    NSURL * resource;
+    NSData * securityScope;
+
 }
+
+@property (nonatomic, retain) NSURL * resource;
+@property (nonatomic, retain) NSData * securityScope;
+
 
 @end

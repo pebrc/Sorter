@@ -38,15 +38,19 @@
 }
 
 - (IBAction) showOpenPanel:(id) sender {
+    NSError * err;
+    NSURL * scripts =  [[NSFileManager defaultManager] URLForDirectory:NSApplicationScriptsDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:&err];
+
 	NSOpenPanel * panel = [NSOpenPanel openPanel];
 	[panel setAllowsMultipleSelection:NO];
 	[panel setCanChooseFiles:YES];
 	[panel setCanChooseDirectories:NO];
     [panel setAllowedFileTypes:[NSArray arrayWithObject: @"com.apple.automator-workflow"]];
+    [panel setDirectoryURL:scripts];
 	NSInteger result = [panel runModal];
 	if (result == NSFileHandlingPanelOKButton) {
         AutomatorAction *action = [self representedObject];
-        [action setWorkflow:[[panel URLs]objectAtIndex:0]];
+        [action setResource:[[panel URLs]objectAtIndex:0]];
 	}
 	
 }

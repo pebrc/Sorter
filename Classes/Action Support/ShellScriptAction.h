@@ -17,15 +17,14 @@
 //LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //THE SOFTWARE.
-
-#import <Foundation/Foundation.h>
 #import "ActionStrategy.h"
-#import "AutomatorActionController.h"
 #import "AbstractActionWithSecurityScopedResource.h"
+#import "ShellScriptActionController.h"
+#import <Foundation/Foundation.h>
 
-@interface AutomatorAction : AbstractActionWithSecurityScopedResource < ActionStrategy >  {
-    @private
-    AutomatorActionController * settingsController;
+@interface ShellScriptAction : AbstractActionWithSecurityScopedResource <ActionStrategy > {
+@private
+    ShellScriptActionController * settingsController;
 }
 
 @end

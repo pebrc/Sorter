@@ -21,6 +21,10 @@
 		FD3AD9781554622700726C69 /* PBLog.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3AD9771554622700726C69 /* PBLog.m */; };
 		FD612FE4150361FC0033641B /* PBMetaRelativeDateRowTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD612FE3150361FC0033641B /* PBMetaRelativeDateRowTemplate.m */; };
 		FD612FE7150378E00033641B /* TestPBMetaRelativeDateRow.m in Sources */ = {isa = PBXBuildFile; fileRef = FD612FE6150378E00033641B /* TestPBMetaRelativeDateRow.m */; };
+		FD82EA251620A2F700137EEA /* ShellScriptAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FD82EA241620A2F700137EEA /* ShellScriptAction.m */; };
+		FD82EA281620A4B400137EEA /* AbstractActionWithSecurityScopedResource.m in Sources */ = {isa = PBXBuildFile; fileRef = FD82EA271620A4B400137EEA /* AbstractActionWithSecurityScopedResource.m */; };
+		FD82EA2B1620A76200137EEA /* ShellScriptActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD82EA2A1620A76200137EEA /* ShellScriptActionController.m */; };
+		FD82EA2D1620ABD100137EEA /* ShellScriptAction.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD82EA2C1620ABD100137EEA /* ShellScriptAction.xib */; };
 		FD8EB37C14E198D100E69302 /* PBMetaDataComparisonPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8EB37714E198D100E69302 /* PBMetaDataComparisonPredicate.m */; };
 		FD8EB37D14E198D100E69302 /* PBMetaDataPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8EB37914E198D100E69302 /* PBMetaDataPredicate.m */; };
 		FD8EB37E14E198D100E69302 /* PBMetaDataResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8EB37B14E198D100E69302 /* PBMetaDataResolver.m */; };
@@ -132,6 +136,13 @@
 		FD612FE3150361FC0033641B /* PBMetaRelativeDateRowTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBMetaRelativeDateRowTemplate.m; path = RuleEditor/PBMetaRelativeDateRowTemplate.m; sourceTree = "<group>"; };
 		FD612FE5150378E00033641B /* TestPBMetaRelativeDateRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPBMetaRelativeDateRow.h; sourceTree = "<group>"; };
 		FD612FE6150378E00033641B /* TestPBMetaRelativeDateRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPBMetaRelativeDateRow.m; sourceTree = "<group>"; };
+		FD82EA231620A2F700137EEA /* ShellScriptAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShellScriptAction.h; sourceTree = "<group>"; };
+		FD82EA241620A2F700137EEA /* ShellScriptAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShellScriptAction.m; sourceTree = "<group>"; };
+		FD82EA261620A4B400137EEA /* AbstractActionWithSecurityScopedResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionWithSecurityScopedResource.h; sourceTree = "<group>"; };
+		FD82EA271620A4B400137EEA /* AbstractActionWithSecurityScopedResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionWithSecurityScopedResource.m; sourceTree = "<group>"; };
+		FD82EA291620A76200137EEA /* ShellScriptActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShellScriptActionController.h; sourceTree = "<group>"; };
+		FD82EA2A1620A76200137EEA /* ShellScriptActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShellScriptActionController.m; sourceTree = "<group>"; };
+		FD82EA2C1620ABD100137EEA /* ShellScriptAction.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShellScriptAction.xib; sourceTree = "<group>"; };
 		FD8EB37614E198D100E69302 /* PBMetaDataComparisonPredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBMetaDataComparisonPredicate.h; sourceTree = "<group>"; };
 		FD8EB37714E198D100E69302 /* PBMetaDataComparisonPredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBMetaDataComparisonPredicate.m; sourceTree = "<group>"; };
 		FD8EB37814E198D100E69302 /* PBMetaDataPredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBMetaDataPredicate.h; sourceTree = "<group>"; };
@@ -223,8 +234,8 @@
 		FDF7B6C01551BF2D00B786CF /* PBGrowlDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBGrowlDelegate.m; sourceTree = "<group>"; };
 		FDFCB9BB14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPBMetaVariableDateRowTemplate.h; sourceTree = "<group>"; };
 		FDFCB9BC14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPBMetaVariableDateRowTemplate.m; sourceTree = "<group>"; };
-		FDFD58DA15DE579E007B9FAF /* StatusActive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusActive.png; sourceTree = "<group>"; };
 		FDFCE1C015D9244E00064AA4 /* Sorter_DataModel_ 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Sorter_DataModel_ 3.xcdatamodel"; sourceTree = "<group>"; };
+		FDFD58DA15DE579E007B9FAF /* StatusActive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusActive.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -389,6 +400,10 @@
 				FDE4C16B1514B83700C3F9ED /* DeleteAction.m */,
 				FDAF873A159EED8E00F68A11 /* AutomatorAction.h */,
 				FDAF873B159EED8E00F68A11 /* AutomatorAction.m */,
+				FD82EA231620A2F700137EEA /* ShellScriptAction.h */,
+				FD82EA241620A2F700137EEA /* ShellScriptAction.m */,
+				FD82EA261620A4B400137EEA /* AbstractActionWithSecurityScopedResource.h */,
+				FD82EA271620A4B400137EEA /* AbstractActionWithSecurityScopedResource.m */,
 			);
 			path = "Action Support";
 			sourceTree = "<group>";
@@ -431,6 +446,8 @@
 				FD9E36A914A9ECBB006C6F89 /* RulesController.m */,
 				FDAF873D159EF45000F68A11 /* AutomatorActionController.h */,
 				FDAF873E159EF45000F68A11 /* AutomatorActionController.m */,
+				FD82EA291620A76200137EEA /* ShellScriptActionController.h */,
+				FD82EA2A1620A76200137EEA /* ShellScriptActionController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -508,6 +525,7 @@
 				FD9E36E514A9ED03006C6F89 /* MainWindow.xib */,
 				FD9E36E614A9ED03006C6F89 /* MoveAction.xib */,
 				FDAF8740159EF69200F68A11 /* AutomatorAction.xib */,
+				FD82EA2C1620ABD100137EEA /* ShellScriptAction.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -582,7 +600,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0450;
 			};
 			buildConfigurationList = 26FC0A880875C7B200E6366F /* Build configuration list for PBXProject "Sorter" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -621,6 +639,7 @@
 				FDAD68901583769900A7AD99 /* ToolbarMinus.pdf in Resources */,
 				FDAF8741159EF69200F68A11 /* AutomatorAction.xib in Resources */,
 				FDFD58DB15DE579E007B9FAF /* StatusActive.png in Resources */,
+				FD82EA2D1620ABD100137EEA /* ShellScriptAction.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,6 +729,9 @@
 				FDEA509D15DC1DC90070FA8C /* PBSandboxAdditions.m in Sources */,
 				FDBF525D15DCEEA9001143AA /* PBUserNotify.m in Sources */,
 				FDBF526015DD1610001143AA /* PBNotificationCenterDelegate.m in Sources */,
+				FD82EA251620A2F700137EEA /* ShellScriptAction.m in Sources */,
+				FD82EA281620A4B400137EEA /* AbstractActionWithSecurityScopedResource.m in Sources */,
+				FD82EA2B1620A76200137EEA /* ShellScriptActionController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

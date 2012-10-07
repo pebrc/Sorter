@@ -18,14 +18,36 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
-#import "ActionStrategy.h"
-#import "AutomatorActionController.h"
-#import "AbstractActionWithSecurityScopedResource.h"
+#import "ShellScriptActionController.h"
+#import "ShellScriptAction.h"
 
-@interface AutomatorAction : AbstractActionWithSecurityScopedResource < ActionStrategy >  {
-    @private
-    AutomatorActionController * settingsController;
+@implementation ShellScriptActionController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Initialization code here.
+    }
+    
+    return self;
+}
+
+- (IBAction) showOpenPanel:(id) sender {
+    NSError * err;
+    NSURL * scripts =  [[NSFileManager defaultManager] URLForDirectory:NSApplicationScriptsDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:&err];
+    
+	NSOpenPanel * panel = [NSOpenPanel openPanel];
+	[panel setAllowsMultipleSelection:NO];
+	[panel setCanChooseFiles:YES];
+	[panel setCanChooseDirectories:NO];
+    [panel setAllowedFileTypes:[NSArray arrayWithObject: @"public.shell-script"]];
+    [panel setDirectoryURL:scripts];
+	NSInteger result = [panel runModal];
+	if (result == NSFileHandlingPanelOKButton) {
+        ShellScriptAction *action = [self representedObject];
+        [action setResource:[[panel URLs]objectAtIndex:0]];
+	}
 }
 
 @end

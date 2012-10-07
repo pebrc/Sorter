@@ -19,13 +19,9 @@
 //THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import "ActionStrategy.h"
-#import "AutomatorActionController.h"
-#import "AbstractActionWithSecurityScopedResource.h"
 
-@interface AutomatorAction : AbstractActionWithSecurityScopedResource < ActionStrategy >  {
-    @private
-    AutomatorActionController * settingsController;
-}
+@interface ShellScriptActionController : NSViewController
+-(IBAction) showOpenPanel: (id) sender;
+
 
 @end
