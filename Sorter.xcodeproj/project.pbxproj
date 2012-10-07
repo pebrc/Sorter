@@ -65,6 +65,7 @@
 		FDAF873F159EF45000F68A11 /* AutomatorActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAF873E159EF45000F68A11 /* AutomatorActionController.m */; };
 		FDAF8741159EF69200F68A11 /* AutomatorAction.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDAF8740159EF69200F68A11 /* AutomatorAction.xib */; };
 		FDAF8743159F04C200F68A11 /* Automator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAF8742159F04C200F68A11 /* Automator.framework */; };
+		FDB3390D1621834A0033EF35 /* PBMetaFileSizeRowTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB3390C1621834A0033EF35 /* PBMetaFileSizeRowTemplate.m */; };
 		FDBB239614AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBB239514AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m */; };
 		FDBBE89C14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBBE89B14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.m */; };
 		FDBF525D15DCEEA9001143AA /* PBUserNotify.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBF525C15DCEEA9001143AA /* PBUserNotify.m */; };
@@ -215,6 +216,8 @@
 		FDAF873E159EF45000F68A11 /* AutomatorActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutomatorActionController.m; sourceTree = "<group>"; };
 		FDAF8740159EF69200F68A11 /* AutomatorAction.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutomatorAction.xib; sourceTree = "<group>"; };
 		FDAF8742159F04C200F68A11 /* Automator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Automator.framework; path = ../../../../System/Library/Frameworks/Automator.framework; sourceTree = "<group>"; };
+		FDB3390B1621834A0033EF35 /* PBMetaFileSizeRowTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBMetaFileSizeRowTemplate.h; path = RuleEditor/PBMetaFileSizeRowTemplate.h; sourceTree = "<group>"; };
+		FDB3390C1621834A0033EF35 /* PBMetaFileSizeRowTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBMetaFileSizeRowTemplate.m; path = RuleEditor/PBMetaFileSizeRowTemplate.m; sourceTree = "<group>"; };
 		FDBB239414AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+PBCoreDataSugar.h"; sourceTree = "<group>"; };
 		FDBB239514AB990E00FA730C /* NSManagedObjectContext+PBCoreDataSugar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+PBCoreDataSugar.m"; sourceTree = "<group>"; };
 		FDBBE89A14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBMetaPresetRelativeDateRowTemplate.h; path = RuleEditor/PBMetaPresetRelativeDateRowTemplate.h; sourceTree = "<group>"; };
@@ -548,6 +551,8 @@
 				FDBBE89B14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.m */,
 				FD612FE2150361FC0033641B /* PBMetaRelativeDateRowTemplate.h */,
 				FD612FE3150361FC0033641B /* PBMetaRelativeDateRowTemplate.m */,
+				FDB3390B1621834A0033EF35 /* PBMetaFileSizeRowTemplate.h */,
+				FDB3390C1621834A0033EF35 /* PBMetaFileSizeRowTemplate.m */,
 			);
 			name = RuleEditor;
 			sourceTree = "<group>";
@@ -732,6 +737,7 @@
 				FD82EA251620A2F700137EEA /* ShellScriptAction.m in Sources */,
 				FD82EA281620A4B400137EEA /* AbstractActionWithSecurityScopedResource.m in Sources */,
 				FD82EA2B1620A76200137EEA /* ShellScriptActionController.m in Sources */,
+				FDB3390D1621834A0033EF35 /* PBMetaFileSizeRowTemplate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

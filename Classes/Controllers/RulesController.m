@@ -22,6 +22,7 @@
 #import "RulesController.h"
 #import "PBMetaPresetRelativeDateRowTemplate.h"
 #import "PBMetaRelativeDateRowTemplate.h"
+#import "PBMetaFileSizeRowTemplate.h"
 
 @implementation RulesController
 
@@ -31,9 +32,11 @@
     PBMetaPresetRelativeDateRowTemplate * custom = [[PBMetaPresetRelativeDateRowTemplate alloc] initWithLeftExpressions:initialExpr];
     PBMetaRelativeDateRowTemplate * relative = [[PBMetaRelativeDateRowTemplate alloc] initWithLeftExpressions:initialExpr];
     NSPredicateEditorRowTemplate * standard = [[NSPredicateEditorRowTemplate alloc] initWithLeftExpressions:initialExpr rightExpressionAttributeType:NSDateAttributeType modifier:NSDirectPredicateModifier operators:[NSArray arrayWithObjects:[NSNumber numberWithUnsignedInt: NSEqualToPredicateOperatorType], nil] options:0];
+    PBMetaFileSizeRowTemplate * fileSize = [[PBMetaFileSizeRowTemplate alloc]init];
     [templates addObject:custom];
     [templates addObject:relative];
     [templates addObject:standard];
+    [templates addObject:fileSize];
     [editor setRowTemplates:templates];
     [templates release];
     

@@ -46,7 +46,8 @@
                 resultingUrl = result;
             }
             
-        }];            
+        }];
+        [task release];
     });
     return resultingUrl;
     

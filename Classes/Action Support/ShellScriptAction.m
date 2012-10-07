@@ -44,11 +44,11 @@
         [task executeWithArguments:@[[url absoluteString]] completionHandler:^(NSError *error) {
             if(error) {
                 [PBUserNotify notifyWithTitle:@"Error while excuting workflow" description:[error localizedDescription] level:kPBNotifyDebug];
-                return;
             }
             
         }];
-    });
+        [task release];
+    });    
     return url;
 
 }
