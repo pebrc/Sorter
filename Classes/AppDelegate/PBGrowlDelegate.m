@@ -32,6 +32,7 @@ NSString * const GrowlSorterMessage = @"Sorter action";
         [GrowlApplicationBridge setGrowlDelegate:obj];
         return [obj autorelease];
     }
+    [obj release];
     return nil;
 }
 

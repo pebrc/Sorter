@@ -345,7 +345,11 @@
 
 - (void) showEditView {
     [detailController setRepresentedObject:[[[treeController selectedObjects] objectAtIndex:0]representedObject]];    
-    NSView *v = [detailController view];    
+    NSView *v = [detailController view];
+    NSRect surroundingFrame = [detailViewHolder frame];
+    surroundingFrame.origin.x = 0;
+    surroundingFrame.origin.y = 0;    
+    [v setFrame:surroundingFrame];
     [detailViewHolder addSubview:v];
     [detailViewHolder displayIfNeeded];
     

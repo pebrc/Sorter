@@ -29,10 +29,10 @@
 - (void) awakeFromNib {
     NSMutableArray * templates = [[editor rowTemplates]mutableCopy];
     NSArray * initialExpr = [NSArray arrayWithObjects:[NSExpression expressionForKeyPath:@"kMDItemContentCreationDate"], nil];
-    PBMetaPresetRelativeDateRowTemplate * custom = [[PBMetaPresetRelativeDateRowTemplate alloc] initWithLeftExpressions:initialExpr];
-    PBMetaRelativeDateRowTemplate * relative = [[PBMetaRelativeDateRowTemplate alloc] initWithLeftExpressions:initialExpr];
-    NSPredicateEditorRowTemplate * standard = [[NSPredicateEditorRowTemplate alloc] initWithLeftExpressions:initialExpr rightExpressionAttributeType:NSDateAttributeType modifier:NSDirectPredicateModifier operators:[NSArray arrayWithObjects:[NSNumber numberWithUnsignedInt: NSEqualToPredicateOperatorType], nil] options:0];
-    PBMetaFileSizeRowTemplate * fileSize = [[PBMetaFileSizeRowTemplate alloc]init];
+    PBMetaPresetRelativeDateRowTemplate * custom = [[[PBMetaPresetRelativeDateRowTemplate alloc] initWithLeftExpressions:initialExpr] autorelease];
+    PBMetaRelativeDateRowTemplate * relative = [[[PBMetaRelativeDateRowTemplate alloc] initWithLeftExpressions:initialExpr] autorelease];
+    NSPredicateEditorRowTemplate * standard = [[[NSPredicateEditorRowTemplate alloc] initWithLeftExpressions:initialExpr rightExpressionAttributeType:NSDateAttributeType modifier:NSDirectPredicateModifier operators:[NSArray arrayWithObjects:[NSNumber numberWithUnsignedInt: NSEqualToPredicateOperatorType], nil] options:0] autorelease];
+    PBMetaFileSizeRowTemplate * fileSize = [[[PBMetaFileSizeRowTemplate alloc]init] autorelease];
     [templates addObject:custom];
     [templates addObject:relative];
     [templates addObject:standard];
@@ -46,6 +46,7 @@
         [editor setObjectValue:[rule predicate]];
     }
 }
+
 
  
 - (void) showOpenPanel:(id) sender ForKey:(NSString *)key withTransformation:(id (^)(NSURL *))block {
