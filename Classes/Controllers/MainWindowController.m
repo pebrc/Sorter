@@ -22,6 +22,7 @@
 #import "TreeNode.h"
 #import "ImageAndTextCell.h"
 #import "PBUserNotify.h"
+#import "NotificationUtil.h"
 #define NAME_COL    @"NameColumn"
 #define DETAIL_VIEW			@"DetailView"	
 
@@ -156,7 +157,7 @@
                 NSManagedObjectContext *moc = [src managedObjectContext];
                 [ moc deleteObject:src];
                 [treeController removeObjectAtArrangedObjectIndexPath:path];
-                //[moc processPendingChanges];//deletes are not processed immediately, objects are just marked deleted apparently
+                
                 
             }
         }
@@ -168,7 +169,7 @@
 }
 
 - (void) handleMocSave:(NSNotification *)notification {
-    [PBUserNotify notifyWithTitle:@"Saved changes:" description:[NSString stringWithFormat:@"userinfo %@", [notification userInfo]] level:kPBNotifyDebug];
+    [PBUserNotify notifyWithTitle:@"Saved changes:" description: stringForCoreDataUserInfo(notification) level:kPBNotifyDebug];
 
 }
 

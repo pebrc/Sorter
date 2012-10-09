@@ -67,6 +67,13 @@ static NSInteger  unitFactors[] = {1000, 1000000, 1000000000};
     return self;
 }
 
+- (void) dealloc {
+    [unitPopUpButton release];
+    [super dealloc];
+}
+
+
+
 - (NSArray *) templateViews {
     NSMutableArray * views = [[super templateViews] mutableCopy];
     [views addObject:[self unitPopUpButton]];
@@ -86,6 +93,30 @@ static NSInteger  unitFactors[] = {1000, 1000000, 1000000000};
         }
     }
     return unitPopUpButton;
+}
+
+-(double) matchForPredicate:(NSPredicate *)predicate {
+    double nomatch = 0.0;
+    if (![predicate isKindOfClass:[NSComparisonPredicate class]]) {
+        return nomatch;
+    }
+    NSComparisonPredicate * comp = (NSComparisonPredicate*) predicate;
+    
+    if(![[self leftExpressions] containsObject:[comp leftExpression]]) {
+        return nomatch;
+    }
+
+    if([[comp rightExpression] expressionType] != NSConstantValueExpressionType) {
+        return nomatch;
+    }
+
+    if(![[self operators] containsObject:[NSNumber numberWithUnsignedInteger:[comp predicateOperatorType]]]) {
+        return nomatch;
+    }
+
+    return DBL_MAX;
+
+
 }
 
 
