@@ -36,7 +36,7 @@
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSPredicate * predicate;
 @property (nonatomic, retain) NSDate * date;
-@property (nonatomic, retain) NSSet* actions;
+@property (nonatomic, retain) NSOrderedSet* actions;
 @property (readwrite) BOOL active;
 
 @property (nonatomic, readwrite) BOOL flagCreated;
@@ -55,11 +55,25 @@
 @end
 
 @interface Rule (CoreDataGeneratedAccessors)
-- (void)addActionsObject:(Action *)value;
-- (void)removeActionsObject:(Action *)value;
-- (void)addActions:(NSSet *)value;
-- (void)removeActions:(NSSet *)value;
+- (void)insertObject:(NSManagedObject *)value inActionsAtIndex:(NSUInteger)idx;
 
+- (void)removeObjectFromActionsAtIndex:(NSUInteger)idx;
+
+- (void)replaceObjectInActionsAtIndex:(NSUInteger)idx withObject:(NSManagedObject *)value;
+
+- (void)insertActions:(NSArray *)value atIndexes:(NSIndexSet *)indexSet;
+
+- (void)removeActionsAtIndexes:(NSIndexSet *)indexSet;
+
+- (void)replaceActionsAtIndexes:(NSIndexSet *)indexSet withActions:(NSArray *)objects;
+
+- (void)addActionsObject:(NSManagedObject *)value;
+
+- (void)removeActionsObject:(NSManagedObject *)value;
+
+- (void)addActions:(NSOrderedSet *)values ;
+
+- (void)removeActions:(NSOrderedSet *)values;
 @end
 
 

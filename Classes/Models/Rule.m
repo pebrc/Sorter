@@ -55,6 +55,8 @@ BOOL flag(UInt32 flag, Rule * rule) {
 												[NSArray arrayWithObject:[NSPredicate predicateWithFormat:@"kMDItemTextContent = %@", @"Your search goes here"]]]];
 }
 
+
+
 - (BOOL) flagCreated {
     return flag(kFSEventStreamEventFlagItemCreated, self) ;;
 }
@@ -140,5 +142,109 @@ BOOL flag(UInt32 flag, Rule * rule) {
 
 - (void) setFlagIsSymlink:(BOOL)flag {
     setFlag(kFSEventStreamEventFlagItemIsSymlink, flag, self);
+}
+
+- (void)insertObject:(NSManagedObject *)value inActionsAtIndex:(NSUInteger)idx
+{
+        NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:idx];
+        [self willChange:NSKeyValueChangeInsertion valuesAtIndexes:indexSet forKey:@"actions"];
+        [[self primitiveValueForKey:@"actions"] insertObject: value atIndex:idx];
+        [self didChange:NSKeyValueChangeInsertion valuesAtIndexes:indexSet forKey:@"actions"];
+        [indexSet release];
+}
+
+- (void)removeObjectFromActionsAtIndex:(NSUInteger)idx
+{
+        NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:idx];
+        [self willChange:NSKeyValueChangeRemoval valuesAtIndexes:indexSet forKey:@"actions"];
+        [[self primitiveValueForKey:@"actions"] removeObjectAtIndex:idx];
+        [self didChange:NSKeyValueChangeRemoval valuesAtIndexes:indexSet forKey:@"actions"];
+        [indexSet release];
+}
+
+- (void)replaceObjectInActionsAtIndex:(NSUInteger)idx withObject:(NSManagedObject *)value
+{
+        NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:idx];
+        [self willChange:NSKeyValueChangeReplacement valuesAtIndexes:indexSet forKey:@"actions"];
+        [[self primitiveValueForKey:@"actions"] replaceObjectAtIndex:idx withObject:value];
+        [self didChange:NSKeyValueChangeReplacement valuesAtIndexes:indexSet forKey:@"actions"];
+        [indexSet release];
+}
+
+- (void)insertActions:(NSArray *)value atIndexes:(NSIndexSet *)indexSet
+{
+        [self willChange:NSKeyValueChangeInsertion valuesAtIndexes:indexSet forKey:@"actions"];
+        [[self primitiveValueForKey:@"actions"] insertObjects: value atIndexes:indexSet];
+        [self didChange:NSKeyValueChangeInsertion valuesAtIndexes:indexSet forKey:@"actions"];
+}
+
+- (void)removeActionsAtIndexes:(NSIndexSet *)indexSet
+{
+        [self willChange:NSKeyValueChangeRemoval valuesAtIndexes:indexSet forKey:@"actions"];
+        [[self primitiveValueForKey:@"actions"] removeObjectsAtIndexes:indexSet];
+        [self didChange:NSKeyValueChangeRemoval valuesAtIndexes:indexSet forKey:@"actions"];
+}
+
+- (void)replaceActionsAtIndexes:(NSIndexSet *)indexSet withActions:(NSArray *)objects
+{
+        [self willChange:NSKeyValueChangeRemoval valuesAtIndexes:indexSet forKey:@"actions"];
+        [[self primitiveValueForKey:@"actions"] replaceObjectsAtIndexes:indexSet withObjects:objects];
+        [self didChange:NSKeyValueChangeRemoval valuesAtIndexes:indexSet forKey:@"actions"];
+}
+
+- (void)addActionsObject:(NSManagedObject *)value {
+        [self willAccessValueForKey:@"actions"];
+        NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:[[self primitiveValueForKey:@"actions"] count]];
+        [self didAccessValueForKey:@"actions"];
+        [self willChange:NSKeyValueChangeInsertion valuesAtIndexes:indexSet forKey:@"actions"];
+        [[self primitiveValueForKey:@"actions"] addObject:value];
+        [self didChange:NSKeyValueChangeInsertion valuesAtIndexes:indexSet forKey:@"actions"];
+        [indexSet release];
+}
+
+- (void)removeActionsObject:(NSManagedObject *)value {
+        [self willAccessValueForKey:@"actions"];
+        NSUInteger objectIndex = [[self primitiveValueForKey:@"actions"] indexOfObject:value];
+        [self didAccessValueForKey:@"actions"];
+        if (objectIndex == NSNotFound) {
+                return;
+            }
+        NSIndexSet *removeIdxs = [[NSIndexSet alloc] initWithIndex:objectIndex];
+        [self willChange:NSKeyValueChangeRemoval valuesAtIndexes:removeIdxs forKey:@"actions"];
+        [[self primitiveValueForKey:@"actions"] removeObjectAtIndex:objectIndex];
+        [self didChange:NSKeyValueChangeRemoval valuesAtIndexes:removeIdxs forKey:@"actions"];
+        [removeIdxs release];
+}
+
+- (void)addActions:(NSOrderedSet *)values {
+        [self willAccessValueForKey:@"actions"];
+        NSRange addRange = NSMakeRange([[self primitiveValueForKey:@"actions"] count], [values count]);
+        NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndexesInRange:addRange];
+        [self didAccessValueForKey:@"actions"];
+        [self willChange:NSKeyValueChangeInsertion valuesAtIndexes:indexSet forKey:@"actions"];
+        [[self primitiveValueForKey:@"actions"] insertObjects: values atIndexes:indexSet];
+        [self didChange:NSKeyValueChangeInsertion valuesAtIndexes:indexSet forKey:@"actions"];
+        [indexSet release];
+}
+
+- (void)removeActions:(NSOrderedSet *)values {
+        [self willAccessValueForKey:@"actions"];
+        NSOrderedSet *primitive = [self primitiveValueForKey:@"actions"];
+        NSMutableIndexSet *indexSet = [[NSMutableIndexSet alloc] init];
+        for (NSObject *object in values) {
+                NSUInteger objectIdx = [primitive indexOfObject:object];
+                if (objectIdx != NSNotFound) {
+                        [indexSet addIndex:objectIdx];
+                    }
+            }
+        [self didAccessValueForKey:@"actions"];
+        if ([indexSet count] == 0) {
+                [indexSet release];
+                return;
+            }
+        [self willChange:NSKeyValueChangeRemoval valuesAtIndexes:indexSet forKey:@"actions"];
+        [[self primitiveValueForKey:@"actions"] removeObjectsAtIndexes:indexSet];
+        [self didChange:NSKeyValueChangeRemoval valuesAtIndexes:indexSet forKey:@"actions"];
+        [indexSet release];
 }
 @end

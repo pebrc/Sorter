@@ -28,7 +28,7 @@
 @private
 }
 
-@property (nonatomic, retain) NSNumber * order;
+
 @property (nonatomic, retain) id<ActionStrategy>  strategy;
 @property (nonatomic, retain) Rule * rule;
 

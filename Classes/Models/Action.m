@@ -28,7 +28,7 @@
 @end
 @implementation Action
 
-@dynamic order;
+
 @dynamic strategy;
 @dynamic rule;
 

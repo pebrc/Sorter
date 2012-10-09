@@ -16,6 +16,7 @@
 		FD0069AA14E684030046E7C0 /* PBAbstractDateStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0069A914E684020046E7C0 /* PBAbstractDateStrategy.m */; };
 		FD0069AD14E688560046E7C0 /* PBVariableDateStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0069AC14E688550046E7C0 /* PBVariableDateStrategy.m */; };
 		FD0DB57314AB4A7200768447 /* PBSourceObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0DB57214AB4A7200768447 /* PBSourceObserver.m */; };
+		FD2BA3B61624A502009A7A31 /* TableViewDelegateWithDragSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA3B51624A502009A7A31 /* TableViewDelegateWithDragSupport.m */; };
 		FD2F389E14B84D9F0073D2CF /* Sorter_DataModel_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD2F389B14B84D9F0073D2CF /* Sorter_DataModel_2.xcdatamodeld */; };
 		FD2F38A114B8DBF60073D2CF /* TestPBMetaDataDatePredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2F38A014B8DBF60073D2CF /* TestPBMetaDataDatePredicate.m */; };
 		FD3AD9781554622700726C69 /* PBLog.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3AD9771554622700726C69 /* PBLog.m */; };
@@ -126,6 +127,8 @@
 		FD0069AC14E688550046E7C0 /* PBVariableDateStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBVariableDateStrategy.m; sourceTree = "<group>"; };
 		FD0DB57114AB4A7200768447 /* PBSourceObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBSourceObserver.h; sourceTree = "<group>"; };
 		FD0DB57214AB4A7200768447 /* PBSourceObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBSourceObserver.m; sourceTree = "<group>"; };
+		FD2BA3B41624A502009A7A31 /* TableViewDelegateWithDragSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewDelegateWithDragSupport.h; sourceTree = "<group>"; };
+		FD2BA3B51624A502009A7A31 /* TableViewDelegateWithDragSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewDelegateWithDragSupport.m; sourceTree = "<group>"; };
 		FD2F389C14B84D9F0073D2CF /* Sorter_DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sorter_DataModel.xcdatamodel; sourceTree = "<group>"; };
 		FD2F389D14B84D9F0073D2CF /* Sorter_DataModel_ 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Sorter_DataModel_ 2.xcdatamodel"; sourceTree = "<group>"; };
 		FD2F389F14B8DBF60073D2CF /* TestPBMetaDataDatePredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPBMetaDataDatePredicate.h; sourceTree = "<group>"; };
@@ -420,6 +423,8 @@
 				FDF7B6C01551BF2D00B786CF /* PBGrowlDelegate.m */,
 				FDBF525E15DD160F001143AA /* PBNotificationCenterDelegate.h */,
 				FDBF525F15DD1610001143AA /* PBNotificationCenterDelegate.m */,
+				FD2BA3B41624A502009A7A31 /* TableViewDelegateWithDragSupport.h */,
+				FD2BA3B51624A502009A7A31 /* TableViewDelegateWithDragSupport.m */,
 			);
 			name = Delegates;
 			path = AppDelegate;
@@ -738,6 +743,7 @@
 				FD82EA281620A4B400137EEA /* AbstractActionWithSecurityScopedResource.m in Sources */,
 				FD82EA2B1620A76200137EEA /* ShellScriptActionController.m in Sources */,
 				FDB3390D1621834A0033EF35 /* PBMetaFileSizeRowTemplate.m in Sources */,
+				FD2BA3B61624A502009A7A31 /* TableViewDelegateWithDragSupport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,4 +1,4 @@
-//Copyright (c) 2011 Peter Brachwitz
+//Copyright (c) 2012 Peter Brachwitz
 //
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -18,34 +18,13 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //THE SOFTWARE.
 
+#import <Foundation/Foundation.h>
 
-#import <Cocoa/Cocoa.h>
-#import "Source.h"
-
-extern NSString * const TransformationSideEffect;
-
-
-@interface SourceLocationTransformer : NSValueTransformer {
-
-	NSManagedObjectContext * managedObjectContext;
+@interface TableViewDelegateWithDragSupport : NSObject {
+    IBOutlet NSTableView *tableView;
+    IBOutlet NSArrayController *arrayController;
 }
-@property (nonatomic,retain) NSManagedObjectContext * managedObjectContext;
-- (id) initWithManagedObjectContext:(NSManagedObjectContext *) context;
-@end
 
-@interface ActionStrategyTransformer : NSValueTransformer {
-}
+@property (nonatomic, retain) NSTableView *tableView;
+@property (nonatomic, retain) NSArrayController *arrayController;
 @end
-@interface UserDescriptionTransformer: NSValueTransformer {
-    
-}
-@end
-@interface ArrayDescriptionTransformer: NSValueTransformer {
-    
-}
-@end
-@interface OrderedSetToArrayTransfomer: NSValueTransformer{
-    
-}
-@end
-
