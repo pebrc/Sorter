@@ -21,6 +21,7 @@
 #import <Foundation/Foundation.h>
 #import "ActionStrategy.h"
 
+
 @interface AbstractActionWithSecurityScopedResource : NSObject {
     NSURL * resource;
     NSData * securityScope;

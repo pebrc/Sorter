@@ -22,6 +22,11 @@
 #import "PBUserNotify.h"
 #import "PBSandboxAdditions.h"
 
+@interface AbstractActionWithSecurityScopedResource(PrivateAPI)
+- (void) updateSecurityScopeFor: (NSURL*) url;
+@end
+
+
 @implementation AbstractActionWithSecurityScopedResource
 
 @synthesize resource;
@@ -46,8 +51,9 @@
 
 - initWithURL: (NSURL*) url andSecurityScope: (NSData*) sec{
     if (self = [self init]) {
+        [self setSecurityScope:sec];//set resource first to avoid unnecessary and failing bookmarking attempts
         [self setResource:url];
-        [self setSecurityScope:sec];
+
     }
     return self;
 }
@@ -86,15 +92,25 @@
         DEBUG_OUTPUT(@"Action with resource changed: %@", [change description]);
         NSURL * url = [change valueForKey:@"new"];
         if ([url isKindOfClass:[NSURL class]]) {
-            NSError * err = nil;
-            NSData * sec = [url bookmarkDataWithOptions:NSURLBookmarkCreationWithSecurityScope includingResourceValuesForKeys:nil relativeToURL:nil error:&err];
-            if(err) {
-                [PBUserNotify notifyWithTitle:@"No bookmarkable security scope" description:[err localizedDescription] level:kPBNotifyDebug];
-                return;
-            }
-            [self setSecurityScope:sec];
+            [self updateSecurityScopeFor:url];
         }
     }
+}
+
+- (void) updateSecurityScopeFor:(NSURL *)url {
+    NSURL * currentTarget = [NSURL URLByResolvingBookmarkData:securityScope options:NSURLBookmarkResolutionWithSecurityScope relativeToURL:nil bookmarkDataIsStale:nil error:nil];
+    //can be considered as already processed if paths are same -- bit of a shortcut 
+    if(currentTarget != nil && [[url path]isEqual:[currentTarget path]]) {
+        return;
+    }
+    NSError * err = nil;
+    NSData * sec = [url bookmarkDataWithOptions:NSURLBookmarkCreationWithSecurityScope includingResourceValuesForKeys:nil relativeToURL:nil error:&err];
+    if(err) {
+        [PBUserNotify notifyWithTitle:@"No bookmarkable security scope" description:[err localizedDescription] level:kPBNotifyDebug];
+        return;
+    }
+    [self setSecurityScope:sec];
+
 }
 
 #pragma mark NSCoding
@@ -105,9 +121,9 @@
     
 }
 - (id)initWithCoder:(NSCoder *)decoder {
-    
-    NSURL * url = [decoder decodeObjectForKey:@"resource"];
+
     NSData * sec = [decoder decodeObjectForKey:@"securityScope"];
+    NSURL * url = [decoder decodeObjectForKey:@"resource"];
     return [self initWithURL:url andSecurityScope:sec];
 }
 
