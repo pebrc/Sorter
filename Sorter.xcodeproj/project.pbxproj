@@ -24,6 +24,7 @@
 		FD612FE4150361FC0033641B /* PBMetaRelativeDateRowTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD612FE3150361FC0033641B /* PBMetaRelativeDateRowTemplate.m */; };
 		FD612FE7150378E00033641B /* TestPBMetaRelativeDateRow.m in Sources */ = {isa = PBXBuildFile; fileRef = FD612FE6150378E00033641B /* TestPBMetaRelativeDateRow.m */; };
 		FD6C369F162ABE8700488B69 /* APPL.iconset in Resources */ = {isa = PBXBuildFile; fileRef = FD6C369E162ABE8700488B69 /* APPL.iconset */; };
+		FD6C36A1162AE05000488B69 /* StatusActive.tiff in Resources */ = {isa = PBXBuildFile; fileRef = FD6C36A0162AE05000488B69 /* StatusActive.tiff */; };
 		FD82EA251620A2F700137EEA /* ShellScriptAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FD82EA241620A2F700137EEA /* ShellScriptAction.m */; };
 		FD82EA281620A4B400137EEA /* AbstractActionWithSecurityScopedResource.m in Sources */ = {isa = PBXBuildFile; fileRef = FD82EA271620A4B400137EEA /* AbstractActionWithSecurityScopedResource.m */; };
 		FD82EA2B1620A76200137EEA /* ShellScriptActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD82EA2A1620A76200137EEA /* ShellScriptActionController.m */; };
@@ -79,7 +80,6 @@
 		FDEA509D15DC1DC90070FA8C /* PBSandboxAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEA509C15DC1DC90070FA8C /* PBSandboxAdditions.m */; };
 		FDF7B6C11551BF2D00B786CF /* PBGrowlDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF7B6C01551BF2D00B786CF /* PBGrowlDelegate.m */; };
 		FDFCB9BD14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFCB9BC14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.m */; };
-		FDFD58DB15DE579E007B9FAF /* StatusActive.png in Resources */ = {isa = PBXBuildFile; fileRef = FDFD58DA15DE579E007B9FAF /* StatusActive.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +144,7 @@
 		FD612FE5150378E00033641B /* TestPBMetaRelativeDateRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPBMetaRelativeDateRow.h; sourceTree = "<group>"; };
 		FD612FE6150378E00033641B /* TestPBMetaRelativeDateRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPBMetaRelativeDateRow.m; sourceTree = "<group>"; };
 		FD6C369E162ABE8700488B69 /* APPL.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = APPL.iconset; sourceTree = "<group>"; };
+		FD6C36A0162AE05000488B69 /* StatusActive.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = StatusActive.tiff; sourceTree = "<group>"; };
 		FD82EA231620A2F700137EEA /* ShellScriptAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShellScriptAction.h; sourceTree = "<group>"; };
 		FD82EA241620A2F700137EEA /* ShellScriptAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShellScriptAction.m; sourceTree = "<group>"; };
 		FD82EA261620A4B400137EEA /* AbstractActionWithSecurityScopedResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionWithSecurityScopedResource.h; sourceTree = "<group>"; };
@@ -244,7 +245,6 @@
 		FDFCB9BB14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPBMetaVariableDateRowTemplate.h; sourceTree = "<group>"; };
 		FDFCB9BC14F1264D00BCC81B /* TestPBMetaVariableDateRowTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPBMetaVariableDateRowTemplate.m; sourceTree = "<group>"; };
 		FDFCE1C015D9244E00064AA4 /* Sorter_DataModel_ 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Sorter_DataModel_ 3.xcdatamodel"; sourceTree = "<group>"; };
-		FDFD58DA15DE579E007B9FAF /* StatusActive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusActive.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -546,8 +546,8 @@
 		FD9E36E114A9ED03006C6F89 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FD6C36A0162AE05000488B69 /* StatusActive.tiff */,
 				FD6C369E162ABE8700488B69 /* APPL.iconset */,
-				FDFD58DA15DE579E007B9FAF /* StatusActive.png */,
 				FDAD688D1583743900A7AD99 /* ToolbarPlus.pdf */,
 				FDAD688F1583769900A7AD99 /* ToolbarMinus.pdf */,
 			);
@@ -652,9 +652,9 @@
 				FDAD688E1583743900A7AD99 /* ToolbarPlus.pdf in Resources */,
 				FDAD68901583769900A7AD99 /* ToolbarMinus.pdf in Resources */,
 				FDAF8741159EF69200F68A11 /* AutomatorAction.xib in Resources */,
-				FDFD58DB15DE579E007B9FAF /* StatusActive.png in Resources */,
 				FD82EA2D1620ABD100137EEA /* ShellScriptAction.xib in Resources */,
 				FD6C369F162ABE8700488B69 /* APPL.iconset in Resources */,
+				FD6C36A1162AE05000488B69 /* StatusActive.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
