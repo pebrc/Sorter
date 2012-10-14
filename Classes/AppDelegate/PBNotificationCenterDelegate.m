@@ -31,7 +31,7 @@
     NSUserNotificationCenter * center = [NSUserNotificationCenter defaultUserNotificationCenter];
     NSUserNotification * msg = [[[NSUserNotification alloc] init] autorelease];
     [msg setTitle:title];
-    [msg setSubtitle:description];
+    [msg setInformativeText:description];
     [center scheduleNotification:msg];
 }
 

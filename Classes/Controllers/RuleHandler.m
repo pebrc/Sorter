@@ -27,7 +27,9 @@
 
 NSPredicate * ruleFilter(FSEventStreamEventFlags eventFlags) {
     FSEventStreamEventFlags fileTypes = kFSEventStreamEventFlagItemIsFile |  kFSEventStreamEventFlagItemIsDir |  kFSEventStreamEventFlagItemIsSymlink;
-    return [NSPredicate predicateWithFormat:@"active = TRUE AND (flags & %u) = (%u & %u) AND ((flags & ~%u ) & %u) > 0 AND actions.@count > 0", fileTypes, eventFlags, fileTypes, fileTypes, eventFlags];
+    NSPredicate * result = [NSPredicate predicateWithFormat:@"active = TRUE AND ((flags & %u) & %u) > 0 AND ((flags & ~%u ) & %u) > 0 AND actions.@count > 0", fileTypes, eventFlags, fileTypes, eventFlags];
+    DEBUG_OUTPUT(@"Rule filter: %@", result);
+    return result;
 }
 
 @interface RuleHandler(PrivateApi)

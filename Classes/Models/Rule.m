@@ -30,6 +30,7 @@ void setFlag(UInt32 flag, BOOL value, Rule* rule) {
     } else {
         [rule setFlags:[NSNumber numberWithUnsignedInt:[[rule flags]unsignedIntValue] & ~flag]];
     }
+    DEBUG_OUTPUT(@"Flags now: %u", [[rule flags] unsignedIntValue]);
 }
 
 BOOL flag(UInt32 flag, Rule * rule) {
