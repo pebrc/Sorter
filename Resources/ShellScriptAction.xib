@@ -54,6 +54,7 @@
 										<int key="NSvFlags">268</int>
 										<string key="NSFrame">{{20, 100}, {85, 14}}</string>
 										<reference key="NSSuperview" ref="266294496"/>
+										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="1008871780"/>
 										<string key="NSReuseIdentifierKey">_NS:3936</string>
 										<bool key="NSEnabled">YES</bool>
@@ -94,6 +95,7 @@
 										<int key="NSvFlags">268</int>
 										<string key="NSFrame">{{99, 95}, {245, 19}}</string>
 										<reference key="NSSuperview" ref="266294496"/>
+										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="545493965"/>
 										<string key="NSReuseIdentifierKey">_NS:248</string>
 										<bool key="NSEnabled">YES</bool>
@@ -128,6 +130,7 @@
 										<int key="NSvFlags">268</int>
 										<string key="NSFrame">{{267, 63}, {82, 28}}</string>
 										<reference key="NSSuperview" ref="266294496"/>
+										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="125498465"/>
 										<string key="NSReuseIdentifierKey">_NS:161</string>
 										<bool key="NSEnabled">YES</bool>
@@ -152,13 +155,13 @@
 										<int key="NSvFlags">268</int>
 										<string key="NSFrame">{{44, 14}, {291, 42}}</string>
 										<reference key="NSSuperview" ref="266294496"/>
-										<reference key="NSNextKeyView"/>
+										<reference key="NSWindow"/>
 										<string key="NSReuseIdentifierKey">_NS:1505</string>
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSTextFieldCell" key="NSCell" id="969986974">
 											<int key="NSCellFlags">67108864</int>
 											<int key="NSCellFlags2">138543104</int>
-											<string key="NSContents">Select one of your shell scripts to handle the event.  It is necessary that the select script is located in this  applications script folder.</string>
+											<string key="NSContents">Select one of your shell scripts to handle the event.  It is necessary that the selected script is located in this applications script folder.</string>
 											<reference key="NSSupport" ref="26"/>
 											<string key="NSCellIdentifier">_NS:1505</string>
 											<reference key="NSControlView" ref="125498465"/>
@@ -170,12 +173,14 @@
 								</array>
 								<string key="NSFrame">{{1, 1}, {379, 126}}</string>
 								<reference key="NSSuperview" ref="310271750"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="643689837"/>
 								<string key="NSReuseIdentifierKey">_NS:632</string>
 							</object>
 						</array>
 						<string key="NSFrame">{{6, 18}, {381, 128}}</string>
 						<reference key="NSSuperview" ref="672970365"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="266294496"/>
 						<string key="NSReuseIdentifierKey">_NS:630</string>
 						<string key="NSOffsets">{0, 0}</string>
@@ -199,6 +204,7 @@
 				</array>
 				<string key="NSFrameSize">{393, 164}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="310271750"/>
 				<string key="NSClassName">NSView</string>
 			</object>
@@ -705,11 +711,11 @@
 				</array>
 				<boolean value="NO" key="19.IBNSViewMetadataTranslatesAutoresizingMaskIntoConstraints"/>
 				<string key="19.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<array class="NSMutableArray" key="2.IBNSViewMetadataConstraints">
-					<reference ref="187251321"/>
-					<reference ref="917749846"/>
-					<reference ref="208605366"/>
+				<array key="2.IBNSViewMetadataConstraints">
 					<reference ref="713574046"/>
+					<reference ref="208605366"/>
+					<reference ref="917749846"/>
+					<reference ref="187251321"/>
 				</array>
 				<string key="2.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="20.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -751,7 +757,37 @@
 			<nil key="sourceID"/>
 			<int key="maxID">43</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">NSLayoutConstraint</string>
+					<string key="superclassName">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/NSLayoutConstraint.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">ShellScriptActionController</string>
+					<string key="superclassName">NSViewController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">showOpenPanel:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">showOpenPanel:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">showOpenPanel:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/ShellScriptActionController.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
