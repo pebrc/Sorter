@@ -16,7 +16,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.2 r9819"
-   sodipodi:docname="Sorter copy.svg"
+   sodipodi:docname="Sorter.svg"
    inkscape:export-filename="/Users/brachwitz/Desktop/Sorter.png"
    inkscape:export-xdpi="81.779999"
    inkscape:export-ydpi="81.779999">
@@ -534,15 +534,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="391.45015"
-     inkscape:cy="720.34925"
+     inkscape:zoom="0.52548449"
+     inkscape:cx="372.04724"
+     inkscape:cy="519.53389"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer3"
      showgrid="false"
      inkscape:window-width="1280"
      inkscape:window-height="752"
-     inkscape:window-x="0"
+     inkscape:window-x="570"
      inkscape:window-y="0"
      inkscape:window-maximized="0" />
   <metadata
@@ -561,7 +561,8 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     style="display:inline">
+     style="display:inline"
+     sodipodi:insensitive="true">
     <path
        style="color:#000000;fill:url(#linearGradient5327);fill-opacity:1;fill-rule:nonzero;stroke:url(#linearGradient5585);stroke-width:10.00500011;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker:none;visibility:visible;display:inline;overflow:visible;filter:url(#filter3833);enable-background:accumulate"
        d="m 6.2883138,532.65967 0,511.99993 511.9999862,0 0,-511.99993 -511.9999862,0 z m 144.4374862,65.59375 85.40625,61.25 -31.84375,100.15625 -105.093746,0.65625 -33.09375,-99.78125 84.624996,-62.28125 z m 224.0625,150.40625 c 41.14521,0 74.5,33.35478 74.5,74.49998 0,41.1452 -33.35479,74.5 -74.5,74.5 -41.14521,0 -74.5,-33.3548 -74.5,-74.5 0,-41.1452 33.35479,-74.49998 74.5,-74.49998 z m -219.375,82.28128 92,156.3125 -181.374996,1.5 89.374996,-157.8125 z"
@@ -585,15 +586,6 @@
        inkscape:export-xdpi="84.239998"
        inkscape:export-ydpi="84.239998" />
     <rect
-       style="color:#000000;fill:#000080;fill-opacity:0;fill-rule:nonzero;stroke:none;stroke-width:10;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       id="rect5387"
-       width="135.7645"
-       height="811.75861"
-       x="79.195961"
-       y="133.12337"
-       rx="19.614656"
-       ry="19.614656" />
-    <rect
        style="color:#000000;fill:#ffffff;fill-opacity:0;fill-rule:nonzero;stroke:#b5b5b5;stroke-width:34.99499893;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker:none;visibility:visible;display:inline;overflow:visible;filter:url(#filter5776);enable-background:accumulate"
        id="rect5445"
        width="512"
@@ -610,5 +602,24 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Icon"
-     style="display:inline" />
+     style="display:inline"
+     sodipodi:insensitive="true" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Frame"
+     style="display:inline">
+    <rect
+       style="color:#000000;fill:none;stroke:none;stroke-width:5.93200016;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3124"
+       width="630"
+       height="630"
+       x="54.137089"
+       y="241.60356"
+       rx="3.9794884"
+       ry="3.0000701"
+       inkscape:export-filename="/Users/brachwitz/Desktop/Sorter.iconset/icon_16x16.png"
+       inkscape:export-xdpi="2.29"
+       inkscape:export-ydpi="2.29" />
+  </g>
 </svg>
