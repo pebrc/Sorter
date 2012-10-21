@@ -72,4 +72,10 @@
 - (id)initWithCoder:(NSCoder *)decoder {
     return [self init];
 }
+
+#pragma mark NSCopying
+
+-(id) copyWithZone:(NSZone *)zone {
+    return self;
+}
 @end

@@ -95,11 +95,13 @@
 -(void) setStrategy:(id<ActionStrategy>)strategy {
 
     id old = [self primitiveValueForKey:@"strategy"];
-    if (strategy != old) {
-        [self registerObserver: strategy AndStopObserving: old];
+    if (strategy == old) {
+        return;
     }
+    id<ActionStrategy> copiedValue = [strategy copyWithZone:NULL];
+    [self registerObserver: copiedValue AndStopObserving: old];
     [self willChangeValueForKey:@"strategy"];
-    [self setPrimitiveValue:strategy forKey:@"strategy"];
+    [self setPrimitiveValue:copiedValue forKey:@"strategy"];
     [self didChangeValueForKey:@"strategy"];
     
 }
@@ -114,7 +116,13 @@
 
 - (void) registerObserver:(id)obj AndStopObserving:(id)old{
     if(old) {
-        [old removeObserver:self forKeyPath:@"valid"];
+        @try {
+            [old removeObserver:self forKeyPath:@"valid"];
+        }
+        @catch (NSException *exception) {
+            NSLog(@"There was no observer to remove: %@", old);
+        }
+        
     }
     if(obj) {
         [obj addObserver:self 
@@ -130,6 +138,10 @@
         [self didChangeValueForKey:@"valid"];
     }
     
+}
+
+-(BOOL) isSameTypeOfAction:(Action *)other {
+   return [(NSObject*)[other strategy] class] == [(NSObject*)[self strategy] class];
 }
 
 @end

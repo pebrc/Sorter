@@ -29,7 +29,7 @@
 }
 
 
-@property (nonatomic, retain) id<ActionStrategy>  strategy;
+@property (nonatomic, copy) id<ActionStrategy>  strategy;
 @property (nonatomic, retain) Rule * rule;
 
 -(NSView *) settingsView;
@@ -37,6 +37,7 @@
 -(NSString *) userConfigDescription;
 -(NSURL *) handleItemAt: (NSURL *) url error: (NSError **)err;
 -(BOOL) valid;
+-(BOOL) isSameTypeOfAction: (Action*) other;
 
 
 +(NSSet *) availableActions;

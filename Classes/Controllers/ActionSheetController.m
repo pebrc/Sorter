@@ -27,11 +27,13 @@
 - (void) updateActionDetail;
 - (void) prepareActionSheet;
 - (void) showActionSheetWithAction: (Action*) action forWindow: (id) window;
+- (Action*) findMatchingActionFor: (Action*) otherAction;
+- (void) updateExistingAction: (Action*) existing With: (Action*) sourceAction;
 @end
 
 
 @implementation ActionSheetController
-@synthesize availableActions, actionsController, actionController;
+@synthesize availableActions, actionsController, actionController, isActionTypeChangeable;
 
 - (id)init
 {
@@ -109,7 +111,7 @@
         BOOL success = [nib instantiateNibWithOwner:self topLevelObjects:nil];
         NSAssert(success, @"Failed to load Xib");
     }
-    [[[self managedObjectContext] undoManager] beginUndoGrouping];
+    [self setIsActionTypeChangeable:YES];
 }
 
 - (IBAction)showActionSheet:(id)sender {
@@ -124,7 +126,11 @@
         return;
     }
     [self prepareActionSheet];
-    [self showActionSheetWithAction:[selection objectAtIndex:0] forWindow:[NSApp mainWindow]];
+    Action* editor = [actionController newObject];
+    Action * existing = [selection objectAtIndex:0];
+    [editor setStrategy:[[existing strategy] copyWithZone:NULL]];
+    [self setIsActionTypeChangeable:NO];
+    [self showActionSheetWithAction:editor forWindow:[NSApp mainWindow]];
 
 }
 
@@ -135,25 +141,43 @@
 
 
 - (IBAction)endActionSheet:(id)sender {
-    [NSApp endSheet:actionSheet]; 
-    NSUndoManager * man = [[self managedObjectContext] undoManager];
-    [man endUndoGrouping];
-    [man undoNestedGroup];
+    [NSApp endSheet:actionSheet];
+    Action * editedAction = [actionController content];
+    [[self managedObjectContext] deleteObject:editedAction];
 }
 
 - (IBAction)endActionSheetWithSuccess:(id)sender {
     [NSApp endSheet:actionSheet];
     Action * obj = [actionController content];
-    //TODO: There should be a new instance of Action everytime we change sth
+    Action * existing = [self findMatchingActionFor:obj];
+    if(existing) {
+        [self updateExistingAction: existing With: obj];
+        return;
+    }
+
     NSArray * selected = [rulesController selectedObjects];
     if ([selected count] == 1) {
         Rule * rule = (Rule *) [selected objectAtIndex:0];
         [obj setRule:rule];
     }
+}
 
-    
-    [[[self managedObjectContext] undoManager] endUndoGrouping];
-    [[[self managedObjectContext] undoManager] setActionName:@"Object edit"];
+-(Action*) findMatchingActionFor:(Action *)otherAction {
+    NSArray* selection = [actionsController selectedObjects];
+    if([selection count] == 0) {
+        return nil;
+    }
+    for (Action* candidate in selection) {
+        if([candidate isSameTypeOfAction:otherAction]) {
+            return candidate;
+        }
+    }
+    return nil;
+}
+
+-(void) updateExistingAction: (Action*) existing With:(Action *)sourceAction {
+    [existing setStrategy:[[sourceAction strategy] copyWithZone:NULL]];
+    [[self managedObjectContext] deleteObject:sourceAction];
 }
 
 
@@ -191,6 +215,7 @@
 - (NSUndoManager*) windowWillReturnUndoManager:(NSWindow *) window {
     return  [[self managedObjectContext] undoManager];
 }
+
 
 
 

@@ -77,4 +77,12 @@
 }
 
 
+#pragma mark NSCopying
+
+-(id) copyWithZone:(NSZone*) zone {
+    ShellScriptAction * other = [[ShellScriptAction alloc] initWithURL:[[self resource]copyWithZone:zone] andSecurityScope:[[self securityScope] copyWithZone:zone]];
+    return other;
+}
+
+
 @end

@@ -31,10 +31,12 @@
     NSObjectController * actionController;
     NSMutableArray * filteredActions;
     NSArray * availableActions;
+    BOOL isActionTypeChangeable;
 }
 @property (nonatomic, retain) NSArray * availableActions;
 @property (nonatomic, retain) IBOutlet NSArrayController * actionsController;
 @property (nonatomic, retain) IBOutlet NSObjectController * actionController;
+@property (nonatomic) BOOL isActionTypeChangeable;
 
 
 -(IBAction) showActionSheet:(id)sender;

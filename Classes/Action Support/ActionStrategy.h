@@ -20,7 +20,7 @@
 #import <Foundation/Foundation.h>
 
 @class Rule;
-@protocol ActionStrategy <NSCoding>
+@protocol ActionStrategy <NSCoding, NSCopying>
 
 /**
  * Performs the core 'business' logic of the action using the given parametres

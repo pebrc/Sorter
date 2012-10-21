@@ -76,9 +76,6 @@
         return;
     }
     [self willChangeValueForKey:@"target"];
-    NSUndoManager *undo = [[[NSApp delegate] managedObjectContext] undoManager] ;     
-    [undo registerUndoWithTarget:self selector:@selector(setTarget:) object:target];
-    [undo setActionName:@"target change"];
     [target release];
     target = [t retain];
     [self setSecureTargetBookmarkFrom:t];
@@ -197,6 +194,13 @@
     NSString * url = [decoder decodeObjectForKey:@"target"];
     NSData * bookmark = [decoder decodeObjectForKey:@"secureTargetBookmark"];
     return [self initWithURL:url andBookmark: bookmark];
+}
+
+#pragma mark NSCopying
+
+-(id)copyWithZone:(NSZone *)zone {
+    MoveAction * other = [[MoveAction alloc] initWithURL:[[self target] copyWithZone:zone] andBookmark:[[self secureTargetBookmark] copyWithZone:zone]];
+    return other;
 }
 
 

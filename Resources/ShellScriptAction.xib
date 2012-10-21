@@ -161,7 +161,7 @@
 										<object class="NSTextFieldCell" key="NSCell" id="969986974">
 											<int key="NSCellFlags">67108864</int>
 											<int key="NSCellFlags2">138543104</int>
-											<string key="NSContents">Select one of your shell scripts to handle the event.  It is necessary that the selected script is located in this applications script folder.</string>
+											<string key="NSContents">Select one of your shell scripts to handle the event.  It is necessary that the selected script is located in this application's script folder.</string>
 											<reference key="NSSupport" ref="26"/>
 											<string key="NSCellIdentifier">_NS:1505</string>
 											<reference key="NSControlView" ref="125498465"/>

@@ -69,6 +69,12 @@
     return [settingsController view];
 }
 
+#pragma mark NSCopying
+
+-(id) copyWithZone:(NSZone*) zone {
+    AutomatorAction * other = [[AutomatorAction alloc] initWithURL:[[self resource]copyWithZone:zone] andSecurityScope:[[self securityScope] copyWithZone:zone]];
+    return other;
+}
 
 
 
