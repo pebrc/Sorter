@@ -29,24 +29,26 @@
 
 
 
-@interface Sorter_AppDelegate : NSObject 
+@interface Sorter_AppDelegate : NSObject <NSWindowDelegate>
 {
-    NSWindow *window;
+ 
     NSWindowController * mainWindowController;
     
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
     NSManagedObjectModel *managedObjectModel;
     NSManagedObjectContext *managedObjectContext;
     PBSourceObserver *sourceObserver;
+    IBOutlet NSMenuItem * mainWindowMenu;
 
 }
 
-@property (nonatomic, retain) IBOutlet NSWindow *window;
+
 
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 
 - (IBAction)saveAction:sender;
+- (IBAction)showMainWindow:sender;
 
 @end

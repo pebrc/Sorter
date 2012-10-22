@@ -26,7 +26,7 @@
 
 @implementation Sorter_AppDelegate
 
-@synthesize window;
+
 
 -(void) applicationDidFinishLaunching:(NSNotification*)notification {
     NSDictionary *defaults = [NSDictionary dictionaryWithObject:[NSNumber numberWithDouble:30.0] forKey:@"latency"];
@@ -36,10 +36,23 @@
     [notifier registerDelegate: [PBLog class]];
     [notifier registerDelegate:[PBNotificationCenterDelegate class]];
     mainWindowController = [[MainWindowController alloc] initWithWindowNibName:@"MainWindow"];
-    [mainWindowController showWindow:self];
+    [[mainWindowController window] setDelegate:self];
+    [self showMainWindow:self];
     
 
 }
+
+-(IBAction)showMainWindow:(id)sender {
+    [mainWindowController showWindow:sender];
+    [mainWindowMenu setState:NSOnState];
+}
+
+- (BOOL)windowShouldClose:(id)sender {
+    [mainWindowMenu setState:NSOffState];
+    return YES;
+}
+
+
 
 
 /**
@@ -300,7 +313,6 @@
  
 - (void)dealloc {
 
-    [window release];
     [managedObjectContext release];
     [persistentStoreCoordinator release];
     [managedObjectModel release];
