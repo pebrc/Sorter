@@ -60,7 +60,7 @@
 }
 
 - (BOOL) isSelectable {
-    return YES;
+    return YES && ![backingModel isDeleted];
 }
 
 

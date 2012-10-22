@@ -40,6 +40,9 @@
 @implementation MainWindowController
 @synthesize contents;
 
+
+
+
 - (id)initWithWindow:(NSWindow *)window
 {
     self = [super initWithWindow:window];
@@ -103,7 +106,6 @@
     }
     [request release];
     [self restoreSelectionOf:selected];
-
     
 }
 
@@ -301,14 +303,25 @@
 
 -(IBAction) removeRule:(id)sender {
     NSManagedObjectContext * moc = [[NSApp delegate]managedObjectContext];
-    for (id<TreeSupport> node in  [treeController selectedObjects]) {
-        NSManagedObject * obj = [node representedObject];
+    NSIndexPath * selected = [treeController selectionIndexPath];
+    NSArray * selectedNodes = [treeController selectedNodes];
+    for(NSTreeNode* selectedNode in selectedNodes) {
+        id<TreeSupport> modelNode = [selectedNode representedObject];
+        NSManagedObject * obj = [modelNode representedObject];
         [moc deleteObject:obj];
-    };
-    [treeController remove:sender]; 
-    
+        NSTreeNode* parent = [selectedNode parentNode];
+        id<TreeSupport> parentModel = [parent representedObject];
+        NSMutableArray * children = [parentModel children];
+        [children removeObject:modelNode];
+        [parentModel setChildren:children];
+
+    }
+    [treeController setSelectionIndexPath:selected];
     
 }
+
+    
+
 
 -(IBAction) applyRulesToSourceDirectories: (id) sender {
 	NSManagedObjectContext *moc = [[NSApp delegate] managedObjectContext];
@@ -350,7 +363,8 @@
 }
 
 - (void) showEditView {
-    [detailController setRepresentedObject:[[[treeController selectedObjects] objectAtIndex:0]representedObject]];    
+    Rule * rule = [[[treeController selectedObjects] objectAtIndex:0] representedObject];
+    [detailController setRepresentedObject:rule];
     NSView *v = [detailController view];
     NSRect surroundingFrame = [detailViewHolder frame];
     surroundingFrame.origin.x = 0;
