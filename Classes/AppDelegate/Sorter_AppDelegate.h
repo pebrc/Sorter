@@ -26,6 +26,7 @@
 #import "Source.h"
 #import "PBSourceObserver.h"
 #import "PBGrowlDelegate.h"
+#import "UserHelp.h"
 
 
 
@@ -39,6 +40,7 @@
     NSManagedObjectContext *managedObjectContext;
     PBSourceObserver *sourceObserver;
     IBOutlet NSMenuItem * mainWindowMenu;
+    UserHelp * help;
 
 }
 

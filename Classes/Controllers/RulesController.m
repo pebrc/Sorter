@@ -23,6 +23,8 @@
 #import "PBMetaPresetRelativeDateRowTemplate.h"
 #import "PBMetaRelativeDateRowTemplate.h"
 #import "PBMetaFileSizeRowTemplate.h"
+#import "UserHelp.h"
+
 
 @implementation RulesController
 
@@ -88,7 +90,17 @@
     [NSApp endSheet:eventSheet]; 
 }
 
+-(void) setContent:(id)content {
+    [super setContent:content];
+    [self performSelector:@selector(showInitialHelp) withObject:nil afterDelay:1.0];
+}
 
+-(void) showInitialHelp {
+    [UserHelp displayHelp:HelpText_SelectDirectory For:selectDirectoryButton showingToThe:NSMinYEdge];
+    [UserHelp displayHelp:HelpText_DefineCriteria For:editor showingToThe:NSMaxXEdge];
+    [UserHelp displayHelp:HelpText_AddActions For:addActionButton showingToThe:NSMaxYEdge];
+
+}
 
 
 @end

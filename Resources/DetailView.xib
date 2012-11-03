@@ -162,7 +162,6 @@
 						<string key="NSFrame">{{67, 19}, {378, 23}}</string>
 						<reference key="NSSuperview" ref="694939622"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:1566</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="509952420">
@@ -284,7 +283,7 @@
 										<string key="NSFrameSize">{422, 87}</string>
 										<reference key="NSSuperview" ref="950626050"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="883612193"/>
+										<reference key="NSNextKeyView" ref="390721755"/>
 										<string key="NSReuseIdentifierKey">_NS:1197</string>
 										<bool key="NSEnabled">YES</bool>
 										<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -458,7 +457,7 @@
 						<string key="NSFrame">{{21, 40}, {424, 105}}</string>
 						<reference key="NSSuperview" ref="694939622"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="390721755"/>
+						<reference key="NSNextKeyView" ref="950626050"/>
 						<string key="NSReuseIdentifierKey">_NS:1193</string>
 						<int key="NSsFlags">133682</int>
 						<reference key="NSVScroller" ref="20586196"/>
@@ -1247,7 +1246,7 @@
 																<string key="NSFrame">{{393, 4}, {18, 18}}</string>
 																<reference key="NSSuperview" ref="101546276"/>
 																<reference key="NSWindow"/>
-																<reference key="NSNextKeyView" ref="24598440"/>
+																<reference key="NSNextKeyView" ref="890900716"/>
 																<int key="NSTag">-1</int>
 																<bool key="NSEnabled">YES</bool>
 																<object class="NSRuleEditorButtonCell" key="NSCell">
@@ -1764,7 +1763,7 @@
 						<string key="NSFrame">{{21, 187}, {425, 96}}</string>
 						<reference key="NSSuperview" ref="694939622"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="500313511"/>
+						<reference key="NSNextKeyView" ref="620999815"/>
 						<int key="NSsFlags">133650</int>
 						<reference key="NSVScroller" ref="24598440"/>
 						<reference key="NSHScroller" ref="500313511"/>
@@ -2193,7 +2192,6 @@
 							<string key="NSFrame">{{221, 12}, {73, 32}}</string>
 							<reference key="NSSuperview" ref="50170618"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="193492506">
@@ -2351,6 +2349,22 @@
 						<reference key="destination" ref="54740313"/>
 					</object>
 					<int key="connectionID">253</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">addActionButton</string>
+						<reference key="source" ref="423108610"/>
+						<reference key="destination" ref="910223032"/>
+					</object>
+					<int key="connectionID">308</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">selectDirectoryButton</string>
+						<reference key="source" ref="423108610"/>
+						<reference key="destination" ref="555933456"/>
+					</object>
+					<int key="connectionID">309</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -3699,7 +3713,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">307</int>
+			<int key="maxID">309</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3864,24 +3878,34 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>addActionButton</string>
 							<string>editor</string>
 							<string>eventSheet</string>
+							<string>selectDirectoryButton</string>
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>NSButton</string>
 							<string>NSPredicateEditor</string>
 							<string>NSPanel</string>
+							<string>NSButton</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>addActionButton</string>
 							<string>editor</string>
 							<string>eventSheet</string>
+							<string>selectDirectoryButton</string>
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">addActionButton</string>
+								<string key="candidateClassName">NSButton</string>
+							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">editor</string>
 								<string key="candidateClassName">NSPredicateEditor</string>
@@ -3889,6 +3913,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">eventSheet</string>
 								<string key="candidateClassName">NSPanel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">selectDirectoryButton</string>
+								<string key="candidateClassName">NSButton</string>
 							</object>
 						</object>
 					</object>

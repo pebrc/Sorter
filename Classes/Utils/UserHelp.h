@@ -1,4 +1,4 @@
-//Copyright (c) 2011 Peter Brachwitz
+//Copyright (c) 2012 Peter Brachwitz
 //
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -17,28 +17,29 @@
 //LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //THE SOFTWARE.
+//
+//
+//Custom popover inspired by Michael Robinson <mike@pagesofinterest.net>
 
+#import <Foundation/Foundation.h>
+NSString * const HelpDisplayEvent;
+NSString * const HelpPositionedRelativeToRect;
+NSString * const HelpForView;
+NSString * const HelpPreferredEdge;
+NSString * const HelpDisplayState;
 
-#import <Cocoa/Cocoa.h>
-#import "Rule.h"
-#import "RuleHandler.h"
-#import "Transformers.h"
+NSString * const HelpText_AddRule;
+NSString * const HelpText_SelectDirectory;
+NSString * const HelpText_DefineCriteria;
+NSString * const HelpText_AddActions;
 
-@interface RulesController : NSObjectController {
-    IBOutlet NSPredicateEditor * editor;
-    IBOutlet NSPanel * eventSheet;
-    IBOutlet NSButton * addActionButton;
-    IBOutlet NSButton * selectDirectoryButton;
-    
+@interface UserHelp : NSObject {
+    NSDictionary*  helpDictionary;
+    NSMutableArray* displayedHelp;
 }
--(void) showOpenPanel:(id)sender ForKey:(NSString *)key withTransformation:(id (^)(NSURL *))block; 
--(IBAction) showSourcePanel:(id)sender;
--(IBAction) showTargetPanel:(id) sender;
--(IBAction) showEventPanel:(id) sender;
--(IBAction)endEventPanel:(id)sender;
--(void) showInitialHelp;
 
++(void) displayHelp:(NSString *)helpText For:(NSView *)view showingToThe:(NSRectEdge)side;
 
-
+-(void) displayHelpContents:(NSNotification *)note;
 
 @end

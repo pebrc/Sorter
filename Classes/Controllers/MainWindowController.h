@@ -28,6 +28,7 @@
     IBOutlet NSOutlineView		*outlineView;
     NSViewController * detailController;
     IBOutlet NSView * detailViewHolder;
+    IBOutlet NSToolbarItem * addButton;
 @private
     
 }
@@ -39,4 +40,5 @@
 -(Source *) sourceWithDefaultLocation;
 -(void) selectParentFromSelection;
 -(void) selectFirstChildFromSelection;
+-(void) showInitialHelp;
 @end

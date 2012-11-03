@@ -35,6 +35,9 @@
     PBUserNotify * notifier = [PBUserNotify defaultNotifier];
     [notifier registerDelegate: [PBLog class]];
     [notifier registerDelegate:[PBNotificationCenterDelegate class]];
+    help = [[UserHelp alloc]init];
+    [[NSNotificationCenter defaultCenter] addObserver:help selector:@selector(displayHelpContents:) name:HelpDisplayEvent object:nil];
+    
     mainWindowController = [[MainWindowController alloc] initWithWindowNibName:@"MainWindow"];
     [[mainWindowController window] setDelegate:self];
     [self showMainWindow:self];
@@ -255,6 +258,7 @@
 
     }
     [PBWatcherRegistry shutdown];
+    [[NSNotificationCenter defaultCenter] removeObserver:help];
     return NSTerminateNow;
 }
 
@@ -313,6 +317,7 @@
  
 - (void)dealloc {
 
+    [help release];
     [managedObjectContext release];
     [persistentStoreCoordinator release];
     [managedObjectModel release];

@@ -23,6 +23,7 @@
 #import "ImageAndTextCell.h"
 #import "PBUserNotify.h"
 #import "NotificationUtil.h"
+#import "UserHelp.h"
 #define NAME_COL    @"NameColumn"
 #define DETAIL_VIEW			@"DetailView"	
 
@@ -84,6 +85,12 @@
     [super windowDidLoad];
     NSWindow * window = [self window];
     [window setExcludedFromWindowsMenu:YES];
+    [self performSelector:@selector(showInitialHelp) withObject:nil afterDelay:1.0];
+
+}
+
+-(void) showInitialHelp {
+    [UserHelp displayHelp:HelpText_AddRule For:[addButton view] showingToThe:NSMinXEdge];
 }
 
 - (NSMutableArray*) contents {
@@ -106,6 +113,7 @@
     }
     [request release];
     [self restoreSelectionOf:selected];
+
     
 }
 

@@ -213,7 +213,7 @@
 									<reference key="NSOnImage" ref="804502112"/>
 									<reference key="NSMixedImage" ref="770249294"/>
 								</object>
-								<object class="NSMenuItem" id="73621220">
+								<object class="NSMenuItem" id="775910919">
 									<reference key="NSMenu" ref="960517776"/>
 									<string key="NSTitle">Close Window</string>
 									<string key="NSKeyEquiv">w</string>
@@ -1066,7 +1066,7 @@
 							</object>
 							<object class="NSMutableArray" key="NSMenuItems">
 								<bool key="EncodedWithXMLCoder">YES</bool>
-								<object class="NSMenuItem" id="744927365">
+								<object class="NSMenuItem" id="486133617">
 									<reference key="NSMenu" ref="747245393"/>
 									<string key="NSTitle">Main Window</string>
 									<string key="NSKeyEquiv">1</string>
@@ -1075,7 +1075,7 @@
 									<reference key="NSOnImage" ref="804502112"/>
 									<reference key="NSMixedImage" ref="770249294"/>
 								</object>
-								<object class="NSMenuItem" id="233553559">
+								<object class="NSMenuItem" id="139544203">
 									<reference key="NSMenu" ref="747245393"/>
 									<bool key="NSIsDisabled">YES</bool>
 									<bool key="NSIsSeparator">YES</bool>
@@ -1471,7 +1471,6 @@
 							<string key="NSFrame">{{61, 18}, {358, 27}}</string>
 							<reference key="NSSuperview" ref="525897411"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="657381908">
@@ -2046,7 +2045,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">performClose:</string>
 						<reference key="source" ref="909243075"/>
-						<reference key="destination" ref="73621220"/>
+						<reference key="destination" ref="775910919"/>
 					</object>
 					<int key="connectionID">770</int>
 				</object>
@@ -2054,7 +2053,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">showMainWindow:</string>
 						<reference key="source" ref="909243075"/>
-						<reference key="destination" ref="744927365"/>
+						<reference key="destination" ref="486133617"/>
 					</object>
 					<int key="connectionID">775</int>
 				</object>
@@ -2070,7 +2069,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">mainWindowMenu</string>
 						<reference key="source" ref="612578685"/>
-						<reference key="destination" ref="744927365"/>
+						<reference key="destination" ref="486133617"/>
 					</object>
 					<int key="connectionID">776</int>
 				</object>
@@ -2342,7 +2341,7 @@
 							<reference ref="1005751409"/>
 							<reference ref="620705007"/>
 							<reference ref="51940822"/>
-							<reference ref="73621220"/>
+							<reference ref="775910919"/>
 						</object>
 						<reference key="parent" ref="842783111"/>
 					</object>
@@ -2384,8 +2383,8 @@
 							<reference ref="319459889"/>
 							<reference ref="1057689233"/>
 							<reference ref="814052996"/>
-							<reference ref="233553559"/>
-							<reference ref="744927365"/>
+							<reference ref="139544203"/>
+							<reference ref="486133617"/>
 						</object>
 						<reference key="parent" ref="560112995"/>
 					</object>
@@ -3304,18 +3303,18 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">769</int>
-						<reference key="object" ref="73621220"/>
+						<reference key="object" ref="775910919"/>
 						<reference key="parent" ref="960517776"/>
 						<string key="objectName">Menu Item - Close Window</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">771</int>
-						<reference key="object" ref="233553559"/>
+						<reference key="object" ref="139544203"/>
 						<reference key="parent" ref="747245393"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">772</int>
-						<reference key="object" ref="744927365"/>
+						<reference key="object" ref="486133617"/>
 						<reference key="parent" ref="747245393"/>
 					</object>
 				</object>
@@ -3733,7 +3732,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">776</int>
+			<int key="maxID">778</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3754,6 +3753,25 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBUserSource</string>
 						<string key="minorKey"/>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">HelpPopoverController</string>
+					<string key="superclassName">NSViewController</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">helpContents</string>
+						<string key="NS.object.0">NSTextField</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">helpContents</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">helpContents</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/HelpPopoverController.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -3792,14 +3810,35 @@
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">mainWindowMenu</string>
-						<string key="NS.object.0">NSMenuItem</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>helpController</string>
+							<string>mainWindowMenu</string>
+						</object>
+						<object class="NSArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>HelpPopoverController</string>
+							<string>NSMenuItem</string>
+						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">mainWindowMenu</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">mainWindowMenu</string>
-							<string key="candidateClassName">NSMenuItem</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>helpController</string>
+							<string>mainWindowMenu</string>
+						</object>
+						<object class="NSArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">helpController</string>
+								<string key="candidateClassName">HelpPopoverController</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">mainWindowMenu</string>
+								<string key="candidateClassName">NSMenuItem</string>
+							</object>
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">

@@ -73,6 +73,7 @@
 		FDBBE89C14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBBE89B14D6AC640028B051 /* PBMetaPresetRelativeDateRowTemplate.m */; };
 		FDBF525D15DCEEA9001143AA /* PBUserNotify.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBF525C15DCEEA9001143AA /* PBUserNotify.m */; };
 		FDBF526015DD1610001143AA /* PBNotificationCenterDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBF525F15DD1610001143AA /* PBNotificationCenterDelegate.m */; };
+		FDD06DBE16455301007FC47A /* UserHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD06DBD16455301007FC47A /* UserHelp.m */; };
 		FDE19D3A15507A6B00F0150C /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE19D3915507A6B00F0150C /* Growl.framework */; };
 		FDE19D3C15507ADD00F0150C /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FDE19D3915507A6B00F0150C /* Growl.framework */; };
 		FDE4C16C1514B83700C3F9ED /* DeleteAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE4C16B1514B83700C3F9ED /* DeleteAction.m */; };
@@ -233,6 +234,8 @@
 		FDBF525C15DCEEA9001143AA /* PBUserNotify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBUserNotify.m; sourceTree = "<group>"; };
 		FDBF525E15DD160F001143AA /* PBNotificationCenterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBNotificationCenterDelegate.h; sourceTree = "<group>"; };
 		FDBF525F15DD1610001143AA /* PBNotificationCenterDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBNotificationCenterDelegate.m; sourceTree = "<group>"; };
+		FDD06DBC16455301007FC47A /* UserHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserHelp.h; sourceTree = "<group>"; };
+		FDD06DBD16455301007FC47A /* UserHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHelp.m; sourceTree = "<group>"; };
 		FDE19D3915507A6B00F0150C /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = Growl/Growl.framework; sourceTree = "<group>"; };
 		FDE4C16A1514B83700C3F9ED /* DeleteAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteAction.h; sourceTree = "<group>"; };
 		FDE4C16B1514B83700C3F9ED /* DeleteAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteAction.m; sourceTree = "<group>"; };
@@ -521,6 +524,8 @@
 				FDBF525C15DCEEA9001143AA /* PBUserNotify.m */,
 				FD2BA3B71624B37A009A7A31 /* NotificationUtil.h */,
 				FD2BA3B81624B37A009A7A31 /* NotificationUtil.m */,
+				FDD06DBC16455301007FC47A /* UserHelp.h */,
+				FDD06DBD16455301007FC47A /* UserHelp.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -750,6 +755,7 @@
 				FDB3390D1621834A0033EF35 /* PBMetaFileSizeRowTemplate.m in Sources */,
 				FD2BA3B61624A502009A7A31 /* TableViewDelegateWithDragSupport.m in Sources */,
 				FD2BA3B91624B37A009A7A31 /* NotificationUtil.m in Sources */,
+				FDD06DBE16455301007FC47A /* UserHelp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
