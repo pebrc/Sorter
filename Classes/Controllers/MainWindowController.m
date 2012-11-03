@@ -317,12 +317,7 @@
         id<TreeSupport> modelNode = [selectedNode representedObject];
         NSManagedObject * obj = [modelNode representedObject];
         [moc deleteObject:obj];
-        NSTreeNode* parent = [selectedNode parentNode];
-        id<TreeSupport> parentModel = [parent representedObject];
-        NSMutableArray * children = [parentModel children];
-        [children removeObject:modelNode];
-        [parentModel setChildren:children];
-
+        [treeController removeObjectAtArrangedObjectIndexPath:selected];
     }
     [treeController setSelectionIndexPath:selected];
     

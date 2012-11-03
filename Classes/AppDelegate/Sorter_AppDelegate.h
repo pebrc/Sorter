@@ -25,7 +25,6 @@
 #import "MainWindowController.h"
 #import "Source.h"
 #import "PBSourceObserver.h"
-#import "PBGrowlDelegate.h"
 #import "UserHelp.h"
 
 
